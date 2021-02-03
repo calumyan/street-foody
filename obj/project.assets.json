@@ -8,24 +8,26 @@
     "net5.0": []
   },
   "packageFolders": {
-    "/Users/carrie/.nuget/packages/": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/carrie/Desktop/street-foody/street-foody.csproj",
+      "projectUniqueName": "D:\\CS@Mac\\26. comp225-s21m1\\street-foody\\street-foody.csproj",
       "projectName": "street-foody",
-      "projectPath": "/Users/carrie/Desktop/street-foody/street-foody.csproj",
-      "packagesPath": "/Users/carrie/.nuget/packages/",
-      "outputPath": "/Users/carrie/Desktop/street-foody/obj/",
+      "projectPath": "D:\\CS@Mac\\26. comp225-s21m1\\street-foody\\street-foody.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\CS@Mac\\26. comp225-s21m1\\street-foody\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/carrie/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
