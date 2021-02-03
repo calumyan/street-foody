@@ -17,10 +17,11 @@ namespace street_foody.Models
         [JSInvokable]
         public string GetName(){
 
-            return FirstName + " " + LastName;
+            return FirstName + "" + LastName;
         }
 
         [JSInvokable]
+        
         public string GetCategories(){
 
             return Categories;
