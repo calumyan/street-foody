@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
-
+using System.Collections.Generic;
+using Microsoft.JSInterop;
 
 namespace street_foody.Models
 {
@@ -8,7 +8,9 @@ namespace street_foody.Models
     public class Food
     {
 
-        public string Name{get; set:}
+        public string FirstName{get; set;}
+        public string LastName{get; set;}
+
 
         public List<string> Categories{get;set;}
 
@@ -17,19 +19,8 @@ namespace street_foody.Models
         [JSInvokable]
         public string GetName(){
 
-            return FirstName + "" + LastName;
+            return FirstName + " " + LastName;
         }
-
-        [JSInvokable]
-        
-        public string GetCategories(){
-
-            return Categories;
-        }
-
-
-        
-
 
         // public List<String> FoodList;
 
