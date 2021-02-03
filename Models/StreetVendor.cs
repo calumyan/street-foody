@@ -2,13 +2,39 @@ using System;
 
 namespace street_foody.Models
 {
+
+   
     public class StreetVendorModel
     {
-        public string Name{ get; set; }
+        // [JSInvokable]
 
+        
+        public string FirstName{ get; set; }
+
+        public string LastName{ get; set; }
+
+        // [JSInvokable]
         public string Location{get;set;}
 
-        public List<String> FoodList;
+        [JSInvokable]
+        public string GetFullName(){
+
+            return FirstName + " " + LastName;
+        }
+
+    
+        public string GetLocation(){
+
+            return Location;
+        }
+
+
+        
+
+
+        // public List<String> FoodList;
+
+
 
 
     }
