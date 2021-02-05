@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  max-width: 80%;
+  left: 10vw;
+  font-size: 1rem;
+  position: sticky;
+}
+
+#brand {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #ff3e03;
+  font-family: "Satisfy", cursive;
+}
+
+#burger {
+  border-radius: 8px;
+  padding: 0.1rem;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#line1,
+#line3 {
+  width: 3rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: #ff3e03;
+  transition: all 0.5 ease-in-out;
+}
+
+#burger:hover #line1,
+#burger:hover #line3 {
+  background: #ff6803;
+}
