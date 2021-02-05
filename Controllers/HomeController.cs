@@ -23,7 +23,12 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        public IActionResult About()
         {
             return View();
         }
