@@ -77,3 +77,4 @@ D:\CS@Mac\26. comp225-s21m1\street-foody\obj\Debug\net5.0\street-foody.RazorTarg
 D:\CS@Mac\26. comp225-s21m1\street-foody\obj\Debug\net5.0\street-foody.Views.pdb
 D:\CS@Mac\26. comp225-s21m1\street-foody\obj\Debug\net5.0\street-foody.genruntimeconfig.cache
 D:\CS@Mac\26. comp225-s21m1\street-foody\obj\Debug\net5.0\street-foody.csproj.CopyComplete
+D:\CS@Mac\26. comp225-s21m1\street-foody\obj\Debug\net5.0\Razor\Views\Shared\_SampleLayout.cshtml.g.cs
