@@ -23,7 +23,7 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public IActionResult Search()
+        public IActionResult Vendor()
         {
             return View();
         }
