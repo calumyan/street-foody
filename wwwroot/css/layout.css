@@ -4,22 +4,36 @@
   box-sizing: border-box;
 }
 
-#nav-header {
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+header {
+  width: 100%;
+  position: absolute;
   display: flex;
+}
+
+#nav-header {
   justify-content: space-between;
   align-items: center;
   min-height: 10vh;
   max-width: 80%;
   left: 10vw;
   font-size: 1rem;
-  position: sticky;
+  position: absolute;
 }
 
 #brand {
   font-size: 2rem;
   text-decoration: none;
-  color: #ff3e03;
+  color: white;
   font-family: "Satisfy", cursive;
+}
+
+#nav-header > a {
+  font-family: "Quicksand", sans-serif;
+  color: white;
 }
 
 #burger {
@@ -42,3 +56,5 @@
 #burger:hover #line3 {
   background: #ff6803;
 }
+
+/*----------------- HOME PAGE ---------------------

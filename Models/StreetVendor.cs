@@ -12,8 +12,9 @@ namespace street_foody.Models
         public string LastName{ get; set; }
 
         public string Location{ get; set; }
-
         public string Phone{ get; set; }
+
+        // enter "prop" and press tab to quickly add a new property
 
         // public Menu Menu{ get; set; }
 

@@ -3,7 +3,6 @@
 
 // Write your JavaScript code.
 
-const burger = document.querySelector("#burger");
 var active = true;
 
 function animateLines(e) {
@@ -40,6 +39,11 @@ function animateLines(e) {
       line3.style.transform = `rotate(${deg}deg)`;
     }
   }
+  // $("a#profile").toggleClass("invisible");
+  $("#nav-links").toggleClass("open");
+  $("#nav-links li").each(function () {
+    $(this).toggleClass("fade");
+  });
 }
 
 $("#burger").click(animateLines);
