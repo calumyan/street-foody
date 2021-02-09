@@ -1,0 +1,100 @@
+@model IEnumerable<street_foody.Models.User>
+@{
+    ViewData["Title"] = "UserProfile";
+}
+
+
+<style>
+    .emphasis {
+        font-size: 3rem;
+        text-decoration: none;
+        color: white;
+        font-family: "Satisfy", cursive;
+        padding: 20px;
+    }
+
+    .subheading1 {
+        font-size: 2rem;
+        text-decoration: none;
+        color: white;
+        font-family: "Arial", sans-serif;
+    }
+
+    #quickstart {
+        font-size: large;
+        text-decoration: none;
+        color: white;
+        font-family: "Arial", sans-serif;
+        font-style: italic;
+    }
+
+    .graybody {
+        font-size: medium;
+        text-decoration: none;
+        color: gray;
+        font-family: "Helvetica", sans-serif;
+        padding: 20px;
+    }
+
+    .whitebody {
+        font-size: medium;
+        text-decoration: none;
+        color: white;
+        font-family: "Helvetica", sans-serif;
+        padding: 20px;
+    }
+
+    .colorbox {
+        background-color: tomato;
+        padding: 50px;
+    }
+
+    .minibox {
+        background-color: tomato;
+        width: 45%;   
+    }
+
+
+</style>
+
+
+<div class = "userName">
+    welcome, @Html.DisplayNameFor(model => model.Name)
+</div>
+
+
+<div class = "vendorsLiked">
+    @Html.DisplayNameFor(model => model.VendorsLiked.Count) vendors liked
+</div>
+
+<div class = "vendorsVisited">
+    @Html.DisplayNameFor(model => model.VendorsVisited.Count) vendors visited
+</div>
+
+
+
+
+<div  class = "badgesDisplay">
+    <div class = "badges">
+       
+    </div>
+
+    <div class = "badgesImage">
+       
+    </div>
+</div>
+
+
+<div  class = "vendorssDisplay">
+    <div class = "vendors">
+       Saved Vendors
+    </div>
+
+    <image> </image>
+
+    <div class = "vendorssImage">
+       <image class = "firstVendor">
+
+       </image>
+    </div>
+</div>

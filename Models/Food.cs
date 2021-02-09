@@ -8,8 +8,8 @@ namespace street_foody.Models
     public class Food
     {
 
-        public string FirstName{get; set;}
-        public string LastName{get; set;}
+        public string Name{get; set;}
+        // public string LastName{get; set;}
 
 
         public List<string> Categories{get;set;}
@@ -19,7 +19,7 @@ namespace street_foody.Models
         [JSInvokable]
         public string GetName(){
 
-            return FirstName + " " + LastName;
+            return Name;
         }
 
         // public List<String> FoodList;
