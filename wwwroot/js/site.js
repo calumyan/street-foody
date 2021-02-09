@@ -26,8 +26,8 @@ function animateLines(e) {
       clearInterval(id);
     } else {
       deg++;
-      line1.style.transform = `rotate(${deg}deg) translateY(7px)`;
-      line3.style.transform = `rotate(${-deg}deg) translateY(-7px)`;
+      line1.style.transform = `rotate(${deg}deg) translateY(0.4em)`;
+      line3.style.transform = `rotate(${-deg}deg) translateY(-0.4em)`;
     }
   }
   function deactivateAnim() {

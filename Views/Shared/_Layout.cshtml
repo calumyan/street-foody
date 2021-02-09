@@ -12,33 +12,37 @@
 </head>
 <body>
     <nav>
-        <div>
-            <a id="brand" class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Street Foody</a>
+        <div class="wrapper">
+            <div id="brand" >
+                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Street Foody</a>
+            </div>
+            <ul id="nav-links">
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About">Handbook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Vendor">Vendor</a>
+                </li>
+                <li class="nav-item">
+                    <a id="profile" class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Profile">
+                        <img src="~/user.png" alt="" id="user-icon">
+                        <img src="~/caret-down.png" alt="" id="caret-down-icon">
+                    </a>
+                    @* <a id="profile-text" class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Profile">
+                        My profile
+                    </a> *@
+                </li>
+            </ul>
+            <div class="burger-container">
+                <div id="burger">
+                    <div id="line1"></div>
+                    <div id="line3"></div>
+                </div>
+            </div>
         </div>
-        <div id="burger">
-            <div id="line1"></div>
-            <div id="line3"></div>
-        </div>
-        <ul id="nav-links">
-            <li class="nav-item">
-                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About">Handbook</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Vendor">Vendor</a>
-            </li>
-            <li class="nav-item">
-                <a id="profile" class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Profile">
-                    <img src="~/user.png" alt="" id="user-icon">
-                    <img src="~/caret-down.png" alt="" id="caret-down-icon">
-                </a>
-                @* <a id="profile-text" class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Profile">
-                    My profile
-                </a> *@
-            </li>
-        </ul>
     </nav>
 
     <main role="main">

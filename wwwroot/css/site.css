@@ -11,7 +11,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 body {
   font-family: "Quicksand", sans-serif;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -24,17 +24,39 @@ h3 {
   font-family: "Satisfy", cursive;
 }
 
-html {
-  font-size: 17px;
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 11px;
+  }
+  nav {
+    height: 55px;
+  }
 }
-@media (max-width: 900px) {
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 13px;
+  }
+  nav {
+    height: 60px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
   html {
     font-size: 15px;
   }
+  nav {
+    height: 65px;
+  }
 }
-@media (max-width: 400px) {
+
+@media only screen and (min-width: 992px) {
   html {
-    font-size: 13px;
+    font-size: 17px;
+    width: 100vw;
+  }
+  nav {
+    height: 70px;
   }
 }
 
@@ -42,33 +64,44 @@ html {
 
 nav {
   position: absolute;
-  height: 70px;
   width: 100%;
   background: #ff4400b2;
-  display: inline-flex;
+  display: flex;
   font-size: 1rem;
+  align-items: center;
 }
 
-nav > div {
+nav > div.wrapper {
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #brand {
+  min-width: fit-content;
   white-space: normal;
   word-break: keep-all;
-  min-width: max-content;
   text-decoration: none;
   color: white;
-  margin-left: 5vw;
   font-family: "Satisfy", cursive;
   font-size: 2em;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+#burger {
+  width: 0;
 }
 
 #nav-links {
+  width: 45%;
+  height: 100%;
   display: flex;
   list-style: none;
-  width: 35%;
-  height: 100%;
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
@@ -78,31 +111,35 @@ nav > div {
 .nav-item {
   padding: 1.5rem 0rem;
   font-size: 1.2em;
-}
-
-#nav-header > a {
   color: white;
+  flex: 1 1 1;
+  text-align: right;
 }
 
 a#profile {
-  height: 100%;
+  max-height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 7.2em;
 }
 
 #user-icon {
+  max-height: 30px;
   object-fit: contain;
-  max-width: 25%;
 }
 
 #caret-down-icon {
   object-fit: contain;
-  max-width: 15%;
+  max-height: 25px;
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+  nav {
+    height: 60px;
+  }
+
   #nav-links {
+    order: 2;
     position: fixed;
     background: #ff3e03;
     top: 0;
@@ -123,16 +160,21 @@ a#profile {
     -webkit-clip-path: circle(1200px at 90% -10%);
   }
 
-  #burger {
-    margin-left: auto;
-    margin-right: 5vw;
-    border-radius: 8px;
-    padding: 0.1rem;
+  div.burger-container {
+    order: 3;
+    width: 50%;
     transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  div#burger {
+    width: 20%;
+    margin-left: auto;
     cursor: pointer;
     z-index: 2;
-    vertical-align: middle;
-    align-self: center;
+    max-width: fit-content;
   }
 
   #line1,
@@ -143,11 +185,11 @@ a#profile {
     border-radius: 10px;
     background: white;
     transition: all 0.5 ease-in-out;
+    font-size: 1rem;
   }
 
-  #burger:hover #line1,
-  #burger:hover #line3 {
-    background: #ff8331;
+  #burger:hover {
+    transform: scale(1.1);
   }
 
   #nav-links li {
@@ -192,7 +234,7 @@ div.text {
 
 div.text h1 {
   font-size: 3.5em;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
 }
 
@@ -218,8 +260,7 @@ a:active {
 } /* Selected link   */
 
 .search-container {
-  width: 450px;
-  min-width: max-content;
+  width: 26rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -232,7 +273,7 @@ input[type="search"] {
   border-radius: 50px;
   border: none;
   width: 100%;
-  padding: 10px 25px;
+  padding: 1rem 1.5rem;
   font-size: 1rem;
 }
 
@@ -261,11 +302,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 button.search-btn {
   height: 100%;
-  width: 40px;
+  width: 3.5rem;
   border: none;
-  padding: 10px 10px;
+  padding: 1rem 1rem;
   position: absolute;
-  right: 15px;
+  right: 0.5rem;
   background: none;
   display: flex;
   align-items: center;
