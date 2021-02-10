@@ -9,4 +9,7 @@
     <PackageReference Include="System.Drawing.Common" Version="5.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\Great-Aunty-Three.png" />
+  </ItemGroup>
 </Project>
