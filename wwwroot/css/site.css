@@ -248,6 +248,10 @@ a.underline {
   text-decoration: underline;
 }
 
+a.underline:hover {
+  color: #ff3e03;
+}
+
 a:visited {
   color: white;
 }

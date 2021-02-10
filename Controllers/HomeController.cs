@@ -23,7 +23,7 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public IActionResult Vendor()
+        public IActionResult VendorProfile()
         {
             return View();
         }
@@ -32,7 +32,7 @@ namespace street_foody.Controllers
         {
             return View();
         }
-        public IActionResult Profile()
+        public IActionResult UserProfile()
         {
             return View();
         }

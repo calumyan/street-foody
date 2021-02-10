@@ -28,9 +28,8 @@ namespace street_foody.Models
 
         }
 
-        public void AddVenodrLiked(Vendor Vendor){
+        public void AddVendorLiked(Vendor Vendor){
             VendorsLiked.Add(Vendor);
-
         }
 
         // public int GetBadgeNumber(){
