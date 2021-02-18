@@ -29,8 +29,9 @@ namespace street_foody
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<UserContext>(options =>
+            services.AddDbContext<Context>(options =>
 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
 services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 

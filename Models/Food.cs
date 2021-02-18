@@ -9,23 +9,15 @@ namespace street_foody.Models
     {
 
         public string Name{get; set;}
-        // public string LastName{get; set;}
-
 
         public List<string> Categories{get;set;}
 
-        public double Rating{get; set;}
+        // public double Rating{get; set;}
 
         [JSInvokable]
         public string GetName(){
 
             return Name;
         }
-
-        // public List<String> FoodList;
-
-
-
-
     }
 }

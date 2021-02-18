@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;  
 namespace street_foody.Models {     
-public class UserContext : DbContext     
+public class Context : DbContext     
   {         
-    public UserContext(DbContextOptions<UserContext> options): base(options)         
-{         
+    public Context(DbContextOptions<Context> options): base(options)         
+{ 
+          
 }       
     public DbSet<User> UserDbSet { get; set; }     
   
