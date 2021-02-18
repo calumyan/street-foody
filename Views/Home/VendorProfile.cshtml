@@ -18,19 +18,19 @@
         font-family: "Satisfy", cursive;
     }
 
-    #header{
+    #VendorName{
         display:flex;
         align-items: center;
     }
 
-    #header .vendor-about{
+    #VendorName .vendor-about{
         padding: 20px;
     } 
 
-    #header .vendor-pic{
+    #VendorName .vendor-pic{
         width:100px;
         height:100px;
-        background:image("~/Great-Aunty-Three.png");
+        background:url("~/Great-Aunty-Three.png");
         background-size:cover;
         background-position:50% 50%;
         margin:8px;
@@ -39,9 +39,9 @@
         box-shadow:inset -4px -4px 16px rgba(0,0,0,0.5);
     }
 
-    #header .vendor-about h1{
+    h1{
          margin:0;
-     }
+    }
 
     
 
@@ -50,6 +50,10 @@
 <body>
     <div id="VendorName" class="vendor-text">
         <div class="vendor-pic"></div>
+            <div id = "Image1">
+                <img src="~/Great-Aunty-Three.png" alt = "Image1" style="width:50%;height:50%;border:0;">
+	            <br></br>
+            </div>
         <div class="vendor-about">
             <h1>Vendor Name</h1>
             Short description of the vendor: bla bla bla bla bla bla bla 
