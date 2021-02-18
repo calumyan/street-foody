@@ -16,6 +16,8 @@ namespace street_foody.Models
         
         public string Phone{ get; set; }
 
+        public string Description{ get; set; }
+
         
 
 

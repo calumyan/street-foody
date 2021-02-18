@@ -6,7 +6,7 @@ public class Context : DbContext
 { 
           
 }       
-    public DbSet<User> UserDbSet { get; set; }     
+    public DbSet<Vendor> VendorDbSet { get; set; }     
   
    } 
 }
