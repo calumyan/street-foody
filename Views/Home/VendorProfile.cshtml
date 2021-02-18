@@ -4,66 +4,95 @@
 <head>
     <meta content="width=device-width, initial-scale=1.0">
 <style>
-    .vendor-text{
-        color:white;
-        background:tomato;
+    /* * {
+        margin-top: 50px;
+    } */
+    
+    #Vendor{
+        float: right;
+    }
+
+    #Image1{
+        color: black;
+        background-color: white;
+        margin: 10px;
+        float: left;
     }
 
     .contact-info{
-        color:#fff;
-        background:tomato;
+        color: black;
+        background-color: white;
     }
 
     h1{
         font-family: "Satisfy", cursive;
+        background-color: white;
     }
 
-    #VendorName{
+    #Vendor{
         display:flex;
         align-items: center;
+        background-color: white;
     }
 
-    #VendorName .vendor-about{
-        padding: 20px;
+    .vendor-about{
+        padding: 10px;
+        background-color: white;
     } 
 
-    #VendorName .vendor-pic{
-        width:100px;
-        height:100px;
-        background:url("~/Great-Aunty-Three.png");
-        background-size:cover;
-        background-position:50% 50%;
-        margin:8px;
-        border:4px solid #fff;
-        border-radius:50%;
-        box-shadow:inset -4px -4px 16px rgba(0,0,0,0.5);
+    a:hover {
+        color: black;
+    }   
+
+    a:link{
+        color: black;
     }
 
-    h1{
-         margin:0;
+    a:visited{
+        color: black;
     }
 
+    #info_ul{
+        list-style: none;
+        -webkit-padding-start: 0px;
+    }
+ 
+    #li_directions ion-icon{
+        font-size: 1.0em;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 9px;
+    }
+    #li_phone ion-icon{
+        font-size: 1.0em;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 1px;
+    }   
+
+    ion-icon {
+        color: black;
+    }
     
 
 </style>
 </head>
 <body>
-    <div id="VendorName" class="vendor-text">
-        <div class="vendor-pic"></div>
-            <div id = "Image1">
-                <img src="~/Great-Aunty-Three.png" alt = "Image1" style="width:50%;height:50%;border:0;">
-	            <br></br>
-            </div>
+    <div id = "Image1">
+            <img src="~/Great-Aunty-Three.png" alt = "Image1" style="width:50%;height:50%;border:0;border-radius:50px;">
+    </div>
+    <div id="Vendor" class="vendor-text">
         <div class="vendor-about">
             <h1>Vendor Name</h1>
-            Short description of the vendor: bla bla bla bla bla bla bla 
-            bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-            bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla. 
+            <ul id="info_ul">
+            <li id="li_directions"><ion-icon name="pin"></ion-icon> <a href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a></li>
+            <li id="li_phone"><ion-icon name="call"></ion-icon> <a href="tel:+84 000-000-0000">+84 000-000-0000</a></li>
+            </ul>
         </div>
     </div>
-    <div id="contacts" 
-    class="contact-info">
-    <a>000-000-0000</a>
-    <a>1234 vibes st, HCMC</a>
-    </div>
+
+
+    <!------------------ Ion Icon Script ------------------>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
