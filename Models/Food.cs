@@ -12,9 +12,5 @@ namespace street_foody.Models
 
         public List<string> Categories{get;set;}
 
-        // public string GetName(){
-
-        //     return Name;
-        // }
     }
 }
