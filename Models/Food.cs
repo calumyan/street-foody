@@ -12,12 +12,9 @@ namespace street_foody.Models
 
         public List<string> Categories{get;set;}
 
-        // public double Rating{get; set;}
+        // public string GetName(){
 
-        [JSInvokable]
-        public string GetName(){
-
-            return Name;
-        }
+        //     return Name;
+        // }
     }
 }
