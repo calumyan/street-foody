@@ -8,14 +8,25 @@
         padding: 0;
         box-sizing: border-box;
     }
-    
+
     h1.emphasis {
         position: absolute;
         font-family: "Satisfy", cursive;
+        text-align: center;
         color: white;
-        font-size: 3rem;
         padding: 20px;
         bottom: 0px;
+    }
+
+    .body-text {
+        font-family: "Quicksand", sans-serif;
+        color: dimgray;
+        font-size:large;
+        margin-top: 20px;
+        margin-bottom:20px;
+        margin-left: 20px;
+        margin-right: 20px;
+  
     }
 
     #handbook {
@@ -31,40 +42,55 @@
         color: white;
     }
 
-    .minibox {
-        @* box-shadow: inset 0em -8px 15px gray; *@
-        @* background-color: tomato; *@
-        width: 100%;
-        height: 100%;
+    .card{
         top: 0;
         left: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 30px;
+        width: 300px;
+        margin: 15px;
+        border-style:hidden;
+        border-radius: 5px;
     }
 
-    .minibox img {
+    .card:hover {
+        cursor:pointer;
+    }
+
+    
+
+    .card img {
         width: 100%;
         object-fit: cover;
         top: 0;
     }
-
-    .grid-img {
-        width: 540px;
-        height: 432px;
-        object-fit: cover;
+    .card .front{
+        /*z-index:9;*/
+        background-color: tomato;
+        width:inherit;
     }
 
-    .handbook {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .card h1{
+        color:white;
+        text-align: center;
+        padding: 10px;
     }
 
-    .container {
-        padding-bottom: 100px;
+    .card h2 {
+        font-family: "Quicksand", sans-serif;
+        color: tomato;
+        font-weight:bold;
+        font-size: x-large;
     }
+
+    .card .back {
+        position: absolute;
+        height: 100%;
+        width: inherit;
+        background-color: tomato;
+    }
+
 </style>
 
 <div class="handbook">
@@ -76,90 +102,136 @@
         </div>
     </div>
 
-    <p class="body" style="color:gray; margin:50px">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-        omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-        rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-        vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
-        aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-        sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-        consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-        labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
-        quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-        ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
-        velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-        voluptas nulla pariatur?
-    </p>
+    <div>
+        <h1 class="text-center" style="color:tomato; padding-top: 50px; padding-bottom: 30px;">Get to know street food!</h1>
+    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="minibox">
-                    <img src="~/goi-cuon.png" alt="">
-                    <h1 class="emphasis text-center">Goi cuon</h1>
-                    @* <p class="body text-center" style="color:white; padding: 15px;">
-                        *Insert description of food here*
-                    </p> *@
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="minibox">
-                    <img src="~/banh-mi.png" alt="">
-                    <h1 class="emphasis text-center">Banh mi</h1>
-                    @* <p class="body text-center" style="color:white; padding: 15px;">
-                        *Insert description of food here*
-                    </p> *@
+    @*Essential street food information*@
+
+    <container style=" display: flex; flex-wrap: wrap; justify-content:center;">
+        <div class="card" style="width:325px">
+            <h2>Why street food?</h2>
+            <p class="body-text">
+                Street food is a great way to experience Vietnamese culture and cuisine!
+                It is often safer and cheaper than eating at a restaurant.
+            </p>
+        </div>
+
+        <div class="card" style="width:325px">
+            <h2>Menus</h2>
+            <p class="body-text">
+                Most stands have one or two specialties and offer a few variations
+                of those dishes rather than offering an extensive menu. Scroll down to
+                see information about Vietnamese dishes!
+            </p>
+        </div>
+        <div class="card" style="width:325px">
+            <h2>Pricing</h2>
+            <ul class="body-text">
+                <li> Street vendors usually only take cash.</li>
+                <li>1 US dollar = ~23,000 Vietnamese dong (VND)</li>
+                <li>Street food meals are usually less than $5 and can be less than $1.</li>
+            </ul>
+        </div>
+    </container>
+
+
+    <div>
+        <h1 class="text-center" style="color:tomato; padding-top: 50px; padding-bottom: 30px;">Street Food Dishes</h1>
+    </div>
+
+    @*Grid of food photos and information*@
+    <div class="container" style=" display: flex; flex-wrap: wrap; justify-content:center; align-content:center;">
+        <div class="col-auto">
+            <div class="card">
+                <div class="front">
+                    <img src="~/bo-bia.png" alt="Bo bia" />
+                    <h1>Bo bia</h1>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="minibox">
-                    <img src="~/bo-bia.png" alt="">
-                    <h1 class="emphasis text-center">Bo bia</h1>
-                    @* <p class="body text-center" style="color:white; padding: 15px;">
-                        *Insert description of food here*
-                    </p> *@
+        <div class="col-auto">
+            <div class="card">
+                <div class="front">
+                    <img src="~/hu-tiu-go.png" alt="Hu tieu go" />
+                    <h1>Hu tieu go</h1>
                 </div>
             </div>
-            <div class="col-sm">
-                <div class="minibox">
-                    <img src="~/hu-tiu-go.png" alt="">
-                    <h1 class="emphasis text-center">Hu tiu go</h1>
-                    @* <p class="body text-center" style="color:white; padding: 15px;">
-                        *Insert description of food here*
-                    </p> *@
+        </div>
+        <div class="col-auto">
+            <div class="card">
+                <div class="front">
+                    <img src="~/banh-mi.png" alt="Banh mi" />
+                    <h1>Banh Mi</h1>
                 </div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="card">
+                <div class="front">
+                    <img src="~/goi-cuon.png" alt="Goi cuon" />
+                    <h1>Goi cuon</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="card">
+                <div class="front">
+                    <img src="~/bo-bia.png" alt="Bo bia" />
+                    <h1>Bo bia</h1>
+                </div>
+            </div>
+        </div>
+        @** Example of food info displayed on click **@
+        <div class="card">
+            <div class="front">
+                <h1>Goi cuon</h1>
+                <p class="body-text" style="color:white">
+                    Fresh Vietnamese spring rolls which traditionally consist of
+                    rice noodles, herbs, vegetables, shrimp and other
+                    ingredients wrapped in rice paper.
+                </p>
+                <p class="body-text text-center" style="color:white">
+                    Find goi cuon
+                </p>
             </div>
         </div>
     </div>
 
+    @* How to Use the App *@
     <div class="text-center colorbox emphasis">
         <h1>How To Use the App</h1>
     </div>
 
-    <p class="body" style="color:gray; margin:50px">
-        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-        praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-        excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum
-        quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta
-        nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-        facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-        Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
-        saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
-        maiores alias consequatur aut perferendis doloribus asperiores repellat.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <container style=" display: flex; flex-wrap: wrap; justify-content:center;">
+        <div class="card" style="width:325px">
+            <h1 style="color: tomato">1.</h1>
+            <h2>Search</h2>
+            <p class="body-text">
+                Use the search page to look for street vendors based on location, food type, or hours.
+            </p>
+        </div>
+
+        <div class="card" style="width:325px">
+            <h1 style="color: tomato">2.</h1>
+            <h2>Browse</h2>
+            <p class="body-text">
+                Look through the list of results to find a place that looks good.
+            </p>
+        </div>
+        <div class="card" style="width:325px">
+            <h1 style="color: tomato">3.</h1>
+            <h2>Choose</h2>
+            <p class="body-text">
+                Click on a vendor you're interested in to get directions and more information.
+            </p>
+        </div>
+        <div class="card" style="width:325px">
+            <h1 style="color: tomato">4.</h1>
+            <h2>Enjoy!</h2>
+            <p class="body-text">
+                Head to the streets to try some delicious food!
+            </p>
+        </div>
+    </container>
 </div>
