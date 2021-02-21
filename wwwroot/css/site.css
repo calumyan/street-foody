@@ -60,12 +60,28 @@ h3 {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+a:active {
+  color: white;
+} /* Selected link   */
+
 /*--------------- NAVIGATION BAR ------------------*/
 
 nav {
   position: absolute;
   width: 100%;
-  background: #ff4400b2;
+  /* background: #ff4400b2; */
   display: flex;
   font-size: 1rem;
   align-items: center;
@@ -98,7 +114,8 @@ nav > div.wrapper {
 }
 
 #nav-links {
-  width: 45%;
+  /* width: 45%; */
+  color: white;
   height: 100%;
   display: flex;
   list-style: none;
@@ -109,11 +126,15 @@ nav > div.wrapper {
 }
 
 .nav-item {
-  padding: 1.5rem 0rem;
+  /* padding: 1.5rem 0rem; */
   font-size: 1.2em;
-  color: white;
   flex: 1 1 1;
   text-align: right;
+}
+
+.nav-item > a {
+  color: white;
+  text-decoration: none;
 }
 
 a#profile {
@@ -131,6 +152,14 @@ a#profile {
 #caret-down-icon {
   object-fit: contain;
   max-height: 25px;
+}
+
+a#sign-up {
+  background: tomato;
+  border: solid 1px white;
+  text-align: center;
+  padding: 1rem 1rem;
+  color: white;
 }
 
 @media only screen and (max-width: 768px) {
@@ -252,17 +281,6 @@ a.underline:hover {
   color: #ff3e03;
 }
 
-a:visited {
-  color: white;
-}
-a:hover {
-  color: white;
-  transform: scale(1.05);
-}
-a:active {
-  color: white;
-} /* Selected link   */
-
 .search-container {
   width: 26rem;
   margin-left: auto;
@@ -324,7 +342,7 @@ button.search-btn img {
   object-fit: contain;
 }
 
-/*--------------- OTHER HOME SECTIONs ------------------*/
+/*--------------- OTHER HOME SECTIONS ------------------*/
 
 section.home {
   height: 80vh;

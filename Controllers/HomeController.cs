@@ -19,7 +19,8 @@ namespace street_foody.Controllers
         }
 
         public IActionResult Index()
-        {
+        {   
+            ViewBag.IsHome = true;
             return View();
         }
 
@@ -28,8 +29,9 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Handbook()
         {
+            ViewBag.IsHome = true;
             return View();
         }
         public IActionResult UserProfile()
