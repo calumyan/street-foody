@@ -79,9 +79,8 @@ a:active {
 /*--------------- NAVIGATION BAR ------------------*/
 
 nav {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
-  /* background: #ff4400b2; */
   display: flex;
   font-size: 1rem;
   align-items: center;
@@ -156,9 +155,9 @@ a#profile {
 
 a#sign-up {
   background: tomato;
-  border: solid 1px white;
+  border-radius: 10px;
   text-align: center;
-  padding: 1rem 1rem;
+  padding: 0.8rem 1.5rem;
   color: white;
 }
 

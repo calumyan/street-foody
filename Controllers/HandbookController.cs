@@ -15,14 +15,11 @@ namespace street_foody.Controllers
 
    
     
-    public class SearchController : Controller
+    public class HandbookController : Controller
     {
-
-        public IActionResult Search() {
-            return View();
-        }
-
-        public IActionResult Vendor() {
+        public IActionResult Handbook()
+        {
+            ViewBag.IsHome = true;
             return View();
         }
       

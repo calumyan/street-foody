@@ -29,11 +29,7 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public IActionResult Handbook()
-        {
-            ViewBag.IsHome = true;
-            return View();
-        }
+
         public IActionResult UserProfile()
         {
             return View();
