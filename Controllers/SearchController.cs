@@ -14,9 +14,24 @@ namespace street_foody.Controllers
 {
 
    
+<<<<<<< HEAD
     private readonly Context _context;          
     public class SearchController : Controller
     {
+=======
+    
+    public class SearchController : Controller
+    {
+
+        public IActionResult Search() {
+            return View();
+        }
+
+        public IActionResult Vendor() {
+            return View();
+        }
+      
+>>>>>>> ed9d7d5e5f0c244abbde13c5513650a84970d69b
        
        [HttpGet] 
        public ActionResult<List<Vendor>> GetAll(){     

@@ -1,0 +1,31 @@
+<nav style="background: #ff6347; position: relative;">
+    <div class="wrapper">
+        <div id="brand" >
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Street Foody</a>
+        </div>
+        <form asp-controller=""></form>
+        <ul id="nav-links" styles="width: 45%;">
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Handbook" asp-action="Handbook">Handbook</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Search" asp-action="Vendor">Vendor</a>
+            </li>
+            <li class="nav-item">
+                <a id="profile" class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="UserProfile">
+                    <img src="~/images/user.png" alt="" id="user-icon">
+                    <img src="~/images/caret-down.png" alt="" id="caret-down-icon">
+                </a>
+            </li>
+        </ul>
+        <div class="burger-container">
+            <div id="burger">
+                <div id="line1"></div>
+                <div id="line3"></div>
+            </div>
+        </div>
+    </div>
+</nav>
