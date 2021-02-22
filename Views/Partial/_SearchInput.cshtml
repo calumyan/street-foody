@@ -1,0 +1,72 @@
+<style>
+    form.search-container {
+        height: 3rem;
+        width: 26rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        border-radius: 50px;
+        position: relative;
+        box-shadow: inset -3px 3px 10px rgb(51, 51, 51);
+        font-size: 1rem;
+    }
+
+    input[type="search"] {
+        border-radius: 50px;
+        border: none;
+        width: 100%;
+        padding: 1em 1.5em;
+        font-size: 1rem;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    /* clears the ‘X’ from Internet Explorer */
+    input[type="search"]::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    input[type="search"]::-ms-reveal {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    /* clears the ‘X’ from Chrome */
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        display: none;
+    }
+
+    button.search-btn {
+        height: 100%;
+        width: 1rem;
+        border: none;
+        position: absolute;
+        right: 1.5rem;
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    button.search-btn img {
+        max-width: 100%;
+        object-fit: scale-down;
+    }
+</style>
+
+<form class="search-container" asp-area="" asp-controller="Search" asp-action="Index">
+    <input type="search" class="search-input" name="SearchValue" placeholder="Enter a street vendor, a dish, or a place . . .">
+    <button type="submit" class="search-btn">
+        <img src="~/images/search.png" alt="">
+    </button>
+</form>

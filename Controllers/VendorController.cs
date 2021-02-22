@@ -11,22 +11,11 @@ namespace street_foody.Controllers {
       private readonly Context _context;          
       public VendorController(Context context){     
                _context = context;   
-         } 
+      } 
 
-<<<<<<< HEAD
-[HttpGet] 
-public ActionResult<List<Vendor>> GetAll(){     
-   return _context.VendorDbSet.ToList(); 
-}
-   
-} 
-=======
       [HttpGet] 
       public ActionResult<List<Vendor>> GetAll(){     
          return _context.VendorDbSet.ToList(); 
       }
-
    } 
->>>>>>> ed9d7d5e5f0c244abbde13c5513650a84970d69b
-
 }

@@ -11,7 +11,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 body {
   font-family: "Quicksand", sans-serif;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -25,7 +25,8 @@ h3 {
 }
 
 @media only screen and (max-width: 600px) {
-  html {
+  html,
+  form {
     font-size: 11px;
   }
   nav {
@@ -33,7 +34,8 @@ h3 {
   }
 }
 @media only screen and (min-width: 600px) {
-  html {
+  html,
+  form {
     font-size: 13px;
   }
   nav {
@@ -42,7 +44,8 @@ h3 {
 }
 
 @media only screen and (min-width: 768px) {
-  html {
+  html,
+  form {
     font-size: 15px;
   }
   nav {
@@ -76,7 +79,46 @@ a:active {
   color: white;
 } /* Selected link   */
 
-/*--------------- NAVIGATION BAR ------------------*/
+button.small-btn,
+select {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border-radius: 5px;
+  border: 2px solid #ff6347;
+}
+
+button:focus {
+  outline: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding-right: 3rem;
+}
+
+.select {
+  border: 2px solid #ff6347;
+  position: relative;
+  border-radius: 5px;
+}
+
+.select:after {
+  content: "\25BC";
+  color: #ff6347;
+  pointer-events: none;
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+}
+/*--------------- NAVIGATION BAR PARTIAL ------------------*/
 
 nav {
   /* position: absolute; */
@@ -86,7 +128,7 @@ nav {
   align-items: center;
 }
 
-nav > div.wrapper {
+div.wrapper {
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -112,8 +154,9 @@ nav > div.wrapper {
   width: 0;
 }
 
-#nav-links {
-  /* width: 45%; */
+#nav-links,
+#sign-in-up-links {
+  width: 40%;
   color: white;
   height: 100%;
   display: flex;
@@ -124,14 +167,20 @@ nav > div.wrapper {
   font-size: 1em;
 }
 
-.nav-item {
-  /* padding: 1.5rem 0rem; */
-  font-size: 1.2em;
-  flex: 1 1 1;
-  text-align: right;
+#sign-in-up-links {
+  width: 20%;
 }
 
-.nav-item > a {
+.nav-item,
+.sign-in-up {
+  font-size: 1.2rem;
+  flex: 1 1 1;
+  text-align: right;
+  word-break: keep-all;
+}
+
+.nav-item > a,
+.sign-in-up > a {
   color: white;
   text-decoration: none;
 }
@@ -143,14 +192,14 @@ a#profile {
   align-items: center;
 }
 
-#user-icon {
-  max-height: 30px;
+.btn-icon {
+  max-height: 1.8rem;
   object-fit: contain;
 }
 
-#caret-down-icon {
+.btn-secondary-icon {
   object-fit: contain;
-  max-height: 25px;
+  max-height: 1.5rem;
 }
 
 a#sign-up {
@@ -159,6 +208,14 @@ a#sign-up {
   text-align: center;
   padding: 0.8rem 1.5rem;
   color: white;
+  font-size: 1.2rem;
+  word-break: keep-all;
+}
+
+@media only screen and (max-width: 1200px) {
+  #sign-in-up-links {
+    width: 30%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -166,9 +223,13 @@ a#sign-up {
     height: 60px;
   }
 
+  #sign-in-up-links {
+    width: 35%;
+  }
+
   #nav-links {
     order: 2;
-    position: fixed;
+    /* position: fixed; */
     background: #ff3e03;
     top: 0;
     height: 100vh;
@@ -278,67 +339,6 @@ a.underline {
 
 a.underline:hover {
   color: #ff3e03;
-}
-
-.search-container {
-  width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  border-radius: 50px;
-  position: relative;
-  box-shadow: 3px 3px 10px 2px rgb(51, 51, 51);
-}
-
-input[type="search"] {
-  border-radius: 50px;
-  border: none;
-  width: 100%;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-}
-
-input:focus {
-  outline: none;
-}
-
-/* clears the ‘X’ from Internet Explorer */
-input[type="search"]::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
-}
-input[type="search"]::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-/* clears the ‘X’ from Chrome */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  display: none;
-}
-
-button.search-btn {
-  height: 100%;
-  width: 3.5rem;
-  border: none;
-  padding: 1rem 1rem;
-  position: absolute;
-  right: 0.5rem;
-  background: none;
-  display: flex;
-  align-items: center;
-}
-
-button:focus {
-  outline: none;
-}
-
-button.search-btn img {
-  object-fit: contain;
 }
 
 /*--------------- OTHER HOME SECTIONS ------------------*/

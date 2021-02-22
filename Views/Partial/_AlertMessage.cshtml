@@ -1,0 +1,32 @@
+<style>
+    #alert {
+        position: relative;
+        margin-top: 10px;
+        background: #ffdf37;
+        font-size: 1rem;
+        max-height: fit-content;
+        text-align: center;
+        vertical-align: center;
+        font-weight: 600;
+        padding: 1rem 2rem;
+        width: 100%;
+    }
+
+    #close-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    #close-btn:hover {
+        color: black;
+    }
+</style>
+
+<div id="alert">
+    <span id="close-btn" onclick="this.parentElement.style.display='none'"> &times; </span>
+    &#8594; Precaution: Most street vendors take cash only. Please be prepared to bring cash! &#8592;
+</div>

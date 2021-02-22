@@ -7,13 +7,8 @@
         <img src="~/images/hero-img.jpg" alt="">
         <div class="text">
             <h1>Saigon Street Foods.<br/>All in one.</h1>
-            <form class="search-container" asp-area="" asp-controller="Search" asp-action="Search">
-                <input type="search" class="search-input" placeholder="Enter a street vendor, a dish, or a place . . .">
-                <button type="submit" class="search-btn">
-                    <img src="~/images/search.png" alt="">
-                </button>
-            </form>
-            <p>Don't know where to start? <a class="underline" asp-area="" asp-controller="Handbook" asp-action="Handbook">We got you!</a></p>
+            <partial name="~/Views/Partial/_SearchInput.cshtml"/>
+            <p>Don't know where to start? <a class="underline" asp-area="" asp-controller="Handbook" asp-action="Index">We got you!</a></p>
         </div>
     </div>
     <section class="home">
