@@ -6,6 +6,8 @@ namespace street_foody.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
+            
             migrationBuilder.CreateTable(
                 name: "VendorDbSet",
                 columns: table => new
@@ -26,5 +28,7 @@ namespace street_foody.Migrations
             migrationBuilder.DropTable(
                 name: "VendorDbSet");
         }
+
+  
     }
 }
