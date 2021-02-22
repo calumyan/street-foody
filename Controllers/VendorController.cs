@@ -16,8 +16,7 @@ public VendorController(Context context){
 public ActionResult<List<Vendor>> GetAll(){     
    return _context.VendorDbSet.ToList(); 
 }
-
-    
+   
 } 
 
 }
