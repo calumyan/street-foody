@@ -86,10 +86,31 @@
 
     .card .back {
         position: absolute;
-        height: 100%;
-        width: inherit;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        height: 0;
         background-color: tomato;
+        transition: .5s ease;
     }
+
+    .back-text {
+        color: white;
+        position: absolute;
+        @*top: 50%;*@
+        left: 50%;
+        @*-webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);*@
+        @*transform: translate(0, -100%);*@
+        text-align: center;
+    }
+
+    .card:hover .back {
+        height: 100%;
+    }
+
 
 </style>
 
@@ -141,62 +162,121 @@
     </div>
 
     @*Grid of food photos and information*@
-    <div class="container" style=" display: flex; flex-wrap: wrap; justify-content:center; align-content:center;">
-        <div class="col-auto">
-            <div class="card">
-                <div class="front">
-                    <img src="~/bo-bia.png" alt="Bo bia" />
-                    <h1>Bo bia</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-auto">
-            <div class="card">
-                <div class="front">
-                    <img src="~/hu-tiu-go.png" alt="Hu tieu go" />
-                    <h1>Hu tieu go</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-auto">
-            <div class="card">
-                <div class="front">
-                    <img src="~/banh-mi.png" alt="Banh mi" />
-                    <h1>Banh Mi</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-auto">
-            <div class="card">
-                <div class="front">
-                    <img src="~/goi-cuon.png" alt="Goi cuon" />
-                    <h1>Goi cuon</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-auto">
-            <div class="card">
-                <div class="front">
-                    <img src="~/bo-bia.png" alt="Bo bia" />
-                    <h1>Bo bia</h1>
-                </div>
-            </div>
-        </div>
-        @** Example of food info displayed on click **@
+<div class="container" style=" display: flex; flex-wrap: wrap; justify-content:center; align-content:center;">
+    <div class="col-auto">
         <div class="card">
             <div class="front">
+                <img src="~/bo-bia.png" alt="Bo bia" />
+                <h1>Bo bia</h1>
+            </div>
+            <div class="back back-text">
+                <h1>Bo bia</h1>
+                <p class="body-text" style="color:white">
+                    A type of roll that includes carrots, jicama, chinese sausage,
+                    dried shrimp, and thin slivers of egg wrapped in rice paper.
+                </p>
+                <p class="body-text" style="color:white">
+                    Find bo bia
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card">
+            <div class="front">
+                <img src="~/hu-tiu-go.png" alt="Hu tieu go" />
+                <h1>Hu tieu go</h1>
+            </div>
+            <div class="back back-text">
+                <h1>Hu tieu go</h1>
+                <p class="body-text" style="color:white">
+                    This noodle dish can be served with or without broth (dry)
+                    and includes pork bones, herbs, and a variety of meats and
+                    other ingredients.
+                </p>
+                <p class="body-text" style="color:white">
+                    Find hu tieu go
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card">
+            <div class="front">
+                <img src="~/banh-mi.png" alt="Banh mi" />
+                <h1>Banh Mi</h1>
+            </div>
+            <div class="back back-text">
+                <h1>Banh mi</h1>
+                <p class="body-text" style="color:white">
+                    A sandwich made with a short baguette that often includes pork,
+                    cucumber, pickled carrots, cilantro, chili, and mayonnaise, or
+                    a wide variety of other ingredients and combinations.
+
+                </p>
+                <p class="body-text" style="color:white">
+                    Find banh mi
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card">
+            <div class="front">
+                <img src="~/goi-cuon.png" alt="Goi cuon" />
+                <h1>Goi cuon</h1>
+            </div>
+            <div class="back back-text">
                 <h1>Goi cuon</h1>
                 <p class="body-text" style="color:white">
                     Fresh Vietnamese spring rolls which traditionally consist of
                     rice noodles, herbs, vegetables, shrimp and other
                     ingredients wrapped in rice paper.
                 </p>
-                <p class="body-text text-center" style="color:white">
+                <p class="body-text" style="color:white">
                     Find goi cuon
                 </p>
             </div>
         </div>
     </div>
+    <div class="col-auto">
+        <div class="card">
+            <div class="front">
+                <img src="~/bo-bia.png" alt="Bo bia" />
+                <h1>Bo bia</h1>
+            </div>
+            <div class="back back-text">
+                <h1>Bo bia</h1>
+                <p class="body-text" style="color:white">
+                    A type of roll that includes carrots, jicama, chinese sausage,
+                    dried shrimp, and thin slivers of egg wrapped in rice paper.
+                </p>
+                <p class="body-text" style="color:white">
+                    Find bo bia
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card">
+            <div class="front">
+                <img src="~/hu-tiu-go.png" alt="Hu tieu go" />
+                <h1>Hu tieu go</h1>
+            </div>
+            <div class="back back-text">
+                <h1>Hu tieu go</h1>
+                <p class="body-text" style="color:white">
+                    This noodle dish can be served with or without broth (dry)
+                    and includes pork bones, herbs, and a variety of meats and
+                    other ingredients.
+                </p>
+                <p class="body-text" style="color:white">
+                    Find hu tieu go
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
     @* How to Use the App *@
     <div class="text-center colorbox emphasis">
