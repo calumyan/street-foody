@@ -3,11 +3,6 @@
 }
 
 <style>
-    * {
-        margin:0;
-        padding: 0;
-    }
-
     #filter-sort {
         display: flex;
         align-items: center;
@@ -28,14 +23,20 @@
         flex: 1 0 80%;
         padding-left: 2rem;
         box-shadow: -3px 0 3px -3px #ddd;
+        display: flex;
+        flex-direction: column;
     }
-</style>
 
-<div>
+    .page {
+        z-index: 1;
+    }
+
+</style>
+    
+<div class="page">
     <partial name="~/Views/Partial/_AlertMessage.cshtml"/>
     <div id="filter-sort">
         <button class="small-btn" style="margin-right: 10px"><img src="~/images/filter.png" alt="" class="btn-secondary-icon">&nbsp;Filter</button>
-        @* <button class="small-btn"></button> *@
         <div class="select">
             <select name="sort">
                 <option selected value="none">Sort by</option>

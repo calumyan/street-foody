@@ -44,6 +44,17 @@ function animateLines(e) {
   $("#nav-links li").each(function () {
     $(this).toggleClass("fade");
   });
+  $("main").toggle();
 }
 
 $("#burger").click(animateLines);
+
+// function modifyPlaceholder() {
+//   var small = $(".form-containers").innerWidth() < 705;
+//   if (small) {
+//     $("input.search-input").hide();
+//     $("input.search-input.sml").show();
+//   }
+// }
+
+// modifyPlaceholder();

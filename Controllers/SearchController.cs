@@ -32,9 +32,9 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ShowResults(String SearchValue) {
-            return View("Index", await _context.VendorDbSet.Where(v => v.StandEnglishName.Contains(SearchValue)).ToListAsync());
-        }
+        // public async Task<IActionResult> ShowResults(String SearchValue) {
+        //     return View("Index", await _context.VendorDbSet.Where(v => v.StandEnglishName.Contains(SearchValue)).ToListAsync());
+        // }
       
        
        [HttpGet] 

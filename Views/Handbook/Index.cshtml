@@ -58,8 +58,6 @@
         cursor:pointer;
     }
 
-    
-
     .card img {
         width: 100%;
         object-fit: cover;
@@ -99,11 +97,7 @@
     .back-text {
         color: white;
         position: absolute;
-        @*top: 50%;*@
         left: 50%;
-        @*-webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);*@
-        @*transform: translate(0, -100%);*@
         text-align: center;
     }
 
@@ -111,9 +105,10 @@
         height: 100%;
     }
 
-
 </style>
 
+<body>
+    
 <div class="handbook">
     <div class="hero-section">
         <img src="~/images/Great-Aunty-Three.png" alt="">
@@ -127,7 +122,7 @@
         <h1 class="text-center" style="color:tomato; padding-top: 50px; padding-bottom: 30px;">Get to know street food!</h1>
     </div>
 
-    @*Essential street food information*@
+    @* Essential street food information *@
 
     <container style=" display: flex; flex-wrap: wrap; justify-content:center;">
         <div class="card" style="width:325px">
@@ -315,3 +310,5 @@
         </div>
     </container>
 </div>
+
+</body>
