@@ -6,7 +6,13 @@ public class Context : DbContext
 { 
           
 }       
-    public DbSet<Vendor> VendorDbSet { get; set; }     
+    // public DbSet<Vendor> VendorDbSet { get; set; }     
+    
+    // public DbSet<StreetVendor> StreetVendorDbSet { get; set; } 
+
+    public  DbSet<StreetVendor> StreetVendorDbSet { get; set;}
+    public DbSet<Food> FoodDbSet { get; set; }     
+    public DbSet<FoodCategory> FoodCategoryDbSet { get; set; }     
   
     // protected override void OnModelCreating(ModelBuilder modelBuilder)
     // {

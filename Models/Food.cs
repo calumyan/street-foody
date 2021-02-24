@@ -1,6 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.JSInterop;
+using Microsoft.EntityFrameworkCore; 
+using static System.Drawing.Bitmap;
+using static System.Drawing.Imaging.Metafile;
+
+
 
 namespace street_foody.Models
 {   
@@ -13,6 +18,6 @@ namespace street_foody.Models
         public string Description{get;set;}
         public double Price{get;set;}
         public List<FoodCategory> FoodCategories{get;set;}  
-        
+        public string PhotoUrl{get;set;}
     }
 }
