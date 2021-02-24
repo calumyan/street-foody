@@ -44,6 +44,12 @@ function animateLines(e) {
   $("#nav-links li").each(function () {
     $(this).toggleClass("fade");
   });
+  $("main").toggle();
+}
+
+function toggleFilterDesktop() {
+  $("#filter-col").toggle();
 }
 
 $("#burger").click(animateLines);
+$("button#filter").click(toggleFilterDesktop);

@@ -2,123 +2,11 @@
     ViewData["Title"] = "Handbook";
 }
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    h1.emphasis {
-        position: absolute;
-        font-family: "Satisfy", cursive;
-        text-align: center;
-        color: white;
-        padding: 20px;
-        bottom: 0px;
-    }
-
-    .body-text {
-        font-family: "Quicksand", sans-serif;
-        color: dimgray;
-        font-size:large;
-        margin-top: 10px;
-        margin-bottom:20px;
-        margin-left: 20px;
-        margin-right: 20px;
-  
-    }
-
-    #handbook {
-        font-size: 2rem;
-        font-family: "Quicksand", sans-serif;
-    }
-
-    .colorbox {
-        background-color: tomato;
-        padding: 50px;
-        width: 100%;
-        text-align: center;
-        color: white;
-    }
-
-    .card{
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 300px;
-        margin: 15px;
-        border-style:hidden;
-        border-radius: 5px;
-    }
-
-    .card:hover {
-        cursor:pointer;
-    }
-
-    
-
-    .card img {
-        width: 100%;
-        object-fit: cover;
-        top: 0;
-    }
-    .card .front{
-        /*z-index:9;*/
-        background-color: tomato;
-        width:inherit;
-    }
-
-    .card h1{
-        color:white;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .card h2 {
-        font-family: "Quicksand", sans-serif;
-        color: tomato;
-        font-weight:bold;
-        font-size: x-large;
-    }
-
-    .card .back {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        right: 0;
-        overflow: hidden;
-        height: 0;
-        background-color: tomato;
-        transition: .5s ease;
-    }
-
-    .back-text {
-        color: white;
-        position: absolute;
-        @*top: 50%;*@
-        left: 50%;
-        @*-webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);*@
-        @*transform: translate(0, -100%);*@
-        text-align: center;
-    }
-
-    .card:hover .back {
-        height: 100%;
-    }
-
-
-</style>
-
 <div class="handbook">
     <div class="hero-section">
-        <img src="~/Great-Aunty-Three.png" alt="">
-        <div class="text">
-            <h1>Welcome to Saigon Street Food 101 !</h1>
+        <img src="~/images/Great-Aunty-Three.png" alt="">
+        <div class="text" style="padding-bottom: 30px">
+            <h1>Welcome to <br> Saigon Street Food 101 !</h1>
             <div id="handbook">A quick start guide for newbies to our world.</div>
         </div>
     </div>
@@ -127,7 +15,7 @@
         <h1 class="text-center" style="color:tomato; padding-top: 50px; padding-bottom: 30px;">Get to know street food!</h1>
     </div>
 
-    @*Essential street food information*@
+    @* Essential street food information *@
 
     <container style=" display: flex; flex-wrap: wrap; justify-content:center;">
         <div class="card" style="width:325px">
@@ -166,7 +54,7 @@
     <div class="col-auto">
         <div class="card">
             <div class="front">
-                <img src="~/bo-bia.png" alt="Bo bia" />
+                <img src="~/images/bo-bia.png" alt="Bo bia" />
                 <h1>Bo bia</h1>
             </div>
             <div class="back back-text">
@@ -184,7 +72,7 @@
     <div class="col-auto">
         <div class="card">
             <div class="front">
-                <img src="~/hu-tiu-go.png" alt="Hu tieu go" />
+                <img src="~/images/hu-tiu-go.png" alt="Hu tieu go" />
                 <h1>Hu tieu go</h1>
             </div>
             <div class="back back-text">
@@ -203,7 +91,7 @@
     <div class="col-auto">
         <div class="card">
             <div class="front">
-                <img src="~/banh-mi.png" alt="Banh mi" />
+                <img src="~/images/banh-mi.png" alt="Banh mi" />
                 <h1>Banh Mi</h1>
             </div>
             <div class="back back-text">
@@ -223,7 +111,7 @@
     <div class="col-auto">
         <div class="card">
             <div class="front">
-                <img src="~/goi-cuon.png" alt="Goi cuon" />
+                <img src="~/images/goi-cuon.png" alt="Goi cuon" />
                 <h1>Goi cuon</h1>
             </div>
             <div class="back back-text">
@@ -242,7 +130,7 @@
     <div class="col-auto">
         <div class="card">
             <div class="front">
-                <img src="~/bo-bia.png" alt="Bo bia" />
+                <img src="~/images/bo-bia.png" alt="Bo bia" />
                 <h1>Bo bia</h1>
             </div>
             <div class="back back-text">
@@ -260,7 +148,7 @@
     <div class="col-auto">
         <div class="card">
             <div class="front">
-                <img src="~/hu-tiu-go.png" alt="Hu tieu go" />
+                <img src="~/images/hu-tiu-go.png" alt="Hu tieu go" />
                 <h1>Hu tieu go</h1>
             </div>
             <div class="back back-text">

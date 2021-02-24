@@ -7,31 +7,64 @@
     /* * {
         margin-top: 50px;
     } */
-    
-    #Vendor{
-        float: right;
-        display:flex;
+
+    #Vendor {
+        display: flex;
         align-items: center;
         background-color: white;
-        margin-top: 200px;
+        margin: 50px;
+        @*margin-top: 200px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 50px;*@
     }
 
-    #Image1{
-        color: black;
-        background-color: white;
-        margin: 150px 10px 10px 50px;
-        float: left;
+    .vendor-container img{
+        object-fit:cover;
+        margin:1.5vw;
+        float:left;
+        max-width: 250px;
+        min-width: 175px;
     }
 
-    h1{
-        font-family: "Satisfy", cursive;
-        background-color: white;
+    .vendor-container{
+        display:flex;
+        flex-flow: row wrap;
+        align-content:center;
+        justify-content:center;
     }
+
+    .card {
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        margin: 15px;
+        border-style: solid;
+        border-radius: 10px;
+        border-width: 1px;
+        border-color:gray ;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: "Quicksand", sans-serif;
+    }
+
 
     .vendor-about{
         padding: 10px;
         background-color: white;
-    } 
+        flex-grow: 3;
+    }
+
+    .body-text {
+        font-family: "Quicksand", sans-serif;
+        color: black;
+        font-size: large;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 
     a:hover {
         color: black;
@@ -66,21 +99,111 @@
     ion-icon {
         color: black;
     }
+
+    div.section{
+        margin:20px;
+    }
     
 
 </style>
 </head>
 <body>
-    <div id = "Image1">
-            <img src="~/images/Great-Aunty-Three.png" alt = "Image1" style="width:30%;height:30%;border:0;border-radius:50px;">
+    <div class="vendor-container">
+        <div id="Vendor" class="section">
+            <img src="~/images/Great-Aunty-Three.png" alt="Profile image">
+            <div class="vendor-about">
+                <h1>Vendor Name</h1>
+                <h4 style="color:dimgray">Vendor Name (English)</h4>
+                <ul id="info_ul">
+                    <li id="li_directions"><ion-icon name="pin"></ion-icon> <a href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a></li>
+                    <li id="li_phone"><ion-icon name="call"></ion-icon> <a href="tel:+84 000-000-0000">+84 000-000-0000</a></li>
+                </ul>
+            </div>
+            <div style="margin-left: 1.5vw">
+                <h4 style="color:tomato">Open Now</h4>
+                <h4>.5 miles away</h4>
+                <h4>150 upvotes/4 stars</h4>
+
+            </div>
+        </div>
+       
     </div>
-    <div id="Vendor" class="vendor-text">
-        <div class="vendor-about">
-            <h1>Vendor Name</h1>
-            <ul id="info_ul">
-            <li id="li_directions"><ion-icon name="pin"></ion-icon> <a href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a></li>
-            <li id="li_phone"><ion-icon name="call"></ion-icon> <a href="tel:+84 000-000-0000">+84 000-000-0000</a></li>
+    <div class="vendor-container">
+
+        <div class="section" style="max-width:65vw">
+            <h2>Description</h2>
+            <p class="body-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Sit amet nisl purus in mollis nunc
+                sed id semper. Mauris cursus mattis molestie a iaculis at erat. Fermentum leo
+                vel orci porta non pulvinar neque laoreet. Vulputate enim nulla aliquet porttitor.
+                Augue neque gravida in fermentum et sollicitudin. In hendrerit gravida rutrum
+                quisque non tellus. Dolor sit amet consectetur adipiscing elit pellentesque
+                habitant. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi
+                tincidunt. Egestas quis ipsum suspendisse ultrices gravida dictum fusce. Tempor
+                commodo ullamcorper a lacus vestibulum sed arcu.
+            </p>
+        </div>
+        <div class="section">
+            <h2>Location and Hours</h2>
+            <a href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a>
+            <p class="body-text"></p>
+            <ul class="body-text">
+                <li>M: Closed</li>
+                <li>T: 8:00 am- 3:00 pm</li>
+                <li>W: 8:00 am- 3:00 pm</li>
+                <li>T: Closed</li>
+                <li>F: 8:00 am- 3:00 pm</li>
+                <li>S: 8:00 am- 3:00 pm</li>
+                <li>S: 12:00 pm- 3:00 pm</li>
             </ul>
+        </div>
+        <div class="section">
+            <h2>Menu</h2>
+            <h3>Banh Mi</h3>
+            <div class="text-center" style="display: flex; flex-wrap: wrap; justify-content:center;">
+                <div class="card" style="width:325px">
+                    <p class="body-text" style="font-weight: bold">Cold cut sandwich</p>
+                    <p class="body-text">
+                        Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                    </p>
+                </div>
+
+                <div class="card" style="width:325px">
+                    <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
+                    <p class="body-text">
+                        Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                    </p>
+                </div>
+                <div class="card" style="width:325px">
+                    <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
+                    <p class="body-text">
+                        Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                    </p>
+                </div>
+            </div>
+            <h3>Banh Mi</h3>
+            <div class="text-center" style="display: flex; flex-wrap: wrap; justify-content:center;">
+                <div class="card" style="width:325px">
+                    <p class="body-text" style="font-weight: bold">Cold cut sandwich</p>
+                    <p class="body-text">
+                        Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                    </p>
+                </div>
+
+                <div class="card" style="width:325px">
+                    <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
+                    <p class="body-text">
+                        Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                    </p>
+                </div>
+                <div class="card" style="width:325px">
+                    <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
+                    <p class="body-text">
+                        Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 

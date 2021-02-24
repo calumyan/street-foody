@@ -1,56 +1,46 @@
 
-// using System;
-// using System.Collections.Generic;
-// using System.Diagnostics;
-// using System.Linq;
-// using System.Threading.Tasks;
-// using Microsoft.AspNetCore.Mvc;
-// using Microsoft.Extensions.Logging;
-// using street_foody.Models;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using street_foody.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
-// // [Route("api/[controller]")]    
-// // [ApiController]  
-// namespace street_foody.Controllers
-// {
-
+// [Route("api/[controller]")]    
+// [ApiController]  
+namespace street_foody.Controllers
+{
    
-//     private readonly Context _context;          
-//     public class SearchController : Controller
-//     {
+    public class SearchController : Controller
+    {
+        private readonly Context _context;          
+
+        public SearchController(Context context){     
+               _context = context;   
+        } 
+
+        public IActionResult Index() {
+            return View();
+        }
+
+        public IActionResult Vendor() {
+            return View();
+        }
+
+        public async Task<IActionResult> ShowResults(string SearchValue) {
+            Expression<Func<StreetVendor, bool>> lambda = v => v.FoodCategories.ToString().Contains(SearchValue) || v.StandEnglishName.ToString().Contains(SearchValue);
+            return View("Index", await _context.StreetVendorDbSet.Where(lambda).ToListAsync());
+        }
+      
        
-//        [HttpGet] 
-//        public ActionResult<List<Vendor>> GetAll(){     
-//              return _context.VendorDbSet.ToList(); 
-//        }
-          
-//        Dictionary<string, int> map = new Dictionary<>();
-//        public string getHighestScoreVendor(Vendor vendor){
-             
-//        }
-       
-       
-//        public int getScore(string name){
-//             int score = 0;
-//             string[] words = name.Split(' ');
-//             for(int i = 0; i < words.Length(); i++){
-//                 string word = words[i];
-//                 int count = map[word];
-//                 score+=count;
-//             }
-//             return score;
-//        }
+       [HttpGet] 
+        public ActionResult<List<StreetVendor>> GetAll(){     
+                return _context.StreetVendorDbSet.ToList(); 
+        }
+      }
 
-// // String, In
-//        public Dictionary<string, int> getCount(string searchString){
-//            string[] words = searchString.Split(' ');
-//            for(int i = 0; i<words.Length(); i++){
-//                map.Add(words[i], map.TryGetValue(key, out val)? val+1 : 1);
-
-//            }
-
-//        }
-//     //    for(int i  = 0; i < )
-        
-//     }
-
-// }
+}

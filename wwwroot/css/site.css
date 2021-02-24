@@ -1,31 +1,34 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-/*--------------- COMMON STYLING ------------------*/
+/* DOCUMENT STYLING
+-------------------------------------------------- */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 body {
   font-family: "Quicksand", sans-serif;
   width: 100%;
-  height: 100%;
+  max-width: 100vw !important;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: "Satisfy", cursive;
 }
 
 @media only screen and (max-width: 600px) {
-  html {
+  html,
+  form {
     font-size: 11px;
   }
   nav {
@@ -33,7 +36,8 @@ h3 {
   }
 }
 @media only screen and (min-width: 600px) {
-  html {
+  html,
+  form {
     font-size: 13px;
   }
   nav {
@@ -42,7 +46,8 @@ h3 {
 }
 
 @media only screen and (min-width: 768px) {
-  html {
+  html,
+  form {
     font-size: 15px;
   }
   nav {
@@ -60,6 +65,9 @@ h3 {
   }
 }
 
+/* COMMON ELEMENTS (a, button, select)
+-------------------------------------------------- */
+
 a {
   text-decoration: none;
 }
@@ -76,17 +84,65 @@ a:active {
   color: white;
 } /* Selected link   */
 
-/*--------------- NAVIGATION BAR ------------------*/
+button.small-btn,
+select {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border-radius: 50px;
+  border: 2px solid #ff6347;
+}
+
+button:focus {
+  outline: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding-right: 3rem;
+}
+
+.select {
+  border: 2px solid #ff6347;
+  position: relative;
+  border-radius: 50px;
+}
+
+.select:hover {
+  border-color: #ffdf37;
+}
+
+.select:after {
+  content: "\25BC";
+  pointer-events: none;
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+}
+
+/* NAVBAR PARTIALS
+-------------------------------------------------- */
 
 nav {
-  /* position: absolute; */
   width: 100%;
   display: flex;
   font-size: 1rem;
   align-items: center;
 }
 
-nav > div.wrapper {
+nav#search-nav-bar {
+  background: #ff6347;
+}
+
+div.wrapper {
+  /* wrapper is also used for general containers whose width is 90% */
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -96,8 +152,11 @@ nav > div.wrapper {
   justify-content: space-between;
 }
 
-#brand {
+#brand,
+#logo-brand {
   min-width: fit-content;
+  height: 100%;
+  width: 20%;
   white-space: normal;
   word-break: keep-all;
   text-decoration: none;
@@ -106,14 +165,31 @@ nav > div.wrapper {
   font-size: 2em;
   align-self: center;
   justify-self: flex-start;
+  display: flex;
+  align-items: center;
+}
+
+#logo-brand > a:first-child {
+  height: 100%;
+  width: 2rem;
+  display: none;
+  align-items: center;
+}
+
+img#logo {
+  max-width: 100%;
+  align-self: center;
+  max-height: 60%;
+  object-fit: contain;
 }
 
 #burger {
   width: 0;
 }
 
-#nav-links {
-  /* width: 45%; */
+#nav-links,
+#sign-in-up-links {
+  width: 40%;
   color: white;
   height: 100%;
   display: flex;
@@ -124,11 +200,15 @@ nav > div.wrapper {
   font-size: 1em;
 }
 
+#sign-in-up-links {
+  width: 20%;
+}
+
 .nav-item {
-  /* padding: 1.5rem 0rem; */
-  font-size: 1.2em;
+  font-size: 1.2rem;
   flex: 1 1 1;
   text-align: right;
+  word-break: keep-all;
 }
 
 .nav-item > a {
@@ -143,14 +223,14 @@ a#profile {
   align-items: center;
 }
 
-#user-icon {
-  max-height: 30px;
+.btn-icon {
+  max-height: 1.8rem;
   object-fit: contain;
 }
 
-#caret-down-icon {
+.btn-secondary-icon {
   object-fit: contain;
-  max-height: 25px;
+  max-height: 1.5rem;
 }
 
 a#sign-up {
@@ -159,11 +239,84 @@ a#sign-up {
   text-align: center;
   padding: 0.8rem 1.5rem;
   color: white;
+  font-size: 1.2rem;
+  word-break: keep-all;
 }
 
-@media only screen and (max-width: 768px) {
-  nav {
-    height: 60px;
+/* FORM INPUT
+-------------------------------------------------- */
+
+form.search-container {
+  height: 2.2rem;
+  max-height: 2.2rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  border-radius: 50px;
+  position: relative;
+  box-shadow: inset -3px 3px 10px rgb(51, 51, 51);
+  font-size: 1rem;
+}
+
+input[type="search"] {
+  border-radius: 50px;
+  border: none;
+  width: 100%;
+  padding: 1em 1.5em;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+/* clears the ‘X’ from Internet Explorer */
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+button.search-btn {
+  max-height: 100%;
+  width: 1.2rem;
+  border: none;
+  position: absolute;
+  right: 1.5rem;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.search-btn > img {
+  max-height: 1.2rem;
+  flex: 1;
+  object-fit: scale-down;
+}
+
+/* MEDIA QUERIES FOR NAVBARS & HERO SECTION
+-------------------------------------------------- */
+
+/* Laptop (medium) */
+
+@media only screen and (max-width: 1024px) {
+  #sign-in-up-links {
+    width: 35%;
   }
 
   #nav-links {
@@ -171,37 +324,35 @@ a#sign-up {
     position: fixed;
     background: #ff3e03;
     top: 0;
-    height: 100vh;
-    width: 100%;
-    margin-left: auto;
+    height: 0;
+    width: 100vw;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    clip-path: circle(1px at 100% -10%);
-    -webkit-clip-path: circle(1px at 100% -10%);
-    transition: all 1s ease-out;
-    z-index: 1;
+    transition: all 0.5s ease-out;
+    z-index: 4;
+    overflow-x: hidden;
   }
 
   #nav-links.open {
-    clip-path: circle(1200px at 90% -10%);
-    -webkit-clip-path: circle(1200px at 90% -10%);
+    height: 100vh;
   }
 
   div.burger-container {
     order: 3;
-    width: 50%;
+    width: 20%;
     transition: all 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 20px;
+    z-index: 6;
   }
 
   div#burger {
-    width: 20%;
+    width: 100%;
     margin-left: auto;
     cursor: pointer;
-    z-index: 2;
     max-width: fit-content;
   }
 
@@ -229,11 +380,92 @@ a#sign-up {
   }
 
   .search-container {
-    max-width: 400px;
+    flex-basis: 50%;
   }
 }
 
-/*--------------- HERO SECTION ------------------*/
+/* Tablet */
+
+@media only screen and (max-width: 768px) {
+  nav {
+    height: 60px;
+  }
+
+  #sign-in-up-links {
+    width: 35%;
+  }
+
+  form.search-container {
+    min-width: 180px;
+    max-width: 400px;
+    flex-grow: 1;
+  }
+
+  #logo-brand > a:first-child {
+    display: flex;
+  }
+
+  #logo-brand > a:nth-child(2) {
+    display: none;
+  }
+
+  nav#search-nav-bar {
+    background: white;
+    box-shadow: 0px 3px 3px -3px #ddd;
+  }
+
+  input#nav-search-input {
+    border: 2px solid #ff6347;
+  }
+
+  #line1,
+  #line3 {
+    background: #ff6347;
+  }
+}
+
+/* Mobile L */
+
+@media only screen and (max-width: 426px) {
+  #sign-in-up-links {
+    width: 50%;
+  }
+
+  div.text {
+    max-width: 80%;
+  }
+}
+
+/* Mobile M */
+
+@media only screen and (max-width: 376px) {
+  body {
+    width: 100vw;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  #alert {
+    width: 100%;
+  }
+
+  div.burger-container {
+    margin-right: 10px;
+  }
+}
+
+/* Mobile S */
+
+@media only screen and (max-width: 325px) {
+  div.burge-container {
+    margin-right: 0px;
+  }
+}
+
+/* HERO SECTION 
+---------------------------------------------------- */
 
 div.hero-section {
   width: 100%;
@@ -250,6 +482,7 @@ div.hero-section {
 div.hero-section img {
   height: 100vh;
   width: 100%;
+  max-width: 100%;
   top: 0;
   object-fit: cover;
 }
@@ -262,8 +495,8 @@ div.text {
 
 div.text h1 {
   font-size: 3.5em;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding: 2rem 1rem;
+  margin-bottom: 10px;
 }
 
 div.text p {
@@ -280,75 +513,110 @@ a.underline:hover {
   color: #ff3e03;
 }
 
-.search-container {
-  width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  border-radius: 50px;
-  position: relative;
-  box-shadow: 3px 3px 10px 2px rgb(51, 51, 51);
-}
-
-input[type="search"] {
-  border-radius: 50px;
-  border: none;
-  width: 100%;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-}
-
-input:focus {
-  outline: none;
-}
-
-/* clears the ‘X’ from Internet Explorer */
-input[type="search"]::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
-}
-input[type="search"]::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-/* clears the ‘X’ from Chrome */
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  display: none;
-}
-
-button.search-btn {
-  height: 100%;
-  width: 3.5rem;
-  border: none;
-  padding: 1rem 1rem;
-  position: absolute;
-  right: 0.5rem;
-  background: none;
-  display: flex;
-  align-items: center;
-}
-
-button:focus {
-  outline: none;
-}
-
-button.search-btn img {
-  object-fit: contain;
-}
-
-/*--------------- OTHER HOME SECTIONS ------------------*/
+/* OTHER HOME SECTIONS 
+-------------------------------------------------- */
 
 section.home {
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-/* Sticky footer styles
+/* HANDBOOK
 -------------------------------------------------- */
+h1.emphasis {
+  position: absolute;
+  font-family: "Satisfy", cursive;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  bottom: 0px;
+}
+
+.body-text {
+  font-family: "Quicksand", sans-serif;
+  color: dimgray;
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#handbook {
+  font-size: 1.5rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.colorbox {
+  background-color: tomato;
+  padding: 50px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.card {
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 15px;
+  border-style: hidden;
+  border-radius: 5px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  top: 0;
+}
+.card .front {
+  /*z-index:9;*/
+  background-color: tomato;
+  width: inherit;
+}
+
+.card h1 {
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.card h2 {
+  font-family: "Quicksand", sans-serif;
+  color: tomato;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.card .back {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  height: 0;
+  background-color: tomato;
+  transition: 0.5s ease;
+}
+
+.back-text {
+  color: white;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+}
+
+.card:hover .back {
+  height: 100%;
+}
