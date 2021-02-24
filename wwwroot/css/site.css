@@ -1,7 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-/*--------------- COMMON STYLING ------------------*/
+/* DOCUMENT STYLING
+-------------------------------------------------- */
 
 * {
   margin: 0;
@@ -21,8 +22,7 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: "Satisfy", cursive;
 }
 
@@ -65,6 +65,9 @@ h3 {
   }
 }
 
+/* COMMON ELEMENTS (a, button, select)
+-------------------------------------------------- */
+
 a {
   text-decoration: none;
 }
@@ -88,7 +91,7 @@ select {
   align-items: center;
   justify-content: center;
   background: none;
-  border-radius: 5px;
+  border-radius: 50px;
   border: 2px solid #ff6347;
 }
 
@@ -109,18 +112,23 @@ select {
 .select {
   border: 2px solid #ff6347;
   position: relative;
-  border-radius: 5px;
+  border-radius: 50px;
+}
+
+.select:hover {
+  border-color: #ffdf37;
 }
 
 .select:after {
   content: "\25BC";
-  color: #ff6347;
   pointer-events: none;
   position: absolute;
   top: 0.6rem;
   right: 1rem;
 }
-/*--------------- NAVIGATION BAR PARTIAL ------------------*/
+
+/* NAVBAR PARTIALS
+-------------------------------------------------- */
 
 nav {
   width: 100%;
@@ -134,6 +142,7 @@ nav#search-nav-bar {
 }
 
 div.wrapper {
+  /* wrapper is also used for general containers whose width is 90% */
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -160,7 +169,15 @@ div.wrapper {
   align-items: center;
 }
 
-#logo {
+#logo-brand > a:first-child {
+  height: 100%;
+  width: 2rem;
+  display: none;
+  align-items: center;
+}
+
+img#logo {
+  max-width: 100%;
   align-self: center;
   max-height: 60%;
   object-fit: contain;
@@ -226,7 +243,9 @@ a#sign-up {
   word-break: keep-all;
 }
 
-/*------------- FORM INPUT ---------------*/
+/* FORM INPUT
+-------------------------------------------------- */
+
 form.search-container {
   height: 2.2rem;
   max-height: 2.2rem;
@@ -284,24 +303,16 @@ button.search-btn {
   justify-content: center;
 }
 
-#logo-brand > a:first-child {
-  height: 100%;
-  width: 2rem;
-  display: none;
-  align-items: center;
-}
-
-img#logo {
-  height: 100%;
-  object-fit: contain;
-  max-width: 100%;
-}
-
 button.search-btn > img {
   max-height: 1.2rem;
   flex: 1;
   object-fit: scale-down;
 }
+
+/* MEDIA QUERIES FOR NAVBARS & HERO SECTION
+-------------------------------------------------- */
+
+/* Laptop (medium) */
 
 @media only screen and (max-width: 1024px) {
   #sign-in-up-links {
@@ -373,6 +384,8 @@ button.search-btn > img {
   }
 }
 
+/* Tablet */
+
 @media only screen and (max-width: 768px) {
   nav {
     height: 60px;
@@ -411,6 +424,8 @@ button.search-btn > img {
   }
 }
 
+/* Mobile L */
+
 @media only screen and (max-width: 426px) {
   #sign-in-up-links {
     width: 50%;
@@ -420,6 +435,8 @@ button.search-btn > img {
     max-width: 80%;
   }
 }
+
+/* Mobile M */
 
 @media only screen and (max-width: 376px) {
   body {
@@ -439,7 +456,16 @@ button.search-btn > img {
   }
 }
 
-/*--------------- HERO SECTION ------------------*/
+/* Mobile S */
+
+@media only screen and (max-width: 325px) {
+  div.burge-container {
+    margin-right: 0px;
+  }
+}
+
+/* HERO SECTION 
+---------------------------------------------------- */
 
 div.hero-section {
   width: 100%;
@@ -487,7 +513,8 @@ a.underline:hover {
   color: #ff3e03;
 }
 
-/*--------------- OTHER HOME SECTIONS ------------------*/
+/* OTHER HOME SECTIONS 
+-------------------------------------------------- */
 
 section.home {
   height: 80vh;
@@ -497,5 +524,99 @@ section.home {
   width: 100%;
 }
 
-/* Sticky footer styles
+/* HANDBOOK
 -------------------------------------------------- */
+h1.emphasis {
+  position: absolute;
+  font-family: "Satisfy", cursive;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  bottom: 0px;
+}
+
+.body-text {
+  font-family: "Quicksand", sans-serif;
+  color: dimgray;
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#handbook {
+  font-size: 1.5rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.colorbox {
+  background-color: tomato;
+  padding: 50px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.card {
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 15px;
+  border-style: hidden;
+  border-radius: 5px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  top: 0;
+}
+.card .front {
+  /*z-index:9;*/
+  background-color: tomato;
+  width: inherit;
+}
+
+.card h1 {
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.card h2 {
+  font-family: "Quicksand", sans-serif;
+  color: tomato;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.card .back {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  height: 0;
+  background-color: tomato;
+  transition: 0.5s ease;
+}
+
+.back-text {
+  color: white;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+}
+
+.card:hover .back {
+  height: 100%;
+}

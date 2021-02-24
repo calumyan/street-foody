@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using street_foody.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 // [Route("api/[controller]")]    
 // [ApiController]  
 namespace street_foody.Controllers
 {
-
    
-    
     public class SearchController : Controller
     {
         private readonly Context _context;          
@@ -32,9 +31,10 @@ namespace street_foody.Controllers
             return View();
         }
 
-        // public async Task<IActionResult> ShowResults(String SearchValue) {
-        //     return View("Index", await _context.VendorDbSet.Where(v => v.StandEnglishName.Contains(SearchValue)).ToListAsync());
-        // }
+        public async Task<IActionResult> ShowResults(string SearchValue) {
+            Expression<Func<Vendor, bool>> lambda = v => v.FoodCategories.ToString().Contains(SearchValue) || v.StandEnglishName.ToString().Contains(SearchValue);
+            return View("Index", await _context.VendorDbSet.Where(lambda).ToListAsync());
+        }
       
        
        [HttpGet] 

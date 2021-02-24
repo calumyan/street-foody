@@ -47,14 +47,9 @@ function animateLines(e) {
   $("main").toggle();
 }
 
+function toggleFilterDesktop() {
+  $("#filter-col").toggle();
+}
+
 $("#burger").click(animateLines);
-
-// function modifyPlaceholder() {
-//   var small = $(".form-containers").innerWidth() < 705;
-//   if (small) {
-//     $("input.search-input").hide();
-//     $("input.search-input.sml").show();
-//   }
-// }
-
-// modifyPlaceholder();
+$("button#filter").click(toggleFilterDesktop);
