@@ -12,13 +12,15 @@ for details on configuring this project to bundle and minify static web assets. 
   -moz-box-sizing: border-box;
 }
 
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   width: 100%;
-  max-width: 100vw !important;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 h1,
@@ -26,22 +28,30 @@ h2 {
   font-family: "Satisfy", cursive;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 426px) {
   html,
   form {
     font-size: 11px;
   }
   nav {
-    height: 55px;
+    height: 65px;
+  }
+
+  .page {
+    padding: 65px 0;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 426px) {
   html,
   form {
     font-size: 13px;
   }
   nav {
-    height: 60px;
+    height: 70px;
+  }
+
+  .page {
+    padding: 70px 0;
   }
 }
 
@@ -51,17 +61,25 @@ h2 {
     font-size: 15px;
   }
   nav {
-    height: 65px;
+    height: 75px;
+  }
+
+  .page {
+    padding: 75px 0;
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   html {
     font-size: 17px;
     width: 100vw;
   }
   nav {
-    height: 70px;
+    height: 80px;
+  }
+
+  .page {
+    padding: 80px 0;
   }
 }
 
@@ -131,10 +149,14 @@ select {
 -------------------------------------------------- */
 
 nav {
+  position: absolute;
   width: 100%;
   display: flex;
-  font-size: 1rem;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  transition: 0.5s;
+  top: 0;
 }
 
 nav#search-nav-bar {
@@ -143,13 +165,12 @@ nav#search-nav-bar {
 
 div.wrapper {
   /* wrapper is also used for general containers whose width is 90% */
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 0 5%;
 }
 
 #brand,
@@ -162,7 +183,7 @@ div.wrapper {
   text-decoration: none;
   color: white;
   font-family: "Satisfy", cursive;
-  font-size: 2em;
+  font-size: 2rem;
   align-self: center;
   justify-self: flex-start;
   display: flex;
@@ -177,9 +198,8 @@ div.wrapper {
 }
 
 img#logo {
-  max-width: 100%;
-  align-self: center;
   max-height: 60%;
+  align-self: center;
   object-fit: contain;
 }
 
@@ -190,30 +210,33 @@ img#logo {
 #nav-links,
 #sign-in-up-links {
   width: 40%;
-  color: white;
   height: 100%;
+  margin-top: auto;
+  color: white;
   display: flex;
   list-style: none;
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
-  font-size: 1em;
+  /* font-size: 1rem; */
 }
 
 #sign-in-up-links {
   width: 20%;
 }
 
-.nav-item {
+li.nav-item {
+  height: 100%;
   font-size: 1.2rem;
   flex: 1 1 1;
-  text-align: right;
+  text-align: center;
   word-break: keep-all;
+  display: flex;
+  align-items: center;
 }
 
-.nav-item > a {
+li.nav-item > a {
   color: white;
-  text-decoration: none;
 }
 
 a#profile {
@@ -249,16 +272,18 @@ a#sign-up {
 form.search-container {
   height: 2.2rem;
   max-height: 2.2rem;
+  box-sizing: content-box;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   align-items: center;
-  align-self: center;
   border-radius: 50px;
   position: relative;
   box-shadow: inset -3px 3px 10px rgb(51, 51, 51);
   font-size: 1rem;
+}
+
+.nav-search-container {
+  margin: 0 2.5%;
 }
 
 input[type="search"] {
@@ -324,7 +349,7 @@ button.search-btn > img {
     position: fixed;
     background: #ff3e03;
     top: 0;
-    height: 0;
+    height: 100vh;
     width: 100vw;
     flex-direction: column;
     align-items: center;
@@ -332,10 +357,12 @@ button.search-btn > img {
     transition: all 0.5s ease-out;
     z-index: 4;
     overflow-x: hidden;
+    transform: translateX(100vw);
+    font-size: 1rem;
   }
 
   #nav-links.open {
-    height: 100vh;
+    transform: translateX(0vw);
   }
 
   div.burger-container {
@@ -345,7 +372,6 @@ button.search-btn > img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 20px;
     z-index: 6;
   }
 
@@ -430,36 +456,17 @@ button.search-btn > img {
   #sign-in-up-links {
     width: 50%;
   }
-
-  div.text {
-    max-width: 80%;
-  }
 }
 
 /* Mobile M */
 
 @media only screen and (max-width: 376px) {
-  body {
-    width: 100vw;
-  }
-
-  nav {
-    width: 100%;
-  }
-
-  #alert {
-    width: 100%;
-  }
-
-  div.burger-container {
-    margin-right: 10px;
-  }
 }
 
 /* Mobile S */
 
 @media only screen and (max-width: 325px) {
-  div.burge-container {
+  div.burger-container {
     margin-right: 0px;
   }
 }
@@ -489,14 +496,17 @@ div.hero-section img {
 
 div.text {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0.5rem;
   text-align: center;
-  vertical-align: center;
 }
 
 div.text h1 {
   font-size: 3.5em;
-  padding: 2rem 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 div.text p {
@@ -619,4 +629,32 @@ h1.emphasis {
 
 .card:hover .back {
   height: 100%;
+}
+
+/* ALERT MESSAGE
+-------------------------------------------------- */
+
+#alert {
+  position: relative;
+  width: 100%;
+  max-height: fit-content;
+  margin-top: 0.5rem;
+  background: #ffdf37;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  padding: 1rem 2rem;
+}
+
+#close-btn {
+  position: absolute;
+  top: 0.4rem;
+  right: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#close-btn:hover {
+  color: black;
 }
