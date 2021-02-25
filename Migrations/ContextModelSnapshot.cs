@@ -21,7 +21,7 @@ namespace street_foody.Migrations
 
             modelBuilder.Entity("street_foody.Models.Food", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("FoodID")
                         .HasColumnType("text");
 
                     b.Property<List<string>>("Categories")
@@ -33,20 +33,28 @@ namespace street_foody.Migrations
                     b.Property<string>("EnglishName")
                         .HasColumnType("text");
 
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("text");
+
                     b.Property<double>("Price")
                         .HasColumnType("double precision");
+
+                    b.Property<string>("StreetVendorVendorID")
+                        .HasColumnType("text");
 
                     b.Property<string>("VietameseName")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("FoodID");
+
+                    b.HasIndex("StreetVendorVendorID");
 
                     b.ToTable("FoodDbSet");
                 });
 
             modelBuilder.Entity("street_foody.Models.FoodCategory", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("FoodCategoryID")
                         .HasColumnType("text");
 
                     b.Property<string>("CategoryEnglishName")
@@ -61,21 +69,21 @@ namespace street_foody.Migrations
                     b.Property<string>("FoodID")
                         .HasColumnType("text");
 
-                    b.Property<string>("StreetVendorID")
+                    b.Property<string>("StreetVendorVendorID")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("FoodCategoryID");
 
                     b.HasIndex("FoodID");
 
-                    b.HasIndex("StreetVendorID");
+                    b.HasIndex("StreetVendorVendorID");
 
                     b.ToTable("FoodCategoryDbSet");
                 });
 
             modelBuilder.Entity("street_foody.Models.StreetVendor", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("VendorID")
                         .HasColumnType("text");
 
                     b.Property<double>("AverageRating")
@@ -84,10 +92,10 @@ namespace street_foody.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<Dictionary<string, string>>("LocationHoursMap")
-                        .HasColumnType("hstore");
-
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("PriceRange")
@@ -99,15 +107,44 @@ namespace street_foody.Migrations
                     b.Property<string>("StandEnglishName")
                         .HasColumnType("text");
 
-                    b.Property<string>("StandVietameseName")
+                    b.Property<string>("StandVietnameseName")
                         .HasColumnType("text");
 
                     b.Property<string>("VendorName")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("VendorID");
 
                     b.ToTable("StreetVendorDbSet");
+                });
+
+            modelBuilder.Entity("street_foody.Models.VendorHours", b =>
+                {
+                    b.Property<string>("VendorHoursInfo")
+                        .HasColumnType("text");
+
+                    b.Property<string>("EndTime")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("text");
+
+                    b.Property<string>("StartTime")
+                        .HasColumnType("text");
+
+                    b.Property<string>("VendorID")
+                        .HasColumnType("text");
+
+                    b.HasKey("VendorHoursInfo");
+
+                    b.ToTable("VendorHoursDbSet");
+                });
+
+            modelBuilder.Entity("street_foody.Models.Food", b =>
+                {
+                    b.HasOne("street_foody.Models.StreetVendor", null)
+                        .WithMany("Menu")
+                        .HasForeignKey("StreetVendorVendorID");
                 });
 
             modelBuilder.Entity("street_foody.Models.FoodCategory", b =>
@@ -118,7 +155,7 @@ namespace street_foody.Migrations
 
                     b.HasOne("street_foody.Models.StreetVendor", null)
                         .WithMany("FoodCategories")
-                        .HasForeignKey("StreetVendorID");
+                        .HasForeignKey("StreetVendorVendorID");
                 });
 
             modelBuilder.Entity("street_foody.Models.Food", b =>
@@ -129,6 +166,8 @@ namespace street_foody.Migrations
             modelBuilder.Entity("street_foody.Models.StreetVendor", b =>
                 {
                     b.Navigation("FoodCategories");
+
+                    b.Navigation("Menu");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,8 +7,28 @@ namespace street_foody.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "VendorDbSet");
+            // migrationBuilder.DropTable(
+            //     name: "VendorDbSet");
+
+            migrationBuilder.CreateTable(
+                name: "StreetVendorDbSet",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "text", nullable: false),
+                    StandVietnameseName = table.Column<string>(type: "text", nullable: true),
+                    StandEnglishName = table.Column<string>(type: "text", nullable: true),
+                    VendorName = table.Column<string>(type: "text", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    PriceRange = table.Column<string>(type: "text", nullable: true),
+                    RatingList = table.Column<List<int>>(type: "integer[]", nullable: true),
+                    AverageRating = table.Column<double>(type: "double precision", nullable: false),
+                    PhotoUrl = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StreetVendorDbSet", x => x.ID);
+                });
 
             migrationBuilder.CreateTable(
                 name: "FoodDbSet",
@@ -19,31 +39,19 @@ namespace street_foody.Migrations
                     Categories = table.Column<List<string>>(type: "text[]", nullable: true),
                     EnglishName = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    Price = table.Column<double>(type: "double precision", nullable: false)
+                    Price = table.Column<double>(type: "double precision", nullable: false),
+                    PhotoUrl = table.Column<string>(type: "text", nullable: true),
+                    StreetVendorID = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FoodDbSet", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StreetVendorDbSet",
-                columns: table => new
-                {
-                    ID = table.Column<string>(type: "text", nullable: false),
-                    StandVietameseName = table.Column<string>(type: "text", nullable: true),
-                    StandEnglishName = table.Column<string>(type: "text", nullable: true),
-                    VendorName = table.Column<string>(type: "text", nullable: true),
-                    LocationHoursMap = table.Column<Dictionary<string, string>>(type: "hstore", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    PriceRange = table.Column<string>(type: "text", nullable: true),
-                    RatingList = table.Column<List<int>>(type: "integer[]", nullable: true),
-                    AverageRating = table.Column<double>(type: "double precision", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StreetVendorDbSet", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_FoodDbSet_StreetVendorDbSet_StreetVendorID",
+                        column: x => x.StreetVendorID,
+                        principalTable: "StreetVendorDbSet",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -82,6 +90,11 @@ namespace street_foody.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_FoodCategoryDbSet_StreetVendorID",
                 table: "FoodCategoryDbSet",
+                column: "StreetVendorID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FoodDbSet_StreetVendorID",
+                table: "FoodDbSet",
                 column: "StreetVendorID");
         }
 

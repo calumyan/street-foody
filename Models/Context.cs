@@ -5,14 +5,12 @@ public class Context : DbContext
     public Context(DbContextOptions<Context> options): base(options)         
 { 
           
-}       
-    // public DbSet<Vendor> VendorDbSet { get; set; }     
-    
-    // public DbSet<StreetVendor> StreetVendorDbSet { get; set; } 
+}
 
     public  DbSet<StreetVendor> StreetVendorDbSet { get; set;}
     public DbSet<Food> FoodDbSet { get; set; }     
     public DbSet<FoodCategory> FoodCategoryDbSet { get; set; }     
+    public DbSet<VendorHours> VendorHoursDbSet { get; set; }     
   
     // protected override void OnModelCreating(ModelBuilder modelBuilder)
     // {
