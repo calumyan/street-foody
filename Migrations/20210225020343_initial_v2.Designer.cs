@@ -10,7 +10,7 @@ using street_foody.Models;
 namespace street_foody.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210222024702_v2")]
+    [Migration("20210225020343_v2")]
     partial class v2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,13 +35,21 @@ namespace street_foody.Migrations
                     b.Property<string>("EnglishName")
                         .HasColumnType("text");
 
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("text");
+
                     b.Property<double>("Price")
                         .HasColumnType("double precision");
+
+                    b.Property<string>("StreetVendorID")
+                        .HasColumnType("text");
 
                     b.Property<string>("VietameseName")
                         .HasColumnType("text");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("StreetVendorID");
 
                     b.ToTable("FoodDbSet");
                 });
@@ -86,10 +94,10 @@ namespace street_foody.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<Dictionary<string, string>>("LocationHoursMap")
-                        .HasColumnType("hstore");
-
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("PriceRange")
@@ -101,7 +109,7 @@ namespace street_foody.Migrations
                     b.Property<string>("StandEnglishName")
                         .HasColumnType("text");
 
-                    b.Property<string>("StandVietameseName")
+                    b.Property<string>("StandVietnameseName")
                         .HasColumnType("text");
 
                     b.Property<string>("VendorName")
@@ -110,6 +118,13 @@ namespace street_foody.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("StreetVendorDbSet");
+                });
+
+            modelBuilder.Entity("street_foody.Models.Food", b =>
+                {
+                    b.HasOne("street_foody.Models.StreetVendor", null)
+                        .WithMany("Menu")
+                        .HasForeignKey("StreetVendorID");
                 });
 
             modelBuilder.Entity("street_foody.Models.FoodCategory", b =>
@@ -131,6 +146,8 @@ namespace street_foody.Migrations
             modelBuilder.Entity("street_foody.Models.StreetVendor", b =>
                 {
                     b.Navigation("FoodCategories");
+
+                    b.Navigation("Menu");
                 });
 #pragma warning restore 612, 618
         }
