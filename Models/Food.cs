@@ -4,14 +4,14 @@ using Microsoft.JSInterop;
 using Microsoft.EntityFrameworkCore; 
 using static System.Drawing.Bitmap;
 using static System.Drawing.Imaging.Metafile;
-
-
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; 
 namespace street_foody.Models
 {   
     public class Food
     {
-        public string ID{get;set;}
+        [Key]
+        public string FoodID{get;set;}
         public string VietameseName{get; set;}
         public List<string> Categories{get;set;}      
         public string EnglishName{get;set;}

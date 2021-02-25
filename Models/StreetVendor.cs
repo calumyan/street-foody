@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.JSInterop;
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; 
 
 namespace street_foody.Models
 {    
     public class StreetVendor
     {
-        public string ID{get;set;}
+
+        [Key]
+        public string VendorID{get;set;}
         public string StandVietnameseName{get; set;}
         public string StandEnglishName{get; set;}
         public string VendorName{get; set;}
