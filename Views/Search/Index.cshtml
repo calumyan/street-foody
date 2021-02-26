@@ -128,7 +128,11 @@
 </style>
 
 <div class="page">
-    <partial name="~/Views/Partial/_AlertMessage.cshtml"/>
+    @* <partial name="~/Views/Partial/_AlertMessage.cshtml"/> *@
+    <div id="alert">
+        <span id="close-btn" onclick="this.parentElement.style.display='none'"> &times; </span>
+        &#8594; Precaution: Most street vendors take cash only. Please be prepared to bring cash! &#8592;
+    </div>
     <div id="filter-sort">
         <button id="filter" class="small-btn" style="margin-right: 10px"><img src="~/images/filter.png" alt="" class="btn-secondary-icon">&nbsp;Filter</button>
         <div class="select">
