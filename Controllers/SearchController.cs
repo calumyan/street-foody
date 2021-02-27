@@ -17,11 +17,11 @@ namespace street_foody.Controllers
    
     public class SearchController : Controller
     {
-        private readonly Context _context;          
-
-        public SearchController(Context context){     
-               _context = context;   
-        } 
+    
+        // Context context;
+        // public SearchController(Context context){     
+        //        context = new Context();
+        // } 
 
         public IActionResult Index() {
             return View();
@@ -31,16 +31,26 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ShowResults(string SearchValue) {
-            Expression<Func<StreetVendor, bool>> lambda = v => v.FoodCategories.ToString().Contains(SearchValue) || v.StandEnglishName.ToString().Contains(SearchValue);
-            return View("Index", await _context.StreetVendorDbSet.Where(lambda).ToListAsync());
-        }
+    //     public async Task<IActionResult> ShowResults(string SearchValue) {
+    //         Expression<Func<StreetVendor, bool>> lambda = v => v.FoodCategories.ToString().Contains(SearchValue) || v.StandEnglishName.ToString().Contains(SearchValue);
+    //         return View("Index", await context.StreetVendorDbSet.Where(lambda).ToListAsync());
+    //     }
       
        
-       [HttpGet] 
-        public ActionResult<List<StreetVendor>> GetAll(){     
-                return _context.StreetVendorDbSet.ToList(); 
-        }
-      }
+
+    // //    [Route("/controller")]
+    //    [HttpGet] 
+    //     public ActionResult<List<StreetVendor>> GetAll(){ 
+    //             List<StreetVendor> list =  context.StreetVendorDbSet.ToList(); 
+    //             // return _context.StreetVendorDbSet.ToList(); 
+    //             for (int i = 0; i < list.Count; i++) 
+    //             {
+    //                 Console.WriteLine(list.ElementAt(i).VendorID);
+    //             } 
+
+    //             return context.StreetVendorDbSet.ToList(); 
+    //     }
+    //   }
+    }
 
 }

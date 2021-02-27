@@ -11,7 +11,7 @@ namespace street_foody.Models
     {
         [Key]
         public string FoodCategoryID{get;set;}
-        public string CategoryVietameseName{get; set;}
+        public string CategoryVietnameseName{get; set;}
         public string CategoryEnglishName{get; set;}
         public string Description{get;set;}  
        

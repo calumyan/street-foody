@@ -127,6 +127,7 @@
     }
 </style>
 
+
 <div class="page">
     @* <partial name="~/Views/Partial/_AlertMessage.cshtml"/> *@
     <div id="alert">
@@ -154,6 +155,7 @@
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
         <div id="result-col">
+
         <div class="vndr-card">
           <div class="vndr-image"><img src="~/images/banh-mi.png" alt="" /></div>
           <h3 id="stand-name">
@@ -184,6 +186,39 @@
         </div>
     </div>
 </div>
+
+
+
+@section Scripts {
+   <script type="text/javascript">  
+   $(function(){
+       @* LoadData(); *@
+       $("#small-btn").click(function() {
+           @* var std = {}; *@
+           $.ajax{
+               type : 'GET',
+               url : '@Url.Action("GetAll")',
+               dataType : 'json',
+               data :  {id = ''},
+               success: function (data) {  
+            
+                $.each(data, function (item) {  
+                    var $standVietnameseName = item.standVietnameseName;
+                    
+                    var $newdiv1 = $( "<div>  </div>" );
+                    $newdiv1.html($standVietnameseName);
+                    $("body").append($newdiv1);
+                    
+                });  
+               },  
+
+
+           }
+
+       })
+   })
+   </script>
+}
 
 
 
