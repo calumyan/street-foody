@@ -26,5 +26,13 @@ namespace street_foody.Models
         public string PhotoUrl{get;set;}     
 
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
+
+        // This constructor is only here for convenience when creating fake data in the SearchController.
+        public StreetVendor(string VNStandName, List<FoodCategory> categories, double Rating, string PriceRange) {
+            this.StandVietnameseName = VNStandName; 
+            this.FoodCategories = categories;
+            this.PriceRange = PriceRange;
+            this.AverageRating = Rating;
+        }
     }
 }
