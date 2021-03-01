@@ -17,11 +17,11 @@ namespace street_foody.Controllers
    
     public class SearchController : Controller
     {
-        private readonly Context _context;          
-
-        public SearchController(Context context){     
-               _context = context;   
-        } 
+    
+        // Context context;
+        // public SearchController(Context context){     
+        //        context = new Context();
+        // } 
 
         public IActionResult Index() {
             return View();
@@ -31,14 +31,14 @@ namespace street_foody.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ShowResults(string SearchValue) {
-            Expression<Func<StreetVendor, bool>> lambda = v => v.FoodCategories.ToString().Contains(SearchValue) || v.StandEnglishName.ToString().Contains(SearchValue);
-            var results = await _context.StreetVendorDbSet.Where(lambda).ToListAsync();
-            if (results == null) {
-                return NotFound();
-            }
-            return View("Index", results);
-        }
+        // public async Task<IActionResult> ShowResults(string SearchValue) {
+        //     Expression<Func<StreetVendor, bool>> lambda = v => v.FoodCategories.ToString().Contains(SearchValue) || v.StandEnglishName.ToString().Contains(SearchValue);
+        //     var results = await _context.StreetVendorDbSet.Where(lambda).ToListAsync();
+        //     if (results == null) {
+        //         return NotFound();
+        //     }
+        //     return View("Index", results);
+        // }
         
     //    [HttpGet] 
         public IActionResult GetAll(){    

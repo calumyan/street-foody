@@ -63,10 +63,8 @@ function moveCaret(e) {
   let mouse = e.target;
   for (let i = 0; i < vendorCards.length; i++) {
     if (mouse === vendorCards[i]) {
-      console.log("add");
       carets[i].classList.add("active");
     } else {
-      console.log("remove");
       carets[i].classList.remove("active");
     }
   }

@@ -134,5 +134,38 @@
 
 
 
+@section Scripts {
+   <script type="text/javascript">  
+   $(function(){
+       @* LoadData(); *@
+       $("#small-btn").click(function() {
+           @* var std = {}; *@
+           $.ajax{
+               type : 'GET',
+               url : '@Url.Action("GetAll")',
+               dataType : 'json',
+               data :  {id = ''},
+               success: function (data) {  
+            
+                $.each(data, function (item) {  
+                    var $standVietnameseName = item.standVietnameseName;
+                    
+                    var $newdiv1 = $( "<div>  </div>" );
+                    $newdiv1.html($standVietnameseName);
+                    $("body").append($newdiv1);
+                    
+                });  
+               },  
+
+
+           }
+
+       })
+   })
+   </script>
+}
+
+
+
 
 

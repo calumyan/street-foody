@@ -30,7 +30,10 @@ namespace street_foody.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<string>("EnglishName")
+                    b.Property<string>("FoodEnglishName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FoodVietameseName")
                         .HasColumnType("text");
 
                     b.Property<string>("PhotoUrl")
@@ -40,9 +43,6 @@ namespace street_foody.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<string>("StreetVendorVendorID")
-                        .HasColumnType("text");
-
-                    b.Property<string>("VietameseName")
                         .HasColumnType("text");
 
                     b.HasKey("FoodID");
@@ -60,7 +60,7 @@ namespace street_foody.Migrations
                     b.Property<string>("CategoryEnglishName")
                         .HasColumnType("text");
 
-                    b.Property<string>("CategoryVietameseName")
+                    b.Property<string>("CategoryVietnameseName")
                         .HasColumnType("text");
 
                     b.Property<string>("Description")
