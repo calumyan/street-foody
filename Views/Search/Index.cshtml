@@ -102,16 +102,24 @@
                         <img src="/walk.png" class="inline-icon" alt=""/> 8 mins
                     </div>
                     <div class="vndr-categories">
-                        @{
-                            StringBuilder sb = new StringBuilder();
-                            for (var i=0; i < vendor.FoodCategories.Count; i++) {
-                                if (i!=0) {
-                                    sb.Append(", ");
-                                }
-                                sb.Append(vendor.FoodCategories[i].CategoryVietnameseName);
-                            }
+                        @* @foreach (var category in vendor.FoodCategories {
+                            <div class=“food-category”>@{category.name}</div>
                         }
-                        <img src="~/images/menu.png" alt="" class="inline-icon" />  @sb
+
+                        CSS:
+
+                        .food-category {
+                            display: inline-block;
+                        }
+                        .food-cateogry:after {
+                            content: ",";
+                        }
+                        .food-cateogry:after:last-child {
+                            content: none;
+                        } *@
+
+        
+                        <img src="~/images/menu.png" alt="" class="inline-icon" />  
                     </div>
                     <div class="vndr-rating-price">
                         <img src="~/images/star.png" alt="" class="inline-icon" /> @Html.DisplayFor(modelItem => vendor.AverageRating)/5 &nbsp &nbsp

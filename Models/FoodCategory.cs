@@ -4,6 +4,7 @@ using Microsoft.JSInterop;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema; 
+using EFCore.NamingConventions;
 
 namespace street_foody.Models
 {  
