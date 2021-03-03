@@ -18,7 +18,8 @@ namespace street_foody.Models
         public FoodCategory(){}
 
         // This constructor is only here for convenience when creating fake data in the SearchController.
-        public FoodCategory(string CategoryVietameseName) {
+        public FoodCategory(string FoodCategoryID, string CategoryVietameseName) {
+            this.FoodCategoryID = FoodCategoryID;
             this.CategoryVietnameseName = CategoryVietameseName;
         }
     }

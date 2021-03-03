@@ -20,7 +20,7 @@ namespace street_foody.Models
         public List<FoodCategory> FoodCategories{get;set;}       
         public List<Food> Menu{get;set;}       
         public string PriceRange{get;set;}       
-        public List<int> RatingList{get;set;}
+        public int[] RatingList{get;set;}
         public double AverageRating{get;set;} 
 
         public string PhotoUrl{get;set;}     
