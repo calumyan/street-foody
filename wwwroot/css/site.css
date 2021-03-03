@@ -737,15 +737,20 @@ h2.filter-title {
 .right-caret {
   grid-area: next;
   cursor: pointer;
+  opacity: 0;
 }
 
 .right-caret > img {
   height: 6rem;
   object-fit: contain;
+  transition: all 1s ease-in-out;
+  opacity: 0;
 }
 
 .right-caret > img.active {
+  visibility: visible;
   transform: translateX(70%);
+  opacity: 1;
 }
 
 .vndr-image > img {

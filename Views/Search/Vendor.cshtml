@@ -14,13 +14,16 @@
         background-color: white;
         margin: 50px;
     }
+     h1, h2, h3, h4 {
+        font-family: "Quicksand", sans-serif;
+    }
 
     .vendor-header img{
         object-fit:cover;
-        margin:1.5vw;
+        margin:.5vw;
         float:left;
-        max-width: 250px;
-        min-width: 175px;
+        max-width:275px;
+        min-width: 100px;
     }
 
     .vendor-header{
@@ -40,7 +43,7 @@
     .menu-card {
         justify-content: center;
         align-items: center;
-        width: 300px;
+        width: 325px;
         margin: 15px;
         border-style: solid;
         border-radius: 10px;
@@ -48,15 +51,9 @@
         border-color:gray ;
     }
 
-    h1, h2, h3, h4 {
-        font-family: "Quicksand", sans-serif;
-    }
-
 
     .vendor-about{
         padding: 10px;
-        /*background-color: white;
-        flex-grow: 3;*/
     }
 
     .body-text {
@@ -70,14 +67,38 @@
         margin-right: 20px;*@
     }
 
+    .warning{
+        font-family: "Quicksand", sans-serif;
+        color: black;
+        font-size: large;
+        background-color: tomato;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        color: white;
+    }
+
     #map {
         height: 300px;
         /* The height is 300 pixels */
-        width: 45%;
+        width:45%;
         /* The width is the width of the web page */
         padding:1vw;
 
     }
+    .star{
+        color:tomato;
+        font-size: 2em;
+        text-align:left;
+        letter-spacing: 3px;
+    }
+
+    .price{
+        float:right;
+        font-size:small;
+        padding: 5px;
+    }
+
     a:hover {
         color: black;
     }
@@ -88,6 +109,7 @@
 
     #info_ul{
         list-style: none;
+        padding:10px;
         -webkit-padding-start: 0px;
     }
 
@@ -144,19 +166,25 @@
             <!--Profile image and basic info-->
             <img src="~/images/Great-Aunty-Three.png" alt="Profile image">
             <div class="vendor-about">
-                <h1>Uncle Tu's Banh Mi</h1>
-                <h4 style="color:dimgray">Vendor Name (English)</h4>
+                <p style="font-size:1.85rem; margin:0">Uncle Tu's Banh Mi</p>
+                <p style="color:dimgray; font-size:1.25rem; margin:0">Vendor Name (English)</p>
+                <!--Star rating-->
+                <div>
+                    <div class="star">
+                        ★★★★★
+                    </div>
+                    <p class="body-text" style="font-size:small; margin: 0">
+                        5.0 stars/10 ratings <br />
+                        <a class="body-text" style="text-decoration:underline; font-size:medium; margin:0" asp-area="" asp-controller="Vendor" asp-action="Index">
+                            Leave a rating for this vendor
+                        </a>
+                    </p>
+                </div>
+                <!--Directions and phone number-->
                 <ul id="info_ul">
                     <li id="li_directions"><ion-icon name="pin"></ion-icon> <a href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a></li>
                     <li id="li_phone"><ion-icon name="call"></ion-icon> <a href="tel:+84 000-000-0000">+84 000-000-0000</a></li>
                 </ul>
-            </div>
-            <!--Open/Closed and Distance-->
-            <div style="margin-left: 2vw; margin-top: 2vw;">
-                <h4 style="color:tomato">Open Now</h4>
-                <h5>.5 miles away</h5>
-                <h5>150 upvotes/4 stars</h5>
-
             </div>
         </div>
     </div>
@@ -193,37 +221,44 @@
                 incididunt ut labore et dolore magna aliqua. Sit amet nisl purus in mollis nunc
                 sed id semper. Mauris cursus mattis molestie a iaculis at erat. Fermentum leo
                 vel orci porta non pulvinar neque laoreet. Vulputate enim nulla aliquet porttitor.
-                Augue neque gravida in fermentum et sollicitudin. In hendrerit gravida rutrum
-                quisque non tellus. Dolor sit amet consectetur adipiscing elit pellentesque
-                habitant. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi
-                tincidunt. Egestas quis ipsum suspendisse ultrices gravida dictum fusce. Tempor
-                commodo ullamcorper a lacus vestibulum sed arcu.
+                Augue neque gravida in fermentum et sollicitudin.
             </p>
         </div>
         <div class="section">
             <!--Menu Grid-->
             <h2 style="text-align:center">Menu</h2>
             <hr/>
+            <div class="warning">
+                <p style="margin:0">
+                    Note: Most street vendors only take cash!
+                    <a class="underline body-text" style="color:white;" asp-area="" asp-controller="Handbook" asp-action="Index">
+                        Learn more about ordering
+                    </a>
+                </p>
+            </div>
             <h3 style="text-align:center">Banh Mi</h3>
             <div class="text-center" style="display: flex; flex-wrap: wrap; justify-content:center;">
-                <div class="menu-card" style="width:325px">
+                <div class="menu-card">
                     <p class="body-text" style="font-weight: bold">Cold cut sandwich</p>
                     <p class="body-text">
                         Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
                     </p>
+                    <p class="price"> 20,000 VND</p>
                 </div>
 
-                <div class="menu-card" style="width:325px">
+                <div class="menu-card">
                     <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
                     <p class="body-text">
                         Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
                     </p>
+                    <p class="price"> 20,000 VND</p>
                 </div>
-                <div class="menu-card" style="width:325px">
+                <div class="menu-card">
                     <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
                     <p class="body-text">
                         Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
                     </p>
+                    <p class="price"> 20,000 VND</p>
                 </div>
             </div>
             <h3 style="text-align:center">Banh Mi</h3>
@@ -233,19 +268,22 @@
                     <p class="body-text">
                         Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
                     </p>
+                    <p class="price"> 20,000 VND</p>
                 </div>
 
-                <div class="menu-card" style="width:325px">
+                <div class="menu-card">
                     <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
                     <p class="body-text">
                         Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
                     </p>
+                    <p class="price"> 20,000 VND</p>
                 </div>
-                <div class="menu-card" style="width:325px">
+                <div class="menu-card">
                     <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
                     <p class="body-text">
                         Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
                     </p>
+                    <p class="price"> 20,000 VND</p>
                 </div>
             </div>
         </div>
