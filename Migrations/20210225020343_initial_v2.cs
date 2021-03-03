@@ -7,8 +7,8 @@ namespace street_foody.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            // migrationBuilder.DropTable(
-            //     name: "VendorDbSet");
+            migrationBuilder.DropTable(
+                name: "VendorDbSet");
 
             migrationBuilder.CreateTable(
                 name: "StreetVendorDbSet",
