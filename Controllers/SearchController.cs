@@ -9,35 +9,27 @@ using Microsoft.Extensions.Logging;
 using street_foody.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-
+using Npgsql;
+using System.Text;
 
 namespace street_foody.Controllers
 {
-
-   
     [Route("api/search")] 
     [ApiController]  
     public class SearchController : Controller
     {
-        //  private readonly IConfiguration _configuration;
-        //  private string _connectionString;
-        // DbContextOptionsBuilder<ApplicationDbContext> _optionsBuilder;
-        
-        // DbContextOptionsBuilder<Context> optionsBuilder = new DbContextOptionsBuilder<Context>();
-        
-       
-        
-        private readonly Context _context;
-         
-        public SearchController(Context context){
-            //    optionsBuilder.UseNpgsql(Configuration.GetConnectionStringSecureValue("DefaultConnection"));
-            //    _context = new Context(optionsBuilder.Options);   
+      private readonly Context _context;          
+        public SearchController(Context context){     
                _context = context;
         } 
-        
+
         [Route("index")] 
-        public IActionResult Index() {
-            return View();
+        public IActionResult Index(string SearchValue) {
+            Console.WriteLine("blabla " + SearchValue);
+            if (String.IsNullOrWhiteSpace(SearchValue)) {
+                return GetAll();
+            }
+            return ShowResults(SearchValue);
         }
 
         [Route("vender")] 
@@ -45,28 +37,46 @@ namespace street_foody.Controllers
             return View();
         }
 
-        // public async Task<IActionResult> ShowResults(string SearchValue) {
-        //     Expression<Func<StreetVendor, bool>> lambda = v => v.FoodCategories.ToString().Contains(SearchValue) || v.StandEnglishName.ToString().Contains(SearchValue);
-        //     return View("Index", await _context.StreetVendorDbSet.Where(lambda).ToListAsync());
-        // }
-      
-       
-
-    //    [Route("getAll")]
-       
-       [Route("getAll")] 
-       [HttpGet] 
-        public ActionResult<List<StreetVendor>> GetAll(){ 
-                List<StreetVendor> list =  _context.StreetVendor.ToList(); 
-                // return _context.StreetVendorDbSet.ToList(); 
-                for (int i = 0; i < list.Count; i++) 
-                {
-                    Console.WriteLine(list.ElementAt(i).VendorID);
-                } 
-                
-                return _context.StreetVendor.ToList(); 
+        private IActionResult ShowResults(string SearchValue) {
+            Console.WriteLine("ShowResults executed");
+            Expression<Func<StreetVendor, bool>> lambda = v => v.StandVietnameseName.ToString().Contains(SearchValue);
+            var results = _context.StreetVendor.Where(lambda).ToList();
+            if (results == null) {
+                return NotFound();
+            }
+            
+            return View("Index", results);
         }
-      }
-    
+        
+        [Route("getAll")] 
+        [HttpGet] 
+        private IActionResult GetAll(){    
+            // This method can (and should) be rewritten using LINQ to make things look much simpler.
+            List<StreetVendor> allVendors = _context.StreetVendor.ToList();
+            var cs = "Host=localhost;Username=postgres;Password=street-foody;Database=street-foody";
+            
+            using var con = new NpgsqlConnection(cs);
+            con.Open();
 
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            foreach (var vendor in allVendors) {
+                string vendorID = vendor.VendorID;
+                cmd.CommandText = "SELECT * FROM \"food_category_db_set\" WHERE \"street_vendor_vendor_id\"=@vendorID";
+                cmd.Parameters.AddWithValue("@vendorID", vendorID);
+                using NpgsqlDataReader rdr = cmd.ExecuteReader();
+                List<FoodCategory> categories = new List<FoodCategory>();
+                int i = 10;
+                while (rdr.Read()) {
+                    FoodCategory category = new FoodCategory($"{i}", rdr.GetString(1));
+                    categories.Add(category);
+                }
+                vendor.FoodCategories = categories;
+            }
+            Console.WriteLine("GetAll executed");
+            return View("Index", allVendors); 
+        }
+    }
+
+    
 }

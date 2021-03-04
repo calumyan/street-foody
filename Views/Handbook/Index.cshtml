@@ -13,9 +13,9 @@
 
     <h1 class="section-title">Get to know street food!</h1>
 
-    @* Essential street food information *@
+    <!--Essential street food information-->
 
-    <div class="three-column-grid">
+    <div class="column-grid three-column-grid">
         <div class="text-box" id="text-box-1">
             <h2>Why street food?</h2>
             <p class="body-text">
@@ -34,7 +34,7 @@
         </div>
         <div class="text-box" id="text-box-3">
             <h2>Pricing</h2>
-            <ul class="body-text">
+            <ul class="body-text" style="text-align: left;">
                 <li> Street vendors usually only take cash.</li>
                 <li>1 US dollar = ~23,000 Vietnamese dong (VND)</li>
                 <li>Street food meals are usually less than $5 and can be less than $1.</li>
@@ -45,105 +45,391 @@
 
     <h1 class="section-title">Street Food Dishes</h1>
 
-    @*Grid of food photos and information*@
-<div class="gallery">
-    <div class="card">
-        <div class="front">
-            <img src="~/images/bo-bia.png" alt="Bo bia" />
-            <h1>Bo bia</h1>
-        </div>
-        <div class="back">
-            <h1>Bo bia</h1>
-            <p>
-                A type of roll that includes carrots, jicama, chinese sausage,
-                dried shrimp, and thin slivers of egg wrapped in rice paper.
-            </p>
-            <a href="">Find bo bia</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="front">
-            <img src="~/images/hu-tiu-go.png" alt="Hu tieu go" />
-            <h1>Hu tieu go</h1>
-        </div>
-        <div class="back">
-            <h1>Hu tieu go</h1>
-            <p>
-                This noodle dish can be served with or without broth (dry)
-                and includes pork bones, herbs, and a variety of meats and
-                other ingredients.
-            </p>
-            <a href="">Find hu tieu go</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="front">
-            <img src="~/images/banh-mi.png" alt="Banh mi" />
-            <h1>Banh Mi</h1>
-        </div>
-        <div class="back">
-            <h1>Banh mi</h1>
-            <p>
-                A sandwich made with a short baguette that often includes pork,
-                cucumber, pickled carrots, cilantro, chili, and mayonnaise, or
-                a wide variety of other ingredients and combinations.
-            </p>
-            <a href="">Find banh mi</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="front">
-            <img src="~/images/goi-cuon.png" alt="Goi cuon" />
-            <h1>Goi cuon</h1>
-        </div>
-        <div class="back">
-            <h1>Goi cuon</h1>
-            <p>
-                Fresh Vietnamese spring rolls which traditionally consist of
-                rice noodles, herbs, vegetables, shrimp and other
-                ingredients wrapped in rice paper.
-            </p>
-            <a href="">Find goi cuon</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="front">
-            <img src="~/images/bo-bia.png" alt="Bo bia" />
-            <h1>Bo bia</h1>
-        </div>
-        <div class="back">
-            <h1>Bo bia</h1>
-            <p>
-                A type of roll that includes carrots, jicama, chinese sausage,
-                dried shrimp, and thin slivers of egg wrapped in rice paper.
-            </p>
-            <a href="">Find bo bia</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="front">
-            <img src="~/images/hu-tiu-go.png" alt="Hu tieu go" />
-            <h1>Hu tieu go</h1>
-        </div>
-        <div class="back">
-            <h1>Hu tieu go</h1>
-            <p>
-                This noodle dish can be served with or without broth (dry)
-                and includes pork bones, herbs, and a variety of meats and
-                other ingredients.
-            </p>
-            <a onclick="placeNameInSearch()" href="https://localhost:5001/api/search/index">Find hu tieu go</a> 
-        </div>
-    </div>
-</div>
+    <!---Grid of food photos and information-->
+    <!--Gallery of food-->
 
-    @* How to Use the App *@
+    <div class="gallery">
+        <!--Bo bia-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/bo-bia.png" alt="Bo bia" />
+                <h1>Bo bia</h1>
+            </div>
+            <div class="back">
+                <h1>Bo bia</h1>
+                <p>
+                    A type of roll that includes carrots, jicama, chinese sausage,
+                    dried shrimp, and thin slivers of egg wrapped in rice paper.
+                </p>
+                <a href="">Find bo bia</a>
+            </div>
+        </div>
+        <!--Pho-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/pho.png" alt="Pho" />
+                <h1>Pho</h1>
+            </div>
+            <div class="back">
+                <h1>Pho</h1>
+                <p>
+                    A soup with rice noodles, herbs, and meat. Pho in Saigon tends to
+                    have a clearer broth, and can include bean sprouts, fresh sliced
+                    chili, hoisin sauce, and additional herbs. Pho is considered to be
+                    Vietnam?s national dish.
+
+                </p>
+                <a href="">Find pho</a>
+            </div>
+        </div>
+        <!--Banh Bao-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/banh-bao.png" alt="Banh Bao" />
+                <h1>Banh bao</h1>
+            </div>
+            <div class="back">
+                <h1>Banh bao</h1>
+                <p>
+                    A round savory bun filled with meat, eggs, and vegetables including onions and mushrooms.
+                    Often include Chinese sausage and hard-boiled egg.
+
+                </p>
+                <a href="">Find banh bao</a>
+            </div>
+        </div>
+        <!--Banh Canh-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/banh-canh.png" alt="Banh Canh" />
+                <h1>Banh canh</h1>
+            </div>
+            <div class="back">
+                <h1>Banh canh</h1>
+                <p>
+                    Thick tapioca noodles that can be served with a variety of broths and toppings,
+                    which can include crab, fish cakes, pork, and more.
+
+                </p>
+                <a href="">Find banh canh</a>
+            </div>
+        </div>
+        <!--Banh Cuon-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/banh-cuon.png" alt="Banh Cuon" />
+                <h1>Banh cuon</h1>
+            </div>
+            <div class="back">
+                <h1>Banh cuon</h1>
+                <p>
+                    Rice noodle rolls made from thin sheets of fermented rice that are steamed and filled with
+                    pork, mushrooms, and shallots.
+
+                </p>
+                <a href="">Find banh cuon</a>
+            </div>
+        </div>
+        <!--Banh Mi-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/banh-mi.png" alt="Banh mi" />
+                <h1>Banh mi</h1>
+            </div>
+            <div class="back">
+                <h1>Banh mi</h1>
+                <p>
+                    A sandwich made with a short baguette that often includes pork,
+                    cucumber, pickled carrots, cilantro, chili, and mayonnaise, or
+                    a wide variety of other ingredients and combinations.
+                </p>
+                <a href="">Find banh mi</a>
+            </div>
+        </div>
+        <!--Banh trang-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/banh-mi.png" alt="Banh trang" />
+                <h1>Banh trang</h1>
+            </div>
+            <div class="back">
+                <h1>Banh trang</h1>
+                <p>
+                    Insert descriptionn
+                </p>
+                <a href="">Find banh trang</a>
+            </div>
+        </div>
+        <!--Bun-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/bun.png" alt="Bun" />
+                <h1>Bun</h1>
+            </div>
+            <div class="back">
+                <h1>Bun</h1>
+                <p>
+                    These thin rice noodles, also known as rice vermicelli, can be found in soups,
+                    served with meats and vegetables, or in goi cuon.
+
+                </p>
+                <a href="">Find bun</a>
+            </div>
+        </div>
+        <!--Chao-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/chao.png" alt="Chao" />
+                <h1>Chao</h1>
+            </div>
+            <div class="back">
+                <h1>Chao</h1>
+                <p>
+                    Vietnamese congee, or rice porridge. It can be combined with chicken, duck, or pork and broth,
+                    as well as vegetables, and can also be served with youtiao (a type of fried dough).
+
+                </p>
+                <a href="">Find chao</a>
+            </div>
+        </div>
+        <!--Com tam-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/com-tam.png" alt="Com tam" />
+                <h1>Com tam</h1>
+            </div>
+            <div class="back">
+                <h1>Com tam</h1>
+                <p>
+                    This dish is made from broken rice grains, and is quite popular in Saigon.
+                    It often includes grilled pork ribs, fried egg, scallions, fresh and pickled
+                    vegetables, and fish sauce.
+
+                </p>
+                <a href="">Find com tam</a>
+            </div>
+        </div>
+        <!--Cuon-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/goi-cuon.png" alt="Cuon" />
+                <h1>Cuon</h1>
+            </div>
+            <div class="back">
+                <h1>Cuon</h1>
+                <p>
+                    Insert description
+                </p>
+                <a href="">Find cuon</a>
+            </div>
+        </div>
+        <!--Dumplings-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/banh-mi.png" alt="Dumplings" />
+                <h1>Dumplings</h1>
+            </div>
+            <div class="back">
+                <h1>Dumplings</h1>
+                <p>
+                    Insert description
+                </p>
+                <a href="">Find dumplings</a>
+            </div>
+        </div>
+        <!--Eggs-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/banh-mi.png" alt="Eggs" />
+                <h1>Eggs</h1>
+            </div>
+            <div class="back">
+                <h1>Eggs</h1>
+                <p>
+                    Insert description
+                </p>
+                <a href="">Find eggs</a>
+            </div>
+        </div>
+        <!--Goi Cuon-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/goi-cuon.png" alt="Goi cuon" />
+                <h1>Goi cuon</h1>
+            </div>
+            <div class="back">
+                <h1>Goi cuon</h1>
+                <p>
+                    Fresh Vietnamese spring rolls which traditionally consist of
+                    rice noodles, herbs, vegetables, shrimp and other
+                    ingredients wrapped in rice paper.
+                </p>
+                <a href="">Find goi cuon</a>
+            </div>
+        </div>
+        <!--Hu tieu-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/hu-tiu-go.png" alt="Hu tieu" />
+                <h1>Hu tieu</h1>
+            </div>
+            <div class="back">
+                <h1>Hu tieu</h1>
+                <p>
+                    This noodle dish can be served with or without broth (dry)
+                    and includes pork bones, herbs, and a variety of meats and
+                    other ingredients.
+                </p>
+                <a onclick="placeNameInSearch()" href="https://localhost:5001/api/search/index">Find hu tieu</a>
+            </div>
+        </div>
+        <!--Mi-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/mi.png" alt="Mi" />
+                <h1>Mi</h1>
+            </div>
+            <div class="back">
+                <h1>Mi</h1>
+                <p>
+                    Noodles made out of wheat flour or egg noodles. These noodles can be thick or
+                    thin, and can be served in soups or dry (without broth).
+                </p>
+                <a href="">Find mi</a>
+            </div>
+        </div>
+        <!--Mien-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/mien.png" alt="Mien" />
+                <h1>Mien</h1>
+            </div>
+            <div class="back">
+                <h1>Mien</h1>
+                <p>
+                    Also known as cellophane or glass noodles, these help make up Vietnamese
+                    dishes like mien ga, a chicken soup. Often confused with bun, or rice
+                    vermicelli, glass noodles can be distinguished by their clear glass-like
+                    appearance when cooked.
+
+                </p>
+                <a href="">Find mien</a>
+            </div>
+        </div>
+        <!--Nui-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/nui.png" alt="Nui" />
+                <h1>Nui</h1>
+            </div>
+            <div class="back">
+                <h1>Nui</h1>
+                <p>
+                    These noodles are Vietnamese macaroni, and are often included in
+                    Vietnamese chicken and noodle soups.
+                </p>
+                <a href="">Find nui</a>
+            </div>
+        </div>
+        <!--Pancakes-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/pancake.png" alt="Pancakes" />
+                <h1>Pancakes</h1>
+            </div>
+            <div class="back">
+                <h1>Pancakes</h1>
+                <p>
+                    These crispy, savory pancakes are made of rice flour, water, and turmeric, fried in a pan and
+                    filled with ingredients like pork, prawns, green onion, mung bean, and herbs.
+                </p>
+                <a href="">Find pancakes</a>
+            </div>
+        </div>
+        <!--Skewers-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/skewers.png" alt="Skewers" />
+                <h1>Skewers</h1>
+            </div>
+            <div class="back">
+                <h1>Skewers</h1>
+                <p>
+                    Skewered food in Vietnam can include fried fish balls, grilled corn, grilled sausage, and more.
+
+                </p>
+                <a href="">Find skewers</a>
+            </div>
+        </div>
+        <!--Sweet cakes-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/sweet-cakes.png" alt="Sweet cakes" />
+                <h1>Sweet cakes</h1>
+            </div>
+            <div class="back">
+                <h1>Sweet cakes</h1>
+                <p>
+                    Insert description
+                </p>
+                <a href="">Find sweet cakes</a>
+            </div>
+        </div>
+        <!--Sweet gruel-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/sweet-gruel.png" alt="Sweet gruel" />
+                <h1>Sweet gruel</h1>
+            </div>
+            <div class="back">
+                <h1>Sweet gruel</h1>
+                <p>
+                    Insert description
+                </p>
+                <a href="">Find sweet gruel</a>
+            </div>
+        </div>
+        <!--Sup-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/hu-tiu-go.png" alt="Sup" />
+                <h1>Sup</h1>
+            </div>
+            <div class="back">
+                <h1>Sup</h1>
+                <p>
+                    Insert description
+                </p>
+                <a href="">Find sup</a>
+            </div>
+        </div>
+        <!--Beverages-->
+        <div class="card">
+            <div class="front">
+                <img src="~/images/ca-phe.png" alt="Beverages" />
+                <h1>Beverages</h1>
+            </div>
+            <div class="back">
+                <h1>Beverages</h1>
+                <p>
+                    Drinks you can get at street food vendors include ca phe, which is
+                    Vietamese coffee; nuoc giai kaht, or soft drinks; and tra sua, which
+                    is boba tea.
+                </p>
+                <a href="">Find beverages</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--How to Use the App-->
     <div class="color-box">
         <h1>How To Use the App</h1>
     </div>
-
-    <container style=" display: flex; flex-wrap: wrap; align-content:center;">
-        <div class="card" style="width:325px">
+    <div id="some-container">
+    <div class="column-grid four-column-grid">
+        <div class="text-box">
             <h1 style="color: tomato">1.</h1>
             <h2>Search</h2>
             <p class="body-text">
@@ -151,28 +437,29 @@
             </p>
         </div>
 
-        <div class="card" style="width:325px">
+        <div class="text-box">
             <h1 style="color: tomato">2.</h1>
             <h2>Browse</h2>
             <p class="body-text">
                 Look through the list of results to find a place that looks good.
             </p>
         </div>
-        <div class="card" style="width:325px">
+        <div class="text-box">
             <h1 style="color: tomato">3.</h1>
             <h2>Choose</h2>
             <p class="body-text">
                 Click on a vendor you're interested in to get directions and more information.
             </p>
         </div>
-        <div class="card" style="width:325px">
+        <div class="text-box">
             <h1 style="color: tomato">4.</h1>
             <h2>Enjoy!</h2>
             <p class="body-text">
                 Head to the streets to try some delicious food!
             </p>
         </div>
-    </container>
+    </div>
+    </div>
 </div>
 
 

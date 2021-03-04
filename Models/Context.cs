@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;  
+
 namespace street_foody.Models {     
 public class Context : DbContext     
-  {         
+{         
     public Context(DbContextOptions<Context> options): base(options)         
-{ 
-          
-}
+    { 
+            
+    }
 
     public  DbSet<StreetVendor> StreetVendor { get; set;}
     public DbSet<Food> Food { get; set; }     
@@ -22,6 +23,9 @@ public class Context : DbContext
         );
     }
 
-    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder
+        .UseNpgsql("Server=PostgreSQL;Host=localhost;Port=5432;Username=postgres;Password=street-foody;Database=street-foody;")
+        .UseSnakeCaseNamingConvention();
    } 
 }

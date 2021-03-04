@@ -1,10 +1,8 @@
 @model IEnumerable<StreetVendor>
-
+@using System.Text;
 @{
     ViewData["Title"] = "Search";
 }
-
-
 
 <style>
     #filter-sort {
@@ -129,13 +127,9 @@
     }
 </style>
 
-
 @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> *@
 
-
-  
 <div class="page">
-    @* <partial name="~/Views/Partial/_AlertMessage.cshtml"/> *@
     <div id="alert">
         <span id="close-btn" onclick="this.parentElement.style.display='none'"> &times; </span>
         &#8594; Precaution: Most street vendors take cash only. Please be prepared to bring cash! &#8592;
@@ -153,42 +147,120 @@
     </div>
     <div class="wrapper">
         <div id="filter-col">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </div>
+            <h2 class="filter-title">Opening hours</h2>
+            <form action="" class="filter-list">
+                <div>
+                    <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="open-now"
+                    name="openNow"
+                    />
+                    <label for="open-now"> Open now </label>
+                </div>
+                <div>
+                    <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="opening-soon"
+                    name="openingSoon"
+                    />
+                    <label for="opening-soon"> Opening soon </label>
+                </div>
+                <div>
+                    <input type="checkbox" class="checkbox" id="closed" name="closed" />
+                    <label for="closed"> Closed </label>
+                </div>
+                <div>
+                    <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="closing-soon"
+                    name="closingSoon"
+                    />
+                    <label for="closing-soon"> Closing soon </label>
+                </div>
+            </form>
+            <h2 class="filter-title">Ratings</h2>
+            <form action="" class="filter-list">
+                <div>
+                    <input type="checkbox" class="checkbox" id="4.5p" name="4.5p" />
+                    <label for="4.5p"> 4.5+ </label>
+                </div>
+                <div>
+                    <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="4.0-4.5"
+                    name="4.0-4.5"
+                    />
+                    <label for="4.0-4.5"> 4.0 - 4.5 </label>
+                </div>
+                <div>
+                    <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="3.5-4.0"
+                    name="3.5-4.0"
+                    />
+                    <label for="3.5-4.0"> 3.5 - 4.0 </label>
+                </div>
+                <div>
+                    <input
+                    type="checkbox"
+                    class="checkbox"
+                    id="3.0-3.5"
+                    name="3.0-3.5"
+                    />
+                    <label for="3.0-3.5"> 3.0 - 3.5 </label>
+                </div>
+            </form>
+         </div>
         <div id="result-col">
+            @foreach (var vendor in Model) {
+                <div class="vndr-card">
+                    <div class="vndr-image"><img src="~/images/banh-mi.png" alt="" /></div>
+                    <h3 id="stand-name">
+                        @Html.DisplayFor(modelItem => vendor.StandVietnameseName) <sup class="large">Open Now!</sup>
+                    </h3>
+                    <div class="vndr-distance"> 0.5 miles away &nbsp &nbsp &nbsp
+                        <img src="/walk.png" class="inline-icon" alt=""/> 8 mins
+                    </div>
+                    <div class="vndr-categories">
+                        @* @foreach (var category in vendor.FoodCategories {
+                            <div class=“food-category”>@{category.name}</div>
+                        }
 
-        <div class="vndr-card">
-          <div class="vndr-image"><img src="~/images/banh-mi.png" alt="" /></div>
-          <h3 id="stand-name">
-            Uncle Tu's Banh Mi <sup class="large">Open Now!</sup>
-          </h3>
-          <div class="vndr-distance"> 0.5 miles away &nbsp &nbsp &nbsp
-            <img src="/walk.png" class="inline-icon" alt=""/> 8 mins
-          </div>
-          <div class="vndr-categories">
-            <img src="~/images/menu.png" alt="" class="inline-icon" />  Banh mi,
-            banh bao, nuoc mia, hu tiu, tra da, haha, bla bla bla
-          </div>
-          <div class="vndr-rating-price">
-            <img src="~/images/star.png" alt="" class="inline-icon" /> 4.6/5 &nbsp &nbsp
-            &nbsp &nbsp &nbsp
-            <img src="~/images/price-tag.png" alt="" class="inline-icon" /> 12,000 -
-            15,000 VND
-          </div>
-          <div class="vndr-rating-list">
-            <div>
-              <img src="~/images/favorite.png" alt="" class="inline-icon" /> 1.2k
-            </div>
-            <div><img src="~/images/review.png" alt="" class="inline-icon" /> 634</div>
-            <div><img src="~/images/camera.png" alt="" class="inline-icon" /> 23</div>
-          </div>
-          <div id="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
-        </div>
+                        CSS:
+
+                        .food-category {
+                            display: inline-block;
+                        }
+                        .food-cateogry:after {
+                            content: ",";
+                        }
+                        .food-cateogry:after:last-child {
+                            content: none;
+                        } *@
+
+        
+                        <img src="~/images/menu.png" alt="" class="inline-icon" />  
+                    </div>
+                    <div class="vndr-rating-price">
+                        <img src="~/images/star.png" alt="" class="inline-icon" /> @Html.DisplayFor(modelItem => vendor.AverageRating)/5 &nbsp &nbsp
+                        &nbsp &nbsp &nbsp
+                        <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @Html.DisplayFor(modelItem => vendor.PriceRange)
+                    </div>
+                    <div class="vndr-rating-list">
+                        <div>
+                        <img src="~/images/favorite.png" alt="" class="inline-icon" /> 1.2k
+                        </div>
+                        <div><img src="~/images/review.png" alt="" class="inline-icon" /> 634</div>
+                        <div><img src="~/images/camera.png" alt="" class="inline-icon" /> 23</div>
+                    </div>
+                    <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
+                </div>
+            }
         </div>
     </div>
 </div>

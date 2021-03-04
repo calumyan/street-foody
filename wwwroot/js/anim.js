@@ -39,7 +39,6 @@ function animateLines(e) {
       line3.style.transform = `rotate(${deg}deg)`;
     }
   }
-  // $("a#profile").toggleClass("invisible");
   $("#nav-links").toggleClass("open");
   $("#nav-links li").each(function () {
     $(this).toggleClass("fade");
@@ -53,3 +52,22 @@ function toggleFilterDesktop() {
 
 $("#burger").click(animateLines);
 $("button#filter").click(toggleFilterDesktop);
+
+//-------------- SEARCH PAGE ----------------
+
+const vendorCards = document.querySelectorAll(".vndr-card");
+const carets = document.querySelectorAll(".right-caret > img");
+const resultCol = document.querySelector("#result-col");
+
+function moveCaret(e) {
+  let mouse = e.target;
+  for (let i = 0; i < vendorCards.length; i++) {
+    if (mouse === vendorCards[i]) {
+      carets[i].classList.add("active");
+    } else {
+      carets[i].classList.remove("active");
+    }
+  }
+}
+
+resultCol.addEventListener("mousemove", moveCaret);
