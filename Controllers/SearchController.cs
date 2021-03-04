@@ -14,9 +14,6 @@ using System.Text;
 
 namespace street_foody.Controllers
 {
-    [Route("[controller]")]    
-    [ApiController]  
-   
     public class SearchController : Controller
     {
       private readonly Context _context;          
@@ -25,18 +22,18 @@ namespace street_foody.Controllers
         } 
 
         public IActionResult Index(string SearchValue) {
-            if (SearchValue == "" || SearchValue == null) {
+            Console.WriteLine("blabla " + SearchValue);
+            if (String.IsNullOrWhiteSpace(SearchValue)) {
                 return GetAll();
             }
             return ShowResults(SearchValue);
         }
 
-        // public IActionResult Vendor() {
-        //     return View();
-        // }
+        public IActionResult Vendor() {
+            return View();
+        }
 
-        [HttpGet("{SearchValue}")]
-        public IActionResult ShowResults(string SearchValue) {
+        private IActionResult ShowResults(string SearchValue) {
             Console.WriteLine("ShowResults executed");
             Expression<Func<StreetVendor, bool>> lambda = v => v.StandVietnameseName.ToString().Contains(SearchValue);
             var results = _context.StreetVendorDbSet.Where(lambda).ToList();
@@ -47,8 +44,8 @@ namespace street_foody.Controllers
             return View("Index", results);
         }
         
-        [HttpGet("GetAll")]
-        public IActionResult GetAll(){    
+        private IActionResult GetAll(){    
+            // This method can (and should) be rewritten using LINQ to make things look much simpler.
             List<StreetVendor> allVendors = _context.StreetVendorDbSet.ToList();
             var cs = "Host=localhost;Username=postgres;Password=street-foody;Database=street-foody";
             
@@ -59,7 +56,7 @@ namespace street_foody.Controllers
             cmd.Connection = con;
             foreach (var vendor in allVendors) {
                 string vendorID = vendor.VendorID;
-                cmd.CommandText = "SELECT * FROM \"FoodCategoryDbSet\" WHERE \"StreetVendorVendorID\"=@vendorID";
+                cmd.CommandText = "SELECT * FROM \"food_category_db_set\" WHERE \"street_vendor_vendor_id\"=@vendorID";
                 cmd.Parameters.AddWithValue("@vendorID", vendorID);
                 using NpgsqlDataReader rdr = cmd.ExecuteReader();
                 List<FoodCategory> categories = new List<FoodCategory>();
