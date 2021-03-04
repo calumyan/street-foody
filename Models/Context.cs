@@ -7,19 +7,21 @@ public class Context : DbContext
           
 }
 
-    public  DbSet<StreetVendor> StreetVendorDbSet { get; set;}
-    public DbSet<Food> FoodDbSet { get; set; }     
-    public DbSet<FoodCategory> FoodCategoryDbSet { get; set; }     
-    public DbSet<VendorHours> VendorHoursDbSet { get; set; }     
+    public  DbSet<StreetVendor> StreetVendor { get; set;}
+    public DbSet<Food> Food { get; set; }     
+    public DbSet<FoodCategory> FoodCategory { get; set; }     
+    public DbSet<VendorHours> VendorHours { get; set; }     
   
-    // protected override void OnModelCreating(ModelBuilder modelBuilder)
-    // {
-    //     modelBuilder.Entity<Vendor>().HasData(
-    //         // new Vendor{ID = "1", Name = "Uncle Tu's Bahn Mi", Location = "123 Ly Thai To, Ward 12, District 10, HCMC", Phone = "84 9024728593"},
-    //         // new Vendor{ID = "2", Name = "Uncle Tu's Bahn Mi", Location = "123 Ly Thai To, Ward 12, District 10, HCMC", Phone = "84 9024728593"},
-    //         // new Vendor{ID = "3", Name = "Uncle Tu's Bahn Mi", Location = "123 Ly Thai To, Ward 12, District 10, HCMC", Phone = "84 9024728593"}
-    //     );
-    // }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<StreetVendor>().HasData(
+            new StreetVendor{VendorID = "1", StandVietnameseName = "Uncle Myles's Bahn Mi"},
+            new StreetVendor{VendorID = "2", StandVietnameseName = "Aunt Andie's Bahn Mi"},
+            new StreetVendor{VendorID = "3", StandVietnameseName = "Aunt Carrie's Bahn Mi"},
+            new StreetVendor{VendorID = "4", StandVietnameseName = "Aunt Lucy's Bahn Mi"}
+        );
+    }
 
+    
    } 
 }

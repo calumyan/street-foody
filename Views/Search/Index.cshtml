@@ -4,6 +4,8 @@
     ViewData["Title"] = "Search";
 }
 
+
+
 <style>
     #filter-sort {
         display: flex;
@@ -128,6 +130,10 @@
 </style>
 
 
+@* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> *@
+
+
+  
 <div class="page">
     @* <partial name="~/Views/Partial/_AlertMessage.cshtml"/> *@
     <div id="alert">
@@ -188,39 +194,47 @@
 </div>
 
 
+   
 
-@section Scripts {
-   <script type="text/javascript">  
-   $(function(){
-       @* LoadData(); *@
-       $("#small-btn").click(function() {
-           @* var std = {}; *@
-           $.ajax{
-               type : 'GET',
-               url : '@Url.Action("GetAll")',
-               dataType : 'json',
-               data :  {id = ''},
-               success: function (data) {  
-            
-                $.each(data, function (item) {  
+  @* <script src="//code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+   <script type="text/javascript">
+  $(function(){
+      $(".filter").click(function(){
+           alert("Hello");  
+       });
+     });
+   
+ </script> *@
+
+@* @section Scripts { *@
+
+@* } *@
+
+
+@* $(function(){
+       $(".filter").click(function() {
+           alert("Hello");  
+       }) *@
+
+
+  @* $.each(data, function (item) {  
                     var $standVietnameseName = item.standVietnameseName;
                     
                     var $newdiv1 = $( "<div>  </div>" );
                     $newdiv1.html($standVietnameseName);
                     $("body").append($newdiv1);
-                    
-                });  
+
+                });   *@
+
+                @* $.ajax{
+               type : 'GET',
+               url : '/api/search/getAll',
+               dataType : 'json',
+               data :  {id = ''},
+               success: function (data) {  
+                     alert("Hello");  
+              
                },  
 
 
-           }
-
-       })
-   })
-   </script>
-}
-
-
-
-
-
+           } *@

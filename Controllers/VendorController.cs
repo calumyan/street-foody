@@ -15,7 +15,7 @@ namespace street_foody.Controllers {
 
       [HttpGet] 
       public ActionResult<List<StreetVendor>> GetAll(){     
-         return _context.StreetVendorDbSet.ToList(); 
+         return _context.StreetVendor.ToList(); 
       }
    } 
 }
