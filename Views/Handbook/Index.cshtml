@@ -280,7 +280,7 @@
                     and includes pork bones, herbs, and a variety of meats and
                     other ingredients.
                 </p>
-                <a href="">Find hu tieu</a>
+                <a onclick="placeNameInSearch()" href="https://localhost:5001/api/search/index">Find hu tieu</a>
             </div>
         </div>
         <!--Mi-->
@@ -462,3 +462,9 @@
     </div>
 </div>
 
+
+<script>
+ function placeNameInSearch() {
+    document.getElementById("filter").innerHTML = "Hu tieu";
+ }
+</script>

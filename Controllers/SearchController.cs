@@ -14,21 +14,35 @@ using System.Text;
 
 namespace street_foody.Controllers
 {
+    [Route("search")] 
+    [ApiController]  
     public class SearchController : Controller
     {
-      private readonly Context _context;          
+      private readonly Context _context; 
+      private List<StreetVendor> allVendors;         
         public SearchController(Context context){     
                _context = context;
+               allVendors =  _context.StreetVendor.ToList();
+
         } 
 
+        [Route("index")] 
         public IActionResult Index(string SearchValue) {
             Console.WriteLine("blabla " + SearchValue);
+            string SelectValue = Request.Form["sort"].ToString();
             if (String.IsNullOrWhiteSpace(SearchValue)) {
                 return GetAll();
+            }
+            else if (SelectValue.Equals("highestRated")) {
+                return GetVendorsSortedByRating();
+            }
+            else if(SelectValue.Equals("lowestPrice")) {
+                return GetVendorsSortedByPrice();
             }
             return ShowResults(SearchValue);
         }
 
+        [Route("vender")] 
         public IActionResult Vendor() {
             return View();
         }
@@ -36,17 +50,19 @@ namespace street_foody.Controllers
         private IActionResult ShowResults(string SearchValue) {
             Console.WriteLine("ShowResults executed");
             Expression<Func<StreetVendor, bool>> lambda = v => v.StandVietnameseName.ToString().Contains(SearchValue);
-            var results = _context.StreetVendorDbSet.Where(lambda).ToList();
+            var results = _context.StreetVendor.Where(lambda).ToList();
+            
             if (results == null) {
                 return NotFound();
             }
-            
             return View("Index", results);
         }
         
+        [Route("getAll")] 
+        [HttpGet] 
         private IActionResult GetAll(){    
             // This method can (and should) be rewritten using LINQ to make things look much simpler.
-            List<StreetVendor> allVendors = _context.StreetVendorDbSet.ToList();
+            // List<StreetVendor> allVendors = _context.StreetVendor.ToList();
             var cs = "Host=localhost;Username=postgres;Password=street-foody;Database=street-foody";
             
             using var con = new NpgsqlConnection(cs);
@@ -70,5 +86,18 @@ namespace street_foody.Controllers
             Console.WriteLine("GetAll executed");
             return View("Index", allVendors); 
         }
+
+        private IActionResult GetVendorsSortedByPrice(){
+            List<StreetVendor> sorted = allVendors.OrderBy(sv => (sv.PriceRange.ElementAt(1) + sv.PriceRange.ElementAt(0)/2)).ToList();
+            return View("Index", sorted); 
+        }
+        
+        private IActionResult GetVendorsSortedByRating(){
+            List<StreetVendor> sorted = allVendors.OrderByDescending(sv => sv.GetAverageRating()).ToList();
+            return View("Index", sorted); 
+        }
+
     }
+
+    
 }

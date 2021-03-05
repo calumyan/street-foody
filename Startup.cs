@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using street_foody.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+
 namespace street_foody
 {
     public class Startup
@@ -25,6 +28,15 @@ namespace street_foody
             services.AddDbContext<Context>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
+         
+        //     services.AddIdentity<IdentityUser, IdentityRole>()
+        // .AddEntityFrameworkStores<Context>()
+        // .AddDefaultTokenProviders();
+
+           services.AddEntityFrameworkNpgsql()
+            .AddDbContext<Context>(builder => builder.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+           
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
