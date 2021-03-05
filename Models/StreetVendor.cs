@@ -19,8 +19,8 @@ namespace street_foody.Models
         public string Description{get;set;}
         public List<FoodCategory> FoodCategories{get;set;}       
         public List<Food> Menu{get;set;}       
-        public List<int> PriceRange{get;set;}   
-        public List<int> OpeningHours{get;set;}
+        public int[] PriceRange{get;set;}   
+        public int[] OpeningHours{get;set;}
         public List<int> RatingList{get;set;}
         public string PhotoUrl{get;set;} 
         
@@ -39,11 +39,11 @@ namespace street_foody.Models
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
 
         // This constructor is only here for convenience when creating fake data in the SearchController.
-        public StreetVendor(string VNStandName, List<FoodCategory> categories, List<int> RatingList, List<int> PriceRange) {
-            this.StandVietnameseName = VNStandName; 
-            this.FoodCategories = categories;
-            this.PriceRange = PriceRange;
-            this.RatingList = RatingList;
-        }
+        // public StreetVendor(string VNStandName, List<FoodCategory> categories, List<int> RatingList, List<int> PriceRange) {
+        //     this.StandVietnameseName = VNStandName; 
+        //     this.FoodCategories = categories;
+        //     this.PriceRange = PriceRange;
+        //     this.RatingList = RatingList;
+        // }
     }
 }

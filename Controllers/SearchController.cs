@@ -19,25 +19,28 @@ namespace street_foody.Controllers
     public class SearchController : Controller
     {
       private readonly Context _context; 
-      private List<StreetVendor> allVendors;         
+    //   private List<StreetVendor> allVendors;         
         public SearchController(Context context){     
                _context = context;
-               allVendors =  _context.StreetVendor.ToList();
+               
 
         } 
 
         [Route("index")] 
         public IActionResult Index(string SearchValue) {
             Console.WriteLine("blabla " + SearchValue);
-            string SelectValue = Request.Form["sort"].ToString();
+            string SelectValue = Request.Query["sort"].ToString();
             if (String.IsNullOrWhiteSpace(SearchValue)) {
-                return GetAll();
+                // return GetAll();
             }
             else if (SelectValue.Equals("highestRated")) {
-                return GetVendorsSortedByRating();
+                Console.WriteLine("hi");
+
+                // return GetVendorsSortedByRating();
             }
             else if(SelectValue.Equals("lowestPrice")) {
-                return GetVendorsSortedByPrice();
+                 Console.WriteLine("hi2");
+                // return GetVendorsSortedByPrice();
             }
             return ShowResults(SearchValue);
         }
@@ -64,6 +67,10 @@ namespace street_foody.Controllers
             // This method can (and should) be rewritten using LINQ to make things look much simpler.
             // List<StreetVendor> allVendors = _context.StreetVendor.ToList();
             var cs = "Host=localhost;Username=postgres;Password=street-foody;Database=street-foody";
+            List<StreetVendor> allVendors =  _context.StreetVendor.ToList();
+            for(int i  =0; i < allVendors.Count; i++){
+                Console.WriteLine(allVendors.ElementAt(i));
+            }
             
             using var con = new NpgsqlConnection(cs);
             con.Open();
@@ -88,15 +95,18 @@ namespace street_foody.Controllers
         }
 
         private IActionResult GetVendorsSortedByPrice(){
+            List<StreetVendor> allVendors =  _context.StreetVendor.ToList();
             List<StreetVendor> sorted = allVendors.OrderBy(sv => (sv.PriceRange.ElementAt(1) + sv.PriceRange.ElementAt(0)/2)).ToList();
             return View("Index", sorted); 
         }
         
         private IActionResult GetVendorsSortedByRating(){
+            List<StreetVendor> allVendors =  _context.StreetVendor.ToList();
             List<StreetVendor> sorted = allVendors.OrderByDescending(sv => sv.GetAverageRating()).ToList();
             return View("Index", sorted); 
         }
-
+        
+        
     }
 
     
