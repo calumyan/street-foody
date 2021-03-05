@@ -53,7 +53,7 @@ namespace street_foody.Controllers
             con.Open();
 
             using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
+            // cmd.Connection = con;
             foreach (var vendor in allVendors) {
                 string vendorID = vendor.VendorID;
                 cmd.CommandText = "SELECT * FROM \"food_category_db_set\" WHERE \"street_vendor_vendor_id\"=@vendorID";
