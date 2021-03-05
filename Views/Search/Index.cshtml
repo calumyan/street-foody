@@ -137,7 +137,7 @@
     <div id="filter-sort">
         <button id="filter" class="small-btn" style="margin-right: 10px"><img src="~/images/filter.png" alt="" class="btn-secondary-icon">&nbsp;Filter</button>
         <div class="select">
-            <select name="sort">
+            <select id = "sort" name="sort" runat = "server">
                 <option selected value="none">Sort by</option>
                 <option value="nearest">Nearest</option>
                 <option value="highestRated">Highest Rated</option>
@@ -247,7 +247,7 @@
                         <img src="~/images/menu.png" alt="" class="inline-icon" />  
                     </div>
                     <div class="vndr-rating-price">
-                        <img src="~/images/star.png" alt="" class="inline-icon" /> @Html.DisplayFor(modelItem => vendor.AverageRating)/5 &nbsp &nbsp
+                        <img src="~/images/star.png" alt="" class="inline-icon" /> @Html.DisplayFor(modelItem => vendor.GetAverageRating())/5 &nbsp &nbsp
                         &nbsp &nbsp &nbsp
                         <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @Html.DisplayFor(modelItem => vendor.PriceRange)
                     </div>

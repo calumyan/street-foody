@@ -12,7 +12,7 @@ public class Context : DbContext
     public DbSet<Food> Food { get; set; }     
     public DbSet<FoodCategory> FoodCategory { get; set; }     
     public DbSet<VendorHours> VendorHours { get; set; }     
-  
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<StreetVendor>().HasData(
@@ -21,11 +21,13 @@ public class Context : DbContext
             new StreetVendor{VendorID = "3", StandVietnameseName = "Aunt Carrie's Bahn Mi"},
             new StreetVendor{VendorID = "4", StandVietnameseName = "Aunt Lucy's Bahn Mi"}
         );
+
+
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder
-        .UseNpgsql("Server=PostgreSQL;Host=localhost;Port=5432;Username=postgres;Password=street-foody;Database=street-foody;")
-        .UseSnakeCaseNamingConvention();
+        .UseNpgsql("Server=PostgreSQL;Host=localhost;Port=5432;Username=postgres;Password=street-foody;Database=street-foody;");
+        // .UseSnakeCaseNamingConvention();
    } 
 }
