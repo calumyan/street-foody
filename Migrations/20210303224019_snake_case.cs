@@ -161,7 +161,7 @@ namespace street_foody.Migrations
                 newName: "food_id");
 
             migrationBuilder.RenameColumn(
-                name: "FoodVietameseName",
+                name: "FoodVietnameseName",
                 table: "food_db_set",
                 newName: "food_vietnamese_name");
 

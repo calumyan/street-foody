@@ -73,14 +73,24 @@ namespace street_foody.Migrations
                 table: "food_category",
                 newName: "ix_food_category_food_id");
 
-            migrationBuilder.AlterColumn<List<int>>(
+            // migrationBuilder.AlterColumn<List<int>>(
+            //     name: "price_range",
+            //     table: "street_vendor",
+            //     type: "integer[]",
+            //     nullable: true,
+            //     oldClrType: typeof(string),
+            //     oldType: "text",
+            //     oldNullable: true);
+
+            migrationBuilder.DropColumn(
+                name: "price_range",
+                table: "street_vendor");
+
+            migrationBuilder.AddColumn<List<int>> (
                 name: "price_range",
                 table: "street_vendor",
                 type: "integer[]",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "text",
-                oldNullable: true);
+                nullable: true);
 
             migrationBuilder.AddColumn<List<int>>(
                 name: "opening_hours",
@@ -213,14 +223,24 @@ namespace street_foody.Migrations
                 table: "food_db_set",
                 newName: "ix_food_db_set_street_vendor_vendor_id");
 
-            migrationBuilder.AlterColumn<string>(
+            // migrationBuilder.AlterColumn<string>(
+            //     name: "price_range",
+            //     table: "street_vendor_db_set",
+            //     type: "text",
+            //     nullable: true,
+            //     oldClrType: typeof(List<int>),
+            //     oldType: "integer[]",
+            //     oldNullable: true);
+
+            migrationBuilder.DropColumn(
                 name: "price_range",
-                table: "street_vendor_db_set",
+                table: "street_vendor");
+
+            migrationBuilder.AddColumn<string> (
+                name: "price_range",
+                table: "street_vendor",
                 type: "text",
-                nullable: true,
-                oldClrType: typeof(List<int>),
-                oldType: "integer[]",
-                oldNullable: true);
+                nullable: true);
 
             migrationBuilder.AddColumn<double>(
                 name: "average_rating",
