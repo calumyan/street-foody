@@ -26,7 +26,7 @@ namespace street_foody.Controllers
 
         } 
 
-        [Route("index")] 
+        [Route("{SearchValue}")] 
         public IActionResult Index(string SearchValue) {
             Console.WriteLine("blabla " + SearchValue);
             string SelectValue = Request.Query["sort"].ToString();
@@ -45,7 +45,7 @@ namespace street_foody.Controllers
             return ShowResults(SearchValue);
         }
 
-        [Route("vender")] 
+        [Route("vendor")] 
         public IActionResult Vendor() {
             return View();
         }
