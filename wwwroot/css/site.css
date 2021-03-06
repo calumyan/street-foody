@@ -676,7 +676,7 @@ h2.filter-title {
 }
 
 #result-col {
-  flex: 1 0 75%;
+  flex: 1 0 80%;
   padding-left: 2rem;
   display: flex;
   flex-direction: column;
@@ -737,20 +737,16 @@ h2.filter-title {
 .right-caret {
   grid-area: next;
   cursor: pointer;
-  opacity: 0;
+  transition: all 1s ease-in-out;
 }
 
 .right-caret > img {
   height: 6rem;
   object-fit: contain;
-  transition: all 1s ease-in-out;
-  opacity: 0;
 }
 
-.right-caret > img.active {
-  visibility: visible;
+.right-caret.active > img {
   transform: translateX(70%);
-  opacity: 1;
 }
 
 .vndr-image > img {

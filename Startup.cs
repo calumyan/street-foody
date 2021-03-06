@@ -33,8 +33,8 @@ namespace street_foody
         // .AddEntityFrameworkStores<Context>()
         // .AddDefaultTokenProviders();
 
-           services.AddEntityFrameworkNpgsql()
-            .AddDbContext<Context>(builder => builder.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+        //    services.AddEntityFrameworkNpgsql()
+        //     .AddDbContext<Context>(builder => builder.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
            
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
