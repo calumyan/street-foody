@@ -22,28 +22,28 @@ namespace street_foody.Models
         public int[] PriceRange{get;set;}   
         public int[] OpeningHours{get;set;}
         public List<int> RatingList{get;set;}
+
+        public string AverageRating{get;set;}
         public string PhotoUrl{get;set;} 
         
         public StreetVendor(){
         }
 
-        public int GetAverageRating(){
+        public double GetAverageRating(){
+            if (RatingList.Count == 0) return 0;
             int totalRating = 0;
-            int count = 0;
-            foreach(int rating in RatingList){
+            foreach(var rating in RatingList){
                 totalRating+=rating;
-                count++;
             }
-            return totalRating/count;
+            return totalRating/RatingList.Count;
         }
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
 
         // This constructor is only here for convenience when creating fake data in the SearchController.
-        // public StreetVendor(string VNStandName, List<FoodCategory> categories, List<int> RatingList, List<int> PriceRange) {
-        //     this.StandVietnameseName = VNStandName; 
-        //     this.FoodCategories = categories;
-        //     this.PriceRange = PriceRange;
-        //     this.RatingList = RatingList;
-        // }
+        public StreetVendor(string VNStandName, List<int> RatingList, int[] PriceRange) {
+            this.StandVietnameseName = VNStandName; 
+            this.PriceRange = PriceRange;
+            this.RatingList = RatingList;
+        }
     }
 }

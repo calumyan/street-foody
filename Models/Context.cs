@@ -13,14 +13,14 @@ public class Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<StreetVendor>().Ignore(v => v.AverageRating);
+        
         modelBuilder.Entity<StreetVendor>().HasData(
             new StreetVendor{VendorID = "1", PriceRange = new int[]{0,1}, StandVietnameseName = "Uncle Myles's Bahn Mi"},
             new StreetVendor{VendorID = "2", PriceRange = new int[]{0,15}, StandVietnameseName = "Aunt Andie's Bahn Mi"},
             new StreetVendor{VendorID = "3", PriceRange = new int[]{0,20}, StandVietnameseName = "Aunt Carrie's Bahn Mi"},
             new StreetVendor{VendorID = "4",  PriceRange = new int[]{0,16}, StandVietnameseName = "Aunt Lucy's Bahn Mi"}
         );
-
-
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
