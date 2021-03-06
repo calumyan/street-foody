@@ -14,100 +14,83 @@ using System.Text;
 
 namespace street_foody.Controllers
 {
-    [Route("search")] 
+    [Route("Search")] 
     [ApiController]  
     public class SearchController : Controller
     {
       private readonly Context _context; 
-    //   private List<StreetVendor> allVendors;         
+      public List<StreetVendor> allVendors;         
         public SearchController(Context context){     
                _context = context;
-               
-
+               allVendors = new List<StreetVendor>();
         } 
 
-        [Route("index")] 
+        [Route("")] 
         public IActionResult Index(string SearchValue) {
-            Console.WriteLine("blabla " + SearchValue);
-            string SelectValue = Request.Query["sort"].ToString();
+            ViewBag.SearchValue = SearchValue;
             if (String.IsNullOrWhiteSpace(SearchValue)) {
-                // return GetAll();
+                return GetAll();
             }
-            else if (SelectValue.Equals("highestRated")) {
-                Console.WriteLine("hi");
-
-                // return GetVendorsSortedByRating();
+            else {
+                return ShowResults(SearchValue);
             }
-            else if(SelectValue.Equals("lowestPrice")) {
-                 Console.WriteLine("hi2");
-                // return GetVendorsSortedByPrice();
-            }
-            return ShowResults(SearchValue);
         }
 
-        [Route("vender")] 
+        [Route("Vendor")] 
         public IActionResult Vendor() {
             return View();
         }
 
-        private IActionResult ShowResults(string SearchValue) {
-            Console.WriteLine("ShowResults executed");
-            Expression<Func<StreetVendor, bool>> lambda = v => v.StandVietnameseName.ToString().Contains(SearchValue);
-            var results = _context.StreetVendor.Where(lambda).ToList();
-            
-            if (results == null) {
-                return NotFound();
+        [Route("Sort")]
+        public IActionResult Sort() {
+            Console.WriteLine(allVendors.Count);
+            string SelectValue = Request.Form["sort"];
+            Console.WriteLine(SelectValue);
+            if (SelectValue.Equals("highestRated")) {
+                Console.WriteLine("hi");
+                return GetVendorsSortedByRating();
             }
-            return View("Index", results);
+            else if(SelectValue.Equals("lowestPrice")) {
+                 Console.WriteLine("hi2");
+                return GetVendorsSortedByPrice();
+            } else {
+                return GetVendorsSortedByPrice();
+            }
+        }
+
+        private IActionResult NoResult() {
+            return View();
+        }
+
+        private IActionResult ShowResults(string SearchValue) {
+            Expression<Func<StreetVendor, bool>> lambda = v => v.StandEnglishName.Contains(SearchValue) || v.StandVietnameseName.Contains(SearchValue);
+            allVendors = _context.StreetVendor.Where(lambda).ToList();
+            foreach (StreetVendor vendor in allVendors) {
+                vendor.GetAverageRating();
+            }
+            return View("Index", allVendors);
         }
         
-        [Route("getAll")] 
-        [HttpGet] 
         private IActionResult GetAll(){    
-            // This method can (and should) be rewritten using LINQ to make things look much simpler.
-            // List<StreetVendor> allVendors = _context.StreetVendor.ToList();
-            var cs = "Host=localhost;Username=postgres;Password=street-foody;Database=street-foody";
-            List<StreetVendor> allVendors =  _context.StreetVendor.ToList();
-            for(int i  =0; i < allVendors.Count; i++){
-                Console.WriteLine(allVendors.ElementAt(i));
+            allVendors = _context.StreetVendor.ToList();
+            foreach (StreetVendor vendor in allVendors) {
+                vendor.GetAverageRating();
             }
-            
-            using var con = new NpgsqlConnection(cs);
-            con.Open();
-
-            using var cmd = new NpgsqlCommand();
-            // cmd.Connection = con;
-            foreach (var vendor in allVendors) {
-                string vendorID = vendor.VendorID;
-                cmd.CommandText = "SELECT * FROM \"food_category_db_set\" WHERE \"street_vendor_vendor_id\"=@vendorID";
-                cmd.Parameters.AddWithValue("@vendorID", vendorID);
-                using NpgsqlDataReader rdr = cmd.ExecuteReader();
-                List<FoodCategory> categories = new List<FoodCategory>();
-                int i = 10;
-                while (rdr.Read()) {
-                    FoodCategory category = new FoodCategory($"{i}", rdr.GetString(1));
-                    categories.Add(category);
-                }
-                vendor.FoodCategories = categories;
-            }
-            Console.WriteLine("GetAll executed");
             return View("Index", allVendors); 
         }
 
         private IActionResult GetVendorsSortedByPrice(){
-            List<StreetVendor> allVendors =  _context.StreetVendor.ToList();
-            List<StreetVendor> sorted = allVendors.OrderBy(sv => (sv.PriceRange.ElementAt(1) + sv.PriceRange.ElementAt(0)/2)).ToList();
+            allVendors = _context.StreetVendor.ToList();
+            List<StreetVendor> sorted = allVendors.OrderBy(sv => (sv.PriceRange[1] + sv.PriceRange[0])/2).ToList();
             return View("Index", sorted); 
         }
         
         private IActionResult GetVendorsSortedByRating(){
-            List<StreetVendor> allVendors =  _context.StreetVendor.ToList();
+            allVendors = _context.StreetVendor.ToList();
             List<StreetVendor> sorted = allVendors.OrderByDescending(sv => sv.GetAverageRating()).ToList();
             return View("Index", sorted); 
         }
         
-        
     }
 
-    
 }

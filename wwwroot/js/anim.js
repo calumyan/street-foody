@@ -56,7 +56,7 @@ $("button#filter").click(toggleFilterDesktop);
 //-------------- SEARCH PAGE ----------------
 
 const vendorCards = document.querySelectorAll(".vndr-card");
-const carets = document.querySelectorAll(".right-caret > img");
+const carets = document.querySelectorAll(".right-caret");
 const resultCol = document.querySelector("#result-col");
 
 function moveCaret(e) {
