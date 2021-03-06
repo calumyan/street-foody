@@ -30,16 +30,16 @@ namespace street_foody.Controllers
             Console.WriteLine("blabla " + SearchValue);
             string SelectValue = Request.Query["sort"].ToString();
             if (String.IsNullOrWhiteSpace(SearchValue)) {
-                return GetAll();
+                // return GetAll();
             }
             else if (SelectValue.Equals("highestRated")) {
                 Console.WriteLine("hi");
 
-                return GetVendorsSortedByRating();
+                // return GetVendorsSortedByRating();
             }
             else if(SelectValue.Equals("lowestPrice")) {
                  Console.WriteLine("hi2");
-                 return GetVendorsSortedByPrice();
+                // return GetVendorsSortedByPrice();
             }
             return ShowResults(SearchValue);
         }
