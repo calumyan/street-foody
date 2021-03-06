@@ -31,16 +31,16 @@ namespace street_foody.Controllers
             Console.WriteLine("blabla " + SearchValue);
             string SelectValue = Request.Query["sort"].ToString();
             if (String.IsNullOrWhiteSpace(SearchValue)) {
-                return GetAll();
+                // return GetAll();
             }
             else if (SelectValue.Equals("highestRated")) {
                 Console.WriteLine("hi");
 
-                return GetVendorsSortedByRating();
+                // return GetVendorsSortedByRating();
             }
             else if(SelectValue.Equals("lowestPrice")) {
                  Console.WriteLine("hi2");
-                 return GetVendorsSortedByPrice();
+                // return GetVendorsSortedByPrice();
             }
             return ShowResults(SearchValue);
         }
@@ -96,7 +96,7 @@ namespace street_foody.Controllers
 
         private IActionResult GetVendorsSortedByPrice(){
             List<StreetVendor> allVendors =  _context.StreetVendor.ToList();
-            List<StreetVendor> sorted = allVendors.OrderBy(sv => (sv.PriceRange[1] + sv.PriceRange[0]/2)).ToList();
+            List<StreetVendor> sorted = allVendors.OrderBy(sv => (sv.PriceRange.ElementAt(1) + sv.PriceRange.ElementAt(0)/2)).ToList();
             return View("Index", sorted); 
         }
         
