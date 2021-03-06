@@ -63,7 +63,7 @@ namespace street_foody.Controllers
         }
 
         private IActionResult ShowResults(string SearchValue) {
-            Expression<Func<StreetVendor, bool>> lambda = v => v.StandVietnameseName.Contains(SearchValue);
+            Expression<Func<StreetVendor, bool>> lambda = v => v.StandEnglishName.Contains(SearchValue) || v.StandVietnameseName.Contains(SearchValue);
             allVendors = _context.StreetVendor.Where(lambda).ToList();
             foreach (StreetVendor vendor in allVendors) {
                 vendor.GetAverageRating();
