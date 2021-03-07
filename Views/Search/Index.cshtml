@@ -12,7 +12,7 @@
     <div id="filter-sort">
         <button id="filter" class="small-btn" style="margin-right: 10px"><img src="~/images/filter.png" alt="" class="btn-secondary-icon">&nbsp;Filter</button>
         <div class="select">
-            <form id="sort-form" asp-controller="Search" asp-action="Sort" method="POST">
+            <form id="sort-form" method="POST">
                 <select form="sort-form" name="sort" onchange="this.form.submit()">
                     <option value="none">Sort by</option>
                     <option value="nearest">Nearest</option>
@@ -64,15 +64,6 @@
                 <div>
                     <input type="checkbox" class="checkbox" id="4.5p" name="4.5p" />
                     <label for="4.5p"> 4.5+ </label>
-                </div>
-                 <div>
-                    <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="4.0-4.5"
-                    name="4.0-4.5"
-                    />
-                    <label for="4.0-4.5"> 4.0+ </label>
                 </div>
                 <div>
                     <input

@@ -26,7 +26,7 @@ public class Context : DbContext
             new StreetVendor{VendorID = "4", StandVietnameseName = "Xôi", StandEnglishName = "Sticky rice", RatingList = new int[]{3}, PriceRange = new int[]{10000,15000}},
             new StreetVendor{VendorID = "5", StandVietnameseName = "Ăn vặt, trà sữa đường Vĩnh Viễn", StandEnglishName = "Vinh Vien St. snacks and boba tea", RatingList = new int[]{}, PriceRange = new int[]{14000,29000}, PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/156646575_817247045527459_8464517707157016028_n.jpg?_nc_cat=1&ccb=3&_nc_sid=b9115d&_nc_ohc=7qGQxbPz5GIAX94w5F1&_nc_ht=scontent.ffcm1-2.fna&oh=66f3c0a1330121b1100836f404c5ced8&oe=60685917"},
             new StreetVendor{VendorID = "6", StandVietnameseName = "Bún bò Bàu Sen", StandEnglishName = "Bau Sen market beef vermicelli soup", RatingList = new int[]{5}, PriceRange = new int[]{35000,45000}, PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/84698123_1286864361515233_6961019376854106112_n.jpg?_nc_cat=108&ccb=3&_nc_sid=730e14&_nc_ohc=E1KHA4sGlc4AX_ZY4Mn&_nc_ht=scontent.ffcm1-2.fna&oh=8a56d06173f2342f91f7da037f89fff0&oe=60666BCB"},
-            new StreetVendor{VendorID = "7", StandVietnameseName = "Trà sữa Anva", StandEnglishName = "Anva boba tea", RatingList = new int[]{}, PriceRange = new int[]{}, PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/155165695_240195354407050_2744091707808776661_n.jpg?_nc_cat=101&ccb=3&_nc_sid=8bfeb9&_nc_ohc=05vpqk1kzbAAX9TFzD4&_nc_ht=scontent.ffcm1-2.fna&oh=6b0b19a21677cc60dc3c605d0746e109&oe=606906E4"},
+            new StreetVendor{VendorID = "7", StandVietnameseName = "Trà sữa Anva", StandEnglishName = "Anva boba tea", RatingList = new int[]{}, PriceRange = new int[]{99999999, 99999999}, PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/155165695_240195354407050_2744091707808776661_n.jpg?_nc_cat=101&ccb=3&_nc_sid=8bfeb9&_nc_ohc=05vpqk1kzbAAX9TFzD4&_nc_ht=scontent.ffcm1-2.fna&oh=6b0b19a21677cc60dc3c605d0746e109&oe=606906E4"},
             new StreetVendor{VendorID = "8", StandVietnameseName = "Xôi ngọt chị Ú", StandEnglishName = "Chubby sis's sweet sticky rice", PriceRange = new int[]{20000,25000}, PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/155122691_1246898299037777_4391716006726234458_n.jpg?_nc_cat=107&ccb=3&_nc_sid=b9115d&_nc_ohc=Oh-3nRYX_ywAX_XtP7F&_nc_ht=scontent.ffcm1-2.fna&oh=6d0ae3ea925ae24e6cc4fefe7eb8f5ec&oe=606915A1"},
             new StreetVendor{VendorID = "9", StandVietnameseName = "Tiger Tea", StandEnglishName = "Tiger Tea", RatingList = new int[]{5}, PriceRange = new int[]{15000,40000}, PhotoUrl = "https://scontent.ffcm1-1.fna.fbcdn.net/v/t1.0-9/155512636_546860506277469_3968119529767571609_o.jpg?_nc_cat=109&ccb=3&_nc_sid=b9115d&_nc_ohc=a11O8kknWEQAX-WDDGL&_nc_ht=scontent.ffcm1-1.fna&oh=2bb5aef40ca9ab14683c771ff074e599&oe=6066F325"},
             new StreetVendor{VendorID = "10", StandVietnameseName = "Bánh tráng Bà Ngoại", StandEnglishName = "Grandma's rice paper mix", RatingList = new int[]{5,5,5,4}, PriceRange = new int[]{15000,15000}, PhotoUrl = "https://static.riviu.co/960/image/2021/01/23/507d435341a6bf9a8b78f73b2498cff8_output.jpeg"},
@@ -37,23 +37,23 @@ public class Context : DbContext
             new StreetVendor{VendorID = "15", StandVietnameseName = "Green Box (Gibi)", StandEnglishName = "Green Box (Gibi)", RatingList = new int[]{3,4,4}, PriceRange = new int[]{5000,40000}, PhotoUrl = "https://static.riviu.co/960/image/2020/12/04/67fabbc325dd84ba17fdc0e6e63978e9_output.jpeg"}
         );
 
-        modelBuilder.Entity<VendorHours>().HasData(
-          new VendorHours{VendorID = "1", Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", VendorDates = "Sun-Sat", StartTime = "3pm", EndTime = "9pm"},
-          new VendorHours{VendorID = "2", Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC", VendorDates = "Mon-Sat", StartTime = "5am", EndTime = "11am"},
-          new VendorHours{VendorID = "3", Location = "10-12 Dinh Tien Hoang St., Ben Nghe Ward, District 1, HCMC", VendorDates = "Mon-Fri", StartTime = "10am", EndTime = "12pm"},
-          new VendorHours{VendorID = "4", Location = "217 Hong Bang, Ward 1, District 5, HCMC", VendorDates = "Mon-Fri", StartTime = "6am", EndTime = "8am"},
-          new VendorHours{VendorID = "5", Location = "82 Vinh Vien, Ward 2, District 10, HCMC", VendorDates = "Sun-Sat", StartTime = "9am", EndTime = "10pm"},
-          new VendorHours{VendorID = "6", Location = "138 Nguyen Trai, Ward 3, District 5", VendorDates = "Sun-Sat", StartTime = "5pm", EndTime = "12am"},
-          new VendorHours{VendorID = "7", Location = "267 Pham Van Chi, Ward 3, District 6", VendorDates = "Sun-Sat", StartTime = "11am", EndTime = "9pm"},
-          new VendorHours{VendorID = "8", Location = "8 Phan Van Han, Ward 19, Binh Thanh District", VendorDates = "Sun-Sat", StartTime = "3pm", EndTime = "N/A"},
-          new VendorHours{VendorID = "9", Location = "27 Thanh Da, Ward 27, Binh Thanh District", VendorDates = "Sun-Sat", StartTime = "6pm", EndTime = "10pm"},
-          new VendorHours{VendorID = "10", Location = "623/20 CMT8, P.15, Q.10", VendorDates = "Sun-Sat", StartTime = "5:30pm", EndTime = "10pm"},
-          new VendorHours{VendorID = "11", Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC", VendorDates = "Sun-Sat", StartTime = "11am", EndTime = "5pm"},
-          new VendorHours{VendorID = "12", Location = "246/55A Hoa Hung, Ward 13, District 10", VendorDates = "Sun-Sat", StartTime = "6am", EndTime = "9pm"},
-          new VendorHours{VendorID = "13", Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District", VendorDates = "Sun-Sat", StartTime = "6pm", EndTime = "10pm"},
-          new VendorHours{VendorID = "14", Location = "Le Van Tam Park", VendorDates = "Sun-Sat", StartTime = "5pm", EndTime = "10pm"},
-          new VendorHours{VendorID = "15", Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM", VendorDates = "Sun-Sat", StartTime = "12pm", EndTime = "11pm"}
-        );
+        // modelBuilder.Entity<VendorHours>().HasData(
+        //   new VendorHours{VendorID = "1", Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", VendorDates = "Sun-Sat", StartTime = "3pm", EndTime = "9pm"},
+        //   new VendorHours{VendorID = "2", Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC", VendorDates = "Mon-Sat", StartTime = "5am", EndTime = "11am"},
+        //   new VendorHours{VendorID = "3", Location = "10-12 Dinh Tien Hoang St., Ben Nghe Ward, District 1, HCMC", VendorDates = "Mon-Fri", StartTime = "10am", EndTime = "12pm"},
+        //   new VendorHours{VendorID = "4", Location = "217 Hong Bang, Ward 1, District 5, HCMC", VendorDates = "Mon-Fri", StartTime = "6am", EndTime = "8am"},
+        //   new VendorHours{VendorID = "5", Location = "82 Vinh Vien, Ward 2, District 10, HCMC", VendorDates = "Sun-Sat", StartTime = "9am", EndTime = "10pm"},
+        //   new VendorHours{VendorID = "6", Location = "138 Nguyen Trai, Ward 3, District 5", VendorDates = "Sun-Sat", StartTime = "5pm", EndTime = "12am"},
+        //   new VendorHours{VendorID = "7", Location = "267 Pham Van Chi, Ward 3, District 6", VendorDates = "Sun-Sat", StartTime = "11am", EndTime = "9pm"},
+        //   new VendorHours{VendorID = "8", Location = "8 Phan Van Han, Ward 19, Binh Thanh District", VendorDates = "Sun-Sat", StartTime = "3pm", EndTime = "N/A"},
+        //   new VendorHours{VendorID = "9", Location = "27 Thanh Da, Ward 27, Binh Thanh District", VendorDates = "Sun-Sat", StartTime = "6pm", EndTime = "10pm"},
+        //   new VendorHours{VendorID = "10", Location = "623/20 CMT8, P.15, Q.10", VendorDates = "Sun-Sat", StartTime = "5:30pm", EndTime = "10pm"},
+        //   new VendorHours{VendorID = "11", Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC", VendorDates = "Sun-Sat", StartTime = "11am", EndTime = "5pm"},
+        //   new VendorHours{VendorID = "12", Location = "246/55A Hoa Hung, Ward 13, District 10", VendorDates = "Sun-Sat", StartTime = "6am", EndTime = "9pm"},
+        //   new VendorHours{VendorID = "13", Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District", VendorDates = "Sun-Sat", StartTime = "6pm", EndTime = "10pm"},
+        //   new VendorHours{VendorID = "14", Location = "Le Van Tam Park", VendorDates = "Sun-Sat", StartTime = "5pm", EndTime = "10pm"},
+        //   new VendorHours{VendorID = "15", Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM", VendorDates = "Sun-Sat", StartTime = "12pm", EndTime = "11pm"}
+        // );
 
         modelBuilder.Entity<FoodCategory>().HasData(
           new FoodCategory{FoodCategoryID = "1", CategoryVietnameseName = "Phở", CategoryEnglishName = "Pho", Description = " A soup with rice noodles, herbs, and meat. Pho in Saigon tends to have a clearer broth, and can include bean sprouts, fresh sliced chili, hoisin sauce, and additional herbs. Pho is considered to be Vietnam's national dish."},
