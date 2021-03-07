@@ -65,9 +65,6 @@ namespace street_foody.Controllers
             if (FilterValue.Equals("open-now")) {
                 return GetOpenedVendors();
             }
-            // else if(FilterValue.Equals("lowestPrice")) {
-            //     return GetVendorsSortedByPrice();
-            // } 
             else {
                 return GetAll();
             }
@@ -112,14 +109,14 @@ namespace street_foody.Controllers
             string curTime = DateTime.Now.ToString("hh:mm");
             Console.WriteLine(curTime);
             int curr = GetTime(curTime.Split(":"));
-            foreach(StreetVendor sv in allVendors){
-                if(sv.OpeningHours == null) continue;
-                string startTime = sv.OpeningHours[0];
-                string endTime = sv.OpeningHours[1];
-                int start = GetTime(startTime.Split(":"));
-                int end = GetTime(endTime.Split(":"));
-                if(start >= curr && end >= curr) opened.Add(sv); 
-            }
+            // foreach(){
+                // if(sv.OpeningHours == null) continue;
+                // string startTime = sv.OpeningHours[0];
+                // string endTime = sv.OpeningHours[1];
+                // int start = GetTime(startTime.Split(":"));
+                // int end = GetTime(endTime.Split(":"));
+                // if(start >= curr && end >= curr) opened.Add(sv); 
+            // }
             return View("Index", opened); 
         }
 
