@@ -97,11 +97,11 @@ namespace street_foody.Controllers
         
         private List<StreetVendor> ShowSearchedResults(string SearchValue) {
             Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
-            List<StreetVendor> searchedVendors = _context.StreetVendor.Where(lambda).ToList();
+            allVendors = _context.StreetVendor.Where(lambda).ToList();
             foreach (StreetVendor vendor in allVendors) {
                 vendor.GetAverageRating();
             }
-            return searchedVendors;
+            return allVendors;
         }
         
         private List<StreetVendor> GetAll(){    
