@@ -25,7 +25,7 @@ namespace street_foody.Controllers
                allVendors = new List<StreetVendor>();
         } 
 
-        [Route("")] 
+        // [Route("")] 
         public IActionResult Index(string SearchValue) {
             ViewBag.SearchValue = SearchValue;
             string SelectValue = null;
@@ -35,7 +35,7 @@ namespace street_foody.Controllers
                 result = GetAll();
             }
             else{
-                result = ShowSearchedResults(SearchValue);
+                result = GetSearchedResults(SearchValue);
             }
             try{
                 SelectValue = Request.Form["sort"];
@@ -47,10 +47,10 @@ namespace street_foody.Controllers
                 if (SelectValue.Equals("highestRated")) {
 
                 result = GetVendorsSortedByRating(result);
-            }
-            else if(SelectValue.Equals("lowestPrice")) {
+                }
+                else if(SelectValue.Equals("lowestPrice")) {
                 result = GetVendorsSortedByPrice(result);
-            }
+               }
             
             }
             return View("Index", result);
@@ -95,6 +95,7 @@ namespace street_foody.Controllers
         // }
     
         
+<<<<<<< HEAD
         private List<StreetVendor> ShowSearchedResults(string SearchValue) {
             Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
             allVendors = _context.StreetVendor.Where(lambda).ToList();
@@ -104,6 +105,8 @@ namespace street_foody.Controllers
             return allVendors;
         }
         
+=======
+>>>>>>> 499b7ac829308a048a204bfcd20f9a13e7aba3f9
         private List<StreetVendor> GetAll(){    
             allVendors = _context.StreetVendor.ToList();
             foreach (StreetVendor vendor in allVendors) {
@@ -112,6 +115,16 @@ namespace street_foody.Controllers
             return allVendors;
         }
 
+        private List<StreetVendor> GetSearchedResults(string SearchValue) {
+            Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
+            List<StreetVendor> searchedVendors = _context.StreetVendor.Where(lambda).ToList();
+            foreach (StreetVendor vendor in searchedVendors) {
+                vendor.GetAverageRating();
+            }
+            return searchedVendors;
+        }
+        
+        
         private List<StreetVendor> GetVendorsSortedByPrice(List<StreetVendor> vendors){
             // allVendors = _context.StreetVendor.ToList();
             List<StreetVendor> sorted = vendors.OrderBy(sv => (sv.PriceRange[1] + sv.PriceRange[0])/2).ToList();
