@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using street_foody.Models;
@@ -10,9 +11,10 @@ using street_foody.Models;
 namespace street_foody.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210307003756_vendor_hours_update_and_seeding")]
+    partial class vendor_hours_update_and_seeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -328,8 +330,8 @@ namespace street_foody.Migrations
                         .HasColumnType("text")
                         .HasColumnName("description");
 
-                    b.Property<string[]>("OpeningHours")
-                        .HasColumnType("text[]")
+                    b.Property<int[]>("OpeningHours")
+                        .HasColumnType("integer[]")
                         .HasColumnName("opening_hours");
 
                     b.Property<string>("PhoneNumber")
@@ -404,7 +406,7 @@ namespace street_foody.Migrations
                             VendorID = "5",
                             PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/156646575_817247045527459_8464517707157016028_n.jpg?_nc_cat=1&ccb=3&_nc_sid=b9115d&_nc_ohc=7qGQxbPz5GIAX94w5F1&_nc_ht=scontent.ffcm1-2.fna&oh=66f3c0a1330121b1100836f404c5ced8&oe=60685917",
                             PriceRange = new[] { 14000, 29000 },
-                            RatingList = new[] { 10000, 18000 },
+                            RatingList = new int[0],
                             StandEnglishName = "Vinh Vien St. snacks and boba tea",
                             StandVietnameseName = "Ăn vặt, trà sữa đường Vĩnh Viễn"
                         },
@@ -421,7 +423,7 @@ namespace street_foody.Migrations
                         {
                             VendorID = "7",
                             PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/155165695_240195354407050_2744091707808776661_n.jpg?_nc_cat=101&ccb=3&_nc_sid=8bfeb9&_nc_ohc=05vpqk1kzbAAX9TFzD4&_nc_ht=scontent.ffcm1-2.fna&oh=6b0b19a21677cc60dc3c605d0746e109&oe=606906E4",
-                            PriceRange = new[] { 10000, 10000 },
+                            PriceRange = new int[0],
                             RatingList = new int[0],
                             StandEnglishName = "Anva boba tea",
                             StandVietnameseName = "Trà sữa Anva"

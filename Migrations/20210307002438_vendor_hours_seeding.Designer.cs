@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using street_foody.Models;
@@ -10,9 +11,10 @@ using street_foody.Models;
 namespace street_foody.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210307002438_vendor_hours_seeding")]
+    partial class vendor_hours_seeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -328,8 +330,8 @@ namespace street_foody.Migrations
                         .HasColumnType("text")
                         .HasColumnName("description");
 
-                    b.Property<string[]>("OpeningHours")
-                        .HasColumnType("text[]")
+                    b.Property<int[]>("OpeningHours")
+                        .HasColumnType("integer[]")
                         .HasColumnName("opening_hours");
 
                     b.Property<string>("PhoneNumber")
@@ -404,7 +406,7 @@ namespace street_foody.Migrations
                             VendorID = "5",
                             PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/156646575_817247045527459_8464517707157016028_n.jpg?_nc_cat=1&ccb=3&_nc_sid=b9115d&_nc_ohc=7qGQxbPz5GIAX94w5F1&_nc_ht=scontent.ffcm1-2.fna&oh=66f3c0a1330121b1100836f404c5ced8&oe=60685917",
                             PriceRange = new[] { 14000, 29000 },
-                            RatingList = new[] { 10000, 18000 },
+                            RatingList = new int[0],
                             StandEnglishName = "Vinh Vien St. snacks and boba tea",
                             StandVietnameseName = "Ăn vặt, trà sữa đường Vĩnh Viễn"
                         },
@@ -421,7 +423,7 @@ namespace street_foody.Migrations
                         {
                             VendorID = "7",
                             PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/155165695_240195354407050_2744091707808776661_n.jpg?_nc_cat=101&ccb=3&_nc_sid=8bfeb9&_nc_ohc=05vpqk1kzbAAX9TFzD4&_nc_ht=scontent.ffcm1-2.fna&oh=6b0b19a21677cc60dc3c605d0746e109&oe=606906E4",
-                            PriceRange = new[] { 10000, 10000 },
+                            PriceRange = new int[0],
                             RatingList = new int[0],
                             StandEnglishName = "Anva boba tea",
                             StandVietnameseName = "Trà sữa Anva"
@@ -501,9 +503,9 @@ namespace street_foody.Migrations
 
             modelBuilder.Entity("street_foody.Models.VendorHours", b =>
                 {
-                    b.Property<string>("VendorHoursID")
+                    b.Property<string>("VendorID")
                         .HasColumnType("text")
-                        .HasColumnName("vendor_hours_id");
+                        .HasColumnName("vendor_id");
 
                     b.Property<string>("EndTime")
                         .HasColumnType("text")
@@ -517,15 +519,11 @@ namespace street_foody.Migrations
                         .HasColumnType("text")
                         .HasColumnName("start_time");
 
-                    b.Property<string>("VendorDates")
+                    b.Property<string>("VendorHoursInfo")
                         .HasColumnType("text")
-                        .HasColumnName("vendor_dates");
+                        .HasColumnName("vendor_hours_info");
 
-                    b.Property<string>("VendorID")
-                        .HasColumnType("text")
-                        .HasColumnName("vendor_id");
-
-                    b.HasKey("VendorHoursID")
+                    b.HasKey("VendorID")
                         .HasName("pk_vendor_hours");
 
                     b.ToTable("vendor_hours");
@@ -533,138 +531,123 @@ namespace street_foody.Migrations
                     b.HasData(
                         new
                         {
-                            VendorHoursID = "1",
+                            VendorID = "1",
                             EndTime = "9pm",
                             Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC",
                             StartTime = "3pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "1"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "2",
+                            VendorID = "2",
                             EndTime = "11am",
                             Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC",
                             StartTime = "5am",
-                            VendorDates = "Mon-Sat",
-                            VendorID = "2"
+                            VendorHoursInfo = "Mon-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "3",
+                            VendorID = "3",
                             EndTime = "12pm",
                             Location = "10-12 Dinh Tien Hoang St., Ben Nghe Ward, District 1, HCMC",
                             StartTime = "10am",
-                            VendorDates = "Mon-Fri",
-                            VendorID = "3"
+                            VendorHoursInfo = "Mon-Fri"
                         },
                         new
                         {
-                            VendorHoursID = "4",
+                            VendorID = "4",
                             EndTime = "8am",
                             Location = "217 Hong Bang, Ward 1, District 5, HCMC",
                             StartTime = "6am",
-                            VendorDates = "Mon-Fri",
-                            VendorID = "4"
+                            VendorHoursInfo = "Mon-Fri"
                         },
                         new
                         {
-                            VendorHoursID = "5",
+                            VendorID = "5",
                             EndTime = "10pm",
                             Location = "82 Vinh Vien, Ward 2, District 10, HCMC",
                             StartTime = "9am",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "5"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "6",
+                            VendorID = "6",
                             EndTime = "12am",
                             Location = "138 Nguyen Trai, Ward 3, District 5",
                             StartTime = "5pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "6"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "7",
+                            VendorID = "7",
                             EndTime = "9pm",
                             Location = "267 Pham Van Chi, Ward 3, District 6",
                             StartTime = "11am",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "7"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "8",
+                            VendorID = "8",
                             EndTime = "N/A",
                             Location = "8 Phan Van Han, Ward 19, Binh Thanh District",
                             StartTime = "3pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "8"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "9",
+                            VendorID = "9",
                             EndTime = "10pm",
                             Location = "27 Thanh Da, Ward 27, Binh Thanh District",
                             StartTime = "6pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "9"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "10",
+                            VendorID = "10",
                             EndTime = "10pm",
                             Location = "623/20 CMT8, P.15, Q.10",
                             StartTime = "5:30pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "10"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "11",
+                            VendorID = "11",
                             EndTime = "5pm",
                             Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC",
                             StartTime = "11am",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "11"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "12",
+                            VendorID = "12",
                             EndTime = "9pm",
                             Location = "246/55A Hoa Hung, Ward 13, District 10",
                             StartTime = "6am",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "12"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "13",
+                            VendorID = "13",
                             EndTime = "10pm",
                             Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District",
                             StartTime = "6pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "13"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "14",
+                            VendorID = "14",
                             EndTime = "10pm",
                             Location = "Le Van Tam Park",
                             StartTime = "5pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "14"
+                            VendorHoursInfo = "Sun-Sat"
                         },
                         new
                         {
-                            VendorHoursID = "15",
+                            VendorID = "15",
                             EndTime = "11pm",
                             Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM",
                             StartTime = "12pm",
-                            VendorDates = "Sun-Sat",
-                            VendorID = "15"
+                            VendorHoursInfo = "Sun-Sat"
                         });
                 });
 

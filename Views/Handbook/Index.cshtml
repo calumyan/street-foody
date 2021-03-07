@@ -47,7 +47,6 @@
 
     <!---Grid of food photos and information-->
     <!--Gallery of food-->
-
     <div class="gallery">
         <!--Banh Bao-->
         <div class="card">
@@ -94,7 +93,7 @@
                     pork, mushrooms, and shallots.
 
                 </p>
-                <a href="">Find banh cuon</a>
+                <a  href="">Find banh cuon</a>
             </div>
         </div>
         <!--Banh Mi-->
@@ -142,7 +141,7 @@
                     served with meats and vegetables, or in goi cuon.
 
                 </p>
-                <a href="">Find bun</a>
+                <a  href="">Find bun</a>
             </div>
         </div>
         <!--Chao-->
@@ -158,7 +157,7 @@
                     as well as vegetables, and can also be served with youtiao (a type of fried dough).
 
                 </p>
-                <a href="">Find chao</a>
+                <a  href="">Find chao</a>
             </div>
         </div>
         <!--Com tam-->
@@ -175,7 +174,7 @@
                     vegetables, and fish sauce.
 
                 </p>
-                <a href="">Find com tam</a>
+                <a  href="">Find com tam</a>
             </div>
         </div>
         <!--Cuon-->
@@ -190,7 +189,7 @@
                     Any Vietnamese traditional food that comes in the form of rolls, e.g. summer rolls,
                     egg rolls, bo bia, .... Wrappers are commonly made from rice papers or betel leaves.
                 </p>
-                <a href="">Find cuon</a>
+                <a  href="">Find cuon</a>
             </div>
         </div>
         <!--Diem sam-->
@@ -222,7 +221,7 @@
                     and includes pork bones, herbs, and a variety of meats and
                     other ingredients.
                 </p>
-                <a onclick="placeNameInSearch()" href="https://localhost:5001/api/search/index">Find hu tieu</a>
+                <a href="">Find hu tieu</a>
             </div>
         </div>
         <!--Mi-->
@@ -441,9 +440,11 @@
     </div>
 </div>
 
-
 <script>
- function placeNameInSearch() {
-    document.getElementById("filter").innerHTML = "Hu tieu";
- }
+    const findCategory = document.querySelectorAll("a");
+    findCategory.forEach(a => {
+        const category = a.innerHTML.substring(5);
+        a.href = `Search?SearchValue=${category}`;
+    });
 </script>
+
