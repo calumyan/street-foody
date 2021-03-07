@@ -14,10 +14,11 @@ namespace street_foody.Models
         public string VendorID{get; set;}
         [Key]
         public string VendorHoursID{get; set;}
-        public string VendorDates{get;set;}
         public string Location{get;set;}
+        public string VendorDates{get;set;}
         public string StartTime {get;set;}
         public string EndTime {get;set;}
-        // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
+
+        
     }
 }

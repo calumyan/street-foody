@@ -20,7 +20,7 @@ namespace street_foody.Models
         public List<FoodCategory> FoodCategories{get;set;}       
         public List<Food> Menu{get;set;}       
         public int[] PriceRange{get;set;}   
-        public int[] OpeningHours{get;set;}
+        // public string[] OpeningHours{get;set;}
 
         public int[] RatingList{get;set;}
 
@@ -28,6 +28,8 @@ namespace street_foody.Models
         public string AverageRating{get;set;}
         public string PhotoUrl{get;set;} 
         
+        [NotMapped]
+        public List<VendorHours> VendorHours{get;set;}  
         public StreetVendor(){
         }
 
@@ -50,6 +52,8 @@ namespace street_foody.Models
             AverageRating = result + "/5 (" + RatingList.Length + ")";
             return result;
         }
+
+        // public void addVendorHours()
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
 
         // This constructor is only here for convenience when creating fake data in the SearchController.

@@ -86,13 +86,13 @@ namespace street_foody.Migrations
                 name: "price_range",
                 table: "street_vendor");
 
-            migrationBuilder.AddColumn<List<int>> (
+            migrationBuilder.AddColumn<int[]> (
                 name: "price_range",
                 table: "street_vendor",
                 type: "integer[]",
                 nullable: true);
 
-            migrationBuilder.AddColumn<List<int>>(
+            migrationBuilder.AddColumn<int[]>(
                 name: "opening_hours",
                 table: "street_vendor",
                 type: "integer[]",

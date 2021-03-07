@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using street_foody.Models;
@@ -10,9 +11,10 @@ using street_foody.Models;
 namespace street_foody.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210306221410_seed in data")]
+    partial class seedindata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,211 +113,6 @@ namespace street_foody.Migrations
                         .HasDatabaseName("ix_food_category_food_id");
 
                     b.ToTable("food_category");
-
-                    b.HasData(
-                        new
-                        {
-                            FoodCategoryID = "1",
-                            CategoryEnglishName = "Pho",
-                            CategoryVietnameseName = "Phở",
-                            Description = " A soup with rice noodles, herbs, and meat. Pho in Saigon tends to have a clearer broth, and can include bean sprouts, fresh sliced chili, hoisin sauce, and additional herbs. Pho is considered to be Vietnam's national dish."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "2",
-                            CategoryEnglishName = "Rice noodles, or simply hu tieu",
-                            CategoryVietnameseName = "Hủ tiếu",
-                            Description = "This noodle dish can be served with or without broth (dry) and includes pork bones, herbs, and a variety of meats and other ingredients."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "3",
-                            CategoryEnglishName = "Egg noodles",
-                            CategoryVietnameseName = "Mì",
-                            Description = "Noodles made out of wheat flour or egg noodles. These noodles can be thick or thin, and can be served in soups or dry (without broth)."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "4",
-                            CategoryEnglishName = "Vietnamese rice vermicelli",
-                            CategoryVietnameseName = "Bún",
-                            Description = "These thin rice noodles, also known as rice vermicelli, can be found in soups, served with meats and vegetables, or in goi cuon."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "5",
-                            CategoryEnglishName = "Tapioca noodles, banh canh",
-                            CategoryVietnameseName = "Bánh canh",
-                            Description = "Thick tapioca noodles that can be served with a variety of broths and toppings, which can include crab, fish cakes, pork, and more."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "6",
-                            CategoryEnglishName = "Cellophane noodles/glass noodles",
-                            CategoryVietnameseName = "Miến",
-                            Description = "Also known as cellophane or glass noodles, these help make up Vietnamese dishes like mien ga, a chicken soup. Often confused with bun, or rice vermicelli, glass noodles can be distinguished by their clear glass-like appearance when cooked."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "7",
-                            CategoryEnglishName = "Vietnamese macaroni",
-                            CategoryVietnameseName = "Nui",
-                            Description = "These noodles are Vietnamese macaroni, and are often included in Vietnamese chicken and noodle soups."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "8",
-                            CategoryEnglishName = "Steamed rice rolls, Rice noodle rolls",
-                            CategoryVietnameseName = "Bánh cuốn",
-                            Description = "Rice noodle rolls made from thin sheets of fermented rice that are steamed and filled with pork, mushrooms, and shallots."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "9",
-                            CategoryEnglishName = "Vietnamese broken rice",
-                            CategoryVietnameseName = "Cơm tấm",
-                            Description = "This dish is made from broken rice grains, and is quite popular in Saigon. It often includes grilled pork ribs, fried egg, scallions, fresh and pickled vegetables, and fish sauce."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "10",
-                            CategoryEnglishName = "Congee",
-                            CategoryVietnameseName = "Cháo",
-                            Description = "Vietnamese congee, or rice porridge. It can be combined with chicken, duck, or pork and broth, as well as vegetables, and can also be served with youtiao (a type of fried dough)."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "11",
-                            CategoryEnglishName = "Egg drop soup",
-                            CategoryVietnameseName = "Súp",
-                            Description = "A type of thick, chunky soup made from flavored soup base, egg and tapioca starch. Other typical ingredients include quail eggs, crab meat, pig brain, mushrooms and vegetables. In English, known as egg drop soup."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "12",
-                            CategoryEnglishName = "Sticky rice",
-                            CategoryVietnameseName = "Xôi",
-                            Description = ""
-                        },
-                        new
-                        {
-                            FoodCategoryID = "13",
-                            CategoryEnglishName = "Vietnamese sandwich",
-                            CategoryVietnameseName = "Bánh mì",
-                            Description = "A sandwich made with a short baguette that often includes pork, cucumber, pickled carrots, cilantro, chili, and mayonnaise, or a wide variety of other ingredients and combinations."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "14",
-                            CategoryEnglishName = "Vietnamese steamed bun",
-                            CategoryVietnameseName = "Bánh bao",
-                            Description = "A round savory bun filled with meat, eggs, and vegetables including onions and mushrooms. Often include Chinese sausage and hard-boiled egg."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "15",
-                            CategoryEnglishName = "Dim sum",
-                            CategoryVietnameseName = "Điểm sấm",
-                            Description = "Originally from China, these can include wontons, dumplings and poststickers and other ball/bun shaped dishes eaten with or without soup. Generally, they are meat balls wrapped inside flour wrappers."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "16",
-                            CategoryEnglishName = "Rolls",
-                            CategoryVietnameseName = "Cuốn",
-                            Description = "Any Vietnamese traditional food that comes in the form of rolls, e.g. summer rolls, egg rolls, bo bia, .... Wrappers are commonly made from rice papers or betel leaves."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "17",
-                            CategoryEnglishName = "Crispy pancakes",
-                            CategoryVietnameseName = "Pancakes",
-                            Description = "These crispy, savory pancakes are made of rice flour, water, and turmeric, fried in a pan and filled with ingredients like pork, prawns, green onion, mung bean, and herbs."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "18",
-                            CategoryEnglishName = "Rice paper",
-                            CategoryVietnameseName = "Bánh tráng",
-                            Description = "Rice paper wrappers made from a mixture of rice flour with tapioca starch, water and salt. They are thin and light in texture, and often used in egg rolls and spring rolls."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "19",
-                            CategoryEnglishName = "Eggs",
-                            CategoryVietnameseName = "Trứng",
-                            Description = "Eggs (usually from a quail, a duck or a chicken), often boiled and fertilized, or soft-boiled."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "20",
-                            CategoryEnglishName = "Sweet cakes",
-                            CategoryVietnameseName = "Bánh ngọt",
-                            Description = "Sweet cakes are a type of Vietnamese dessert and come in many varieties. Cakes can often include rice flour and coconut milk, and can feature flavors like banana and cassava, among others."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "21",
-                            CategoryEnglishName = "Skewers",
-                            CategoryVietnameseName = "Xiên que",
-                            Description = "Skewered food in Vietnam can include fried fish balls, grilled corn, grilled sausage, and more."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "22",
-                            CategoryEnglishName = "Fruits",
-                            CategoryVietnameseName = "Trái cây",
-                            Description = ""
-                        },
-                        new
-                        {
-                            FoodCategoryID = "23",
-                            CategoryEnglishName = "Sweet gruel",
-                            CategoryVietnameseName = "Chè",
-                            Description = "Sweet gruel is another Vietnamese dessert, with textures ranging from that of a soup to a pudding. Flavors vary, including fruits and chocolates, and often include coconut milk, rice, and/or tapioca."
-                        },
-                        new
-                        {
-                            FoodCategoryID = "24",
-                            CategoryEnglishName = "Juice",
-                            CategoryVietnameseName = "Nước ép",
-                            Description = ""
-                        },
-                        new
-                        {
-                            FoodCategoryID = "25",
-                            CategoryEnglishName = "Bottled drinks",
-                            CategoryVietnameseName = "Nước đóng chai",
-                            Description = ""
-                        },
-                        new
-                        {
-                            FoodCategoryID = "26",
-                            CategoryEnglishName = "Tea",
-                            CategoryVietnameseName = "Trà",
-                            Description = ""
-                        },
-                        new
-                        {
-                            FoodCategoryID = "27",
-                            CategoryEnglishName = "Vietnamese coffee",
-                            CategoryVietnameseName = "Cà phê",
-                            Description = ""
-                        },
-                        new
-                        {
-                            FoodCategoryID = "28",
-                            CategoryEnglishName = "Boba tea",
-                            CategoryVietnameseName = "Trà sữa",
-                            Description = ""
-                        },
-                        new
-                        {
-                            FoodCategoryID = "29",
-                            CategoryEnglishName = "Dessert",
-                            CategoryVietnameseName = "Tráng miệng",
-                            Description = ""
-                        });
                 });
 
             modelBuilder.Entity("street_foody.Models.StreetVendor", b =>
@@ -327,6 +124,10 @@ namespace street_foody.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text")
                         .HasColumnName("description");
+
+                    b.Property<int[]>("OpeningHours")
+                        .HasColumnType("integer[]")
+                        .HasColumnName("opening_hours");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("text")
@@ -497,9 +298,9 @@ namespace street_foody.Migrations
 
             modelBuilder.Entity("street_foody.Models.VendorHours", b =>
                 {
-                    b.Property<string>("VendorHoursID")
+                    b.Property<string>("VendorHoursInfo")
                         .HasColumnType("text")
-                        .HasColumnName("vendor_hours_id");
+                        .HasColumnName("vendor_hours_info");
 
                     b.Property<string>("EndTime")
                         .HasColumnType("text")
@@ -513,15 +314,11 @@ namespace street_foody.Migrations
                         .HasColumnType("text")
                         .HasColumnName("start_time");
 
-                    b.Property<string>("VendorDates")
-                        .HasColumnType("text")
-                        .HasColumnName("vendor_dates");
-
                     b.Property<string>("VendorID")
                         .HasColumnType("text")
                         .HasColumnName("vendor_id");
 
-                    b.HasKey("VendorHoursID")
+                    b.HasKey("VendorHoursInfo")
                         .HasName("pk_vendor_hours");
 
                     b.ToTable("vendor_hours");
