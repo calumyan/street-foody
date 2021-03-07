@@ -19,7 +19,7 @@ namespace street_foody.Controllers
         }
 
         public IActionResult Index()
-        {   
+        {
             ViewBag.IsHome = true;
             return View();
         }

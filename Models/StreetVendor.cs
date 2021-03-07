@@ -20,8 +20,6 @@ namespace street_foody.Models
         public List<FoodCategory> FoodCategories{get;set;}       
         public List<Food> Menu{get;set;}       
         public int[] PriceRange{get;set;}   
-        // public string[] OpeningHours{get;set;}
-
         public int[] RatingList{get;set;}
 
         [NotMapped]
