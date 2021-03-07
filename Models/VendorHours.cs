@@ -13,10 +13,8 @@ namespace street_foody.Models
         [ForeignKey("StreetVendor")]
         public string VendorID{get; set;}
         [Key]
-        public string VendorHoursInfo{
-        get{return VendorHoursInfo;} 
-        set{VendorHoursInfo = VendorID + " " +Location+" "+StartTime+" "+EndTime;}
-        }
+        public string VendorHoursID{get; set;}
+        public string VendorDates{get;set;}
         public string Location{get;set;}
         public string StartTime {get;set;}
         public string EndTime {get;set;}
