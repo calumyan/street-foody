@@ -94,8 +94,8 @@
             </form>
          </div>
         <div id="result-col">
-            @{
-            if (Model!=null) {
+        @{
+            if (Model.Count() > 0) {
             foreach (var vendor in Model) { 
                 string priceDisp;
                 if (vendor.PriceRange.Length == 0) {
@@ -109,7 +109,7 @@
                 } else {
                     photoURL = "~/images/street-vendor.png";
                 }
-                <div class="vndr-card">
+                <div id="@vendor.VendorID" class="vndr-card">
                     <div class="vndr-image"><img src=@photoURL alt="" /></div>
                     <h3 id="stand-name">
                         @Html.DisplayFor(modelItem => vendor.StandVietnameseName)
@@ -151,9 +151,13 @@
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                 </div>
             }
-            } else {
-                <div>Sorry, we couldn't find any street vendors that match your search :(.</div>
-            }}
+        } else {
+            @* Html.DisplayText("Sorry, we couldn't find any street vendors that match your search :("); *@
+            <h3 style="font-size: 2rem;">Sorry, we couldn't find any matches from our database :(</h3>
+            <a id="sign-up" href="">
+             Help us expand Street Foody database!
+            </a>
+        }}
         </div>
     </div>
 </div>
