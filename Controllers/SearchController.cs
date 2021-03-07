@@ -25,7 +25,6 @@ namespace street_foody.Controllers
                allVendors = new List<StreetVendor>();
         } 
 
-        // [Route("")] 
         public IActionResult Index(string SearchValue) {
             ViewBag.SearchValue = SearchValue;
             string SelectValue = null;
@@ -94,8 +93,8 @@ namespace street_foody.Controllers
         //     if()
         // }
     
-        
-<<<<<<< HEAD
+        // TODO: Implement search algorithm here. There can be method decomposition.
+        // This function should return the final search result. 
         private List<StreetVendor> ShowSearchedResults(string SearchValue) {
             Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
             allVendors = _context.StreetVendor.Where(lambda).ToList();
@@ -105,8 +104,6 @@ namespace street_foody.Controllers
             return allVendors;
         }
         
-=======
->>>>>>> 499b7ac829308a048a204bfcd20f9a13e7aba3f9
         private List<StreetVendor> GetAll(){    
             allVendors = _context.StreetVendor.ToList();
             foreach (StreetVendor vendor in allVendors) {

@@ -49,15 +49,7 @@
                     <input type="checkbox" class="checkbox" id="closed" name="closed" />
                     <label for="closed"> Closed </label>
                 </div>
-                <div>
-                    <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="closing-soon"
-                    name="closingSoon"
-                    /> *@
-                    @* <label for="closing-soon"> Closing soon </label> *@
-                @* </div> *@
+                *@
             </form>
             <h2 class="filter-title">Ratings</h2>
             <form action="" class="filter-list">
@@ -72,7 +64,7 @@
                     id="4.0-4.5"
                     name="4.0-4.5"
                     />
-                    <label for="4.0-4.5"> 4.0+ </label>
+                    <label for="4.0-4.5"> 4.0 - 4.5 </label>
                 </div>
                 <div>
                     <input
@@ -81,7 +73,7 @@
                     id="3.5-4.0"
                     name="3.5-4.0"
                     />
-                    <label for="3.5-4.0"> 3.5+ </label>
+                    <label for="3.5-4.0"> 3.5 - 4.0 </label>
                 </div>
                 
             </form>
@@ -103,13 +95,13 @@
                     photoURL = "~/images/street-vendor.png";
                 }
                 <div id="@vendor.VendorID" class="vndr-card">
-                    <div class="vndr-image"><img src=@photoURL alt="" /></div>
+                    <div class="vndr-image"><img src="@photoURL" alt="@vendor.StandEnglishName" /></div>
                     <h3 id="stand-name">
                         @Html.DisplayFor(modelItem => vendor.StandVietnameseName)
                         @* <sup class="large">Open Now!</sup> *@
                     </h3>
                     <div class="vndr-distance"> 0.5 miles away &nbsp &nbsp &nbsp
-                        <img src="/walk.png" class="inline-icon" alt=""/> 8 mins
+                        @* <img src="~/images/walk.png" class="inline-icon" alt=""/> 8 mins *@
                     </div>
                     <div class="vndr-categories">
                         <img src="~/images/menu.png" alt="" class="inline-icon" />  
@@ -134,13 +126,13 @@
                         @Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp
                         <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
                     </div>
-                    <div class="vndr-rating-list">
+                    @* <div class="vndr-rating-list">
                         <div>
                         <img src="~/images/favorite.png" alt="" class="inline-icon" /> 1.2k
                         </div>
                         <div><img src="~/images/review.png" alt="" class="inline-icon" /> 634</div>
                         <div><img src="~/images/camera.png" alt="" class="inline-icon" /> 23</div>
-                    </div>
+                    </div> *@
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                 </div>
             }

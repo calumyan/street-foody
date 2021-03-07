@@ -2,165 +2,26 @@
 @{
     ViewData["Title"] = "Vendor";
 }
-<head>
-    <meta content="width=device-width, initial-scale=1.0">
-    <style>
-    /* * {
-        margin-top: 50px;
-    } */
-
-    #Vendor {
-        display: flex;
-        align-items: center;
-        background-color: white;
-        margin: 50px;
-    }
-     h1, h2, h3, h4 {
-        font-family: "Quicksand", sans-serif;
-    }
-
-    .vendor-header img{
-        object-fit:cover;
-        margin:.5vw;
-        float:left;
-        max-width:275px;
-        min-width: 100px;
-    }
-
-    .vendor-header{
-        display:flex;
-        flex-flow: row wrap;
-        align-content:center;
-        justify-content:center;
-        margin-top:8vh;
-    }
-
-    .vendor-container{
-        display:flex;
-        flex-flow: row wrap;
-        align-content:center;
-        justify-content:center;
-    }
-    .menu-card {
-        justify-content: center;
-        align-items: center;
-        width: 325px;
-        margin: 15px;
-        border-style: solid;
-        border-radius: 10px;
-        border-width: 1px;
-        border-color:gray ;
-    }
-
-
-    .vendor-about{
-        padding: 10px;
-    }
-
-    .body-text {
-        font-family: "Quicksand", sans-serif;
-        color: black;
-        font-size: large;
-        margin: 10px;
-        text-align: left;
-        @*margin-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 20px;*@
-    }
-
-    .warning{
-        font-family: "Quicksand", sans-serif;
-        color: black;
-        font-size: large;
-        background-color: tomato;
-        padding: 10px;
-        margin-bottom: 10px;
-        text-align: center;
-        color: white;
-    }
-
-    #map {
-        height: 300px;
-        /* The height is 300 pixels */
-        width:45%;
-        /* The width is the width of the web page */
-        padding:1vw;
-
-    }
-    .star{
-        color:tomato;
-        font-size: 2em;
-        text-align:left;
-        letter-spacing: 3px;
-    }
-
-    .price{
-        float:right;
-        font-size:small;
-        padding: 5px;
-    }
-
-    a:hover {
-        color: black;
-    }
-
-    a:visited{
-        color: black;
-    }
-
-    #info_ul{
-        list-style: none;
-        padding:10px;
-        -webkit-padding-start: 0px;
-    }
-
-    #li_directions ion-icon{
-        font-size: 1.0em;
-        vertical-align: middle;
-        margin-right: 10px;
-        padding-top: 9px;
-    }
-    #li_phone ion-icon{
-        font-size: 1.0em;
-        vertical-align: middle;
-        margin-right: 10px;
-        padding-top: 1px;
-    }
-
-    ion-icon {
-        color: black;
-    }
-
-    div.section{
-        margin:20px;
-    }
-
-    hr{
-        height: 2px;
-        background-color: tomato;
-    }
-
-
-    </style>
 
     <!--Initialize and add the map-->
-    <script>function initMap() {
-    const location = { lat: 10.8231, lng: 106.6297 };
-            // The map, centered at HCMC
+@* <script>
+    function initMap() {
+        const location = { lat: 10.8231, lng: 106.6297 };
+        // The map, centered at HCMC
 
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 11,
-                center: location,
-            });
-            // The marker, positioned at HCMC
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 11,
+            center: location,
+        });
+        // The marker, positioned at HCMC
 
-            const marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-            });
-        }</script>
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+        });
+    }
+</script> *@
 
-</head>
 <body>
     <div class="vendor-header">
         <div class="section" id="Vendor">
@@ -208,11 +69,19 @@
             </ul>
         </div>
          <!--Google Map-->
-        <div id="map"></div>
-        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-        <script async
+        @* <script async
                 src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap&libraries=&v=weekly">
-        </script>
+        </script> *@
+        <iframe
+            width="600"
+            height="450"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA6WlV6GjWdnvi_PvCsTQoPc65rDYtJ3uI
+                &q=Space+Needle,Seattle+WA">  
+                @* Add the address as the query value here: &q=@vendor.Location *@
+        </iframe>
         <div class="section">
             <!--Description-->
             <h2 style="text-align:center">Description</h2>

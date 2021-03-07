@@ -49,7 +49,7 @@ namespace street_foody.Models
                 totalRating+=rating;
             }
             double result = Math.Round(totalRating/RatingList.Length, 1);
-            AverageRating = result + "/5 (" + RatingList.Length + ")";
+            AverageRating = result.ToString("#.#") + "/5 (" + RatingList.Length + ")";
             return result;
         }
 

@@ -693,12 +693,12 @@ h2.filter-title {
   margin-right: 2rem;
   display: grid;
   grid-template-areas:
-    "img name name name"
-    "img dist list next"
-    "img categ list next"
-    "img rating list next";
+    "img name name "
+    "img dist next"
+    "img categ next"
+    "img rating next";
   grid-template-rows: 3rem 1.5rem 3.2rem 1.5rem;
-  grid-template-columns: 250px 1fr 100px 8rem;
+  grid-template-columns: 250px 1fr 8rem;
   column-gap: 20px;
   box-shadow: 0 3px 3px -3px #ccc;
   cursor: pointer;
@@ -722,9 +722,9 @@ h2.filter-title {
   grid-area: dist;
 }
 
-.vndr-rating-list {
+/* .vndr-rating-list {
   grid-area: list;
-}
+} */
 
 .vndr-categories {
   grid-area: categ;
@@ -784,6 +784,132 @@ img.inline-icon {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+/* VENDOR PAGE - HEADER
+-------------------------------------------------- */
+
+#Vendor {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin: 50px;
+}
+
+.vendor-header img {
+  object-fit: cover;
+  margin: 0.5vw;
+  float: left;
+  max-width: 275px;
+  min-width: 100px;
+}
+
+.vendor-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  margin-top: 8vh;
+}
+
+.vendor-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+}
+.menu-card {
+  justify-content: center;
+  align-items: center;
+  width: 325px;
+  margin: 15px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: gray;
+}
+
+.vendor-about {
+  padding: 10px;
+}
+
+.body-text {
+  font-family: "Quicksand", sans-serif;
+  color: black;
+  font-size: large;
+  margin: 10px;
+  text-align: left;
+}
+
+.warning {
+  font-family: "Quicksand", sans-serif;
+  color: black;
+  font-size: large;
+  background-color: tomato;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
+}
+
+#map {
+  height: 300px;
+  /* The height is 300 pixels */
+  width: 45%;
+  /* The width is the width of the web page */
+  padding: 1vw;
+}
+.star {
+  color: tomato;
+  font-size: 2em;
+  text-align: left;
+  letter-spacing: 3px;
+}
+
+.price {
+  float: right;
+  font-size: small;
+  padding: 5px;
+}
+
+a:hover {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+#info_ul {
+  list-style: none;
+  padding: 10px;
+  -webkit-padding-start: 0px;
+}
+
+#li_directions ion-icon {
+  font-size: 1em;
+  vertical-align: middle;
+  margin-right: 10px;
+  padding-top: 9px;
+}
+#li_phone ion-icon {
+  font-size: 1em;
+  vertical-align: middle;
+  margin-right: 10px;
+  padding-top: 1px;
+}
+
+ion-icon {
+  color: black;
+}
+
+div.section {
+  margin: 20px;
+}
+
+hr {
+  height: 2px;
+  background-color: tomato;
 }
 
 /* MEDIA QUERIES
