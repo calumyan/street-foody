@@ -12,8 +12,10 @@ namespace street_foody.Models
     {
 
         [ForeignKey("StreetVendor")]
+        [Key]
         public string VendorID{get; set;}
         [ForeignKey("FoodCategory")]
+        [Key]
         public string FoodCategoryID{get; set;}
         
         

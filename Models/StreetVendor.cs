@@ -45,12 +45,7 @@ namespace street_foody.Models
                 totalRating+=rating;
             }
             double result = Math.Round(totalRating/RatingList.Length, 1);
-<<<<<<< HEAD
             AverageRating = result;
-=======
-            AverageRating = result.ToString("#.#") + "/5 (" + RatingList.Length + ")";
-            return result;
->>>>>>> e40c7dc0730db9007f9864139ce031ab608b9d69
         }
 
         // public void addVendorHours()
