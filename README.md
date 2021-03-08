@@ -15,15 +15,14 @@ People have trouble finding street vendors based on name and food type if they�
 3. Allows street vendors access to online advertising by submitting forms through a url to a google form (in the future there will be a “real” server based form to fill out)
 
 
+
 ## For Users
 
 
 
 ## For Developers 
 
-### Admin tools
- 
-To have an in depth look at our database, try  
+Make sure either Visual studio or Visual Studio Code is installed and set up. 
 
 ### Running
 
@@ -32,8 +31,8 @@ If using Visual Studio,
 
 ### Build
 
- To build our app (especially if you run into issues and want to see what error occurs), 
- if building on Visual Studio Code,go to the terminal run <code> dotnet build </code>
+To build our app (especially if you run into issues and want to see what error occurs), 
+if building on Visual Studio Code,go to the terminal run <code> dotnet build </code>
 
 ### Testing
 
@@ -42,6 +41,10 @@ To test our  , .
 ### Deploying
 
 To deploy, ..
+
+### Admin tools
+ 
+To have an in depth look at our database, try 
 
 ## References 
 
