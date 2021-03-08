@@ -14,50 +14,61 @@ using System.Text;
 
 namespace street_foody.Controllers
 {
-    [Route("Search")] 
-    [ApiController]  
+    [Route("Search")]
+    [ApiController]
     public class SearchController : Controller
     {
-      private readonly Context _context; 
-      public List<StreetVendor> allVendors;         
-        public SearchController(Context context){     
-               _context = context;
-               allVendors = new List<StreetVendor>();
-        } 
-
-        public IActionResult Index(string SearchValue) {
+        private readonly Context _context;
+        public List<StreetVendor> allVendors;
+        public SearchController(Context context)
+        {
+            _context = context;
+            allVendors = new List<StreetVendor>();
+        }
+         
+        
+        public IActionResult Index(string SearchValue)
+        {
             ViewBag.SearchValue = SearchValue;
             string SelectValue = null;
             List<StreetVendor> result;
-    
-            if(String.IsNullOrWhiteSpace(SearchValue)){
+
+            if (String.IsNullOrWhiteSpace(SearchValue))
+            {
                 result = GetAll();
             }
-            else{
+            else
+            {
                 result = GetSearchedResults(SearchValue);
             }
-            try{
+            try
+            {
                 SelectValue = Request.Form["sort"];
             }
-            catch{
+            catch
+            {
                 Console.WriteLine("no value selected");
             }
-            if(SelectValue != null){
-                if (SelectValue.Equals("highestRated")) {
+            if (SelectValue != null)
+            {
+                if (SelectValue.Equals("highestRated"))
+                {
 
-                result = GetVendorsSortedByRating(result);
+                    result = GetVendorsSortedByRating(result);
                 }
-                else if(SelectValue.Equals("lowestPrice")) {
-                result = GetVendorsSortedByPrice(result);
-               }
-            
+                else if (SelectValue.Equals("lowestPrice"))
+                {
+                    result = GetVendorsSortedByPrice(result);
+                }
+
             }
             return View("Index", result);
-            
+
         }
 
-        [Route("Vendor")] 
-        public IActionResult Vendor() {
+        [Route("Vendor")]
+        public IActionResult Vendor()
+        {
             return View();
         }
 
@@ -85,7 +96,9 @@ namespace street_foody.Controllers
         //     }
         // }
 
-        private IActionResult NoResult() {
+        //does not return a result when 
+        private IActionResult NoResult()
+        {
             return View();
         }
         
@@ -106,32 +119,40 @@ namespace street_foody.Controllers
         
         private List<StreetVendor> GetAll(){    
             allVendors = _context.StreetVendor.ToList();
-            foreach (StreetVendor vendor in allVendors) {
+            foreach (StreetVendor vendor in allVendors)
+            {
                 vendor.GetAverageRating();
             }
             return allVendors;
         }
-
-        private List<StreetVendor> GetSearchedResults(string SearchValue) {
+        
+        //function to get all of the vendors that match the search input
+        private List<StreetVendor> GetSearchedResults(string SearchValue)
+        {
             Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
-            List<StreetVendor> searchedVendors = _context.StreetVendor.Where(lambda).ToList();
-            foreach (StreetVendor vendor in searchedVendors) {
+            // for(StreetVendor sv in allVendors){
+            //     if(sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue) || sv.M)
+            // }
+            List<StreetVendor> searchedResults = _context.StreetVendor.Where(lambda).ToList();
+            foreach (StreetVendor vendor in searchedResults)
+            {
                 vendor.GetAverageRating();
             }
-            return searchedVendors;
+            return searchedResults;
         }
         
-        
-        private List<StreetVendor> GetVendorsSortedByPrice(List<StreetVendor> vendors){
-            // allVendors = _context.StreetVendor.ToList();
-            List<StreetVendor> sorted = vendors.OrderBy(sv => (sv.PriceRange[1] + sv.PriceRange[0])/2).ToList();
-            return sorted;
+        //function to get all of the vendors sorted by their price range (mean of highest and lowest prices of each vendor)
+        private List<StreetVendor> GetVendorsSortedByPrice(List<StreetVendor> vendors)
+        {
+            List<StreetVendor> sortedVendors = vendors.OrderBy(sv => (sv.PriceRange[1] + sv.PriceRange[0]) / 2).ToList();
+            return sortedVendors;
         }
         
-        private List<StreetVendor> GetVendorsSortedByRating(List<StreetVendor> vendors){
-            // allVendors = _context.StreetVendor.ToList();
-            List<StreetVendor> sorted = vendors.OrderByDescending(sv => sv.GetAverageRating()).ToList();
-            return sorted; 
+        //function to get all of the vendors sorted by their ratings
+        private List<StreetVendor> GetVendorsSortedByRating(List<StreetVendor> vendors)
+        {
+            List<StreetVendor> sortedVendors = vendors.OrderByDescending(sv => sv.GetAverageRating()).ToList();
+            return sortedVendors;
         }
 
         // private IActionResult GetOpenedVendors(List<StreetVendor> vendors){
@@ -160,7 +181,7 @@ namespace street_foody.Controllers
         // }
 
 
-        
+
     }
 
 }
