@@ -6,8 +6,7 @@ Street-foody is a responsive website that introduces travelers to a substantial 
 
 ### Problems to solve
 
-People have trouble finding street vendors based on name and food type if they’ve never been to Vietnam. We also want to build a place for local people and even foreigners to know about the prices and ratings before they arrive at the vendors to help them make better choices. There’s currently no dedicated space online for the street food world.
-
+People have trouble finding street vendors based on name and food type if they’ve never been to Vietnam. We also want to build a place for local people and even foreigners to know about the prices and ratings before they arrive at the vendors to help them make better choices. 
 
 ### Goals
 
