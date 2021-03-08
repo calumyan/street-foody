@@ -10,7 +10,7 @@ People have trouble finding street vendors based on name and food type if they�
 
 ### Goals
 
-1. Allows users search a place to eat based on street vendor’s name and food type
+1. Allows users search  a place to eat based on street vendor’s name and food type
 2. Allows users sort and filter through street food based on price tags and ratings
 3. Allows street vendors access to online advertising by submitting forms through a url to a google form (in the future there will be a “real” server based form to fill out)
 
