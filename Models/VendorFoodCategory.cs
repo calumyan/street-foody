@@ -8,18 +8,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace street_foody.Models
 {    
     
-    public class VendorHours
+    public class VendorCategory
     {
 
         [ForeignKey("StreetVendor")]
         public string VendorID{get; set;}
-        [Key]
-        public string VendorHoursID{get; set;}
-        public string Location{get;set;}
-        public string VendorDates{get;set;}
-        public string StartTime {get;set;}
-        public string EndTime {get;set;}
-
+        [ForeignKey("FoodCategory")]
+        public string FoodCategoryID{get; set;}
+        
         
     }
 }

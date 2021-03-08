@@ -21,9 +21,9 @@ namespace street_foody.Models
         public List<Food> Menu{get;set;}       
         public int[] PriceRange{get;set;}   
         public int[] RatingList{get;set;}
-
+        
         [NotMapped]
-        public string AverageRating{get;set;}
+        public double AverageRating{get;set;}
         public string PhotoUrl{get;set;} 
         
         [NotMapped]
@@ -31,24 +31,22 @@ namespace street_foody.Models
         public StreetVendor(){
         }
 
-        // Assigns an appropriate value to AverageRating string. 
-        // Returns the average rating of this vendor, or returns null if no rating is available yet.
-        public double? GetAverageRating(){
+
+
+        // Assigns an appropriate value to AverageRating. 
+        public void SetAverageRating(){
             if (RatingList == null) {
-                AverageRating = "Not rated yet";
-                return null;
+                AverageRating = 0;
             }
             if (RatingList.Length == 0) {
-                AverageRating = "Not rated yet";
-                return null;
+                AverageRating = 0;
             }
             double totalRating = 0;
             foreach(var rating in RatingList){
                 totalRating+=rating;
             }
             double result = Math.Round(totalRating/RatingList.Length, 1);
-            AverageRating = result + "/5 (" + RatingList.Length + ")";
-            return result;
+            AverageRating = result;
         }
 
         // public void addVendorHours()

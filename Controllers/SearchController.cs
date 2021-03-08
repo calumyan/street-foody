@@ -31,11 +31,13 @@ namespace street_foody.Controllers
         {
             ViewBag.SearchValue = SearchValue;
             string SelectValue = null;
+            // string CheckBoxValue = null;
             List<StreetVendor> result;
+            List<StreetVendor> all = GetAll();
 
             if (String.IsNullOrWhiteSpace(SearchValue))
             {
-                result = GetAll();
+                result = all;
             }
             else
             {
@@ -47,7 +49,7 @@ namespace street_foody.Controllers
             }
             catch
             {
-                Console.WriteLine("no value selected");
+               Console.WriteLine("no value selected");
             }
             if (SelectValue != null)
             {
@@ -62,6 +64,37 @@ namespace street_foody.Controllers
                 }
 
             }
+            // try
+            // {
+            //     CheckBoxValue = Request.Form["price"];
+            // }
+            // catch
+            // {
+            //     Console.WriteLine("no value selected");
+            // }
+            // if (CheckBoxValue!=null)
+            // {
+            //     if (CheckBoxValue.Equals(""))
+            //     {
+            //         result = GetVendorsEqualsTo5(result);
+            //     }
+            //     else if (CheckBoxValue.Equals(""))
+            //     {
+            //         result = GetVendorsGreaterEquals4(result);
+            //     }
+            //     else{
+            //         result = GetVendorsGreaterEquals3(result);
+            //     }
+
+            // }
+
+           
+
+
+
+            // if(SearchValue != null){
+
+            // }
             return View("Index", result);
 
         }
@@ -108,7 +141,7 @@ namespace street_foody.Controllers
             allVendors = _context.StreetVendor.ToList();
             foreach (StreetVendor vendor in allVendors)
             {
-                vendor.GetAverageRating();
+                vendor.SetAverageRating();
             }
             return allVendors;
         }
@@ -123,7 +156,7 @@ namespace street_foody.Controllers
             List<StreetVendor> searchedResults = _context.StreetVendor.Where(lambda).ToList();
             foreach (StreetVendor vendor in searchedResults)
             {
-                vendor.GetAverageRating();
+                vendor.SetAverageRating();
             }
             return searchedResults;
         }
@@ -138,7 +171,7 @@ namespace street_foody.Controllers
         //function to get all of the vendors sorted by their ratings
         private List<StreetVendor> GetVendorsSortedByRating(List<StreetVendor> vendors)
         {
-            List<StreetVendor> sortedVendors = vendors.OrderByDescending(sv => sv.GetAverageRating()).ToList();
+            List<StreetVendor> sortedVendors = vendors.OrderByDescending(sv => sv.AverageRating).ToList();
             return sortedVendors;
         }
 
@@ -148,15 +181,52 @@ namespace street_foody.Controllers
         //     string curTime = DateTime.Now.ToString("hh:mm");
         //     Console.WriteLine(curTime);
         //     int curr = GetTime(curTime.Split(":"));
-        //     // foreach(){
+        //     var openedVendors = from sv in _context.StreetVendor select sv where sv.Ven;
+        //     // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?)
+        //     foreach(StreetVendor sv in vendors){
         //         // if(sv.OpeningHours == null) continue;
-        //         // string startTime = sv.OpeningHours[0];
-        //         // string endTime = sv.OpeningHours[1];
-        //         // int start = GetTime(startTime.Split(":"));
-        //         // int end = GetTime(endTime.Split(":"));
-        //         // if(start >= curr && end >= curr) opened.Add(sv); 
-        //     // }
+                
+        //         select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?)
+        //         string startTime = sv.OpeningHours[0];
+        //         string endTime = sv.OpeningHours[1];
+        //         int start = GetTime(startTime.Split(":"));
+        //         int end = GetTime(endTime.Split(":"));
+        //         if(start >= curr && end >= curr) opened.Add(sv); 
+        //     }
         //     return View("Index", opened); 
+        // }
+
+        // private List<StreetVendor> GetVendorsEqualsTo5(List<StreetVendor> vendors){
+        //     List<StreetVendor> vendorsGreaterThan5 = new List<StreetVendor>();
+        //     foreach(StreetVendor sv in vendors){
+        //         if(sv.AverageRating == 5.0){
+        //             vendorsGreaterThan5.Add(sv);
+        //         }
+        //     }
+        //     return vendorsGreaterThan5;
+        // }
+
+        //  private List<StreetVendor> GetVendorsGreaterEquals4(List<StreetVendor> vendors){
+        //     List<StreetVendor> vendorsGreaterThan4 = new List<StreetVendor>();
+        //     foreach(StreetVendor sv in vendors){
+        //         if(sv.AverageRating >= 4 && sv.AverageRating < 5){
+        //             vendorsGreaterThan4.Add(sv);
+        //         }
+        //     }
+        //     return vendorsGreaterThan4;
+        // }
+
+        //  private List<StreetVendor> GetVendorsGreaterEquals3(List<StreetVendor> vendors){
+        //     List<StreetVendor> vendorsGreaterThan3 = new List<StreetVendor>();
+        //     foreach(StreetVendor sv in vendors){
+        //         if(sv.AverageRating >= 3 && sv.AverageRating < 4){
+        //             vendorsGreaterThan3.Add(sv);
+        //         }
+        //     }
+        //     return vendorsGreaterThan3;
+        // }
+        // private List<StreetVendor> GetVendorsByRatingsThreshold(){
+            
         // }
 
         // private int GetTime(string[] splitted){
