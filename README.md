@@ -15,4 +15,32 @@ People have trouble finding street vendors based on name and food type if they�
 3. Allows street vendors access to online advertising by submitting forms through a url to a google form (in the future there will be a “real” server based form to fill out)
 
 
+## For Users
+
+
+
+## For Developers 
+
+### Admin tools
+ 
+To have an in depth look at our database, try 
+
+### Running
+
+### Build
+
+To build our app (especially if you run into issues and want to see what error occurs), run <code> dotnet build </code>
+
+### Testing
+
+To test our  , .
+
+### Deploying
+
+To deploy, ..
+
+## References 
+
+Our references mostly come from Microsoft documentation for asp.net core and asp.net mvc https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0.
+We also referenced https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823 for setting up postgresql database 
 
