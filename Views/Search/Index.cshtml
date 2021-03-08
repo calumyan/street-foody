@@ -49,15 +49,7 @@
                     <input type="checkbox" class="checkbox" id="closed" name="closed" />
                     <label for="closed"> Closed </label>
                 </div>
-                <div>
-                    <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="closing-soon"
-                    name="closingSoon"
-                    /> *@
-                    @* <label for="closing-soon"> Closing soon </label> *@
-                @* </div> *@
+                *@
             </form>
             <h2 class="filter-title">Ratings</h2>
             <form action="" class="filter-list">
@@ -72,7 +64,11 @@
                     id="4.0-5.0"
                     name="4.0+"
                     />
+<<<<<<< HEAD
                     <label for="4.0-5.0"> 4.0+ </label>
+=======
+                    <label for="4.0-4.5"> 4.0 - 4.5 </label>
+>>>>>>> e40c7dc0730db9007f9864139ce031ab608b9d69
                 </div>
                 <div>
                     <input
@@ -81,35 +77,33 @@
                     id="3.0-4.0"
                     name="3.0-4.0"
                     />
+<<<<<<< HEAD
                     <label for="3.0-4.0"> 3.0+ </label>
+=======
+                    <label for="3.5-4.0"> 3.5 - 4.0 </label>
+>>>>>>> e40c7dc0730db9007f9864139ce031ab608b9d69
                 </div>
                 
             </form>
          </div>
         <div id="result-col">
-            @{
-            if (Model!=null) {
+        @{
+            if (Model.Count() > 0) {
             foreach (var vendor in Model) { 
-                string priceDisp;
-                if (vendor.PriceRange.Length == 0) {
-                    priceDisp = "N/A - N/A";
-                } else {
-                    priceDisp = vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
-                }
-                string photoURL;
-                if (vendor.PhotoUrl != null) {
-                    photoURL = vendor.PhotoUrl;
-                } else {
-                    photoURL = "~/images/street-vendor.png";
-                }
-                <div class="vndr-card">
-                    <div class="vndr-image"><img src=@photoURL alt="" /></div>
-                    <h3 id="stand-name">
+                string priceDisp = vendor.PriceRange.Length == 0 ? 
+                                    "N/A - N/A" : 
+                                    vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
+                string photoURL = vendor.PhotoUrl == null ? 
+                                    "~/images/street-vendor.png" : 
+                                    vendor.PhotoUrl;
+                <div id="@vendor.VendorID" class="vndr-card">
+                    <div class="vndr-image"><img src="@photoURL" alt="@vendor.StandEnglishName" /></div>
+                    <h3 class="stand-name">
                         @Html.DisplayFor(modelItem => vendor.StandVietnameseName)
                         @* <sup class="large">Open Now!</sup> *@
                     </h3>
                     <div class="vndr-distance"> 0.5 miles away &nbsp &nbsp &nbsp
-                        <img src="/walk.png" class="inline-icon" alt=""/> 8 mins
+                        @* <img src="~/images/walk.png" class="inline-icon" alt=""/> 8 mins *@
                     </div>
                     <div class="vndr-categories">
                         <img src="~/images/menu.png" alt="" class="inline-icon" />  
@@ -134,19 +128,16 @@
                         @Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp
                         <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
                     </div>
-                    <div class="vndr-rating-list">
-                        <div>
-                        <img src="~/images/favorite.png" alt="" class="inline-icon" /> 1.2k
-                        </div>
-                        <div><img src="~/images/review.png" alt="" class="inline-icon" /> 634</div>
-                        <div><img src="~/images/camera.png" alt="" class="inline-icon" /> 23</div>
-                    </div>
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                 </div>
             }
-            } else {
-                <div>Sorry, we couldn't find any street vendors that match your search :(.</div>
-            }}
+        } else {
+            @* Html.DisplayText("Sorry, we couldn't find any street vendors that match your search :("); *@
+            <h3 style="font-size: 2rem;">Sorry, we couldn't find any matches from our database :(</h3>
+            <a id="sign-up" href="">
+             Help us expand Street Foody database!
+            </a>
+        }}
         </div>
     </div>
 </div>

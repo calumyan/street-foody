@@ -431,7 +431,6 @@ div.column-grid {
   align-self: center;
   display: grid;
   grid-auto-columns: max-content;
-  grid-template-columns: repeat(3, minmax(10rem, 350px));
   column-gap: 5rem;
 }
 
@@ -693,12 +692,12 @@ h2.filter-title {
   margin-right: 2rem;
   display: grid;
   grid-template-areas:
-    "img name name name"
-    "img dist list next"
-    "img categ list next"
-    "img rating list next";
+    "img name name "
+    "img dist next"
+    "img categ next"
+    "img rating next";
   grid-template-rows: 3rem 1.5rem 3.2rem 1.5rem;
-  grid-template-columns: 250px 1fr 100px 8rem;
+  grid-template-columns: 250px 1fr 8rem;
   column-gap: 20px;
   box-shadow: 0 3px 3px -3px #ccc;
   cursor: pointer;
@@ -722,9 +721,9 @@ h2.filter-title {
   grid-area: dist;
 }
 
-.vndr-rating-list {
+/* .vndr-rating-list {
   grid-area: list;
-}
+} */
 
 .vndr-categories {
   grid-area: categ;
@@ -747,9 +746,9 @@ h2.filter-title {
 }
 
 .right-caret.active {
-  transform: translateX(20%);
+  transform: translateX(15%);
   opacity: 1;
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .vndr-image > img {
@@ -758,19 +757,19 @@ h2.filter-title {
   object-fit: cover;
 }
 
-h3#stand-name {
+h3.stand-name {
   font-family: "Quicksand", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 600;
   margin-top: auto;
   margin-bottom: auto;
   position: relative;
 }
 
-h3#stand-name > sup {
+h3.stand-name > sup {
   font-family: "Satisfy", cursive;
   color: #ff2700;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   margin-left: 1rem;
 }
 
@@ -784,6 +783,147 @@ img.inline-icon {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+/* VENDOR PAGE - HEADER
+-------------------------------------------------- */
+
+.vendor-header {
+  margin: 2rem 0 4rem;
+  width: 75%;
+  height: 16rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.vendor-profile-img {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.vendor-profile-img > img {
+  width: 100%;
+  height: 100%;
+  /* max-height: 100%; */
+  object-fit: cover;
+}
+
+.vendor-about {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1.5rem;
+  height: 100%;
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.vendor-about > p {
+  font-weight: 700;
+}
+
+#headline {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+  position: relative;
+}
+
+#headline > .stand-name {
+  font-weight: 700;
+}
+
+#save-icon {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 3rem;
+}
+
+#save-icon > img {
+  position: absolute;
+  max-height: 3rem;
+  object-fit: contain;
+}
+
+#save-icon:hover {
+  transform: scale(1.03);
+}
+
+#saved {
+  display: none;
+}
+
+#saved.active {
+  display: inline-block;
+}
+
+.vendor-info {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.vendor-info > img {
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
+
+/* .vendor-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+}
+.menu-card {
+  justify-content: center;
+  align-items: center;
+  width: 325px;
+  margin: 15px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: gray;
+}
+
+.body-text {
+  font-family: "Quicksand", sans-serif;
+  color: black;
+  font-size: large;
+  margin: 10px;
+  text-align: left;
+}
+
+#map {
+  height: 300px;
+  width: 45%;
+  padding: 1vw;
+}
+.star {
+  color: tomato;
+  font-size: 2em;
+  text-align: left;
+  letter-spacing: 3px;
+}
+
+.price {
+  float: right;
+  font-size: small;
+  padding: 5px;
+} */
+
+hr {
+  height: 2px;
+  width: 80%;
+  align-self: center;
+  background-color: tomato;
 }
 
 /* MEDIA QUERIES
@@ -907,7 +1047,6 @@ img.inline-icon {
     max-width: 75%;
     grid-template-columns: 1fr;
     column-gap: 0;
-    grid-template-rows: repeat(3, minmax(2rem, 10rem));
     align-items: center;
     row-gap: 1rem;
   }

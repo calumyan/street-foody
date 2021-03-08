@@ -134,10 +134,23 @@ namespace street_foody.Controllers
         {
             return View();
         }
-
-        //function to get all of the vendors 
-        private List<StreetVendor> GetAll()
-        {
+        
+        // private IActionResult Show(){
+        //     if()
+        // }
+    
+        // TODO: Implement search algorithm here. There can be method decomposition.
+        // This function should return the final search result. 
+        private List<StreetVendor> ShowSearchedResults(string SearchValue) {
+            Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
+            allVendors = _context.StreetVendor.Where(lambda).ToList();
+            foreach (StreetVendor vendor in allVendors) {
+                vendor.SetAverageRating();
+            }
+            return allVendors;
+        }
+        
+        private List<StreetVendor> GetAll(){    
             allVendors = _context.StreetVendor.ToList();
             foreach (StreetVendor vendor in allVendors)
             {

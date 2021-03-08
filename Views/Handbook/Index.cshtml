@@ -440,7 +440,7 @@
 </div>
 
 <script>
-    const findCategory = document.querySelectorAll("a");
+    const findCategory = document.querySelectorAll(".back > a");
     findCategory.forEach(a => {
         const category = a.innerHTML.substring(5);
         a.href = `Search?SearchValue=${category}`;
