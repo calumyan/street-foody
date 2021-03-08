@@ -23,13 +23,17 @@ People have trouble finding street vendors based on name and food type if theyâ€
 
 ### Admin tools
  
-To have an in depth look at our database, try 
+To have an in depth look at our database, try  
 
 ### Running
 
+If running on Visual Studio Code, go to the terminal and run  <code> dotnet build </code>
+If using Visual Studio, 
+
 ### Build
 
-To build our app (especially if you run into issues and want to see what error occurs), run <code> dotnet build </code>
+ To build our app (especially if you run into issues and want to see what error occurs), 
+ if building on Visual Studio Code,go to the terminal run <code> dotnet build </code>
 
 ### Testing
 
