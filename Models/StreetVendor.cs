@@ -16,8 +16,8 @@ namespace street_foody.Models
         public string VendorName{get; set;}
         public string PhoneNumber{get;set;}
         public string Description{get;set;}
-        public List<FoodCategory> FoodCategories{get;set;}       
-        public List<Food> Menu{get;set;}       
+        public virtual List<FoodCategory> FoodCategories{get;set;}       
+        public virtual List<Food> Menu{get;set;}       
         public int[] PriceRange{get;set;}   
         public int[] RatingList{get;set;}
 

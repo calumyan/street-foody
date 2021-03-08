@@ -457,7 +457,7 @@ div.text-box {
   vertical-align: text-top;
 }
 
-h2 {
+h3 {
   font-size: 1.5rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
@@ -789,7 +789,7 @@ img.inline-icon {
 -------------------------------------------------- */
 
 .vendor-header {
-  margin: 2rem 0 4rem;
+  margin-top: 2rem;
   width: 75%;
   height: 16rem;
   display: flex;
@@ -819,7 +819,6 @@ img.inline-icon {
   margin-left: 1.5rem;
   height: 100%;
   font-size: 1.5rem;
-  margin-left: 1.5rem;
   position: relative;
 }
 
@@ -867,21 +866,76 @@ img.inline-icon {
 }
 
 .vendor-info {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
 .vendor-info > img {
   margin-left: 0.5rem;
-  margin-right: 1rem;
 }
 
-/* .vendor-container {
+/* VENDOR PAGE - OTHER SECTIONS
+-------------------------------------------------- */
+
+h2.section-title {
+  font-size: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 0;
+  text-align: center;
+  color: tomato;
+}
+
+hr {
+  height: 1px;
+  width: 80%;
+  align-self: center;
+  margin-top: 0;
+  background: #ff6347;
+}
+
+.vendor-section {
+  width: 80%;
   display: flex;
   flex-flow: row wrap;
   align-content: center;
   justify-content: center;
 }
+
+#vendor-hours {
+  width: 30%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#vendor-location {
+  color: black;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+iframe {
+  width: 50%;
+  border: 0;
+}
+
+.day-time {
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.day {
+  width: 5rem;
+}
+
+.time {
+  width: 20rem;
+}
+
 .menu-card {
   justify-content: center;
   align-items: center;
@@ -917,13 +971,6 @@ img.inline-icon {
   float: right;
   font-size: small;
   padding: 5px;
-} */
-
-hr {
-  height: 2px;
-  width: 80%;
-  align-self: center;
-  background-color: tomato;
 }
 
 /* MEDIA QUERIES

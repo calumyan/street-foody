@@ -4,18 +4,22 @@ using System.Linq;
 using street_foody.Models;  
 
 namespace street_foody.Controllers {     
-   [Route("api/[controller]")]     
-   [ApiController]     
-   public class VendorController : ControllerBase     
+    [Route("Vendor")]
+    [ApiController]
+   public class VendorController : Controller     
    {        
-      private readonly Context _context;          
+      private readonly Context _context;       
+      public StreetVendor vendor;   
       public VendorController(Context context){     
                _context = context;   
       } 
 
-      [HttpGet] 
-      public ActionResult<List<StreetVendor>> GetAll(){     
-         return _context.StreetVendor.ToList(); 
+      public IActionResult Index() {
+         string id = "5";
+         vendor = _context.StreetVendor.Where(v => v.VendorID == id).ToList()[0];
+         vendor.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
+         vendor.GetAverageRating();
+         return View(vendor);
       }
    } 
 }

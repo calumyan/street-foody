@@ -1,30 +1,14 @@
 @model StreetVendor;
+@using street_foody.Models;
+
 @{
     ViewData["Title"] = "Vendor";
 }
 
-    <!--Initialize and add the map-->
-@* <script>
-    function initMap() {
-        const location = { lat: 10.8231, lng: 106.6297 };
-        // The map, centered at HCMC
-
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 11,
-            center: location,
-        });
-        // The marker, positioned at HCMC
-
-        const marker = new google.maps.Marker({
-            position: uluru,
-            map: map,
-        });
-    }
-</script> *@
-@* @{
+@{
     string locationDisp = @Model.VendorHours.Count() > 1 ? "Various locations" : @Model.VendorHours[0].Location;
     string phoneDisp = String.IsNullOrWhiteSpace(@Model.PhoneNumber) ? "Not available" : @Model.PhoneNumber;
-} *@
+}
 
 <div class="homepage-layout page">
     <div class="vendor-header">
@@ -36,7 +20,7 @@
         <!--Basic info-->
         <div class="vendor-about">
             <div id="headline">
-                <h3 class="stand-name"> Model.StandVietnameseName
+                <h3 class="stand-name"> @Model.StandVietnameseName
                     @* <sup class="large">Open Now!</sup> *@
                 </h3>
                 <span title="Save this vendor" id="save-icon">
@@ -44,35 +28,67 @@
                     <img id="saved" src="~/images/saved.png" alt="">
                 </span>
             </div>
-            <p>Model.StandEnglishName</p>
+            <p>@Model.StandEnglishName</p>
             <div class="vendor-info">
-                <img src="~/images/location.png" alt="" class="inline-icon"> locationDisp
+                <img src="~/images/location.png" alt="" class="inline-icon"> @locationDisp
             </div>
             <div class="vendor-info">
-                <img src="~/images/phone.png" alt="" class="inline-icon"> phoneDisp
+                <img src="~/images/phone.png" alt="" class="inline-icon"> @phoneDisp
             </div>
             <div class="vendor-info">
-                <img src="~/images/star.png" alt="" class="inline-icon"> Model.AverageRating
+                <img src="~/images/star.png" alt="" class="inline-icon"> @Model.AverageRating
             </div>
         </div>
     </div>
 
-    <div class="vendor-container">
-        <div class="section">
+    <h2 class="section-title">Location and Hours</h2>
+    <hr/>
+
+    <div class="vendor-section">
+        <div id="vendor-hours">
             <!--Location and Hours-->
-            <h2 style="text-align:center">Location and Hours</h2>
-            <hr/>
-            <a href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a>
-            <p class="body-text"></p>
-            <ul class="body-text">
-                <li>M: Closed</li>
-                <li>T: 8:00 am- 3:00 pm</li>
-                <li>W: 8:00 am- 3:00 pm</li>
-                <li>T: Closed</li>
-                <li>F: 8:00 am- 3:00 pm</li>
-                <li>S: 8:00 am- 3:00 pm</li>
-                <li>S: 12:00 pm- 3:00 pm</li>
-            </ul>
+            <a id="vendor-location" href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a>
+            @* @{
+            foreach (Days day in Enum.GetValues(typeof(DateTime))) {
+                int i=0;
+                Days d = day;
+                string sun = "Sun";
+                Type type = Type.GetType("VendorHours");
+
+                @* DateTime[] hoursInDay = @Model.VendorHours[i]; 
+                <div class="day-time">
+                    <div class="day">day</div>
+                    <div class="time">@Model.VendorHours[i]</div>
+                </div>
+            *@
+             <div class="day-time">
+                <div class="day">Sun</div>
+                <div class="time">09:00 AM - 12:00AM</div>
+            </div>
+             <div class="day-time">
+                <div class="day">Mon</div>
+                <div class="time">09:00 AM - 12:00AM</div>
+            </div>
+             <div class="day-time">
+                <div class="day">Mon</div>
+                <div class="time">09:00 AM - 12:00AM</div>
+            </div>
+             <div class="day-time">
+                <div class="day">Mon</div>
+                <div class="time">09:00 AM - 12:00AM</div>
+            </div>
+             <div class="day-time">
+                <div class="day">Mon</div>
+                <div class="time">09:00 AM - 12:00AM</div>
+            </div>
+             <div class="day-time">
+                <div class="day">Mon</div>
+                <div class="time">09:00 AM - 12:00AM</div>
+            </div>
+             <div class="day-time">
+                <div class="day">Sat</div>
+                <div class="time">09:00 AM - 12:00AM</div>
+            </div>
         </div>
             <!--Google Map-->
         @* <script async
@@ -89,8 +105,9 @@
                 &q=Space+Needle,Seattle+WA">  
                 @* Add the address as the query value here: &q=@vendor.Location *@
         </iframe>
+    </div>
         
-        <div class="section">
+        @* <div class="section">
             <!--Description-->
             <h2 style="text-align:center">Description</h2>
             <hr style="background-color:tomato" />
@@ -101,11 +118,11 @@
                 vel orci porta non pulvinar neque laoreet. Vulputate enim nulla aliquet porttitor.
                 Augue neque gravida in fermentum et sollicitudin.
             </p>
-        </div>
-        <div class="section">
+        </div> *@
+        <h2 class="section-title">Menu</h2>
+        <hr/>
+        <div class="vendor-section">
             <!--Menu Grid-->
-            <h2 style="text-align:center">Menu</h2>
-            <hr/>
             <div class="warning">
                 <p style="margin:0">
                     Note: Most street vendors only take cash!
@@ -165,7 +182,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <script>
