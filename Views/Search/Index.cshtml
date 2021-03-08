@@ -15,7 +15,7 @@
             <form id="sort-form" method="POST">
                 <select form="sort-form" name="sort" onchange="this.form.submit()">
                     <option value="none">Sort by</option>
-                    <option value="nearest">Nearest</option>
+                    @* <option value="nearest">Nearest</option> *@
                     <option value="highestRated">Highest Rated</option>
                     <option value="lowestPrice">Lowest Price</option>
                 </select>
@@ -25,13 +25,13 @@
     <div class="wrapper">
         <div id="filter-col">
             <h2 class="filter-title">Opening hours</h2>
-            <form action="" class="filter-list">
+            <form class="filter-list" method = "POST">
                 <div>
                     <input
                     type="checkbox"
                     class="checkbox"
                     id="open-now"
-                    name="openNow"
+                    name="open-now"
                     value = "open-now"
                     />
                     <label for="open-now"> Open now </label>
@@ -54,26 +54,26 @@
             <h2 class="filter-title">Ratings</h2>
             <form action="" class="filter-list">
                 <div>
-                    <input type="checkbox" class="checkbox" id="4.5p" name="4.5p" />
-                    <label for="4.5p"> 4.5+ </label>
+                    <input type="checkbox" class="checkbox" id="5.0" name="5.0" />
+                    <label for="5.0"> 5.0 </label>
                 </div>
                 <div>
                     <input
                     type="checkbox"
                     class="checkbox"
-                    id="4.0-4.5"
-                    name="4.0-4.5"
+                    id="4.0-5.0"
+                    name="4.0+"
                     />
-                    <label for="4.0-4.5"> 4.0 - 4.5 </label>
+                    <label for="4.0-5.0"> 4.0+ </label>
                 </div>
                 <div>
                     <input
                     type="checkbox"
                     class="checkbox"
-                    id="3.5-4.0"
-                    name="3.5-4.0"
+                    id="3.0-4.0"
+                    name="3.0-4.0"
                     />
-                    <label for="3.5-4.0"> 3.5 - 4.0 </label>
+                    <label for="3.0-4.0"> 3.0+ </label>
                 </div>
                 
             </form>

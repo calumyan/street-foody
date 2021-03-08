@@ -15,39 +15,41 @@ namespace street_foody.Models
         public string StandEnglishName{get; set;}
         public string VendorName{get; set;}
         public string PhoneNumber{get;set;}
-        public string Description{get;set;}
-        public virtual List<FoodCategory> FoodCategories{get;set;}       
-        public virtual List<Food> Menu{get;set;}       
+        public string Description{get;set;}     
+        public ICollection<Food> Menu{get;set;}       
         public int[] PriceRange{get;set;}   
         public int[] RatingList{get;set;}
-
-        [NotMapped]
-        public string AverageRating{get;set;}
-        public string PhotoUrl{get;set;} 
         
         [NotMapped]
-        public List<VendorHours> VendorHours{get;set;}  
-        public StreetVendor(){
-        }
+        public double AverageRating{get;set;}
+        public string PhotoUrl{get;set;} 
+        // public StreetVendor(){
+        // }
 
-        // Assigns an appropriate value to AverageRating string. 
-        // Returns the average rating of this vendor, or returns null if no rating is available yet.
-        public double? GetAverageRating(){
-            if (RatingList == null) {
-                AverageRating = "Not rated yet";
-                return null;
-            }
-            if (RatingList.Length == 0) {
-                AverageRating = "Not rated yet";
-                return null;
-            }
+
+
+        // Assigns an appropriate value to AverageRating. 
+        public void SetAverageRating(){
             double totalRating = 0;
-            foreach(var rating in RatingList){
-                totalRating+=rating;
+            double length = -1;
+            // if (RatingList == null) {
+            //     AverageRating = 0;
+            // }
+            // else if (RatingList.Length == 0) {
+            //     AverageRating = 0;
+            // }
+            if(RatingList == null){
+                length = -1;
             }
-            double result = Math.Round(totalRating/RatingList.Length, 1);
-            AverageRating = result.ToString("#.#") + "/5 (" + RatingList.Length + ")";
-            return result;
+            if(RatingList != null){
+                foreach(var rating in RatingList){
+                    totalRating+=rating;
+                }
+                length = RatingList.Length;
+            }
+            
+            double result = Math.Round(totalRating/length, 1);
+            AverageRating = result;
         }
 
         // public void addVendorHours()

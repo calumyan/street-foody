@@ -6,7 +6,7 @@
 }
 
 @{
-    string locationDisp = @Model.VendorHours.Count() > 1 ? "Various locations" : @Model.VendorHours[0].Location;
+    @* string locationDisp = @Model.VendorHours.Count() > 1 ? "Various locations" : @Model.VendorHours[0].Location; *@
     string phoneDisp = String.IsNullOrWhiteSpace(@Model.PhoneNumber) ? "Not available" : @Model.PhoneNumber;
 }
 
