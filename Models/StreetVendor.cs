@@ -9,7 +9,6 @@ namespace street_foody.Models
 {    
     public class StreetVendor
     {
-
         [Key]
         public string VendorID{get;set;}
         public string StandVietnameseName{get; set;}

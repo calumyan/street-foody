@@ -21,36 +21,42 @@
         });
     }
 </script> *@
+@* @{
+    string locationDisp = @Model.VendorHours.Count() > 1 ? "Various locations" : @Model.VendorHours[0].Location;
+    string phoneDisp = String.IsNullOrWhiteSpace(@Model.PhoneNumber) ? "Not available" : @Model.PhoneNumber;
+} *@
 
-<body>
+<div class="homepage-layout page">
     <div class="vendor-header">
-        <div class="section" id="Vendor">
-            <!--Profile image and basic info-->
-            <img src="~/images/Great-Aunty-Three.png" alt="Profile image">
-            <div class="vendor-about">
-                <p style="font-size:1.85rem; margin:0">Uncle Tu's Banh Mi</p>
-                <p style="color:dimgray; font-size:1.25rem; margin:0">Vendor Name (English)</p>
-                <!--Star rating-->
-                <div>
-                    <div class="star">
-                        ★★★★★
-                    </div>
-                    <p class="body-text" style="font-size:small; margin: 0">
-                        5.0 stars/10 ratings <br />
-                        <a class="body-text" style="text-decoration:underline; font-size:medium; margin:0" asp-area="" asp-controller="Vendor" asp-action="Index">
-                            Leave a rating for this vendor
-                        </a>
-                    </p>
-                </div>
-                <!--Directions and phone number-->
-                <ul id="info_ul">
-                    <li id="li_directions"><ion-icon name="pin"></ion-icon> <a href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a></li>
-                    <li id="li_phone"><ion-icon name="call"></ion-icon> <a href="tel:+84 000-000-0000">+84 000-000-0000</a></li>
-                </ul>
+        <!--Profile image-->
+        <div class="vendor-profile-img">
+            <img src="~/images/Great-Aunty-Three.png" alt="Model.StandEnglishName">
+        </div>
+
+        <!--Basic info-->
+        <div class="vendor-about">
+            <div id="headline">
+                <h3 class="stand-name"> Model.StandVietnameseName
+                    @* <sup class="large">Open Now!</sup> *@
+                </h3>
+                <span title="Save this vendor" id="save-icon">
+                    <img src="~/images/save.png" alt="">
+                    <img id="saved" src="~/images/saved.png" alt="">
+                </span>
+            </div>
+            <p>Model.StandEnglishName</p>
+            <div class="vendor-info">
+                <img src="~/images/location.png" alt="" class="inline-icon"> locationDisp
+            </div>
+            <div class="vendor-info">
+                <img src="~/images/phone.png" alt="" class="inline-icon"> phoneDisp
+            </div>
+            <div class="vendor-info">
+                <img src="~/images/star.png" alt="" class="inline-icon"> Model.AverageRating
             </div>
         </div>
     </div>
-    <hr style="margin-left: 4vw; margin-right: 4vw" />
+
     <div class="vendor-container">
         <div class="section">
             <!--Location and Hours-->
@@ -68,11 +74,12 @@
                 <li>S: 12:00 pm- 3:00 pm</li>
             </ul>
         </div>
-         <!--Google Map-->
+            <!--Google Map-->
         @* <script async
                 src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap&libraries=&v=weekly">
         </script> *@
         <iframe
+            title="map"
             width="600"
             height="450"
             style="border:0"
@@ -82,6 +89,7 @@
                 &q=Space+Needle,Seattle+WA">  
                 @* Add the address as the query value here: &q=@vendor.Location *@
         </iframe>
+        
         <div class="section">
             <!--Description-->
             <h2 style="text-align:center">Description</h2>
@@ -158,9 +166,16 @@
             </div>
         </div>
     </div>
+</div>
 
+<script>
+    const saveIcon = document.querySelector("span#save-icon");
+    const saved = document.querySelector("img#saved");
+    console.log(saveIcon);
+    console.log(saved);
+    saveIcon.addEventListener("click", () => {
+    console.log("hey");
+    saved.classList.toggle("active");
+    });
 
-    <!------------------ Ion Icon Script ------------------>
-
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-</body>
+</script>
