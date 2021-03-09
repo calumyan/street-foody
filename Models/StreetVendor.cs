@@ -8,6 +8,7 @@ namespace street_foody.Models
     public class StreetVendor
     {
         [Key]
+        [Column("vendor_id")]
         public string VendorID{get;set;}
         public string VietnameseName{get; set;}
         public string EnglishName{get; set;}
@@ -23,7 +24,7 @@ namespace street_foody.Models
         public virtual ICollection<VendorHours> LocationHours{get;set;}
         public string PhotoUrl{get;set;} 
 
-        public ICollection<Food> Foods{get;set;}   
+        public virtual ICollection<Food> Foods{get;set;}   
 
         // Assigns an appropriate value to AverageRating. 
         public void SetAverageRating(){
