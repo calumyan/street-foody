@@ -85,6 +85,7 @@ public class Context : DbContext
           new VendorHours{VendorID = "15", Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM", VendorDates = "Sun-Sat", StartTime = "12pm", EndTime = "11pm", VendorHoursID = "15"}
         );
 
+<<<<<<< HEAD
         // modelBuilder.Entity<FoodCategory>().HasData(
         //   new FoodCategory{FoodCategoryID = "1", CategoryVietnameseName = "Phở", CategoryEnglishName = "Pho", Description = " A soup with rice noodles, herbs, and meat. Pho in Saigon tends to have a clearer broth, and can include bean sprouts, fresh sliced chili, hoisin sauce, and additional herbs. Pho is considered to be Vietnam's national dish."},
         //   new FoodCategory{FoodCategoryID = "2", CategoryVietnameseName = "Hủ tiếu", CategoryEnglishName = "Rice noodles, or simply hu tieu", Description = "This noodle dish can be served with or without broth (dry) and includes pork bones, herbs, and a variety of meats and other ingredients."},
@@ -116,6 +117,39 @@ public class Context : DbContext
         //   new FoodCategory{FoodCategoryID = "28", CategoryVietnameseName = "Trà sữa", CategoryEnglishName = "Boba tea", Description = ""},
         //   new FoodCategory{FoodCategoryID = "29", CategoryVietnameseName = "Tráng miệng", CategoryEnglishName = "Dessert", Description = ""}
         // );
+=======
+        //modelBuilder.Entity<FoodCategory>().HasData(
+        //  new FoodCategory{FoodCategoryID = "1", CategoryVietnameseName = "Phở", CategoryEnglishName = "Pho", Description = " A soup with rice noodles, herbs, and meat. Pho in Saigon tends to have a clearer broth, and can include bean sprouts, fresh sliced chili, hoisin sauce, and additional herbs. Pho is considered to be Vietnam's national dish."},
+        //  new FoodCategory{FoodCategoryID = "2", CategoryVietnameseName = "Hủ tiếu", CategoryEnglishName = "Rice noodles, or simply hu tieu", Description = "This noodle dish can be served with or without broth (dry) and includes pork bones, herbs, and a variety of meats and other ingredients."},
+        //  new FoodCategory{FoodCategoryID = "3", CategoryVietnameseName = "Mì", CategoryEnglishName = "Egg noodles", Description = "Noodles made out of wheat flour or egg noodles. These noodles can be thick or thin, and can be served in soups or dry (without broth)."},
+        //  new FoodCategory{FoodCategoryID = "4", CategoryVietnameseName = "Bún", CategoryEnglishName = "Vietnamese rice vermicelli", Description = "These thin rice noodles, also known as rice vermicelli, can be found in soups, served with meats and vegetables, or in goi cuon."},
+        //  new FoodCategory{FoodCategoryID = "5", CategoryVietnameseName = "Bánh canh", CategoryEnglishName = "Tapioca noodles, banh canh", Description = "Thick tapioca noodles that can be served with a variety of broths and toppings, which can include crab, fish cakes, pork, and more."},
+        //  new FoodCategory{FoodCategoryID = "6", CategoryVietnameseName = "Miến", CategoryEnglishName = "Cellophane noodles/glass noodles", Description = "Also known as cellophane or glass noodles, these help make up Vietnamese dishes like mien ga, a chicken soup. Often confused with bun, or rice vermicelli, glass noodles can be distinguished by their clear glass-like appearance when cooked."},
+        //  new FoodCategory{FoodCategoryID = "7", CategoryVietnameseName = "Nui", CategoryEnglishName = "Vietnamese macaroni", Description = "These noodles are Vietnamese macaroni, and are often included in Vietnamese chicken and noodle soups."},
+        //  new FoodCategory{FoodCategoryID = "8", CategoryVietnameseName = "Bánh cuốn", CategoryEnglishName = "Steamed rice rolls, Rice noodle rolls", Description = "Rice noodle rolls made from thin sheets of fermented rice that are steamed and filled with pork, mushrooms, and shallots."},
+        //  new FoodCategory{FoodCategoryID = "9", CategoryVietnameseName = "Cơm tấm", CategoryEnglishName = "Vietnamese broken rice", Description = "This dish is made from broken rice grains, and is quite popular in Saigon. It often includes grilled pork ribs, fried egg, scallions, fresh and pickled vegetables, and fish sauce."},
+        //  new FoodCategory{FoodCategoryID = "10", CategoryVietnameseName = "Cháo", CategoryEnglishName = "Congee", Description = "Vietnamese congee, or rice porridge. It can be combined with chicken, duck, or pork and broth, as well as vegetables, and can also be served with youtiao (a type of fried dough)."},
+        //  new FoodCategory{FoodCategoryID = "11", CategoryVietnameseName = "Súp", CategoryEnglishName = "Egg drop soup", Description = "A type of thick, chunky soup made from flavored soup base, egg and tapioca starch. Other typical ingredients include quail eggs, crab meat, pig brain, mushrooms and vegetables. In English, known as egg drop soup."},
+        //  new FoodCategory{FoodCategoryID = "12", CategoryVietnameseName = "Xôi", CategoryEnglishName = "Sticky rice", Description = ""},
+        //  new FoodCategory{FoodCategoryID = "13", CategoryVietnameseName = "Bánh mì", CategoryEnglishName = "Vietnamese sandwich", Description = "A sandwich made with a short baguette that often includes pork, cucumber, pickled carrots, cilantro, chili, and mayonnaise, or a wide variety of other ingredients and combinations."},
+        //  new FoodCategory{FoodCategoryID = "14", CategoryVietnameseName = "Bánh bao", CategoryEnglishName = "Vietnamese steamed bun", Description = "A round savory bun filled with meat, eggs, and vegetables including onions and mushrooms. Often include Chinese sausage and hard-boiled egg."},
+        //  new FoodCategory{FoodCategoryID = "15", CategoryVietnameseName = "Điểm sấm", CategoryEnglishName = "Dim sum", Description = "Originally from China, these can include wontons, dumplings and poststickers and other ball/bun shaped dishes eaten with or without soup. Generally, they are meat balls wrapped inside flour wrappers."},
+        //  new FoodCategory{FoodCategoryID = "16", CategoryVietnameseName = "Cuốn", CategoryEnglishName = "Rolls", Description = "Any Vietnamese traditional food that comes in the form of rolls, e.g. summer rolls, egg rolls, bo bia, .... Wrappers are commonly made from rice papers or betel leaves."},
+        //  new FoodCategory{FoodCategoryID = "17", CategoryVietnameseName = "Pancakes", CategoryEnglishName = "Crispy pancakes", Description = "These crispy, savory pancakes are made of rice flour, water, and turmeric, fried in a pan and filled with ingredients like pork, prawns, green onion, mung bean, and herbs."},
+        //  new FoodCategory{FoodCategoryID = "18", CategoryVietnameseName = "Bánh tráng", CategoryEnglishName = "Rice paper", Description = "Rice paper wrappers made from a mixture of rice flour with tapioca starch, water and salt. They are thin and light in texture, and often used in egg rolls and spring rolls."},
+        //  new FoodCategory{FoodCategoryID = "19", CategoryVietnameseName = "Trứng", CategoryEnglishName = "Eggs", Description = "Eggs (usually from a quail, a duck or a chicken), often boiled and fertilized, or soft-boiled."},
+        //  new FoodCategory{FoodCategoryID = "20", CategoryVietnameseName = "Bánh ngọt", CategoryEnglishName = "Sweet cakes", Description = "Sweet cakes are a type of Vietnamese dessert and come in many varieties. Cakes can often include rice flour and coconut milk, and can feature flavors like banana and cassava, among others."},
+        //  new FoodCategory{FoodCategoryID = "21", CategoryVietnameseName = "Xiên que", CategoryEnglishName = "Skewers", Description = "Skewered food in Vietnam can include fried fish balls, grilled corn, grilled sausage, and more."},
+        //  new FoodCategory{FoodCategoryID = "22", CategoryVietnameseName = "Trái cây", CategoryEnglishName = "Fruits", Description = ""},
+        //  new FoodCategory{FoodCategoryID = "23", CategoryVietnameseName = "Chè", CategoryEnglishName = "Sweet gruel", Description = "Sweet gruel is another Vietnamese dessert, with textures ranging from that of a soup to a pudding. Flavors vary, including fruits and chocolates, and often include coconut milk, rice, and/or tapioca."},
+        //  new FoodCategory{FoodCategoryID = "24", CategoryVietnameseName = "Nước ép", CategoryEnglishName = "Juice", Description = ""},
+        //  new FoodCategory{FoodCategoryID = "25", CategoryVietnameseName = "Nước đóng chai", CategoryEnglishName = "Bottled drinks", Description = ""},
+        //  new FoodCategory{FoodCategoryID = "26", CategoryVietnameseName = "Trà", CategoryEnglishName = "Tea", Description = ""},
+        //  new FoodCategory{FoodCategoryID = "27", CategoryVietnameseName = "Cà phê", CategoryEnglishName = "Vietnamese coffee", Description = ""},
+        //  new FoodCategory{FoodCategoryID = "28", CategoryVietnameseName = "Trà sữa", CategoryEnglishName = "Boba tea", Description = ""},
+        //  new FoodCategory{FoodCategoryID = "29", CategoryVietnameseName = "Tráng miệng", CategoryEnglishName = "Dessert", Description = ""}
+        //);
+>>>>>>> 75912716ca8f58d32864b94ef08e9eef812b5680
 
     }
 
