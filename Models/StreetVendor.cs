@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.JSInterop;
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema; 
 
@@ -23,11 +21,7 @@ namespace street_foody.Models
         public double AverageRating{get;set;}
         public string PhotoUrl{get;set;} 
 
-        public ICollection<Food> Foods{get;set;}    
-        // public StreetVendor(){
-        // }
-
-
+        public ICollection<Food> Foods{get;set;}   
 
         // Assigns an appropriate value to AverageRating. 
         public void SetAverageRating(){

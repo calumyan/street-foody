@@ -90,7 +90,7 @@
                         ? Url.Content("~/images/logo.png")
                         : vendor.PhotoUrl;
                 <div id="@vendor.VendorID" class="vndr-card">
-                    <div class="vndr-image"><img src="@photoURL" alt="@vendor.StandEnglishName" /></div>
+                    <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                     <h3 class="stand-name">
                         @Html.DisplayFor(modelItem => vendor.VietnameseName)
                         @* <sup class="large">Open Now!</sup> *@
