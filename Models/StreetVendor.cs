@@ -38,7 +38,7 @@ namespace street_foody.Models
             // else if (RatingList.Length == 0) {
             //     AverageRating = 0;
             // }
-            if(RatingList == null){
+            if(RatingList == null || RatingList.Length == 0){
                 length = -1;
             }
             if(RatingList != null){
