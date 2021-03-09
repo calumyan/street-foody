@@ -19,6 +19,8 @@ namespace street_foody.Models
 
         [NotMapped]
         public double AverageRating{get;set;}
+
+        public virtual ICollection<VendorHours> LocationHours{get;set;}
         public string PhotoUrl{get;set;} 
 
         public ICollection<Food> Foods{get;set;}   
@@ -27,16 +29,9 @@ namespace street_foody.Models
         public void SetAverageRating(){
             double totalRating = 0;
             double length = -1;
-            // if (RatingList == null) {
-            //     AverageRating = 0;
-            // }
-            // else if (RatingList.Length == 0) {
-            //     AverageRating = 0;
-            // }
-            if(RatingList == null || RatingList.Length == 0){
+            if (RatingList == null || RatingList.Length == 0){
                 length = -1;
-            }
-            if(RatingList != null){
+            } else {
                 foreach(var rating in RatingList){
                     totalRating+=rating;
                 }

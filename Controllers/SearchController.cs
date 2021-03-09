@@ -99,7 +99,12 @@ namespace street_foody.Controllers
         [Route("Vendor")]
         public IActionResult Vendor()
         {
-            return View();
+            StreetVendor vendor;
+            string id = "5";
+            vendor = _context.StreetVendor.Where(v => v.VendorID == id).FirstOrDefault();
+            vendor.LocationHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
+            vendor.SetAverageRating();
+            return View(vendor);
         }
 
         // [Route("Sort")]

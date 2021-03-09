@@ -6,7 +6,7 @@
 }
 
 @{
-    @* string locationDisp = @Model. > 1 ? "Various locations" : @Model.VendorHours[0].Location; *@
+    string locationDisp = @Model.LocationHours.Count > 1 ? "Various locations" : @Model.LocationHours.ToArray()[0].Location;
     string phoneDisp = String.IsNullOrWhiteSpace(@Model.PhoneNumber) ? "Not available" : @Model.PhoneNumber;
 }
 
@@ -20,7 +20,7 @@
         <!--Basic info-->
         <div class="vendor-about">
             <div id="headline">
-                <h3 class="stand-name"> Model.StandVietnameseName
+                <h3 class="stand-name"> @Model.VietnameseName
                     @* <sup class="large">Open Now!</sup> *@
                 </h3>
                 <span title="Save this vendor" id="save-icon">
@@ -28,9 +28,9 @@
                     <img id="saved" src="~/images/saved.png" alt="">
                 </span>
             </div>
-            <p>Model.StandEnglishName</p>
+            <p>@Model.EnglishName</p>
             <div class="vendor-info">
-                <img src="~/images/location.png" alt="" class="inline-icon"> locationDisp
+                <img src="~/images/location.png" alt="" class="inline-icon"> @locationDisp
             </div>
             <div class="vendor-info">
                 <img src="~/images/phone.png" alt="" class="inline-icon"> @phoneDisp
@@ -47,7 +47,7 @@
     <div class="vendor-section">
         <div id="vendor-hours">
             <!--Location and Hours-->
-            <a id="vendor-location" href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">1234 Main st, HCMC</a>
+            <a id="vendor-location" href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">@locationDisp</a>
             @* @{
             foreach (Days day in Enum.GetValues(typeof(DateTime))) {
                 int i=0;
