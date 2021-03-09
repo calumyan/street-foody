@@ -9,29 +9,19 @@ namespace street_foody.Models
     {
 
         [ForeignKey("StreetVendor")]
-        public string VendorID{get; set;}
         [Key]
-<<<<<<< Updated upstream
-        public string VendorHoursID{get; set;}
+        public string VendorID{get; set;}
+        // public string VendorHoursInfo{
+        // get{return VendorHoursInfo;} 
+        // set{VendorHoursInfo = VendorID + " " +Location;}}
         public string Location{get;set;}
-        public string VendorDates{get;set;}
-        public string StartTime {get;set;}
-        public string EndTime {get;set;}
-
-        
-=======
-        public string VendorHoursInfo{
-        get{return VendorHoursInfo;} 
-        set{VendorHoursInfo = VendorID + " " +Location;}}
-        public string Location{get;set;}
-        public DateTime[] Sun {get;set;}
-        public DateTime[] Mon {get;set;}
-        public DateTime[] Tue {get;set;}
-        public DateTime[] Wed {get;set;}
-        public DateTime[] Thu {get;set;}
-        public DateTime[] Fri {get;set;}
-        public DateTime[] Sat {get;set;}
+        public System.DateTime[] Sun {get;set;}
+        public System.DateTime[] Mon {get;set;}
+        public System.DateTime[] Tue {get;set;}
+        public System.DateTime[] Wed {get;set;}
+        public System.DateTime[] Thu {get;set;}
+        public System.DateTime[] Fri {get;set;}
+        public System.DateTime[] Sat {get;set;}
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
->>>>>>> Stashed changes
     }
 }
