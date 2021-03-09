@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.JSInterop;
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema; 
 
@@ -11,22 +9,19 @@ namespace street_foody.Models
     {
         [Key]
         public string VendorID{get;set;}
-        public string StandVietnameseName{get; set;}
-        public string StandEnglishName{get; set;}
+        public string VietnameseName{get; set;}
+        public string EnglishName{get; set;}
         public string VendorName{get; set;}
         public string PhoneNumber{get;set;}
         public string Description{get;set;}     
-        public ICollection<Food> Menu{get;set;}       
         public int[] PriceRange{get;set;}   
         public int[] RatingList{get;set;}
-        
+
         [NotMapped]
         public double AverageRating{get;set;}
         public string PhotoUrl{get;set;} 
-        // public StreetVendor(){
-        // }
 
-
+        public ICollection<Food> Foods{get;set;}   
 
         // Assigns an appropriate value to AverageRating. 
         public void SetAverageRating(){
