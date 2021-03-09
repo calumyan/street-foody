@@ -20,6 +20,7 @@ namespace street_foody.Models
         [NotMapped]
         public double AverageRating{get;set;}
 
+        [Required]
         public ICollection<VendorHours> LocationHours{get;set;}
         public string PhotoUrl{get;set;} 
 

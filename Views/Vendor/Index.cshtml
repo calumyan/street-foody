@@ -7,12 +7,13 @@
 }
 
 @{
-    string locationDisp = @Model.LocationHours.Count > 1 ? "Various locations" : @Model.LocationHours.ToArray()[0].Location;
-    string phoneDisp = String.IsNullOrWhiteSpace(@Model.PhoneNumber) ? "Not available" : @Model.PhoneNumber;
-    string avgRatingDisp = @Model.AverageRating == -0 ? "Not rated yet" : "" + @Model.AverageRating.ToString();
-    string photoURL = @Model.PhotoUrl == null
+    string location = Model.LocationHours.ToArray()[0].Location; //Location is a required field of VendorHours
+    string locationDisp = Model.LocationHours.Count > 1 ? "Various locations" : location;
+    string phoneDisp = String.IsNullOrWhiteSpace(Model.PhoneNumber) ? "Not available" : Model.PhoneNumber;
+    string avgRatingDisp = Model.AverageRating == -0 ? "Not rated yet" : "" + Model.AverageRating.ToString();
+    string photoURL = Model.PhotoUrl == null
     ? Url.Content("~/images/logo.png")
-    : @Model.PhotoUrl;
+    : Model.PhotoUrl;
 }
 
 <div class="homepage-layout page">
@@ -36,9 +37,15 @@
             <p>@Model.EnglishName</p>
             <div class="vendor-info">
                 <img src="~/images/location.png" alt="" class="inline-icon"> @locationDisp
-                <span title="Get direction">
-                    <img src="~/images/right-caret.png" alt="" id="get-direction">
-                </span>
+                @{
+                if (Model.LocationHours.Count == 1) {
+                    <span title="Get direction">
+                        <a target="_blank" href="http://maps.google.com/?q=@location">
+                            <img src="~/images/right-caret.png" alt="" id="get-direction">
+                        </a>
+                    </span>
+                }
+                }
             </div>
             <div class="vendor-info">
                 <img src="~/images/phone.png" alt="" class="inline-icon"> @phoneDisp
@@ -55,24 +62,23 @@
     <h2 class="section-title">Location and Hours</h2>
     <hr/>
 
-    <!--Location and Hours-->
+    @* Render location-hours pairs from the vendor's list of VendorHours (required non-null) *@
     @{  
-    if (Model.LocationHours.Count != 0) {
         string[] DAYS = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         Type type = new VendorHours().GetType();
         @foreach (VendorHours vh in Model.LocationHours) {
             <div class="vendor-section">
                 <div id="vendor-hours">
-                    <a id="vendor-location" href="https://goo.gl/maps/4ezoPy1ms45HNrWL6">@locationDisp</a>
-                @foreach (string day in DAYS) {
-                    PropertyInfo timeInfo = type.GetProperty(day);
-                    DateTime[] hours = timeInfo == null ? null : (DateTime[]) timeInfo.GetValue(vh, null);
-                    string timeDisp = hours == null ? "Closed" : hours[0].ToString("hh:mm tt") + " - " + hours[1].ToString("hh:mm tt");
-                    <div class="day-time">
-                        <div class="day">@day</div>
-                        <div class="time">@timeDisp</div>
-                    </div>
-                }
+                    <a target="_blank" id="vendor-location" href="http://maps.google.com/?q=@vh.Location">@locationDisp</a>
+                    @foreach (string day in DAYS) {
+                        PropertyInfo timeInfo = type.GetProperty(day);
+                        DateTime[] hours = timeInfo == null ? null : (DateTime[]) timeInfo.GetValue(vh, null);
+                        string timeDisp = hours == null ? "Closed" : hours[0].ToString("hh:mm tt") + " - " + hours[1].ToString("hh:mm tt");
+                        <div class="day-time">
+                            <div class="day">@day</div>
+                            <div class="time">@timeDisp</div>
+                        </div>
+                    }
                 </div>
                 @* Google Map *@
                 <iframe
@@ -84,9 +90,6 @@
                 </iframe>
             </div>
         }
-    } else {
-
-    }
     }
         @* <script async
                 src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap&libraries=&v=weekly">
@@ -157,7 +160,6 @@
     const saveIcon = document.querySelector("span#save-icon");
     const saved = document.querySelector("img#saved");
     saveIcon.addEventListener("click", () => {
-    saved.classList.toggle("active");
+        saved.classList.toggle("active");
     });
-
 </script>

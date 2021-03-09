@@ -17,8 +17,11 @@ namespace street_foody.Models
         // public string VendorHoursInfo{
         // get{return VendorHoursInfo;} 
         // set{VendorHoursInfo = VendorID + " " +Location;}}
+
+        [Required]
         public string Location{get;set;}
 
+        // Each day column is not required. To specify a closed day, leave the column null.
         public DateTime[] Sun {get;set;}
 
         public DateTime[] Mon {get;set;}
