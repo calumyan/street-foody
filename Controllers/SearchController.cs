@@ -25,8 +25,8 @@ namespace street_foody.Controllers
             _context = context;
             allVendors = new List<StreetVendor>();
         }
-         
-        
+
+
         public IActionResult Index(string SearchValue)
         {
             ViewBag.SearchValue = SearchValue;
@@ -41,7 +41,7 @@ namespace street_foody.Controllers
             }
             else
             {
-                result = GetSearchedResults(SearchValue);
+                result = GetSearchedResults(SearchValue, all);
             }
             try
             {
@@ -49,7 +49,7 @@ namespace street_foody.Controllers
             }
             catch
             {
-               Console.WriteLine("no value selected");
+                Console.WriteLine("no value selected");
             }
             if (SelectValue != null)
             {
@@ -88,7 +88,7 @@ namespace street_foody.Controllers
 
             // }
 
-           
+
 
 
 
@@ -134,23 +134,39 @@ namespace street_foody.Controllers
         {
             return View();
         }
-        
+
         // private IActionResult Show(){
         //     if()
         // }
-    
+
         // TODO: Implement search algorithm here. There can be method decomposition.
         // This function should return the final search result. 
-        private List<StreetVendor> ShowSearchedResults(string SearchValue) {
-            Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
-            allVendors = _context.StreetVendor.Where(lambda).ToList();
-            foreach (StreetVendor vendor in allVendors) {
-                vendor.SetAverageRating();
+        private List<StreetVendor> GetSearchedResults(string SearchValue, List<StreetVendor> vendors)
+        {
+            // Expression<Func<StreetVendor, bool>> lambda = sv => sv.EnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
+            // allVendors = _context.StreetVendor.Where(lambda).ToList();
+            bool toBeAdded = false;
+            List<StreetVendor> matchedVendors = new List<StreetVendor>();
+            foreach (StreetVendor sv in vendors)
+            {
+                // vendor.SetAverageRating();
+                if(sv.EnglishName.Contains(SearchValue) || sv.VietnameseName.Contains(SearchValue)) toBeAdded = true;
+                ICollection<Food> Foods = sv.Foods;
+                foreach(Food food in Foods){
+                    FoodCategory fc = food.FoodCategory;
+                    if(fc.EnglishName.Contains(SearchValue) || fc.VietnameseName.Contains(SearchValue)){
+                        toBeAdded = true;
+                    }
+                }
+                if(toBeAdded) matchedVendors.Add(sv);
+                
             }
-            return allVendors;
+            
+            return matchedVendors;
         }
-        
-        private List<StreetVendor> GetAll(){    
+
+        private List<StreetVendor> GetAll()
+        {
             allVendors = _context.StreetVendor.ToList();
             foreach (StreetVendor vendor in allVendors)
             {
@@ -158,29 +174,36 @@ namespace street_foody.Controllers
             }
             return allVendors;
         }
-        
+
         //function to get all of the vendors that match the search input
-        private List<StreetVendor> GetSearchedResults(string SearchValue)
-        {
-            Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
-            // for(StreetVendor sv in allVendors){
-            //     if(sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue) || sv.M)
-            // }
-            List<StreetVendor> searchedResults = _context.StreetVendor.Where(lambda).ToList();
-            foreach (StreetVendor vendor in searchedResults)
-            {
-                vendor.SetAverageRating();
-            }
-            return searchedResults;
-        }
-        
+        // private List<StreetVendor> GetSearchedResults(string SearchValue, List<StreetVendor> vendors)
+        // {
+        //     Expression<Func<StreetVendor, bool>> lambda = sv => sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue);
+        //     // for(StreetVendor sv in allVendors){
+        //     //     if(sv.StandEnglishName.Contains(SearchValue) || sv.StandVietnameseName.Contains(SearchValue) || sv.M)
+        //     // }
+
+        //     for(StreetVendor sv in vendors){
+
+        //     }
+
+        //     // for()
+        //     List<StreetVendor> searchedResults = _context.StreetVendor.Where(lambda).ToList();
+            
+        //     foreach (StreetVendor vendor in searchedResults)
+        //     {
+        //         vendor.SetAverageRating();
+        //     }
+        //     return searchedResults;
+        // }
+
         //function to get all of the vendors sorted by their price range (mean of highest and lowest prices of each vendor)
         private List<StreetVendor> GetVendorsSortedByPrice(List<StreetVendor> vendors)
         {
             List<StreetVendor> sortedVendors = vendors.OrderBy(sv => (sv.PriceRange[1] + sv.PriceRange[0]) / 2).ToList();
             return sortedVendors;
         }
-        
+
         //function to get all of the vendors sorted by their ratings
         private List<StreetVendor> GetVendorsSortedByRating(List<StreetVendor> vendors)
         {
@@ -198,7 +221,7 @@ namespace street_foody.Controllers
         //     // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?)
         //     foreach(StreetVendor sv in vendors){
         //         // if(sv.OpeningHours == null) continue;
-                
+
         //         select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?)
         //         string startTime = sv.OpeningHours[0];
         //         string endTime = sv.OpeningHours[1];
@@ -239,7 +262,7 @@ namespace street_foody.Controllers
         //     return vendorsGreaterThan3;
         // }
         // private List<StreetVendor> GetVendorsByRatingsThreshold(){
-            
+
         // }
 
         // private int GetTime(string[] splitted){
