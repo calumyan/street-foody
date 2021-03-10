@@ -116,11 +116,15 @@
                         } *@
                         Vietnamese sandwich, Boba tea, Dessert, Sweet cakes
                     </div>
-                    <div class="vndr-rating-price">
-                        <img src="~/images/star.png" alt="" class="inline-icon" /> 
-                        @Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp
-                        <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
+                    <div class="vndr-price">
+                        <img src="~/images/price-tag.png" alt="" class="inline-icon" /> 
+                        <div>@priceDisp</div>
                     </div>
+                    <div class="vndr-rating">
+                        <img src="~/images/star.png" alt="" class="inline-icon" /> 
+                        <div>@Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp</div>
+                    </div>   
+                    
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                 </div>
             }

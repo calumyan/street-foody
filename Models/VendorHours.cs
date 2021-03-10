@@ -7,11 +7,10 @@ namespace street_foody.Models
 
     public class VendorHours
     {
-
-        [ForeignKey("StreetVendor")]
-        public string VendorID{get; set;}
+    
         [Key]
         public string VendorHoursID{get; set;}
+        public StreetVendor Vendor{get; set;}
         public string Location{get;set;}
         public string VendorDates{get;set;}
         public string StartTime {get;set;}

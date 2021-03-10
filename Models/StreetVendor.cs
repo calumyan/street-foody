@@ -27,12 +27,6 @@ namespace street_foody.Models
         public void SetAverageRating(){
             double totalRating = 0;
             double length = -1;
-            // if (RatingList == null) {
-            //     AverageRating = 0;
-            // }
-            // else if (RatingList.Length == 0) {
-            //     AverageRating = 0;
-            // }
             if(RatingList == null){
                 length = -1;
             }

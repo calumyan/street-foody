@@ -12,9 +12,6 @@ using street_foody.Models;
 // [ApiController]  
 namespace street_foody.Controllers
 {
-
-   
-    
     public class HandbookController : Controller
     {
         public IActionResult Index()

@@ -28,7 +28,6 @@ namespace street_foody.Controllers
         {
             ViewBag.SearchValue = SearchValue;
             string SelectValue = null;
-
             //the result list of vendors resulted from every action (sort, search etc.), put it into the starting list of vendors everytime of next action
             List<StreetVendor> result;
             List<StreetVendor> allVendors = GetAll();
@@ -46,9 +45,7 @@ namespace street_foody.Controllers
                 SelectValue = Request.Form["sort"];
             }
             catch
-            {
-                Console.WriteLine("no value selected");
-            }
+            { }
             if (SelectValue != null)
             {
                 if (SelectValue.Equals("highestRated"))
@@ -151,38 +148,61 @@ namespace street_foody.Controllers
         {
             // Expression<Func<StreetVendor, bool>> lambda = streetVendor => streetVendor.EnglishName.Contains(SearchValue) || streetVendor.StandVietnameseName.Contains(SearchValue);
             // allVendors = _context.StreetVendor.Where(lambda).ToList();
-            bool toBeAdded = false;
+
             List<StreetVendor> matchedVendors = new List<StreetVendor>();
             foreach (StreetVendor streetVendor in vendors)
             {
-                if (streetVendor.EnglishName.Contains(SearchValue) || streetVendor.VietnameseName.Contains(SearchValue)) toBeAdded = true;
+                bool toBeAdded = false;
+                string SearchValueLowerCase = SearchValue.ToLower();
+                string SVEnglishNameLowerCase = streetVendor.EnglishName == null ? "" : streetVendor.EnglishName.ToLower();
+                string SVVietnameseNameLowerCase = streetVendor.VietnameseName == null ? "" : streetVendor.VietnameseName.ToLower();
+                if (SVEnglishNameLowerCase.Contains(SearchValueLowerCase) || SVVietnameseNameLowerCase.Contains(SearchValueLowerCase))
+                {
+                    toBeAdded = true;
+                    // Console.WriteLine(SearchValueLowerCase);
+                    // Console.WriteLine(SVVietnameseNameLowerCase);
+                }
                 ICollection<Food> Foods = new Collection<Food>();
-                Food f = new Food { FoodID = "1", VietnameseName = "Ba", FoodCategory = new FoodCategory("1", "Súp") };
+                Food f = new Food { FoodID = "1", VietnameseName = "Ba", FoodCategory = new FoodCategory { VietnameseName = "Sup hhhhhh" } };
                 Foods.Add(f);
-
                 foreach (Food food in Foods)
                 {
-                    // if (food != null)
-                    // {
-                        FoodCategory foodCategory = food.FoodCategory;
-                        if (foodCategory != null && foodCategory.EnglishName != null && foodCategory.VietnameseName != null)
-                        {
-                            if (foodCategory.EnglishName.Contains(SearchValue) || foodCategory.VietnameseName.Contains(SearchValue))
-                            {
-                                toBeAdded = true;
-                            }
+                    FoodCategory foodCategory = food.FoodCategory;
+                    if (foodCategory != null)
+                    {
 
+                        string FCEnglishNameLowerCase = foodCategory.EnglishName == null ? "" : foodCategory.EnglishName.ToLower();
+                        string FCVietnameseNameLowerCase = foodCategory.VietnameseName == null ? "" : foodCategory.VietnameseName.ToLower();
+                        // Console.WriteLine(FCVietnameseNameLowerCase);
+                        // Console.WriteLine(SearchValueLowerCase);
+                        if( FCVietnameseNameLowerCase.Contains(SearchValueLowerCase)) Console.WriteLine("yes");
+                        if (FCEnglishNameLowerCase.Contains(SearchValueLowerCase) || FCVietnameseNameLowerCase.Contains(SearchValueLowerCase))
+                        {
+                            toBeAdded = true;
                         }
 
-                    // }
-
+                    }
                 }
                 if (toBeAdded) matchedVendors.Add(streetVendor);
-
             }
 
             return matchedVendors;
         }
+
+        // private bool NameMatchWithSearchValue(object obj){
+        //     // string name = "";
+
+        //     string EnglishNameLowerCase = "";
+        //     if(obj.EnglishName != null)
+        //     EnglishNameLowerCase = obj.EnglishName.ToLower();
+
+        //     // string VietnameseNameLowerCase = "";
+        //     // if(ibj.VietnameseName != null)
+        //     // VietnameseNameLowerCase = foodCategory.VietnameseName.ToLower();
+
+        //     }
+
+        // }
 
         //function to get Vendors of the vendors sorted by their price range (mean of highest and lowest prices of each vendor)
         private List<StreetVendor> GetVendorsSortedByPrice(List<StreetVendor> vendors)
