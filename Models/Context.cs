@@ -37,25 +37,6 @@ public class Context : DbContext
             new StreetVendor{VendorID = "15", VietnameseName = "Green Box (Gibi)", EnglishName = "Green Box (Gibi)", RatingList = new int[]{3,4,4}, PriceRange = new int[]{5000,40000}, PhotoUrl = "https://static.riviu.co/960/image/2020/12/04/67fabbc325dd84ba17fdc0e6e63978e9_output.jpeg"}
         );
 
-<<<<<<< HEAD
-        // modelBuilder.Entity<VendorHours>().HasData(
-        //   new VendorHours{VendorID = "1", Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", VendorDates = "Sun-Sat", StartTime = "3pm", EndTime = "9pm", VendorHoursID = "1"},
-        //   new VendorHours{VendorID = "2", Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC", VendorDates = "Mon-Sat", StartTime = "5am", EndTime = "11am", VendorHoursID = "2"},
-        //   new VendorHours{VendorID = "3", Location = "10-12 Dinh Tien Hoang St., Ben Nghe Ward, District 1, HCMC", VendorDates = "Mon-Fri", StartTime = "10am", EndTime = "12pm", VendorHoursID = "3"},
-        //   new VendorHours{VendorID = "4", Location = "217 Hong Bang, Ward 1, District 5, HCMC", VendorDates = "Mon-Fri", StartTime = "6am", EndTime = "8am", VendorHoursID = "4"},
-        //   new VendorHours{VendorID = "5", Location = "82 Vinh Vien, Ward 2, District 10, HCMC", VendorDates = "Sun-Sat", StartTime = "9am", EndTime = "10pm", VendorHoursID = "5"},
-        //   new VendorHours{VendorID = "6", Location = "138 Nguyen Trai, Ward 3, District 5", VendorDates = "Sun-Sat", StartTime = "5pm", EndTime = "12am", VendorHoursID = "6"},
-        //   new VendorHours{VendorID = "7", Location = "267 Pham Van Chi, Ward 3, District 6", VendorDates = "Sun-Sat", StartTime = "11am", EndTime = "9pm", VendorHoursID = "7"},
-        //   new VendorHours{VendorID = "8", Location = "8 Phan Van Han, Ward 19, Binh Thanh District", VendorDates = "Sun-Sat", StartTime = "3pm", EndTime = "N/A", VendorHoursID = "8"},
-        //   new VendorHours{VendorID = "9", Location = "27 Thanh Da, Ward 27, Binh Thanh District", VendorDates = "Sun-Sat", StartTime = "6pm", EndTime = "10pm", VendorHoursID = "9"},
-        //   new VendorHours{VendorID = "10", Location = "623/20 CMT8, P.15, Q.10", VendorDates = "Sun-Sat", StartTime = "5:30pm", EndTime = "10pm", VendorHoursID = "10"},
-        //   new VendorHours{VendorID = "11", Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC", VendorDates = "Sun-Sat", StartTime = "11am", EndTime = "5pm", VendorHoursID = "11"},
-        //   new VendorHours{VendorID = "12", Location = "246/55A Hoa Hung, Ward 13, District 10", VendorDates = "Sun-Sat", StartTime = "6am", EndTime = "9pm", VendorHoursID = "12"},
-        //   new VendorHours{VendorID = "13", Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District", VendorDates = "Sun-Sat", StartTime = "6pm", EndTime = "10pm", VendorHoursID = "13"},
-        //   new VendorHours{VendorID = "14", Location = "Le Van Tam Park", VendorDates = "Sun-Sat", StartTime = "5pm", EndTime = "10pm", VendorHoursID = "14"},
-        //   new VendorHours{VendorID = "15", Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM", VendorDates = "Sun-Sat", StartTime = "12pm", EndTime = "11pm", VendorHoursID = "15"}
-        // );
-=======
         modelBuilder.Entity<VendorHours>().HasData(
           new VendorHours{VendorID = "1", Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}},
           new VendorHours{VendorID = "2", Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC", Mon = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Tue = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Wed = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Fri = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}},
@@ -73,7 +54,6 @@ public class Context : DbContext
           new VendorHours{VendorID = "14", Location = "Le Van Tam Park", Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}},
           new VendorHours{VendorID = "15", Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM", Sun = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}}
         );
->>>>>>> 8e6e8479efaa0f78436647e6d8fa3012330ad543
 
         modelBuilder.Entity<FoodCategory>().HasData(
           new FoodCategory{FoodCategoryID = "1", VietnameseName = "Phở", EnglishName = "Pho", Description = " A soup with rice noodles, herbs, and meat. Pho in Saigon tends to have a clearer broth, and can include bean sprouts, fresh sliced chili, hoisin sauce, and additional herbs. Pho is considered to be Vietnam's national dish."},
