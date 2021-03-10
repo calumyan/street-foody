@@ -10,10 +10,11 @@ People have trouble finding street vendors based on name and food type if they�
 
 ### Goals
 
-1. Allows users search  a place to eat based on street vendor’s name and food type
-2. Allows users sort and filter through street food based on price tags and ratings
-3. Allows street vendors access to online advertising by submitting forms through a url to a google form (in the future there will be a “real” server based form to fill out)
-
+1. Gives users an intro to street food and food categories in Vietnam
+2. Allows users search  a place to eat based on street vendor’s name and food type
+3. Allows users sort and filter through street food based on price tags and ratings
+4. Allows street vendors access to online advertising by submitting forms through a url to a google form (in the future there will be a “real” server based form to fill out)
+5. Allows users to view each vendor's information (open hours, menu, location from a map, etc.)
 
 
 ## For Users
