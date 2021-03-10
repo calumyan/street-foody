@@ -59,6 +59,6 @@ To have an in depth look at our database, try
 
 ## References 
 
-Our references mostly come from [Microsoft documentation for asp.net core and asp.net mvc](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0).
+Our references mostly come from [Microsoft documentation for asp.net core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0).
 We also referenced [a meidum article for setting up postgresql database](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823).  
 
