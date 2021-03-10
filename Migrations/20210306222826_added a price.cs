@@ -54,7 +54,7 @@ namespace street_foody.Migrations
                 keyColumn: "vendor_id",
                 keyValue: "7",
                 column: "price_range",
-                value: new int[0]);
+                value: new int[] {999999999, 999999999});
         }
     }
 }

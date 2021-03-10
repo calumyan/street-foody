@@ -457,7 +457,7 @@ div.text-box {
   vertical-align: text-top;
 }
 
-h2 {
+h3 {
   font-size: 1.5rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
@@ -789,7 +789,7 @@ img.inline-icon {
 -------------------------------------------------- */
 
 .vendor-header {
-  margin: 2rem 0 4rem;
+  margin-top: 2rem;
   width: 75%;
   height: 16rem;
   display: flex;
@@ -819,7 +819,6 @@ img.inline-icon {
   margin-left: 1.5rem;
   height: 100%;
   font-size: 1.5rem;
-  margin-left: 1.5rem;
   position: relative;
 }
 
@@ -872,58 +871,138 @@ img.inline-icon {
 }
 
 .vendor-info > img {
-  margin-left: 0.5rem;
-  margin-right: 1rem;
+  margin: 0 0.5rem;
+  transform: translateY(-0.2rem);
 }
 
-/* .vendor-container {
+#get-direction,
+#call {
+  height: 1.5rem;
+  object-fit: contain;
+  transform: translateY(-0.1rem);
+  transition: all 0.5s ease;
+}
+
+#get-direction:hover,
+#call:hover {
+  transform: translateY(-0.1rem) translateX(0.5rem);
+}
+
+/* VENDOR PAGE - LOCATION & HOURS
+-------------------------------------------------- */
+
+h2.section-title {
+  font-size: 2.2rem;
+  margin-top: 4rem;
+  margin-bottom: 0;
+  text-align: center;
+  color: tomato;
+}
+
+hr {
+  height: 1px;
+  width: 80%;
+  align-self: center;
+  margin-top: 0;
+  background: #ff6347;
+}
+
+.vendor-section {
+  width: 80%;
   display: flex;
   flex-flow: row wrap;
   align-content: center;
   justify-content: center;
 }
-.menu-card {
+
+#vendor-hours {
+  width: 35%;
+  min-width: 25rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 325px;
-  margin: 15px;
-  border-style: solid;
+}
+
+a#vendor-location {
+  color: black;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#vendor-location:hover {
+  text-decoration: underline;
+  transform: scale(1);
+}
+
+iframe {
+  width: 55%;
+  min-width: 35rem;
+  min-height: 25rem;
+  border: 0;
+  padding-top: 2rem;
+}
+
+.day-time {
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.day {
+  width: 5rem;
+}
+
+.time {
+  width: 20rem;
+}
+
+/* VENDOR PAGE - MENU
+-------------------------------------------------- */
+
+.warning {
+  width: 100%;
+  display: inline-flex;
+  font-size: 1.2rem;
+  justify-content: center;
+  font-style: italic;
+}
+
+a#learn-more {
+  text-decoration: underline;
+  color: black;
+  margin-left: 1rem;
+  font-style: normal;
+}
+
+h3.food-category {
+  flex-basis: 80%;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
   border-radius: 10px;
-  border-width: 1px;
-  border-color: gray;
 }
 
 .body-text {
-  font-family: "Quicksand", sans-serif;
   color: black;
-  font-size: large;
-  margin: 10px;
+  margin: 1rem 1rem 0;
+  max-width: 100%;
   text-align: left;
-}
-
-#map {
-  height: 300px;
-  width: 45%;
-  padding: 1vw;
-}
-.star {
-  color: tomato;
-  font-size: 2em;
-  text-align: left;
-  letter-spacing: 3px;
+  overflow: hidden;
 }
 
 .price {
-  float: right;
-  font-size: small;
-  padding: 5px;
-} */
-
-hr {
-  height: 2px;
-  width: 80%;
-  align-self: center;
-  background-color: tomato;
+  margin: 1rem;
+  text-align: right;
+  font-weight: bold;
 }
 
 /* MEDIA QUERIES
@@ -1071,6 +1150,9 @@ hr {
 /* Mobile M */
 
 @media only screen and (max-width: 376px) {
+  iframe {
+    min-width: 350px;
+  }
 }
 
 /* Mobile S */
@@ -1078,5 +1160,9 @@ hr {
 @media only screen and (max-width: 325px) {
   div.burger-container {
     margin-right: 0px;
+  }
+
+  iframe {
+    min-width: 300px;
   }
 }

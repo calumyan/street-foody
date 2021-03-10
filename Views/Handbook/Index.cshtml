@@ -1,3 +1,9 @@
+@* 
+Data in this page are intentionally all static, meaning the food categories are intended to
+not be retrieved from the database. Although there are workarounds, this approach makes
+it easier to achieve better SEO. 
+*@
+
 @{
     ViewData["Title"] = "Handbook";
 }
@@ -17,7 +23,7 @@
 
     <div class="column-grid three-column-grid">
         <div class="text-box" id="text-box-1">
-            <h2>Why street food?</h2>
+            <h3>Why street food?</h3>
             <p class="body-text">
                 Street food is a great way to experience Vietnamese culture and cuisine!
                 It is often safer and cheaper than eating at a restaurant.
@@ -25,7 +31,7 @@
         </div>
 
         <div class="text-box" id="text-box-2">
-            <h2>Menus</h2>
+            <h3>Menus</h3>
             <p class="body-text">
                 Most stands have one or two specialties and offer a few variations
                 of those dishes rather than offering an extensive menu. Scroll down to
@@ -33,7 +39,7 @@
             </p>
         </div>
         <div class="text-box" id="text-box-3">
-            <h2>Pricing</h2>
+            <h3>Pricing</h3>
             <ul class="body-text" style="text-align: left;">
                 <li> Street vendors usually only take cash.</li>
                 <li>1 US dollar = ~23,000 Vietnamese dong (VND)</li>
@@ -50,7 +56,7 @@
         <div class="column-grid four-column-grid">
             <div class="text-box">
                 <h1 style="color: tomato">1.</h1>
-                <h2>Search</h2>
+                <h3>Search</h3>
                 <p class="body-text">
                     Use the search page to look for street vendors based on location, food type, or hours.
                 </p>
@@ -58,21 +64,21 @@
 
             <div class="text-box">
                 <h1 style="color: tomato">2.</h1>
-                <h2>Browse</h2>
+                <h3>Browse</h3>
                 <p class="body-text">
                     Look through the list of results to find a place that looks good.
                 </p>
             </div>
             <div class="text-box">
                 <h1 style="color: tomato">3.</h1>
-                <h2>Choose</h2>
+                <h3>Choose</h3>
                 <p class="body-text">
                     Click on a vendor you're interested in to get directions and more information.
                 </p>
             </div>
             <div class="text-box">
                 <h1 style="color: tomato">4.</h1>
-                <h2>Enjoy!</h2>
+                <h3>Enjoy!</h3>
                 <p class="body-text">
                     Head to the streets to try some delicious food!
                 </p>
@@ -441,6 +447,8 @@
 </div>
 
 <script>
+    // Add links from handbook to search page that allows users to 
+    // conveniently search for street vendors of a specific food categoties.
     const findCategory = document.querySelectorAll(".back > a");
     findCategory.forEach(a => {
         const category = a.innerHTML.substring(5);

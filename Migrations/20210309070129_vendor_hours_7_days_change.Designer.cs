@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using street_foody.Models;
@@ -9,9 +10,10 @@ using street_foody.Models;
 namespace street_foody.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210309070129_vendor_hours_7_days_change")]
+    partial class vendor_hours_7_days_change
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -505,10 +507,6 @@ namespace street_foody.Migrations
                         .HasColumnType("timestamp without time zone[]")
                         .HasColumnName("sat");
 
-                    b.Property<string>("StreetVendorVendorID")
-                        .HasColumnType("text")
-                        .HasColumnName("street_vendor_vendor_id");
-
                     b.Property<DateTime[]>("Sun")
                         .HasColumnType("timestamp without time zone[]")
                         .HasColumnName("sun");
@@ -527,9 +525,6 @@ namespace street_foody.Migrations
 
                     b.HasKey("VendorID")
                         .HasName("pk_vendor_hours");
-
-                    b.HasIndex("StreetVendorVendorID")
-                        .HasDatabaseName("ix_vendor_hours_street_vendor_vendor_id");
 
                     b.ToTable("vendor_hours");
 
@@ -675,22 +670,9 @@ namespace street_foody.Migrations
                     b.Navigation("FoodCategory");
                 });
 
-            modelBuilder.Entity("street_foody.Models.VendorHours", b =>
-                {
-                    b.HasOne("street_foody.Models.StreetVendor", null)
-                        .WithMany("LocationHours")
-                        .HasForeignKey("StreetVendorVendorID")
-                        .HasConstraintName("fk_vendor_hours_street_vendor_street_vendor_vendor_id");
-                });
-
             modelBuilder.Entity("street_foody.Models.FoodCategory", b =>
                 {
                     b.Navigation("Foods");
-                });
-
-            modelBuilder.Entity("street_foody.Models.StreetVendor", b =>
-                {
-                    b.Navigation("LocationHours");
                 });
 #pragma warning restore 612, 618
         }

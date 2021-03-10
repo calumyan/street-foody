@@ -1,0 +1,165 @@
+@model StreetVendor;
+@using System;
+@using System.Reflection;
+
+@{
+    ViewData["Title"] = "Vendor";
+}
+
+@{
+    string location = Model.LocationHours.ToArray()[0].Location; //Location is a required field of VendorHours
+    string locationDisp = Model.LocationHours.Count > 1 ? "Various locations" : location;
+    string phoneDisp = String.IsNullOrWhiteSpace(Model.PhoneNumber) ? "Not available" : Model.PhoneNumber;
+    string avgRatingDisp = Model.AverageRating == -0 ? "Not rated yet" : "" + Model.AverageRating.ToString();
+    string photoURL = Model.PhotoUrl == null
+    ? Url.Content("~/images/logo.png")
+    : Model.PhotoUrl;
+}
+
+<div class="homepage-layout page">
+    <div class="vendor-header">
+        <!--Profile image-->
+        <div class="vendor-profile-img">
+            <img src="@photoURL" alt="Model.StandEnglishName">
+        </div>
+
+        <!--Basic info-->
+        <div class="vendor-about">
+            <div id="headline">
+                <h3 class="stand-name"> @Model.VietnameseName
+                    @* <sup class="large">Open Now!</sup> *@
+                </h3>
+                <span title="Save this vendor" id="save-icon">
+                    <img src="~/images/save.png" alt="">
+                    <img id="saved" src="~/images/saved.png" alt="">
+                </span>
+            </div>
+            <p>@Model.EnglishName</p>
+            <div class="vendor-info">
+                <img src="~/images/location.png" alt="" class="inline-icon"> @locationDisp
+                @{
+                if (Model.LocationHours.Count == 1) {
+                    <span title="Get direction">
+                        <a target="_blank" href="http://maps.google.com/?q=@location">
+                            <img src="~/images/right-caret.png" alt="" id="get-direction">
+                        </a>
+                    </span>
+                }
+                }
+            </div>
+            <div class="vendor-info">
+                <img src="~/images/phone.png" alt="" class="inline-icon"> @phoneDisp
+                <span title="Call vendor">
+                    <img src="~/images/right-caret.png" alt="" id="call">
+                </span>
+            </div>
+            <div class="vendor-info">
+                <img src="~/images/star.png" alt="" class="inline-icon"> @avgRatingDisp
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Location and Hours</h2>
+    <hr/>
+
+    @* Render location-hours pairs from the vendor's list of VendorHours (required non-null) *@
+    @{  
+        string[] DAYS = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        Type type = new VendorHours().GetType();
+        @foreach (VendorHours vh in Model.LocationHours) {
+            <div class="vendor-section">
+                <div id="vendor-hours">
+                    <a target="_blank" id="vendor-location" href="http://maps.google.com/?q=@vh.Location">@locationDisp</a>
+                    @foreach (string day in DAYS) {
+                        PropertyInfo timeInfo = type.GetProperty(day);
+                        DateTime[] hours = timeInfo == null ? null : (DateTime[]) timeInfo.GetValue(vh, null);
+                        string timeDisp = hours == null ? "Closed" : hours[0].ToString("hh:mm tt") + " - " + hours[1].ToString("hh:mm tt");
+                        <div class="day-time">
+                            <div class="day">@day</div>
+                            <div class="time">@timeDisp</div>
+                        </div>
+                    }
+                </div>
+                @* Google Map *@
+                <iframe
+                    title="map"
+                    loading="lazy"
+                    allowfullscreen
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBsXAG8PrqllPSGjeejnAy-TLXR2tPFGw
+                        &q=@Model.LocationHours.ToArray()[0].Location">  
+                </iframe>
+            </div>
+        }
+    }
+        @* <script async
+                src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap&libraries=&v=weekly">
+        </script> *@
+
+        <h2 class="section-title">Menu</h2>
+        <hr/>
+        <div class="warning">
+            *Note: Most street vendors only take cash!
+            <a id="learn-more" asp-area="" asp-controller="Handbook" asp-action="Index">
+                Learn more about ordering
+            </a>
+        </div>
+
+        <!--Menu Grid-->
+        <h3 class="food-category">⋘-- &nbsp Banh Mi &nbsp --⋙</h3>
+        <div class="gallery">
+            <div class="menu-card">
+                <p class="body-text" style="font-weight: bold">Cold cut sandwich</p>
+                <p class="body-text">
+                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                </p>
+                <p class="price"> 20,000 VND</p>
+            </div>
+
+            <div class="menu-card">
+                <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
+                <p class="body-text">
+                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                </p>
+                <p class="price"> 20,000 VND</p>
+            </div>
+            <div class="menu-card">
+                <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
+                <p class="body-text">
+                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                </p>
+                <p class="price"> 20,000 VND</p>
+            </div>
+        </div>
+        <h3 class="food-category">⋘-- &nbsp Banh Mi &nbsp --⋙</h3>
+        <div class="gallery">
+            <div class="menu-card">
+                <p class="body-text" style="font-weight: bold">Cold cut sandwich</p>
+                <p class="body-text">
+                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                </p>
+                <p class="price"> 20,000 VND</p>
+            </div>
+            <div class="menu-card">
+                <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
+                <p class="body-text">
+                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                </p>
+                <p class="price"> 20,000 VND</p>
+            </div>
+            <div class="menu-card">
+                <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
+                <p class="body-text">
+                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
+                </p>
+                <p class="price"> 20,000 VND</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const saveIcon = document.querySelector("span#save-icon");
+    const saved = document.querySelector("img#saved");
+    saveIcon.addEventListener("click", () => {
+        saved.classList.toggle("active");
+    });
+</script>
