@@ -470,6 +470,10 @@ div.emphasis > h1 {
   bottom: 0px;
 }
 
+div.gallery h1{
+    font-family: "Quicksand", sans-serif;
+}
+
 .body-text {
   color: dimgray;
   font-size: 1.1rem;
