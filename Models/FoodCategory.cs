@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace street_foody.Models
 {  
+    ///<summary> Food cateogry for each food. 
+    ///</summary>
     public class FoodCategory
     {
         [Key]

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace street_foody.Models
 {    
+
     public class StreetVendor
     {
         [Key]

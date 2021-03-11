@@ -22,14 +22,14 @@ namespace street_foody.Controllers
         }
 
 
-        /// <summary> renders a list of street vendors with searching and sorting
+        /// <summary> renders a list of street vendors with searching and sorting.
         /// </summary>
         public IActionResult Index(string SearchValue)
         {
             ViewBag.SearchValue = SearchValue;
             string SelectValue = null;
 
-            //the result list of vendors resulted from every action (sort, search etc.), put it into the starting list of vendors everytime of next action
+            //the result list of vendors resulted from every action (sort, search etc.), put it into the starting list of vendors everytime of next action.
             List<StreetVendor> result;
             List<StreetVendor> allVendors = GetAll();
 
@@ -90,8 +90,8 @@ namespace street_foody.Controllers
             return allVendors;
         }
 
-        /// <summary> Returns a list of street vendors whose names match the search input. Search value matches vendor's food/vendor's food's 
-        /// category english and vietnamese name with search value
+        /// <summary> Returns a list of street vendors whose names match the search input. Search value matches vendor's food/vendor's food 
+        /// category english and vietnamese name with search value.
         /// Search is case insensitive.
         /// </summary>
         private List<StreetVendor> GetSearchedResults(string SearchValue, List<StreetVendor> vendors)
@@ -100,17 +100,9 @@ namespace street_foody.Controllers
             foreach (StreetVendor streetVendor in vendors)
             {
                 bool toBeAdded = false;
-                string SearchValueLowerCase = SearchValue.ToLower();
-                // string query = "SELECT * FROM WHERE ";
-    
-                
-
-                // var data = _context.StreetVendor.Sql.ToList();
-                // if (NameMatchWithSearchValue(streetVendor.VietnameseName, streetVendor.EnglishName, SearchValueLowerCase)) toBeAdded = true;
-                
+                string SearchValueLowerCase = SearchValue.ToLower();                
                 List<Food> Foods;
                 Foods = _context.Food.Where(f => f.VendorID == streetVendor.VendorID).ToList();
-                // Foods.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
                 if (Foods != null && Foods.Count != 0)
                 {
                     foreach (Food food in Foods)
@@ -131,7 +123,7 @@ namespace street_foody.Controllers
             return matchedVendors;
         }
 
-        /// <summary> Returns true if either Vietnamese Name or English Name matches with the lowercase SearchValue   
+        /// <summary> Returns true if either Vietnamese Name or English Name matches with the lowercase SearchValue.  
         ///</summary>
         private bool NameMatchWithSearchValue(string VietnameseName, string EnglishName, string SearchValueLowerCase)
         {
