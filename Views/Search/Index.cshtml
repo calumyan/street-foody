@@ -14,7 +14,6 @@
             <form id="sort-form" method="POST">
                 <select form="sort-form" name="sort" onchange="this.form.submit()">
                     <option value="none">Sort by</option>
-                    @* <option value="nearest">Nearest</option> *@
                     <option value="highestRated">Highest Rated</option>
                     <option value="lowestPrice">Lowest Price</option>
                 </select>
@@ -35,20 +34,6 @@
                     />
                     <label for="open-now"> Open now </label>
                 </div>
-                @* <div>
-                    <input
-                    type="checkbox"
-                    class="checkbox"
-                    id="opening-soon"
-                    name="openingSoon"
-                    />
-                    <label for="opening-soon"> Opening soon </label>
-                </div>
-                <div>
-                    <input type="checkbox" class="checkbox" id="closed" name="closed" />
-                    <label for="closed"> Closed </label>
-                </div>
-                *@
             </form>
             <h2 class="filter-title">Ratings</h2>
             <form action="" class="filter-list">
@@ -88,37 +73,23 @@
                     string photoURL = vendor.PhotoUrl == null
                         ? Url.Content("~/images/logo.png")
                         : vendor.PhotoUrl;
+                    string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString() + " (" + vendor.RatingList.Length + ") ";
                 <div id="@vendor.VendorID" class="vndr-card">
                     <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                     <h3 class="stand-name">
                         @Html.DisplayFor(modelItem => vendor.VietnameseName)
-                        @* <sup class="large">Open Now!</sup> *@
                     </h3>
                     <div class="vndr-distance"> 0.5 miles away &nbsp &nbsp &nbsp
-                        @* <img src="~/images/walk.png" class="inline-icon" alt=""/> 8 mins *@
                     </div>
                     <div class="vndr-categories">
                         <img src="~/images/menu.png" alt="" class="inline-icon" />  
-                        @* @foreach (var category in vendor.FoodCategories) {
-                            <div class=“food-category”>@Html.Display(category.CategoryEnglishName)</div>
-                        }
-                        CSS:
-
-                        .food-category {
-                            display: inline-block;
-                        }
-                        .food-cateogry:after {
-                            content: ",";
-                        }
-                        .food-category:after:last-child {
-                            content: none;
-                        } *@
                         Vietnamese sandwich, Boba tea, Dessert, Sweet cakes
                     </div>
                     <div class="vndr-rating-price">
                         <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
+                        <br />
                         <img src="~/images/star.png" alt="" class="inline-icon" /> 
-                        @Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp
+                        @avgRatingDisp &nbsp &nbsp &nbsp &nbsp &nbsp
                     </div>   
                     
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>

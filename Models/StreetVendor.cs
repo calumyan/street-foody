@@ -38,12 +38,6 @@ namespace street_foody.Models
         public void SetAverageRating(){
             double totalRating = 0;
             double length = -1;
-            // if (RatingList == null) {
-            //     AverageRating = 0;
-            // }
-            // else if (RatingList.Length == 0) {
-            //     AverageRating = 0;
-            // }
             if(RatingList == null){
                 length = -1;
             }
@@ -57,15 +51,5 @@ namespace street_foody.Models
             double result = Math.Round(totalRating/length, 1);
             AverageRating = result;
         }
-
-        // public void addVendorHours()
-        // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
-
-        // This constructor is only here for convenience when creating fake data in the SearchController.
-        // public StreetVendor(string VNStandName, List<int> RatingList, int[] PriceRange) {
-        //     this.StandVietnameseName = VNStandName; 
-        //     this.PriceRange = PriceRange;
-        //     this.RatingList = RatingList;
-        // }
     }
 }
