@@ -52,7 +52,7 @@ public class Context : DbContext
             VendorID = "5", 
             VietnameseName = "Ăn vặt,trà sữa đường Vĩnh Viễn", 
             EnglishName = "Vinh Vien St. snacks and boba tea", 
-            RatingList = new int[]{}, 
+            RatingList = new int[]{5}, 
             PriceRange = new int[]{14000,29000}, 
             PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/156646575_817247045527459_8464517707157016028_n.jpg?_nc_cat=1&ccb=3&_nc_sid=b9115d&_nc_ohc=7qGQxbPz5GIAX94w5F1&_nc_ht=scontent.ffcm1-2.fna&oh=66f3c0a1330121b1100836f404c5ced8&oe=60685917"
             },
@@ -68,7 +68,7 @@ public class Context : DbContext
             VendorID = "7", 
             VietnameseName = "Trà sữa Anva", 
             EnglishName = "Anva boba tea", 
-            RatingList = new int[]{}, 
+            RatingList = new int[]{5}, 
             PriceRange = new int[]{99999999,99999999}, 
             PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/155165695_240195354407050_2744091707808776661_n.jpg?_nc_cat=101&ccb=3&_nc_sid=8bfeb9&_nc_ohc=05vpqk1kzbAAX9TFzD4&_nc_ht=scontent.ffcm1-2.fna&oh=6b0b19a21677cc60dc3c605d0746e109&oe=606906E4"
             },
@@ -151,6 +151,11 @@ public class Context : DbContext
             VendorID = "1",
             Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}, 
+            Mon = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}
           },
           new VendorHours{
@@ -222,6 +227,11 @@ public class Context : DbContext
             VendorID = "8",
             Location = "8 Phan Van Han, Ward 19, Binh Thanh District", 
             Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}, 
+            Mon = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")},
             Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}
           },
           new VendorHours{
