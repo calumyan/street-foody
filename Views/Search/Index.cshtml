@@ -88,10 +88,6 @@
                     string photoURL = vendor.PhotoUrl == null
                         ? Url.Content("~/images/logo.png")
                         : vendor.PhotoUrl;
-<<<<<<< HEAD
-                    string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString() + " (" + vendor.RatingList.Length + ") ";
-=======
->>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
                 <div id="@vendor.VendorID" class="vndr-card">
                     <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                     <h3 class="stand-name">
@@ -121,14 +117,10 @@
                     </div>
                     <div class="vndr-rating-price">
                         <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
-<<<<<<< HEAD
-                    </div>
-=======
                         <img src="~/images/star.png" alt="" class="inline-icon" /> 
                         @Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp
                     </div>   
                     
->>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                 </div>
             }

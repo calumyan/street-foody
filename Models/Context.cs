@@ -138,7 +138,6 @@ public class Context : DbContext
         );
 
         modelBuilder.Entity<VendorHours>().HasData(
-<<<<<<< HEAD
           new VendorHours{
             VendorHoursID = "1", 
             Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", 
@@ -250,23 +249,6 @@ public class Context : DbContext
             Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}}
-=======
-          new VendorHours{VendorID = "1", VendorHoursID = "1", Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}},
-          new VendorHours{VendorID = "2", VendorHoursID = "2", Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC", Mon = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Tue = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Wed = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Fri = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}},
-          new VendorHours{VendorID = "3", VendorHoursID = "3", Location = "10-12 Dinh Tien Hoang St., Ben Nghe Ward, District 1, HCMC", Mon = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, Tue = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, Wed = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, Fri = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}},
-          new VendorHours{VendorID = "4", VendorHoursID = "4", Location = "217 Hong Bang, Ward 1, District 5, HCMC", Mon = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, Tue = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, Wed = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, Fri = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}},
-          new VendorHours{VendorID = "5", VendorHoursID = "5", Location = "82 Vinh Vien, Ward 2, District 10, HCMC", Sun = new System.DateTime[]{System.DateTime.Parse("09:00 AM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("09:00 AM"), System.DateTime.Parse("10:00 PM")}},
-          new VendorHours{VendorID = "6", VendorHoursID = "6", Location = "138 Nguyen Trai, Ward 3, District 5", Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("11:59 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("11:59 AM")}},
-          new VendorHours{VendorID = "7", VendorHoursID = "7", Location = "267 Pham Van Chi, Ward 3, District 6", Sun = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("09:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("09:00 PM")}},
-          new VendorHours{VendorID = "8", VendorHoursID = "8", Location = "8 Phan Van Han, Ward 19, Binh Thanh District", Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}},
-          new VendorHours{VendorID = "9", VendorHoursID = "9", Location = "27 Thanh Da, Ward 27, Binh Thanh District", Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}},
-          new VendorHours{VendorID = "10", VendorHoursID = "10", Location = "623/20 CMT8, P.15, Q.10", Sun = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}},
-          new VendorHours{VendorID = "11", VendorHoursID = "11", Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC", Sun = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}},
-          new VendorHours{VendorID = "12", VendorHoursID = "12", Location = "246/55A Hoa Hung, Ward 13, District 10", Sun = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}},
-          new VendorHours{VendorID = "13", VendorHoursID = "13", Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District", Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}},
-          new VendorHours{VendorID = "14", VendorHoursID = "14", Location = "Le Van Tam Park", Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}},
-          new VendorHours{VendorID = "15", VendorHoursID = "15", Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM", Sun = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}}
->>>>>>> 9df3175e677d0d1c48b6fb278d179b3f7a7a8e8c
         );
 
         
@@ -443,8 +425,33 @@ public class Context : DbContext
           VietnameseName = "Tráng miệng", 
           EnglishName = "Dessert", 
           Description = ""
-          }
+          },
+        new FoodCategory{
+          FoodCategoryID = "30", 
+          VietnameseName = "Other", 
+          EnglishName = "Other", 
+          Description = ""
+          }  
+
+
         );
+
+        modelBuilder.Entity<Food>(
+                entity =>
+                {
+                    entity.HasOne(d => d.Vendor)
+                        .WithMany(p => p.Foods)
+                        .HasForeignKey("VendorID");
+                });
+
+        modelBuilder.Entity<Food>(
+                entity =>
+                {
+                    entity.HasOne(d => d.FoodCategory)
+                        .WithMany(p => p.Foods)
+                        .HasForeignKey("FoodCategoryID");
+                });
+
 
         modelBuilder.Entity<Food>().HasData(
           new Food{
@@ -452,272 +459,312 @@ public class Context : DbContext
             VietnameseName = "Hủ tiếu thập cẩm", 
             EnglishName = "Mixed rice noodle soup", 
             Price = 25000,
-            FoodCategory = null
+            VendorID = "1",
+            FoodCategoryID = "2"
             },
           new Food{
             FoodID = "2", 
             VietnameseName = "Bánh mì thịt nguội", 
             EnglishName = "Cold cut", 
             Price = 15000,
-            FoodCategory = null
+            VendorID = "2",
+            FoodCategoryID = "13"
             },
           new Food{
             FoodID = "3", 
             VietnameseName = "Miến", 
             EnglishName = "Mixed stir-fried glass noodles", 
             Price = 10000,
-            FoodCategory = null
+            VendorID = "3",
+            FoodCategoryID = "6"
             },
           new Food{
             FoodID = "4", 
             VietnameseName = "Bún", 
             EnglishName = "Rice vermicelli", 
             Price = 10000,
-            FoodCategory = null
+            VendorID = "3",
+            FoodCategoryID = "4"
             },
           new Food{
             FoodID = "5", 
             VietnameseName = "Nui xào thập cẩm", 
             EnglishName = "Vietnamese macaroni", 
             Price = 10000,
-            FoodCategory = null
+            VendorID = "3",
+            FoodCategoryID = "7"
             },
           new Food{
             FoodID = "6", 
             VietnameseName = "Thêm miến", 
             EnglishName = "Additional mixed stir-fried glass noodles", 
             Price = 3000,
-            FoodCategory = null
+            VendorID = "3",
+            FoodCategoryID = "6"
             },
           new Food{
             FoodID = "7", 
             VietnameseName = "Thêm Bún", 
             EnglishName = "Additional rice vermicelli", 
             Price = 3000,
-            FoodCategory = null
+            VendorID = "3",
+            FoodCategoryID = "4"
             },
           new Food{
             FoodID = "8", 
             VietnameseName = "Thêm nui xào thập cẩm", 
             EnglishName = "Additional Vietnamese macaroni", 
             Price = 3000,
-            FoodCategory = null
+            VendorID = "3",
+            FoodCategoryID = "7"
             },
           new Food{
             FoodID = "9", 
             VietnameseName = "Xôi mặn - size vừa", 
             EnglishName = "Savory sticky rice - medium", 
             Price = 10000,
-            FoodCategory = null
+            VendorID = "4",
+            FoodCategoryID = "12"
+            },
+          new Food{
+            FoodID = "34", 
+            VietnameseName = "Xôi mặn - size lớn", 
+            EnglishName = "Savory sticky rice - large", 
+            Price = 15000,
+            VendorID = "4",
+            FoodCategoryID = "12"
             },
           new Food{
             FoodID = "10", 
             VietnameseName = "Trà sữa", 
             EnglishName = "Boba tea", 
             Price = 20000,
-            FoodCategory = null
+            VendorID = "5",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "11", 
             VietnameseName = "Trúng cút lòng đào (10 trứng)", 
             EnglishName = "Soft-boiled quail eggs (10ct)", 
             Price = 15000,
-            FoodCategory = null
+            VendorID = "5",
+            FoodCategoryID = "19"
             },
           new Food{
             FoodID = "12", 
             VietnameseName = "Trứng gà lòng đào (2 trứng)", 
             EnglishName = "Soft-boiled chicken eggs (2ct)", 
             Price = 14000,
-            FoodCategory = null
+            VendorID = "5",
+            FoodCategoryID = "19"
             },
           new Food{
             FoodID = "13", 
             VietnameseName = "Tháp 3 tầng combo", 
             EnglishName = "3 story tower combo", 
             Price = 29000,
-            FoodCategory = null
+            VendorID = "5",
+            FoodCategoryID = "29"
             },
           new Food{
             FoodID = "14", 
             VietnameseName = "Bún bò thập cẩm", 
             EnglishName = "Mixed beef vermicelli soup", 
             Price = 35000,
-            FoodCategory = null
+            VendorID = "6",
+            FoodCategoryID = "4"
             },
           new Food{
             FoodID = "15", 
             VietnameseName = "Trà sữa trân châu, bánh flan, phô mai viên", 
             EnglishName = "Milk tea with boba, flan cake and cheese ball", 
             Price = 45000,
-            FoodCategory = null
+            VendorID = "7",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "16", 
             VietnameseName = "Bún bò thập cẩm + giò", 
             EnglishName = "Mixed beef + pig's trotter vermicelli soup",
-            FoodCategory = null
+            Price = 45000,
+            VendorID = "6",
+            FoodCategoryID = "4"
             },
           new Food{
             FoodID = "17", 
             VietnameseName = "Phô mai viên (1 viên)", 
             EnglishName = "Cheese ball (1ct)", 
             Price = 2000,
-            FoodCategory = null
+            VendorID = "7",
+            FoodCategoryID = "30"
             },
           new Food{
             FoodID = "18", 
             VietnameseName = "Xôi 9 màu", 
             EnglishName = "9-color sweet sticky rice", 
             Price = 20000,
-            FoodCategory = null
+            VendorID = "8",
+            FoodCategoryID = "12"
             },
           new Food{
             FoodID = "19", 
             VietnameseName = "Trà sữa không topping", 
             EnglishName = "Milk tea without toppings", 
             Price = 17000,
-            FoodCategory = null
+            VendorID = "9",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "20", 
             VietnameseName = "Combos", 
             EnglishName = "Combos", 
             Price = 27000,
-            FoodCategory = null
+            VendorID = "9",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "21", 
             VietnameseName = "Trà sữa trái cây", 
             EnglishName = "Fruit milk tea", 
             Price = 15000,
-            FoodCategory = null
+            VendorID = "9",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "22", 
             VietnameseName = "Bánh tráng trộn trứng cút", 
             EnglishName = "Rice paper mix with quail eggs", 
             Price = 15000,
-            FoodCategory = null
+            VendorID = "10",
+            FoodCategoryID = "19"
             },
           new Food{
             FoodID = "23", 
             VietnameseName = "Sương sáo thập cẩm (1 lit.)", 
             EnglishName = "Grass jelly mix (1 lit.)", 
             Price = 15000,
-            FoodCategory = null
+            VendorID = "11",
+            FoodCategoryID = "30"
             },
           new Food{
             FoodID = "24", 
             VietnameseName = "Chè thập cẩm", 
             EnglishName = "Sweet gruel mixed combo", 
-            Price = 10000
-            }
-            , 
+            Price = 10000,
+            VendorID = "11",
+            FoodCategoryID = "23"
+            }, 
           new Food{
             FoodID = "25", 
             VietnameseName = "Cốc tai trái cây", 
             EnglishName = "Fruit cocktails", 
             Price = 15000,
-            FoodCategory = null
+            VendorID = "11",
+            FoodCategoryID = "30"
             },
           new Food{
             FoodID = "26", 
             VietnameseName = "Chè đậu xanh", 
             EnglishName = "Sweet green bean gruel", 
             Price = 15000,
-            FoodCategory = null
+            VendorID = "11",
+            FoodCategoryID = "23"
             },
           new Food{
             FoodID = "27", 
             VietnameseName = "Bánh mì thịt nướng", 
             EnglishName = "Banh mi with grilled pork", 
             Price = 22000,
-            FoodCategory = null
+            VendorID = "12",
+            FoodCategoryID = "13"
             },
           new Food{
             FoodID = "28", 
             VietnameseName = "Bánh mì thịt nướng ốp la", 
             EnglishName = "Banh mi with grilled pork and omelette", 
             Price = 27000,
-            FoodCategory = null
+            VendorID = "12",
+            FoodCategoryID = "13"
             },
           new Food{
             FoodID = "29", 
             VietnameseName = "Bánh mì thịt nướng phô mai", 
             EnglishName = "Banh mi with grilled prok and cheese", 
             Price = 27000,
-            FoodCategory = null
+            VendorID = "12",
+            FoodCategoryID = "13"
             },
           new Food{
             FoodID = "30", 
             VietnameseName = "Hủ tiếu gõ chả, thịt, bò viên", 
             EnglishName = "Hu tieu go with fishcake, meat, and beef ball", 
             Price = 20000,
-            FoodCategory = null
+            VendorID = "13",
+            FoodCategoryID = "2"
             },
           new Food{
             FoodID = "31", 
             VietnameseName = "Bò bía (10 cuốn)", 
             EnglishName = "Popiah (10 rolls)", 
             Price = 30000,
-            FoodCategory = null
+            VendorID = "14",
+            FoodCategoryID = "16"
             },
           new Food{
             FoodID = "32", 
             VietnameseName = "Trà sữa (oolong, chocolate, matcha, oreo)", 
             EnglishName = "Milk tea (oolong, chocolate, matcha, oreo)", 
             Price = 20000,
-            FoodCategory = null
+            VendorID = "15",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "33", 
             VietnameseName = "Trà trái cây (xoài, đào, táo, vải, dâu, kiwi)", 
             EnglishName = "Fruit tea (mango, peach, apple, lychee, strawberry, kiwi)", 
             Price = 20000,
-            FoodCategory = null
-            },
-          new Food{
-            FoodID = "34", 
-            VietnameseName = "Trà sữa kem trứng", 
-            EnglishName = "Fruit tea (mango, peach, apple, lychee, strawberry, kiwi)", 
-            Price = 20000,
-            FoodCategory = null
+            VendorID = "15",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "35", 
             VietnameseName = "Trà sữa kem trứng", 
             EnglishName = "Egg cream milk tea", 
             Price = 25000,
-            FoodCategory = null
+            VendorID = "15",
+            FoodCategoryID = "28"
             },
           new Food{
             FoodID = "36", 
             VietnameseName = "Xiên que cá/bò/tôm:", 
             EnglishName = "Skewer (fish/beef/shrimp balls)", 
             Price = 6000,
-            FoodCategory = null
+            VendorID = "15",
+            FoodCategoryID = "21"
             },
           new Food{
             FoodID = "37", 
             VietnameseName = "Hoành thánh chiên (1ct)", 
             EnglishName = "Fried wontons (1ct)", 
             Price = 10000,
-            FoodCategory = null
+            VendorID = "15",
+            FoodCategoryID = "30"
             },
           new Food{
             FoodID = "38", 
             VietnameseName = "Khoai tây lắc phô mai", 
             EnglishName = "Cheese-soaked potato", 
             Price = 20000,
-            FoodCategory = null
+            VendorID = "15",
+            FoodCategoryID = "30"
             },
           new Food{
             FoodID = "39", 
             VietnameseName = "Bánh gạo lắc phô mai", 
             EnglishName = "Cheese-soaked rice cake", 
-            Price = 20000
-           
+            Price = 20000,
+            VendorID = "15",
+            FoodCategoryID = "30"
             }
         );
 
