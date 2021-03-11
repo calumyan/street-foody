@@ -12,8 +12,12 @@ namespace street_foody.Models
         public string EnglishName{get;set;}    
         public string Description{get;set;}
         public double Price{get;set;}
-        public FoodCategory FoodCategory{get;set;}
+
+        [ForeignKey("FoodCategory")]
+        public string FoodCategoryID{get;set;}
         public string PhotoUrl{get;set;}
-        public ICollection<StreetVendor> StreetVendors{get;set;}
+
+        [ForeignKey("StreetVendor")]
+        public string VendorID{get;set;}
     }
 }
