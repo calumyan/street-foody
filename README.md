@@ -74,7 +74,7 @@ Our references mostly come from [Microsoft documentation for asp.net core](https
 We also referenced [a meidum article for setting up postgresql database](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823).  
 
 
-## Bugs and Issues
+## Some small issues
 
 The website is loading pretty slow right now, so you may have to wait for a few seconds for the it to direct to another page
 
