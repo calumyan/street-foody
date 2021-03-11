@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;  
 using System.Collections.Generic;
+using System;
 
 namespace street_foody.Models {     
 public class Context : DbContext     
@@ -39,14 +40,14 @@ public class Context : DbContext
             VietnameseName = "Miến xào",
             EnglishName = "Miến xào", 
             RatingList = new int[]{5}, 
-            PriceRange = new int[]{10000,5000}
+            PriceRange = new int[]{10000,15000}
             },
           new StreetVendor{
             VendorID = "4", 
             VietnameseName = "Xôi", 
             EnglishName = "Sticky rice", 
             RatingList = new int[]{3}, 
-            PriceRange = new int[]{100005000}
+            PriceRange = new int[]{10000,15000}
             },
           new StreetVendor{
             VendorID = "5", 
@@ -76,7 +77,7 @@ public class Context : DbContext
             VendorID = "8", 
             VietnameseName = "Xôi ngọt chị Ú", 
             EnglishName = "Chubby sis's sweet sticky rice", 
-            PriceRange = new int[]{20000,2500}, 
+            PriceRange = new int[]{20000,25000}, 
             PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/155122691_1246898299037777_4391716006726234458_n.jpg?_nc_cat=107&ccb=3&_nc_sid=b9115d&_nc_ohc=Oh-3nRYX_ywAX_XtP7F&_nc_ht=scontent.ffcm1-2.fna&oh=6d0ae3ea925ae24e6cc4fefe7eb8f5ec&oe=606915A1"
             },
           new StreetVendor{
@@ -92,7 +93,7 @@ public class Context : DbContext
             VietnameseName = "Bánh tráng Bà Ngoại", 
             EnglishName = "Grandma's rice paper mix", 
             RatingList = new int[]{5,5,5,4}, 
-            PriceRange = new int[]{15000,5000}, 
+            PriceRange = new int[]{15000, 20000}, 
             PhotoUrl = "https://static.riviu.co/960/image/2021/01/23/507d435341a6bf9a8b78f73b2498cff8_output.jpeg"
             },
           new StreetVendor{
@@ -490,8 +491,6 @@ public class Context : DbContext
           EnglishName = "Other", 
           Description = ""
           }  
-
-
         );
 
         modelBuilder.Entity<Food>(

@@ -22,12 +22,10 @@ namespace street_foody.Models
         [NotMapped]
         public double AverageRating{get;set;}
 
-        [Required]
-        public ICollection<VendorHours> LocationHours{get;set;}
-
         ///<summary> absolute url of image hosted on CDN
         ///</summary>
         public string PhotoUrl{get;set;} 
+        [Required]
         public ICollection<VendorHours> VendorHours{get;set;}
         public ICollection<Food> Foods{get;set;}     
 

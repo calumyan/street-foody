@@ -1012,6 +1012,7 @@ hr {
     cursor: pointer;
     max-width: fit-content;
     position: fixed;
+    align-self: flex-end;
   }
 
   #line1,
