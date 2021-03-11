@@ -75,7 +75,7 @@ We also referenced [this meidum article] (https://medium.com/@agavatar/webapi-wi
 
 The website is loading pretty slow right now, so you may have to wait for a few seconds for the it to direct to another page
 
-The routing aren't all set up correctly, but it will be done in the future!
+
 
 
 
