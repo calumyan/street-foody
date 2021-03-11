@@ -39,14 +39,14 @@ public class Context : DbContext
             VietnameseName = "Miến xào",
             EnglishName = "Miến xào", 
             RatingList = new int[]{5}, 
-            PriceRange = new int[]{10000,5000}
+            PriceRange = new int[]{10000,15000}
             },
           new StreetVendor{
             VendorID = "4", 
             VietnameseName = "Xôi", 
             EnglishName = "Sticky rice", 
             RatingList = new int[]{3}, 
-            PriceRange = new int[]{100005000}
+            PriceRange = new int[]{10000,15000}
             },
           new StreetVendor{
             VendorID = "5", 
@@ -125,7 +125,7 @@ public class Context : DbContext
             EnglishName = "2 uncles' popiah", 
             RatingList = new int[]{5}, 
             PriceRange = new int[]{30000,30000}, 
-            PhotoUrl = "https://static.riviu.co/960/image/2020/12/28/e02c4fae62a8993c43996561df2865a4_output.jpeg"
+            PhotoUrl = "https://static.riviu.co/960/image/2020/12/28/e02c4fae62a8993c43996561df2865a4_output.jpeg",
             },
           new StreetVendor{
             VendorID = "15", 
@@ -519,6 +519,7 @@ public class Context : DbContext
             Price = 25000,
             VendorID = "1",
             FoodCategoryID = "2"
+          
             },
           new Food{
             FoodID = "2", 
