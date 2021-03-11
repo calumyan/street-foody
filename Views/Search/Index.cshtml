@@ -1,5 +1,4 @@
 @model IEnumerable<StreetVendor>;
-@using System.Text;
 @{
     ViewData["Title"] = "Search";
 }
@@ -22,7 +21,7 @@
             </form>
         </div>
     </div>
-    <div class="wrapper">
+    <div id="wrapper" style="overflow: hidden;">
         <div id="filter-col">
             <h2 class="filter-title">Opening hours</h2>
             <form class="filter-list" method = "POST">
@@ -89,7 +88,7 @@
                     string photoURL = vendor.PhotoUrl == null
                         ? Url.Content("~/images/logo.png")
                         : vendor.PhotoUrl;
-                    string avgRatingDisp = vendor.AverageRating == -0 ? "Not rated yet" : "" + vendor.AverageRating.ToString();
+                    string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString() + " (" + vendor.RatingList.Length + ") ";
                 <div id="@vendor.VendorID" class="vndr-card">
                     <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                     <h3 class="stand-name">
@@ -117,27 +116,15 @@
                         } *@
                         Vietnamese sandwich, Boba tea, Dessert, Sweet cakes
                     </div>
-<<<<<<< HEAD
-                    <div class="vndr-price">
-                        <img src="~/images/price-tag.png" alt="" class="inline-icon" /> 
-                        <div>@priceDisp</div>
-=======
                     <div class="vndr-rating-price">
                         <img src="~/images/star.png" alt="" class="inline-icon" /> 
                         @avgRatingDisp &nbsp &nbsp &nbsp &nbsp &nbsp
                         <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
->>>>>>> 8e6e8479efaa0f78436647e6d8fa3012330ad543
                     </div>
-                    <div class="vndr-rating">
-                        <img src="~/images/star.png" alt="" class="inline-icon" /> 
-                        <div>@Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp</div>
-                    </div>   
-                    
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                 </div>
             }
         } else {
-            @* Html.DisplayText("Sorry, we couldn't find any street vendors that match your search :("); *@
             <h3 style="font-size: 2rem;">Sorry, we couldn't find any matches from our database :(</h3>
             <a id="sign-up" href="https://forms.gle/PU1baBndNHAus6qt7">
              Help us expand Street Foody database!
@@ -146,29 +133,3 @@
         </div>
     </div>
 </div>
-
-
-
-@* $(function(){
-       $(".filter").click(function() {
-           alert("Hello");  
-       }) 
-
-
- $.each(data, function (item) {  
-        var $standVietnameseName = item.standVietnameseName;
-        
-        var $newdiv1 = $( "<div>  </div>" );
-        $newdiv1.html($standVietnameseName);
-        $("body").append($newdiv1);
-
-    }); $.ajax{
-    type : 'GET',
-    url : '/api/search/getAll',
-    dataType : 'json',
-    data :  {id = ''},
-    success: function (data) {  
-            alert("Hello");  
-    
-    },  
-}  *@
