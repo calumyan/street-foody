@@ -28,6 +28,17 @@ h2 {
   font-family: "Satisfy", cursive;
 }
 
+footer {
+  height: 10rem;
+  background: rgb(255, 67, 34);
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 @media only screen and (max-width: 426px) {
   html,
   form {
@@ -163,14 +174,13 @@ nav#search-nav-bar {
   background: #ff6347;
 }
 
-div.wrapper {
-  /* wrapper is also used for general containers whose width is 90% */
-  position: relative;
-  width: 100%;
-  height: 100%;
+.nav-container {
+  width: 90%;
   display: flex;
   justify-content: space-between;
-  padding: 0 5%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #brand,
@@ -216,10 +226,9 @@ img#logo {
   color: white;
   display: flex;
   list-style: none;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-left: auto;
-  /* font-size: 1rem; */
 }
 
 #sign-in-up-links {
@@ -457,7 +466,7 @@ div.text-box {
   vertical-align: text-top;
 }
 
-h3 {
+h2 {
   font-size: 1.5rem;
   font-weight: 600;
   font-family: "Quicksand", sans-serif;
@@ -468,6 +477,10 @@ div.emphasis > h1 {
   color: white;
   padding: 20px;
   bottom: 0px;
+}
+
+div.gallery h1 {
+  font-family: "Quicksand", sans-serif;
 }
 
 .body-text {
@@ -645,11 +658,27 @@ label {
 
 h2.filter-title {
   padding-top: 1rem;
+  font-size: 1.8rem;
   margin-bottom: 0;
 }
 
 /* VENDOR CARD & SEARCH PAGE
 -------------------------------------------------- */
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.5s ease;
+  padding-left: 20%;
+  padding-right: 5%;
+  transition: padding 0.75s ease-in-out;
+}
+
+#wrapper.full {
+  padding-left: 5%;
+}
 
 #filter-sort {
   display: flex;
@@ -666,19 +695,28 @@ h2.filter-title {
 }
 
 #filter-col {
-  flex: 0 0 20%;
-  padding-right: 2rem;
+  width: 16%;
+  height: 100%;
+  padding-right: 1rem;
   box-shadow: 3px 0 3px -3px #ccc;
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
+  left: 6%;
+  margin-top: 1rem;
+  transition: all 0.75s ease-in-out;
+  position: absolute;
+}
+
+#filter-col.close {
+  transform: translateX(-150%);
 }
 
 #result-col {
-  flex: 1 0 80%;
+  width: 100%;
   padding-left: 2rem;
   display: flex;
   flex-direction: column;
+  transition: all 0.5 ease;
 }
 
 .page {
@@ -696,8 +734,8 @@ h2.filter-title {
     "img dist next"
     "img categ next"
     "img rating next";
-  grid-template-rows: 3rem 1.5rem 3.2rem 1.5rem;
-  grid-template-columns: 250px 1fr 8rem;
+  grid-template-rows: 3rem 1.5rem 3.2rem 2.2rem;
+  grid-template-columns: 16rem 1fr 6rem;
   column-gap: 20px;
   box-shadow: 0 3px 3px -3px #ccc;
   cursor: pointer;
@@ -705,7 +743,7 @@ h2.filter-title {
 
 .vndr-card > * {
   display: flex;
-  font-size: 1rem;
+  font-size: 1em;
   pointer-events: none;
 }
 
@@ -721,16 +759,17 @@ h2.filter-title {
   grid-area: dist;
 }
 
-/* .vndr-rating-list {
-  grid-area: list;
-} */
-
 .vndr-categories {
   grid-area: categ;
 }
 
-.vndr-rating-price {
+/* .vndr-price {
+  grid-area: price;
+} */
+
+.vndr-rating-price{
   grid-area: rating;
+  min-width: 20rem;
 }
 
 .right-caret {
@@ -748,7 +787,6 @@ h2.filter-title {
 .right-caret.active {
   transform: translateX(15%);
   opacity: 1;
-  transition: all 0.5s ease-in-out;
 }
 
 .vndr-image > img {
@@ -789,7 +827,7 @@ img.inline-icon {
 -------------------------------------------------- */
 
 .vendor-header {
-  margin-top: 2rem;
+  margin: 2rem 0 4rem;
   width: 75%;
   height: 16rem;
   display: flex;
@@ -819,6 +857,7 @@ img.inline-icon {
   margin-left: 1.5rem;
   height: 100%;
   font-size: 1.5rem;
+  margin-left: 1.5rem;
   position: relative;
 }
 
@@ -871,138 +910,58 @@ img.inline-icon {
 }
 
 .vendor-info > img {
-  margin: 0 0.5rem;
-  transform: translateY(-0.2rem);
+  margin-left: 0.5rem;
+  margin-right: 1rem;
 }
 
-#get-direction,
-#call {
-  height: 1.5rem;
-  object-fit: contain;
-  transform: translateY(-0.1rem);
-  transition: all 0.5s ease;
-}
-
-#get-direction:hover,
-#call:hover {
-  transform: translateY(-0.1rem) translateX(0.5rem);
-}
-
-/* VENDOR PAGE - LOCATION & HOURS
--------------------------------------------------- */
-
-h2.section-title {
-  font-size: 2.2rem;
-  margin-top: 4rem;
-  margin-bottom: 0;
-  text-align: center;
-  color: tomato;
-}
-
-hr {
-  height: 1px;
-  width: 80%;
-  align-self: center;
-  margin-top: 0;
-  background: #ff6347;
-}
-
-.vendor-section {
-  width: 80%;
+/* .vendor-container {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
   justify-content: center;
 }
-
-#vendor-hours {
-  width: 35%;
-  min-width: 25rem;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-a#vendor-location {
-  color: black;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-#vendor-location:hover {
-  text-decoration: underline;
-  transform: scale(1);
-}
-
-iframe {
-  width: 55%;
-  min-width: 35rem;
-  min-height: 25rem;
-  border: 0;
-  padding-top: 2rem;
-}
-
-.day-time {
-  display: inline-flex;
-  justify-content: flex-end;
-  width: 100%;
-  font-size: 1.1rem;
-}
-
-.day {
-  width: 5rem;
-}
-
-.time {
-  width: 20rem;
-}
-
-/* VENDOR PAGE - MENU
--------------------------------------------------- */
-
-.warning {
-  width: 100%;
-  display: inline-flex;
-  font-size: 1.2rem;
-  justify-content: center;
-  font-style: italic;
-}
-
-a#learn-more {
-  text-decoration: underline;
-  color: black;
-  margin-left: 1rem;
-  font-style: normal;
-}
-
-h3.food-category {
-  flex-basis: 80%;
-  margin-top: 2rem;
-  text-align: left;
-}
-
 .menu-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #ccc;
+  justify-content: center;
+  align-items: center;
+  width: 325px;
+  margin: 15px;
+  border-style: solid;
   border-radius: 10px;
+  border-width: 1px;
+  border-color: gray;
 }
 
 .body-text {
+  font-family: "Quicksand", sans-serif;
   color: black;
-  margin: 1rem 1rem 0;
-  max-width: 100%;
+  font-size: large;
+  margin: 10px;
   text-align: left;
-  overflow: hidden;
+}
+
+#map {
+  height: 300px;
+  width: 45%;
+  padding: 1vw;
+}
+.star {
+  color: tomato;
+  font-size: 2em;
+  text-align: left;
+  letter-spacing: 3px;
 }
 
 .price {
-  margin: 1rem;
-  text-align: right;
-  font-weight: bold;
+  float: right;
+  font-size: small;
+  padding: 5px;
+} */
+
+hr {
+  height: 2px;
+  width: 80%;
+  align-self: center;
+  background-color: tomato;
 }
 
 /* MEDIA QUERIES
@@ -1080,6 +1039,22 @@ h3.food-category {
   .search-container {
     flex-basis: 50%;
   }
+
+  #filter-col {
+    transform: translateX(-150%);
+  }
+
+  #filter-col.close {
+    transform: translateX(0);
+  }
+
+  #wrapper {
+    padding-left: 3%;
+  }
+
+  #wrapper.full {
+    padding-left: 20%;
+  }
 }
 
 /* Tablet */
@@ -1137,22 +1112,66 @@ h3.food-category {
   div.four-column-grid {
     grid-template-rows: repeat(4, minmax(2rem, 10rem));
   }
+
+  .right-caret {
+    display: none;
+  }
+
+  .vndr-card {
+    padding: 1rem 0 1rem 1rem;
+    grid-template-areas:
+      "img name"
+      "img dist"
+      "img categ"
+      "img rating";
+    grid-template-rows: 3.6rem 1.5rem 3.2rem 2.2rem;
+    grid-template-columns: 13rem 1fr;
+  }
+
+  #wrapper {
+    padding-left: 0%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .vndr-card {
+    grid-template-columns: 10rem 1fr;
+  }
+
+  #result-col {
+    padding-left: 1rem;
+  }
 }
 
 /* Mobile L */
 
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 476px) {
   #sign-in-up-links {
     width: 50%;
+  }
+
+  .vndr-card {
+    font-size: 0.9rem;
+    padding: 1rem 0.5rem;
   }
 }
 
 /* Mobile M */
 
 @media only screen and (max-width: 376px) {
+<<<<<<< HEAD
   iframe {
     min-width: 350px;
   }
+
+  .vndr-card {
+    grid-template-columns: 6rem 1fr;
+    grid-template-rows: 2.8rem 1.5rem 2.8rem 2rem;
+    font-size: 0.8rem;
+    padding: 1rem 0;
+  }
+=======
+>>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
 }
 
 /* Mobile S */
@@ -1160,9 +1179,5 @@ h3.food-category {
 @media only screen and (max-width: 325px) {
   div.burger-container {
     margin-right: 0px;
-  }
-
-  iframe {
-    min-width: 300px;
   }
 }

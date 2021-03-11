@@ -138,6 +138,7 @@ public class Context : DbContext
         );
 
         modelBuilder.Entity<VendorHours>().HasData(
+<<<<<<< HEAD
           new VendorHours{
             VendorHoursID = "1", 
             Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", 
@@ -249,6 +250,23 @@ public class Context : DbContext
             Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}}
+=======
+          new VendorHours{VendorID = "1", VendorHoursID = "1", Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}},
+          new VendorHours{VendorID = "2", VendorHoursID = "2", Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC", Mon = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Tue = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Wed = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Fri = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}},
+          new VendorHours{VendorID = "3", VendorHoursID = "3", Location = "10-12 Dinh Tien Hoang St., Ben Nghe Ward, District 1, HCMC", Mon = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, Tue = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, Wed = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, Fri = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}},
+          new VendorHours{VendorID = "4", VendorHoursID = "4", Location = "217 Hong Bang, Ward 1, District 5, HCMC", Mon = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, Tue = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, Wed = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, Fri = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}},
+          new VendorHours{VendorID = "5", VendorHoursID = "5", Location = "82 Vinh Vien, Ward 2, District 10, HCMC", Sun = new System.DateTime[]{System.DateTime.Parse("09:00 AM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("09:00 AM"), System.DateTime.Parse("10:00 PM")}},
+          new VendorHours{VendorID = "6", VendorHoursID = "6", Location = "138 Nguyen Trai, Ward 3, District 5", Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("11:59 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("11:59 AM")}},
+          new VendorHours{VendorID = "7", VendorHoursID = "7", Location = "267 Pham Van Chi, Ward 3, District 6", Sun = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("09:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("09:00 PM")}},
+          new VendorHours{VendorID = "8", VendorHoursID = "8", Location = "8 Phan Van Han, Ward 19, Binh Thanh District", Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}},
+          new VendorHours{VendorID = "9", VendorHoursID = "9", Location = "27 Thanh Da, Ward 27, Binh Thanh District", Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}},
+          new VendorHours{VendorID = "10", VendorHoursID = "10", Location = "623/20 CMT8, P.15, Q.10", Sun = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}},
+          new VendorHours{VendorID = "11", VendorHoursID = "11", Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC", Sun = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}},
+          new VendorHours{VendorID = "12", VendorHoursID = "12", Location = "246/55A Hoa Hung, Ward 13, District 10", Sun = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}},
+          new VendorHours{VendorID = "13", VendorHoursID = "13", Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District", Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}},
+          new VendorHours{VendorID = "14", VendorHoursID = "14", Location = "Le Van Tam Park", Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}},
+          new VendorHours{VendorID = "15", VendorHoursID = "15", Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCM", Sun = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, Sat = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}}
+>>>>>>> 9df3175e677d0d1c48b6fb278d179b3f7a7a8e8c
         );
 
         

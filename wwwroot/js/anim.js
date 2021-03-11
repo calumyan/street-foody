@@ -3,11 +3,16 @@
 
 // Write your JavaScript code.
 
+//=============== NAV BAR ==================
+
 var active = true;
+const line1 = document.getElementById("line1");
+const line3 = document.getElementById("line3");
+const navLinks = document.getElementById("nav-links");
+const overlay = document.getElementById("overlay");
+const burger = document.getElementById("burger");
 
 function animateLines(e) {
-  var line1 = document.getElementById("line1");
-  var line3 = document.getElementById("line3");
   var deg;
   var id;
 
@@ -39,25 +44,19 @@ function animateLines(e) {
       line3.style.transform = `rotate(${deg}deg)`;
     }
   }
-  $("#nav-links").toggleClass("open");
-  $("#nav-links li").each(function () {
-    $(this).toggleClass("fade");
-  });
-  $("main").toggle();
+  navLinks.classList.toggle("open");
+  overlay.classList.toggle("open");
 }
 
-function toggleFilterDesktop() {
-  $("#filter-col").toggle();
-}
+overlay.addEventListener("click", () => burger.click());
+burger.addEventListener("click", animateLines);
 
-$("#burger").click(animateLines);
-$("button#filter").click(toggleFilterDesktop);
+//=============== SEARCH PAGE ==================
 
-//-------------- SEARCH PAGE ----------------
-
+// Animate carets --------------------
 const vendorCards = document.querySelectorAll(".vndr-card");
 const carets = document.querySelectorAll(".right-caret");
-const resultCol = document.querySelector("#result-col");
+const resultCol = document.getElementById("result-col");
 
 function moveCaret(e) {
   let mouse = e.target;
@@ -71,3 +70,15 @@ function moveCaret(e) {
 }
 
 resultCol.addEventListener("mousemove", moveCaret);
+
+// Animate filter column --------------------
+const filterBtn = document.getElementById("filter");
+const filterCol = document.getElementById("filter-col");
+const wrapper = document.getElementById("wrapper");
+
+function toggleFilterDesktop() {
+  filterCol.classList.toggle("close");
+  wrapper.classList.toggle("full");
+}
+
+filterBtn.addEventListener("click", toggleFilterDesktop);

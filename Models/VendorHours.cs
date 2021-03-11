@@ -4,19 +4,22 @@ using System;
 
 namespace street_foody.Models
 {    
-    public enum Days {
-        Sun, Mon, Tue, Wed, Thu, Fri, Sat,
-
-    }
+    
     public class VendorHours
     {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
         [ForeignKey("StreetVendor")]
+        public string VendorID;
+
         [Key]
-        public string VendorID{get; set;}
+        public string VendorHoursID{get; set;}
         // public string VendorHoursInfo{
         // get{return VendorHoursInfo;} 
         // set{VendorHoursInfo = VendorID + " " +Location;}}
+
 
         [Required]
         public string Location{get;set;}
@@ -36,6 +39,11 @@ namespace street_foody.Models
 
         public DateTime[] Sat {get;set;}
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
+
+    }
+
+    public enum Days {
+        Sun, Mon, Tue, Wed, Thu, Fri, Sat,
 
     }
 }

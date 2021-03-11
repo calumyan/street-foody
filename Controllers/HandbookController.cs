@@ -12,9 +12,6 @@ using street_foody.Models;
 // [ApiController]  
 namespace street_foody.Controllers
 {
-
-   
-    
     public class HandbookController : Controller
     {
         public IActionResult Index()
@@ -23,7 +20,7 @@ namespace street_foody.Controllers
             return View();
         }
       
-       
+        
 //        Dictionary<string, int> map = new Dictionary<>();
 //        public string getHighestScoreVendor(Vendor vendor){
             
