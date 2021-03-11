@@ -158,32 +158,33 @@ namespace street_foody.Controllers
             {
                 bool toBeAdded = false;
                 string SearchValueLowerCase = SearchValue.ToLower();
-                string SVEnglishNameLowerCase = streetVendor.EnglishName == null ? "" : streetVendor.EnglishName.ToLower();
-                string SVVietnameseNameLowerCase = streetVendor.VietnameseName == null ? "" : streetVendor.VietnameseName.ToLower();
-                if (SVEnglishNameLowerCase.Contains(SearchValueLowerCase) || SVVietnameseNameLowerCase.Contains(SearchValueLowerCase))
-                {
-                    toBeAdded = true;
-                    // Console.WriteLine(SearchValueLowerCase);
-                    // Console.WriteLine(SVVietnameseNameLowerCase);
-                }
+                // string SVEnglishNameLowerCase = streetVendor.EnglishName == null ? "" : streetVendor.EnglishName.ToLower();
+                // string SVVietnameseNameLowerCase = streetVendor.VietnameseName == null ? "" : streetVendor.VietnameseName.ToLower();
+                // if (SVEnglishNameLowerCase.Contains(SearchValueLowerCase) || SVVietnameseNameLowerCase.Contains(SearchValueLowerCase))
+                // {
+                //     toBeAdded = true;
+                // }
+                // toBeAdded = NameMatchWithSearchValue(streetVendor.VietnameseName, streetVendor.EnglishName, SearchValueLowerCase);
+                if(NameMatchWithSearchValue(streetVendor.VietnameseName, streetVendor.EnglishName, SearchValueLowerCase)) toBeAdded = true;
                 ICollection<Food> Foods = new Collection<Food>();
-                Food f = new Food { FoodID = "1", VietnameseName = "Ba", FoodCategory = new FoodCategory { VietnameseName = "Sup hhhhhh" } };
+                Food f = new Food { FoodID = "1", VietnameseName = "Ba", FoodCategory = new FoodCategory { VietnameseName = "Súp hhhhhh" } };
                 Foods.Add(f);
                 foreach (Food food in Foods)
                 {
+                    if(NameMatchWithSearchValue(food.VietnameseName, food.EnglishName, SearchValueLowerCase)) toBeAdded = true;
                     FoodCategory foodCategory = food.FoodCategory;
                     if (foodCategory != null)
                     {
 
-                        string FCEnglishNameLowerCase = foodCategory.EnglishName == null ? "" : foodCategory.EnglishName.ToLower();
-                        string FCVietnameseNameLowerCase = foodCategory.VietnameseName == null ? "" : foodCategory.VietnameseName.ToLower();
-                        // Console.WriteLine(FCVietnameseNameLowerCase);
-                        // Console.WriteLine(SearchValueLowerCase);
-                        if( FCVietnameseNameLowerCase.Contains(SearchValueLowerCase)) Console.WriteLine("yes");
-                        if (FCEnglishNameLowerCase.Contains(SearchValueLowerCase) || FCVietnameseNameLowerCase.Contains(SearchValueLowerCase))
-                        {
-                            toBeAdded = true;
-                        }
+                        // string FCEnglishNameLowerCase = foodCategory.EnglishName == null ? "" : foodCategory.EnglishName.ToLower();
+                        // string FCVietnameseNameLowerCase = foodCategory.VietnameseName == null ? "" : foodCategory.VietnameseName.ToLower();
+
+                        // if (FCEnglishNameLowerCase.Contains(SearchValueLowerCase) || FCVietnameseNameLowerCase.Contains(SearchValueLowerCase))
+                        // {
+                        //     toBeAdded = true;
+                        // }
+
+                        if(NameMatchWithSearchValue(foodCategory.VietnameseName, foodCategory.EnglishName, SearchValueLowerCase)) toBeAdded = true;
 
                     }
                 }
@@ -192,7 +193,12 @@ namespace street_foody.Controllers
 
             return matchedVendors;
         }
-
+         
+        private bool NameMatchWithSearchValue(string VietnameseName, string EnglishName, string SearchValueLowerCase){
+                string EnglishNameLowerCase = EnglishName == null ? "" : EnglishName.ToLower();
+                string VietnameseNameLowerCase = VietnameseName == null ? "" : VietnameseName.ToLower();
+                return EnglishNameLowerCase.Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Contains(SearchValueLowerCase);
+        }
         // private bool NameMatchWithSearchValue(object obj){
         //     // string name = "";
 

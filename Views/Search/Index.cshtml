@@ -82,13 +82,16 @@
             if (Model.Count() > 0) {
                 foreach (var vendor in Model)
                 {
-                    string priceDisp = vendor.PriceRange[0] == 99999999
-                        ? "Not available"
+                    string priceDisp = vendor.PriceRange.Length == 0
+                        ? "N/A - N/A"
                         : vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
                     string photoURL = vendor.PhotoUrl == null
                         ? Url.Content("~/images/logo.png")
                         : vendor.PhotoUrl;
+<<<<<<< HEAD
                     string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString() + " (" + vendor.RatingList.Length + ") ";
+=======
+>>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
                 <div id="@vendor.VendorID" class="vndr-card">
                     <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                     <h3 class="stand-name">
@@ -117,10 +120,15 @@
                         Vietnamese sandwich, Boba tea, Dessert, Sweet cakes
                     </div>
                     <div class="vndr-rating-price">
-                        <img src="~/images/star.png" alt="" class="inline-icon" /> 
-                        @avgRatingDisp &nbsp &nbsp &nbsp &nbsp &nbsp
                         <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
+<<<<<<< HEAD
                     </div>
+=======
+                        <img src="~/images/star.png" alt="" class="inline-icon" /> 
+                        @Html.DisplayFor(modelItem => vendor.AverageRating) &nbsp &nbsp &nbsp &nbsp &nbsp
+                    </div>   
+                    
+>>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
                     <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                 </div>
             }
