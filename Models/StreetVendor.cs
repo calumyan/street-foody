@@ -19,25 +19,24 @@ namespace street_foody.Models
 
         [NotMapped]
         public double AverageRating{get;set;}
-
-        [Required]
-        public ICollection<VendorHours> LocationHours{get;set;}
         public string PhotoUrl{get;set;} 
+        public ICollection<VendorHours> VendorHours{get;set;}
+        public ICollection<Food> Foods{get;set;}   
 
-        public virtual ICollection<Food> Foods{get;set;}   
-
-        [NotMapped]
-        public List<FoodCategory> FoodCategories{get;set;}
-
-        // Computes average rating from the RatingList and assigns
-        // the result to the unmapped AverageRating for later use
-        // in Razor view pages. 
+        // Assigns an appropriate value to AverageRating. 
         public void SetAverageRating(){
             double totalRating = 0;
             double length = -1;
-            if (RatingList == null || RatingList.Length == 0){
+            // if (RatingList == null) {
+            //     AverageRating = 0;
+            // }
+            // else if (RatingList.Length == 0) {
+            //     AverageRating = 0;
+            // }
+            if(RatingList == null){
                 length = -1;
-            } else {
+            }
+            if(RatingList != null){
                 foreach(var rating in RatingList){
                     totalRating+=rating;
                 }
@@ -50,5 +49,12 @@ namespace street_foody.Models
 
         // public void addVendorHours()
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
+
+        // This constructor is only here for convenience when creating fake data in the SearchController.
+        // public StreetVendor(string VNStandName, List<int> RatingList, int[] PriceRange) {
+        //     this.StandVietnameseName = VNStandName; 
+        //     this.PriceRange = PriceRange;
+        //     this.RatingList = RatingList;
+        // }
     }
 }

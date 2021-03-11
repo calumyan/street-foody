@@ -137,15 +137,25 @@ public class Context : DbContext
             }
         );
 
+        modelBuilder.Entity<VendorHours>(
+                entity =>
+                {
+                    entity.HasOne(h => h.Vendor)
+                        .WithMany(v => v.VendorHours)
+                        .HasForeignKey("VendorID");
+                });
+
         modelBuilder.Entity<VendorHours>().HasData(
           new VendorHours{
             VendorHoursID = "1", 
+            VendorID = "1",
             Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM")}
           },
           new VendorHours{
             VendorHoursID = "2", 
+            VendorID = "2",
             Location = "15 D5 St., Ward 25, Binh Thanh District, HCMC", 
             Mon = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, 
             Tue = new System.DateTime[]{System.DateTime.Parse("05:00 AM"), System.DateTime.Parse("11:00 AM")}, 
@@ -155,6 +165,7 @@ public class Context : DbContext
           },
           new VendorHours{
             VendorHoursID = "3", 
+            VendorID = "3",
             Location = "10-12 Dinh Tien Hoang St., Ben Nghe Ward, District 1, HCMC", 
             Mon = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, 
             Tue = new System.DateTime[]{System.DateTime.Parse("10:00 AM"), System.DateTime.Parse("12:00 PM")}, 
@@ -163,6 +174,7 @@ public class Context : DbContext
           },
           new VendorHours{
             VendorHoursID = "4", 
+            VendorID = "4",
             Location = "217 Hong Bang, Ward 1, District 5, HCMC", 
             Mon = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, 
             Tue = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("08:00 AM")}, 
@@ -171,6 +183,7 @@ public class Context : DbContext
           },
           new VendorHours{
             VendorHoursID = "5", 
+            VendorID = "5",
             Location = "82 Vinh Vien, Ward 2, District 10, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("09:00 AM"), System.DateTime.Parse("10:00 PM")}, 
             Mon = new System.DateTime[]{System.DateTime.Parse("09:00 AM"), System.DateTime.Parse("10:00 PM")},
@@ -182,6 +195,7 @@ public class Context : DbContext
           },
           new VendorHours{
             VendorHoursID = "6", 
+            VendorID = "6",
             Location = "138 Nguyen Trai, Ward 3, District 5", 
             Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("11:59 PM")}, 
             Mon = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("11:59 PM")},
@@ -193,6 +207,7 @@ public class Context : DbContext
           },
           new VendorHours{
             VendorHoursID = "7", 
+            VendorID = "7",
             Location = "267 Pham Van Chi, Ward 3, District 6", 
             Sun = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("09:00 PM")},
             Mon = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("09:00 PM")},
@@ -204,48 +219,56 @@ public class Context : DbContext
           },
           new VendorHours{
             VendorHoursID = "8", 
+            VendorID = "8",
             Location = "8 Phan Van Han, Ward 19, Binh Thanh District", 
             Sun = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM")}
           },
           new VendorHours{
             VendorHoursID = "9", 
+            VendorID = "9",
             Location = "27 Thanh Da, Ward 27, Binh Thanh District", 
             Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
             VendorHoursID = "10", 
+            VendorID = "10",
             Location = "623/20 CMT8, P.15, Q.10", 
             Sun = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
             VendorHoursID = "11", 
+            VendorID = "11",
             Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}
           },
           new VendorHours{
             VendorHoursID = "12", 
+            VendorID = "12",
             Location = "246/55A Hoa Hung, Ward 13, District 10", 
             Sun = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}
           },
           new VendorHours{
-            VendorHoursID = "13", 
+            VendorHoursID = "13",
+            VendorID = "13", 
             Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District", 
             Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
             VendorHoursID = "14", 
+            VendorID = "14",
             Location = "Le Van Tam Park", 
             Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
             VendorHoursID = "15", 
+            VendorID = "15",
             Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}}
@@ -439,8 +462,8 @@ public class Context : DbContext
         modelBuilder.Entity<Food>(
                 entity =>
                 {
-                    entity.HasOne(d => d.Vendor)
-                        .WithMany(p => p.Foods)
+                    entity.HasOne(f => f.Vendor)
+                        .WithMany(v => v.Foods)
                         .HasForeignKey("VendorID");
                 });
 
@@ -768,12 +791,7 @@ public class Context : DbContext
             }
         );
 
-      // modelBuilder.Entity<StreetVendor>().HasMany(s => s.Foods);
-      // modelBuilder.Entity<Food>().HasOne(v => v.Vendor);
-      // modelBuilder.Entity<StreetVendor>().HasMany(g => g.VendorHours);
-      // modelBuilder.Entity<VendorHours>().HasOne(j => j.Vendor);
-      // modelBuilder.Entity<FoodCategory>().HasMany(f => f.Foods);
-      // modelBuilder.Entity<Food>().HasOne(h => h.FoodCategory);
+
     }
   
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
