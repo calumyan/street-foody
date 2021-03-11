@@ -24,6 +24,7 @@ namespace street_foody.Controllers
          string id = "5";
          vendor = _context.StreetVendor.Where(v => v.VendorID == id).ToList()[0];
          vendor.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
+         Console.WriteLine(vendor.VendorHours.Count);
          vendor.SetAverageRating();
          return View(vendor);
       }
