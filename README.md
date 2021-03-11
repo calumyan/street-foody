@@ -2,6 +2,7 @@
 
 Street-foody is a responsive website that introduces travelers to a substantial part of Asian culture - street food, and allows street vendors to have a dedicated online space. For our first version, we'll focus on Saigon (or Ho Chi Minh City)'s street food.
 
+
 ## Project Vision and Goals
 
 ### Problems to solve
@@ -17,6 +18,9 @@ People have trouble finding street vendors based on name and food type if theyâ€
 5. Allows users to view each vendor's information (open hours, menu, location from a map, etc.)
 
 
+
+
+
 ## Before you start
 
 1. Make sure either Visual Studio or Visual Studio Code is installed.
@@ -28,12 +32,19 @@ People have trouble finding street vendors based on name and food type if theyâ€
 
 ## For Users
 
+To run the project, run <code> dotnet run </code> in the terminal
+
+To build the project, run <code> dotnet build </code>
+
+To check out our pgAdmin interface for tables and data, 
 
 
 
-## For Developers 
 
-Make sure either Visual studio or Visual Studio Code is installed and set up. 
+
+
+## Installation For Developers 
+
 
 ### Running
 
@@ -61,4 +72,12 @@ To have an in depth look at our database, try
 
 Our references mostly come from [Microsoft documentation for asp.net core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0).
 We also referenced [a meidum article for setting up postgresql database](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823).  
+
+
+## Bugs and Issues
+
+The website is loading pretty slow right now, so you may have to wait for a few seconds for the it to direct to another page
+
+
+
 
