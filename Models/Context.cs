@@ -228,7 +228,12 @@ public class Context : DbContext
             VendorHoursID = "9", 
             VendorID = "9",
             Location = "27 Thanh Da, Ward 27, Binh Thanh District", 
-            Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, 
+            Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Mon = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
@@ -236,6 +241,11 @@ public class Context : DbContext
             VendorID = "10",
             Location = "623/20 CMT8, P.15, Q.10", 
             Sun = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}, 
+            Mon = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")},
             Sat = new System.DateTime[]{System.DateTime.Parse("05:30 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
@@ -243,13 +253,23 @@ public class Context : DbContext
             VendorID = "11",
             Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}, 
+            Mon = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")},
             Sat = new System.DateTime[]{System.DateTime.Parse("11:00 AM"), System.DateTime.Parse("05:00 PM")}
           },
           new VendorHours{
             VendorHoursID = "12", 
             VendorID = "12",
             Location = "246/55A Hoa Hung, Ward 13, District 10", 
-            Sun = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}, 
+            Sun = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")},
+            Mon = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("06:00 AM"), System.DateTime.Parse("09:00 PM")}
           },
           new VendorHours{
@@ -257,6 +277,11 @@ public class Context : DbContext
             VendorID = "13", 
             Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District", 
             Sun = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, 
+            Mon = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("06:00 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
@@ -264,6 +289,11 @@ public class Context : DbContext
             VendorID = "14",
             Location = "Le Van Tam Park", 
             Sun = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}, 
+            Mon = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("05:00 PM"), System.DateTime.Parse("10:00 PM")}
           },
           new VendorHours{
@@ -271,6 +301,11 @@ public class Context : DbContext
             VendorID = "15",
             Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCMC", 
             Sun = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, 
+            Mon = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")},
+            Tue = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")},
+            Wed = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")},
+            Thu = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")},
+            Fri = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}, 
             Sat = new System.DateTime[]{System.DateTime.Parse("12:00 PM"), System.DateTime.Parse("11:00 PM")}}
         );
 
