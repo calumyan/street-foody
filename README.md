@@ -78,6 +78,8 @@ We also referenced [a meidum article for setting up postgresql database](https:/
 
 The website is loading pretty slow right now, so you may have to wait for a few seconds for the it to direct to another page
 
+The routing aren't all set up correctly, but it will be done in the future!
+
 
 
 
