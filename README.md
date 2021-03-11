@@ -57,13 +57,8 @@ if building on Visual Studio Code,go to the terminal run <code> dotnet build </c
 
 To test our  , .
 
-### Deploying
 
-To deploy, ..
-
-### Admin tools
  
-To have an in depth look at our database, try 
 
 ## References 
 

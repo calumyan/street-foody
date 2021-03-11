@@ -7,8 +7,8 @@
 }
 
 @{
-    string location = Model.LocationHours.ToArray()[0].Location; //Location is a required field of VendorHours
-    string locationDisp = Model.LocationHours.Count > 1 ? "Various locations" : location;
+    string location = Model.VendorHours.ToArray()[0].Location; //Location is a required field of VendorHours
+    string locationDisp = Model.VendorHours.Count > 1 ? "Various locations" : location;
     string phoneDisp = String.IsNullOrWhiteSpace(Model.PhoneNumber) ? "Not available" : Model.PhoneNumber;
     string avgRatingDisp = Model.AverageRating == -0 ? "Not rated yet" : "" + Model.AverageRating.ToString();
     string photoURL = Model.PhotoUrl == null
@@ -38,7 +38,7 @@
             <div class="vendor-info">
                 <img src="~/images/location.png" alt="" class="inline-icon"> @locationDisp
                 @{
-                if (Model.LocationHours.Count == 1) {
+                if (Model.VendorHours.Count == 1) {
                     <span title="Get direction">
                         <a target="_blank" href="http://maps.google.com/?q=@location">
                             <img src="~/images/right-caret.png" alt="" id="get-direction">
@@ -66,7 +66,7 @@
     @{  
         string[] DAYS = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         Type type = new VendorHours().GetType();
-        @foreach (VendorHours vh in Model.LocationHours) {
+        @foreach (VendorHours vh in Model.VendorHours) {
             <div class="vendor-section">
                 <div id="vendor-hours">
                     <a target="_blank" id="vendor-location" href="http://maps.google.com/?q=@vh.Location">@locationDisp</a>
@@ -86,7 +86,7 @@
                     loading="lazy"
                     allowfullscreen
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBsXAG8PrqllPSGjeejnAy-TLXR2tPFGw
-                        &q=@Model.LocationHours.ToArray()[0].Location">  
+                        &q=@Model.VendorHours.ToArray()[0].Location">  
                 </iframe>
             </div>
         }
