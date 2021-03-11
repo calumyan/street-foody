@@ -12,7 +12,7 @@ namespace street_foody.Migrations
                 keyColumn: "vendor_id",
                 keyValue: "4",
                 column: "price_range",
-                value: new[] { 10000, 5000 });
+                value: new[] { 10000, 15000 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

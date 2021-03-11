@@ -29,8 +29,7 @@ namespace street_foody.Controllers
             return View(vendor);
         }
 
-
-        private TimeSpan calcTimeSpan(DateTime[] day)
+        private TimeSpan CalcTimeSpan(DateTime[] day)
         {
             TimeSpan timeSpan;
             if (day[1].CompareTo(day[0]) == 1)

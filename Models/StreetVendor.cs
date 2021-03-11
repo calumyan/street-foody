@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace street_foody.Models
 {    
+
     public class StreetVendor
     {
         [Key]
@@ -18,12 +19,11 @@ namespace street_foody.Models
         public int[] RatingList{get;set;}
         [NotMapped]
         public double AverageRating{get;set;}
-        [Required]
-        public ICollection<VendorHours> LocationHours{get;set;}
 
         ///<summary> absolute url of image hosted on CDN
         ///</summary>
         public string PhotoUrl{get;set;} 
+        [Required]
         public ICollection<VendorHours> VendorHours{get;set;}
         public ICollection<Food> Foods{get;set;}     
 
