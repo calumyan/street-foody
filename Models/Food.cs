@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace street_foody.Models
 {
-
     ///<summary> A specific dish that serves by one vendor. 
     ///</summary>
     public class Food

@@ -70,8 +70,6 @@ We also referenced [this meidum article] (https://medium.com/@agavatar/webapi-wi
 
 The website is loading pretty slow right now, so you may have to wait for a few seconds for the it to direct to another page
 
-
-
-
+We only have a limited amount of data from our friends right now so some of the food categories don't match with any of the vendors. If you click on the button on some of the cards in the handbook it's likely you won't get a result.
 
 

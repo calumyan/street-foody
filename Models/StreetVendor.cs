@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema; 
 
-
-
 namespace street_foody.Models
 {    
     public class StreetVendor
@@ -18,9 +16,13 @@ namespace street_foody.Models
         public string Description{get;set;}     
         public int[] PriceRange{get;set;}   
         public int[] RatingList{get;set;}
-
         [NotMapped]
         public double AverageRating{get;set;}
+<<<<<<< HEAD
+=======
+        [Required]
+        public ICollection<VendorHours> LocationHours{get;set;}
+>>>>>>> 3b6b528838f1e1938c7478dd5c14550d4130cd7b
 
         ///<summary> absolute url of image hosted on CDN
         ///</summary>
@@ -28,7 +30,6 @@ namespace street_foody.Models
         [Required]
         public ICollection<VendorHours> VendorHours{get;set;}
         public ICollection<Food> Foods{get;set;}     
-
 
         /// <summary> Computes average rating from the RatingList and assigns
         /// the result to the unmapped AverageRating for later use
