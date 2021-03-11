@@ -1159,7 +1159,7 @@ hr {
 /* Mobile M */
 
 @media only screen and (max-width: 376px) {
-<<<<<<< HEAD
+
   iframe {
     min-width: 350px;
   }
@@ -1170,8 +1170,6 @@ hr {
     font-size: 0.8rem;
     padding: 1rem 0;
   }
-=======
->>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
 }
 
 /* Mobile S */
