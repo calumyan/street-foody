@@ -167,16 +167,10 @@ namespace street_foody.Controllers
                 // toBeAdded = NameMatchWithSearchValue(streetVendor.VietnameseName, streetVendor.EnglishName, SearchValueLowerCase);
                 if(NameMatchWithSearchValue(streetVendor.VietnameseName, streetVendor.EnglishName, SearchValueLowerCase)) toBeAdded = true;
                 ICollection<Food> Foods = new Collection<Food>();
-                Food f = new Food { FoodID = "1", VietnameseName = "Ba", FoodCategory = new FoodCategory { VietnameseName = "Sup hhhhhh" } };
+                Food f = new Food { FoodID = "1", VietnameseName = "Ba", FoodCategory = new FoodCategory { VietnameseName = "Súp hhhhhh" } };
                 Foods.Add(f);
                 foreach (Food food in Foods)
                 {
-                    // string FoodEnglishNameLowerCase = food.EnglishName == null ? "" : food.EnglishName.ToLower();
-                    // string FoodVietnameseNameLowerCase = food.VietnameseName == null ? "" : food.VietnameseName.ToLower();
-                    // if (FoodEnglishNameLowerCase.Contains(SearchValueLowerCase) || FoodVietnameseNameLowerCase.Contains(SearchValueLowerCase))
-                    // {
-                    //         toBeAdded = true;
-                    // }
                     if(NameMatchWithSearchValue(food.VietnameseName, food.EnglishName, SearchValueLowerCase)) toBeAdded = true;
                     FoodCategory foodCategory = food.FoodCategory;
                     if (foodCategory != null)
