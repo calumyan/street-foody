@@ -12,10 +12,6 @@ namespace street_foody.Models
     {
         [Key]
         public string VendorHoursID{get; set;}
-        // public string VendorHoursInfo{
-        // get{return VendorHoursInfo;} 
-        // set{VendorHoursInfo = VendorID + " " +Location;}}
-
         [Required]
         public string Location{get;set;}
 
@@ -29,8 +25,5 @@ namespace street_foody.Models
         public DateTime[] Sat {get;set;}
         public string VendorID{get;set;}
         public StreetVendor Vendor{get;set;}
-        
-        // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
-
     }
 }
