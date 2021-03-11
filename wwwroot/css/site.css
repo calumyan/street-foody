@@ -30,7 +30,7 @@ h2 {
 
 footer {
   height: 10rem;
-  background: rgb(255, 67, 34);
+  background: rgb(255, 93, 65);
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
@@ -708,7 +708,7 @@ h2.filter-title {
 }
 
 #filter-col.close {
-  transform: translateX(-150%);
+  transform: translateX(-170%);
 }
 
 #result-col {
@@ -767,7 +767,7 @@ h2.filter-title {
   grid-area: price;
 } */
 
-.vndr-rating-price{
+.vndr-rating-price {
   grid-area: rating;
   min-width: 20rem;
 }
@@ -1011,6 +1011,7 @@ hr {
     margin-left: auto;
     cursor: pointer;
     max-width: fit-content;
+    position: fixed;
   }
 
   #line1,
@@ -1041,7 +1042,7 @@ hr {
   }
 
   #filter-col {
-    transform: translateX(-150%);
+    transform: translateX(-300%);
   }
 
   #filter-col.close {
@@ -1159,7 +1160,6 @@ hr {
 /* Mobile M */
 
 @media only screen and (max-width: 376px) {
-<<<<<<< HEAD
   iframe {
     min-width: 350px;
   }
@@ -1170,8 +1170,6 @@ hr {
     font-size: 0.8rem;
     padding: 1rem 0;
   }
-=======
->>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
 }
 
 /* Mobile S */

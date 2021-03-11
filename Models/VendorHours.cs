@@ -7,10 +7,7 @@ namespace street_foody.Models
     
     public class VendorHours
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> 08ace8c8d6193e6f3f152b05adec0a504fbb9263
         [ForeignKey("StreetVendor")]
         public string VendorID;
 
