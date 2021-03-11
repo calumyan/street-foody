@@ -14,6 +14,7 @@ namespace street_foody.Controllers
 {
     public class HandbookController : Controller
     {
+        //
         public IActionResult Index()
         {
             ViewBag.IsHome = true;
