@@ -15,7 +15,8 @@ namespace street_foody.Models
         [Required]
         public string Location{get;set;}
 
-        // Each day column is not required. To specify a closed day, leave the column null.
+        ///<summary> Each day column is not required. To specify a closed day, leave the column null.
+        ///</summary>
         public DateTime[] Sun {get;set;}
         public DateTime[] Mon {get;set;}
         public DateTime[] Tue {get;set;}

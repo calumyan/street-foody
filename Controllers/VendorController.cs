@@ -20,13 +20,14 @@ namespace street_foody.Controllers
             _context = context;
         }
 
-      public IActionResult Index() {
-         string id = "5";
-         vendor = _context.StreetVendor.Where(v => v.VendorID == id).ToList()[0];
-         vendor.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
-         vendor.SetAverageRating();
-         return View(vendor);
-      }
+        public IActionResult Index()
+        {
+            string id = "5";
+            vendor = _context.StreetVendor.Where(v => v.VendorID == id).ToList()[0];
+            vendor.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
+            vendor.SetAverageRating();
+            return View(vendor);
+        }
 
 
         private TimeSpan calcTimeSpan(DateTime[] day)

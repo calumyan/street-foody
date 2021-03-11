@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using street_foody.Models;
 
-
 namespace street_foody.Controllers
 {
     [Route("Search")]
@@ -75,12 +74,11 @@ namespace street_foody.Controllers
             vendor.SetAverageRating();
             return View(vendor);
         }
-        //does not return a result when 
+
         private IActionResult NoResult()
         {
             return View();
         }
-
 
         private List<StreetVendor> GetAll()
         {
@@ -92,7 +90,8 @@ namespace street_foody.Controllers
             return allVendors;
         }
 
-        /// <summary> Returns a list of street vendors whose names match the search input. Search value matches vendor's/vendor's food/vendor's food category english and vietnamese name
+        /// <summary> Returns a list of street vendors whose names match the search input. Search value matches vendor's food/vendor's food's 
+        /// category english and vietnamese name with search value
         /// Search is case insensitive.
         /// </summary>
         private List<StreetVendor> GetSearchedResults(string SearchValue, List<StreetVendor> vendors)
@@ -102,30 +101,35 @@ namespace street_foody.Controllers
             {
                 bool toBeAdded = false;
                 string SearchValueLowerCase = SearchValue.ToLower();
-                if (NameMatchWithSearchValue(streetVendor.VietnameseName, streetVendor.EnglishName, SearchValueLowerCase)) toBeAdded = true;
-                ICollection<Food> Foods = streetVendor.Foods;
-                if (Foods != null || Foods.Count != 0)
+                // string query = "SELECT * FROM WHERE ";
+    
+                
+
+                // var data = _context.StreetVendor.Sql.ToList();
+                // if (NameMatchWithSearchValue(streetVendor.VietnameseName, streetVendor.EnglishName, SearchValueLowerCase)) toBeAdded = true;
+                
+                List<Food> Foods;
+                Foods = _context.Food.Where(f => f.VendorID == streetVendor.VendorID).ToList();
+                // Foods.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
+                if (Foods != null && Foods.Count != 0)
                 {
                     foreach (Food food in Foods)
                     {
                         if (NameMatchWithSearchValue(food.VietnameseName, food.EnglishName, SearchValueLowerCase)) toBeAdded = true;
-                        FoodCategory foodCategory = food.FoodCategory;
+                        FoodCategory foodCategory;
+                        foodCategory = _context.FoodCategory.Where(fc => fc.FoodCategoryID == food.FoodCategoryID).FirstOrDefault();
                         if (foodCategory != null)
                         {
-
                             if (NameMatchWithSearchValue(foodCategory.VietnameseName, foodCategory.EnglishName, SearchValueLowerCase)) toBeAdded = true;
-
                         }
                     }
                     if (toBeAdded) matchedVendors.Add(streetVendor);
-
                 }
 
             }
 
             return matchedVendors;
         }
-
 
         /// <summary> Returns true if either Vietnamese Name or English Name matches with the lowercase SearchValue   
         ///</summary>
@@ -135,7 +139,6 @@ namespace street_foody.Controllers
             string VietnameseNameLowerCase = VietnameseName == null ? "" : VietnameseName.ToLower();
             return EnglishNameLowerCase.Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Contains(SearchValueLowerCase);
         }
-        
         private List<StreetVendor> VendorsSortedByPrice(List<StreetVendor> vendors)
         {
             return vendors.OrderBy(streetVendor => (streetVendor.PriceRange[1] + streetVendor.PriceRange[0]) / 2).ToList();

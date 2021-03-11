@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using street_foody.Models;
 
-// [Route("api/[controller]")]    
-// [ApiController]  
 namespace street_foody.Controllers
 {
+    [Route("Handbook")]
+    [ApiController]
     public class HandbookController : Controller
     {
         public IActionResult Index()
