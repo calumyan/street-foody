@@ -4,13 +4,14 @@ using System;
 
 namespace street_foody.Models
 {    
-    
+    public enum Days {
+        Sun, Mon, Tue, Wed, Thu, Fri, Sat,
+
+    }
     public class VendorHours
     {
-
-        [ForeignKey("StreetVendor")]
         [Key]
-        public string VendorID{get; set;}
+        public string VendorHoursID{get; set;}
         // public string VendorHoursInfo{
         // get{return VendorHoursInfo;} 
         // set{VendorHoursInfo = VendorID + " " +Location;}}
@@ -20,24 +21,16 @@ namespace street_foody.Models
 
         // Each day column is not required. To specify a closed day, leave the column null.
         public DateTime[] Sun {get;set;}
-
         public DateTime[] Mon {get;set;}
-
         public DateTime[] Tue {get;set;}
-
         public DateTime[] Wed {get;set;}
-
         public DateTime[] Thu {get;set;}
-
         public DateTime[] Fri {get;set;}
-
         public DateTime[] Sat {get;set;}
+        public string VendorID{get;set;}
+        public StreetVendor Vendor{get;set;}
+        
         // select * from vendor where id in (select vendor_id from vendor_hours where start_time < ? and end_time > ?);
-
-    }
-
-    public enum Days {
-        Sun, Mon, Tue, Wed, Thu, Fri, Sat,
 
     }
 }

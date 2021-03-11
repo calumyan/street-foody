@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using street_foody.Models;
@@ -9,9 +10,10 @@ using street_foody.Models;
 namespace street_foody.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210311081638_One-to-Many_relationships_built")]
+    partial class OnetoMany_relationships_built
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -972,93 +974,58 @@ namespace street_foody.Migrations
                         new
                         {
                             VendorHoursID = "9",
-                            Fri = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Location = "27 Thanh Da, Ward 27, Binh Thanh District",
-                            Mon = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sat = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sun = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Thu = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Tue = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            VendorID = "9",
-                            Wed = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) }
+                            VendorID = "9"
                         },
                         new
                         {
                             VendorHoursID = "10",
-                            Fri = new[] { new DateTime(2021, 3, 11, 17, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Location = "623/20 CMT8, P.15, Q.10",
-                            Mon = new[] { new DateTime(2021, 3, 11, 17, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sat = new[] { new DateTime(2021, 3, 11, 17, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sun = new[] { new DateTime(2021, 3, 11, 17, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Thu = new[] { new DateTime(2021, 3, 11, 17, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Tue = new[] { new DateTime(2021, 3, 11, 17, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            VendorID = "10",
-                            Wed = new[] { new DateTime(2021, 3, 11, 17, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) }
+                            VendorID = "10"
                         },
                         new
                         {
                             VendorHoursID = "11",
-                            Fri = new[] { new DateTime(2021, 3, 11, 11, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified) },
                             Location = "897/29 Tran Hung Dao, Ward 01, District 5, HCMC",
-                            Mon = new[] { new DateTime(2021, 3, 11, 11, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sat = new[] { new DateTime(2021, 3, 11, 11, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sun = new[] { new DateTime(2021, 3, 11, 11, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Thu = new[] { new DateTime(2021, 3, 11, 11, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Tue = new[] { new DateTime(2021, 3, 11, 11, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified) },
-                            VendorID = "11",
-                            Wed = new[] { new DateTime(2021, 3, 11, 11, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified) }
+                            VendorID = "11"
                         },
                         new
                         {
                             VendorHoursID = "12",
-                            Fri = new[] { new DateTime(2021, 3, 11, 6, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) },
                             Location = "246/55A Hoa Hung, Ward 13, District 10",
-                            Mon = new[] { new DateTime(2021, 3, 11, 6, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sat = new[] { new DateTime(2021, 3, 11, 6, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sun = new[] { new DateTime(2021, 3, 11, 6, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Thu = new[] { new DateTime(2021, 3, 11, 6, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Tue = new[] { new DateTime(2021, 3, 11, 6, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) },
-                            VendorID = "12",
-                            Wed = new[] { new DateTime(2021, 3, 11, 6, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) }
+                            VendorID = "12"
                         },
                         new
                         {
                             VendorHoursID = "13",
-                            Fri = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Location = "48 Kha Van Can St., Binh Chanh Ward, Thu Duc District",
-                            Mon = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sat = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sun = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Thu = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Tue = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            VendorID = "13",
-                            Wed = new[] { new DateTime(2021, 3, 11, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) }
+                            VendorID = "13"
                         },
                         new
                         {
                             VendorHoursID = "14",
-                            Fri = new[] { new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Location = "Le Van Tam Park",
-                            Mon = new[] { new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sat = new[] { new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sun = new[] { new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Thu = new[] { new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Tue = new[] { new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) },
-                            VendorID = "14",
-                            Wed = new[] { new DateTime(2021, 3, 11, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 22, 0, 0, 0, DateTimeKind.Unspecified) }
+                            VendorID = "14"
                         },
                         new
                         {
                             VendorHoursID = "15",
-                            Fri = new[] { new DateTime(2021, 3, 11, 12, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 0, 0, 0, DateTimeKind.Unspecified) },
                             Location = "38 Phạm Ngọc Thạch, P.6, Q.3, HCMC",
-                            Mon = new[] { new DateTime(2021, 3, 11, 12, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sat = new[] { new DateTime(2021, 3, 11, 12, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 0, 0, 0, DateTimeKind.Unspecified) },
                             Sun = new[] { new DateTime(2021, 3, 11, 12, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Thu = new[] { new DateTime(2021, 3, 11, 12, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 0, 0, 0, DateTimeKind.Unspecified) },
-                            Tue = new[] { new DateTime(2021, 3, 11, 12, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 0, 0, 0, DateTimeKind.Unspecified) },
-                            VendorID = "15",
-                            Wed = new[] { new DateTime(2021, 3, 11, 12, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 0, 0, 0, DateTimeKind.Unspecified) }
+                            VendorID = "15"
                         });
                 });
 

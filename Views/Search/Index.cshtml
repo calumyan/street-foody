@@ -1,5 +1,4 @@
 @model IEnumerable<StreetVendor>;
-@using System.Text;
 @{
     ViewData["Title"] = "Search";
 }
@@ -22,7 +21,7 @@
             </form>
         </div>
     </div>
-    <div class="wrapper">
+    <div id="wrapper" style="overflow: hidden;">
         <div id="filter-col">
             <h2 class="filter-title">Opening hours</h2>
             <form class="filter-list" method = "POST">
@@ -126,38 +125,11 @@
                 </div>
             }
         } else {
-            @* Html.DisplayText("Sorry, we couldn't find any street vendors that match your search :("); *@
             <h3 style="font-size: 2rem;">Sorry, we couldn't find any matches from our database :(</h3>
             <a id="sign-up" href="https://forms.gle/PU1baBndNHAus6qt7">
-             Help us expand Street Foody database!
+             Help us expand the Street Foody database!
             </a>
         }}
         </div>
     </div>
 </div>
-
-
-
-@* $(function(){
-       $(".filter").click(function() {
-           alert("Hello");  
-       }) 
-
-
- $.each(data, function (item) {  
-        var $standVietnameseName = item.standVietnameseName;
-        
-        var $newdiv1 = $( "<div>  </div>" );
-        $newdiv1.html($standVietnameseName);
-        $("body").append($newdiv1);
-
-    }); $.ajax{
-    type : 'GET',
-    url : '/api/search/getAll',
-    dataType : 'json',
-    data :  {id = ''},
-    success: function (data) {  
-            alert("Hello");  
-    
-    },  
-}  *@
