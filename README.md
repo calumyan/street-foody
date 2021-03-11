@@ -34,12 +34,9 @@ People have trouble finding street vendors based on name and food type if theyâ€
 
 To run the project, run <code> dotnet run </code> in the terminal
 
-To build the project, run <code> dotnet build </code>
+To build the project, run <code> dotnet build </code> 
 
-To check out our pgAdmin interface for tables and data, 
-
-
-
+There is a pretty complete guide on how to use our app on the handbook page, check it out! 
 
 
 
