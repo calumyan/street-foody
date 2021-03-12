@@ -58,7 +58,6 @@ namespace street_foody.Models
                   VendorID = "5",
                   VietnameseName = "Ăn vặt,trà sữa đường Vĩnh Viễn",
                   EnglishName = "Vinh Vien St. snacks and boba tea",
-                  RatingList = new int[] { },
                   PriceRange = new int[] { 14000, 29000 },
                   PhotoUrl = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/156646575_817247045527459_8464517707157016028_n.jpg?_nc_cat=1&ccb=3&_nc_sid=b9115d&_nc_ohc=7qGQxbPz5GIAX94w5F1&_nc_ht=scontent.ffcm1-2.fna&oh=66f3c0a1330121b1100836f404c5ced8&oe=60685917"
               },
