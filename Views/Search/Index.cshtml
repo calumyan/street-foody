@@ -10,8 +10,6 @@
         &#8594; Precaution: Most street vendors take cash only. Please&nbspbe&nbspprepared&nbspto&nbspbring&nbspcash!&nbsp&#8592;
     </div>
     <div id="filter-sort">
-        <button id="filter" class="small-btn" style="margin-right: 10px"><img src="~/images/filter.png" alt=""
-                class="btn-secondary-icon">&nbsp;Filter</button>
         <div class="select">
             <form id="sort-form" method="POST">
                 <select form="sort-form" name="sort" onchange="this.form.submit()">
@@ -22,35 +20,9 @@
             </form>
         </div>
     </div>
-    <div id="wrapper" style="overflow: hidden;">
     @{
         if (Model.Count() > 0)
         {
-        <div id="filter-col">
-            <h2 class="filter-title">Opening hours</h2>
-            <form class="filter-list" method="POST">
-                <div>
-                    <input type="checkbox" class="checkbox" id="open-now" name="open-now" value="open-now" />
-                    <label for="open-now"> Open now </label>
-                </div>
-            </form>
-            <h2 class="filter-title">Ratings</h2>
-            <form action="" class="filter-list">
-                <div>
-                    <input type="checkbox" class="checkbox" id="5.0" name="5.0" />
-                    <label for="5.0"> 5.0 </label>
-                </div>
-                <div>
-                    <input type="checkbox" class="checkbox" id="4.0-5.0" name="4.0+" />
-                    <label for="4.0-5.0"> 4.0+ </label>
-                </div>
-                <div>
-                    <input type="checkbox" class="checkbox" id="3.0-4.0" name="3.0-4.0" />
-                    <label for="3.0-4.0"> 3.0+ </label>
-                </div>
-
-            </form>
-        </div>
         <div id="result-col">
             @foreach (var vendor in Model)
             {   
@@ -106,5 +78,4 @@
             </div>
         }
     }
-    </div>
 </div>

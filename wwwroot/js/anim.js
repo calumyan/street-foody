@@ -72,15 +72,3 @@ function moveCaret(e) {
 }
 
 resultCol.addEventListener("mousemove", moveCaret);
-
-// Animate filter column --------------------
-const filterBtn = document.getElementById("filter");
-const filterCol = document.getElementById("filter-col");
-const wrapper = document.getElementById("wrapper");
-
-function toggleFilterDesktop() {
-  filterCol.classList.toggle("close");
-  wrapper.classList.toggle("full");
-}
-
-filterBtn.addEventListener("click", toggleFilterDesktop);

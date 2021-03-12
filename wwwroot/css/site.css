@@ -656,55 +656,22 @@ h2.filter-title {
 /* VENDOR CARD - SEARCH PAGE
 -------------------------------------------------- */
 
-#wrapper {
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  justify-content: space-between;
-  transition: all 0.5s ease;
-  padding-left: 20%;
-  padding-right: 5%;
-  transition: padding 0.75s ease-in-out;
-}
-
-#wrapper.full {
-  padding-left: 5%;
-}
-
 #filter-sort {
   display: flex;
   align-items: center;
-  margin: 1rem 0rem;
-  width: 90%;
+  justify-content: flex-end;
+  margin: 1rem 0rem 0;
+  width: 80%;
+  padding-left: 1rem;
   margin-left: auto;
   margin-right: auto;
   overflow-x: hidden;
 }
 
-#filter:hover {
-  border-color: #ffdf37;
-}
-
-#filter-col {
-  width: 16%;
-  height: 90%;
-  padding-right: 1rem;
-  box-shadow: 3px 0 3px -3px #ccc;
-  display: flex;
-  flex-direction: column;
-  left: 6%;
-  margin-top: 1rem;
-  transition: all 0.75s ease-in-out;
-  position: absolute;
-}
-
-#filter-col.close {
-  transform: translateX(-170%);
-}
-
 #result-col {
-  width: 100%;
-  padding-left: 2rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   transition: all 0.5 ease;
@@ -717,7 +684,7 @@ h2.filter-title {
 .vndr-card {
   width: 100%;
   min-height: max-content;
-  padding: 2rem 0 2rem 2rem;
+  padding: 2rem 0 2rem 1rem;
   margin-right: 2rem;
   display: grid;
   grid-template-areas:
@@ -978,6 +945,8 @@ a#vendor-location {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
+  width: 100%;
+  text-align: center;
 }
 
 #vendor-location:hover {
@@ -1005,7 +974,7 @@ iframe {
 }
 
 .time {
-  min-width: 12rem;
+  min-width: 11rem;
 }
 
 /* VENDOR PAGE - MENU
@@ -1152,20 +1121,9 @@ h3.food-category:after {
     flex-basis: 50%;
   }
 
-  #filter-col {
-    transform: translateX(-300%);
-  }
-
-  #filter-col.close {
-    transform: translateX(0);
-  }
-
-  #wrapper {
-    padding-left: 3%;
-  }
-
-  #wrapper.full {
-    padding-left: 20%;
+  #result-col,
+  #filter-sort {
+    width: 90%;
   }
 }
 
@@ -1248,10 +1206,6 @@ h3.food-category:after {
     grid-template-rows: 3.6rem 1.5rem 3.2rem 2.2rem;
     grid-template-columns: 13rem 1fr;
   }
-
-  #wrapper {
-    padding-left: 0%;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1259,8 +1213,14 @@ h3.food-category:after {
     grid-template-columns: 10rem 1fr;
   }
 
-  #result-col {
-    padding-left: 1rem;
+  #result-col,
+  #filter-sort {
+    width: 95%;
+    padding-left: 0.5rem;
+  }
+
+  .vndr-card {
+    padding-left: 0rem;
   }
 
   h3.food-category:after,
@@ -1278,7 +1238,6 @@ h3.food-category:after {
 
   .vndr-card {
     font-size: 0.9rem;
-    padding: 1rem 0.5rem;
   }
 }
 

@@ -27,7 +27,9 @@ namespace street_foody.Controllers
                                         .Include(v => v.Foods)
                                         .ThenInclude(f => f.FoodCategory)  
                                         .ThenInclude(c => c.Foods.Where(f => f.VendorID == ID))
-                                        .Include(v => v.VendorHours).FirstOrDefault();
+                                        .Include(v => v.VendorHours)
+                                        .OrderBy(c => c.EnglishName)
+                                        .FirstOrDefault();
             vendor.FoodCategories = new List<FoodCategory>();
             foreach (Food food in vendor.Foods) {
                 FoodCategory category = food.FoodCategory;
