@@ -57,7 +57,7 @@ namespace street_foody.Models
               new StreetVendor
               {
                   VendorID = "5",
-                  VietnameseName = "Ăn vặt,trà sữa đường Vĩnh Viễn",
+                  VietnameseName = "Ăn vặt, trà sữa đường Vĩnh Viễn",
                   EnglishName = "Vinh Vien St. snacks and boba tea",
                   RatingList = new int[] { },
                   PriceRange = new int[] { 14000, 29000 },
