@@ -20,7 +20,6 @@ namespace street_foody.Controllers
             _context = context;
         }
 
-
         /// <summary> Renders a list of street vendors with searching and sorting.
         /// </summary>
         public IActionResult Index(string SearchValue)
@@ -81,7 +80,6 @@ namespace street_foody.Controllers
                 if (streetVendor.Foods == null) {
                     break;
                 }
-
                 streetVendor.FoodCategories = new List<FoodCategory>();
                 foreach (Food food in streetVendor.Foods) {
                     FoodCategory category = food.FoodCategory;
@@ -102,16 +100,14 @@ namespace street_foody.Controllers
             List<StreetVendor> matchedVendors = new List<StreetVendor>();
             foreach (StreetVendor vendor in vendors)
             {   
+                bool toBeAdded = false;
                 string SearchValueLowerCase = SearchValue.ToLower();                
                 if (NameMatchWithSearchValue(vendor.EnglishName, vendor.VietnameseName, SearchValueLowerCase)) {
                     matchedVendors.Add(vendor);
                 }
-
                 if (vendor.Foods == null) {
                     return matchedVendors;
                 }
-
-                bool toBeAdded = false;
                 foreach (Food food in vendor.Foods)
                 {
                     if (NameMatchWithSearchValue(food.VietnameseName, food.EnglishName, SearchValueLowerCase)) toBeAdded = true;
@@ -123,7 +119,6 @@ namespace street_foody.Controllers
                 }
                 if (toBeAdded && !matchedVendors.Contains(vendor)) matchedVendors.Add(vendor);
             }
-
             return matchedVendors;
         }
 
@@ -133,7 +128,7 @@ namespace street_foody.Controllers
         {
             string EnglishNameLowerCase = EnglishName == null ? "" : EnglishName.ToLower();
             string VietnameseNameLowerCase = VietnameseName == null ? "" : VietnameseName.ToLower();
-            return EnglishNameLowerCase.Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Contains(SearchValueLowerCase);
+            return EnglishNameLowerCase.Split(" ").Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Split(" ").Contains(SearchValueLowerCase);
         }
         private List<StreetVendor> VendorsSortedByPrice(List<StreetVendor> vendors)
         {

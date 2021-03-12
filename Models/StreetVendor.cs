@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace street_foody.Models
 {    
-
     public class StreetVendor
     {
         [Key]
@@ -19,7 +18,6 @@ namespace street_foody.Models
         public int[] PriceRange{get;set;}   
         public int[] RatingList{get;set;}
         
-
         ///<summary> absolute url of image hosted on CDN
         ///</summary>
         public string PhotoUrl{get;set;} 
