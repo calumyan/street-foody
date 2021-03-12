@@ -53,6 +53,17 @@
                 {
                     foreach (var vendor in Model)
                     {
+<<<<<<< HEAD
+                        string priceDisp;
+                        if(vendor.PriceRange == null || vendor.PriceRange.Length == 0) priceDisp = "Not Available";
+                        else priceDisp = vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
+                        string photoURL = vendor.PhotoUrl == null
+                        ? Url.Content("~/images/logo.png")
+                        : vendor.PhotoUrl;
+                        string avgRatingDisp;
+                        if(vendor.RatingList == null || vendor.RatingList.Length == 0) avgRatingDisp = "Not Available";
+                        else avgRatingDisp = "" + vendor.AverageRating.ToString();
+=======
                         string priceDisp = vendor.PriceRange[0] == vendor.PriceRange[1] 
                         ? (vendor.PriceRange[0] == 99999999 ? "Not available" : vendor.PriceRange[0].ToString("#,###"))
                         : vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
@@ -61,6 +72,7 @@
                         : vendor.PhotoUrl;
                         string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString();
 
+>>>>>>> ca3156b6e43dc31eb7e2e36e0db3abf19431f22c
                         <div id="@vendor.VendorID" class="vndr-card">
                             <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                             <h3 class="stand-name">
