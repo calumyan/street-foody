@@ -81,9 +81,10 @@ namespace street_foody.Controllers
 
         private List<StreetVendor> GetAll()
         {
-            // Eager loads all vendors as well as their menu and food categories.
+            // Eager loads all vendors as well as their menu, food categories, hours and location(s).
             List<StreetVendor> allVendors = _context.StreetVendor.Include(v => v.Foods)
-                                                                .ThenInclude(f => f.FoodCategory).ToList();
+                                                                .ThenInclude(f => f.FoodCategory)
+                                                                .Include(v => v.VendorHours).ToList();
             foreach (StreetVendor streetVendor in allVendors)
             {   
                 streetVendor.SetAverageRating();

@@ -53,7 +53,8 @@
                 {
                     foreach (var vendor in Model)
                     {   
-                        string priceDisp = 
+                        string locationDisp = vendor.VendorHours.Count > 1 ? "Various locations" : vendor.VendorHours.ToList()[0].Location;
+                        // PriceRange array is made sure to be of length 2 during data seeding.
                         string priceDisp = vendor.PriceRange[0] == vendor.PriceRange[1] 
                         ? (vendor.PriceRange[0] == 99999999 ? "Not available" : vendor.PriceRange[0].ToString("#,###"))
                         : vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
@@ -67,10 +68,21 @@
                             <h3 class="stand-name">
                                 @Html.DisplayFor(modelItem => vendor.VietnameseName)
                             </h3>
-                            <div class="vndr-distance"> 0.5 miles away &nbsp &nbsp &nbsp
+                            <div class="vndr-location"> @locationDisp
                             </div>
                             <div class="vndr-categories">
-                                <img src="~/images/menu.png" alt="" class="inline-icon" />
+                                <div class="img">
+                                    <img src="~/images/menu.png" alt="" class="inline-icon" />
+                                </div>
+                                <div class="categories-textbox">
+                                    @foreach (FoodCategory category in vendor.FoodCategories) {
+                                        string categoryDisp = category.EnglishName;
+                                        categoryDisp = categoryDisp.Substring(categoryDisp.IndexOf("|") + 2);
+                                        if (!categoryDisp.Equals("Other")) {
+                                            <p class="vndr-category">@categoryDisp</p>
+                                        }
+                                    }
+                                </div>
                             </div>
                             <div class="vndr-rating-price">
                                 <img src="~/images/star.png" alt="" class="inline-icon" />
@@ -78,7 +90,6 @@
                                 <br />
                             <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
                             </div>
-
                             <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
                         </div>
                     }

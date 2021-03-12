@@ -352,7 +352,7 @@ namespace street_foody.Models
             {
                 FoodCategoryID = "2",
                 VietnameseName = "Hủ tiếu",
-                EnglishName = "Rice noodles, or simply hu tieu",
+                EnglishName = "Rice noodles",
                 Description = "This noodle dish can be served with or without broth (dry) and includes pork bones, herbs, and a variety of meats and other ingredients."
             },
             new FoodCategory
@@ -932,7 +932,8 @@ namespace street_foody.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
-            .UseNpgsql("Server=PostgreSQL;Host=localhost;Port=5432;Username=postgres;Password=street-foody;Database=street-foody;")
+            .UseNpgsql("Server=PostgreSQL;Host=localhost;Port=5432;Username=postgres;Password=street-foody;Database=street-foody;", 
+            o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)) // enable split queries globally
             .UseSnakeCaseNamingConvention();
 
     }

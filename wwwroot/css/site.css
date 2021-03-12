@@ -734,7 +734,7 @@ h2.filter-title {
     "img dist next"
     "img categ next"
     "img rating next";
-  grid-template-rows: 3rem 1.5rem 3.2rem 2.2rem;
+  grid-template-rows: 3rem 1.7rem 3rem 2.3rem;
   grid-template-columns: 16rem 1fr 6rem;
   column-gap: 20px;
   box-shadow: 0 3px 3px -3px #ccc;
@@ -755,21 +755,49 @@ h2.filter-title {
   grid-area: name;
 }
 
-.vndr-distance {
+.vndr-location {
   grid-area: dist;
+  margin: 0;
 }
 
 .vndr-categories {
   grid-area: categ;
+  display: flex;
+  /* flex-wrap: wrap; */
 }
-
-/* .vndr-price {
-  grid-area: price;
-} */
 
 .vndr-rating-price {
   grid-area: rating;
   min-width: 20rem;
+  display: flex;
+  align-items: center;
+}
+
+.vndr-categories > .img {
+  height: 3rem;
+  min-width: 1.8rem;
+  display: flex;
+  transform: translateY(0.1rem);
+}
+
+.categories-textbox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1fr;
+}
+
+p.vndr-category {
+  display: inline-block;
+  word-break: keep-all;
+  max-height: 1.2rem;
+  margin: 0;
+  padding: 0;
+  min-width: fit-content;
+}
+
+.vndr-category:not(:last-child):after {
+  content: ", ";
+  white-space: pre;
 }
 
 .right-caret {
