@@ -48,6 +48,7 @@
                 <img src="~/images/phone.png" alt="" class="inline-icon"> @phoneDisp
                 @if (!String.IsNullOrWhiteSpace(Model.PhoneNumber)) {
                     <span title="Call vendor">
+                        <a href="tel:+84 @Model.PhoneNumber"></a>
                         <img src="~/images/right-caret.png" alt="" id="call">
                     </span>
                 }

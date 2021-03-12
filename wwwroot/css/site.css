@@ -14,13 +14,15 @@ for details on configuring this project to bundle and minify static web assets. 
 
 html {
   max-width: 100%;
-  /* overflow-x: hidden; */
   overflow-y: scroll;
+  min-height: fit-content;
 }
 
 body {
   font-family: "Quicksand", sans-serif;
   width: 100%;
+  position: relative;
+  padding-bottom: 13rem;
 }
 
 h1,
@@ -31,12 +33,14 @@ h2 {
 footer {
   height: 10rem;
   background: rgb(255, 93, 65);
-  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 @media only screen and (max-width: 426px) {
@@ -278,6 +282,10 @@ a#sign-up {
   color: white;
   font-size: 1.2rem;
   word-break: keep-all;
+}
+
+a#sign-up:hover {
+  transform: scale(1.03);
 }
 
 /* FORM INPUT
@@ -644,12 +652,12 @@ h2.filter-title {
   margin-bottom: 0;
 }
 
-/* VENDOR CARD & SEARCH PAGE
+/* VENDOR CARD - SEARCH PAGE
 -------------------------------------------------- */
 
 #wrapper {
   width: 100%;
-  height: 100%;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   transition: all 0.5s ease;
@@ -678,7 +686,7 @@ h2.filter-title {
 
 #filter-col {
   width: 16%;
-  height: 100%;
+  height: 90%;
   padding-right: 1rem;
   box-shadow: 3px 0 3px -3px #ccc;
   display: flex;
@@ -820,12 +828,23 @@ img.inline-icon {
   align-items: center;
 }
 
+/* NOT FOUND - SEARCH PAGE
+-------------------------------------------------- */
+#not-found {
+  display: flex;
+  height: 40vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* VENDOR PAGE - HEADER
 -------------------------------------------------- */
 
 .vendor-header {
   width: 100%;
   margin-top: 0;
+  position: relative;
 }
 
 .vendor-profile-img {

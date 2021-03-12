@@ -4,7 +4,7 @@
     ViewData["Title"] = "Search";
 }
 
-<div class="page">
+<div class="homepage-layout page">
     <div id="alert">
         <span id="close-btn" onclick="this.parentElement.style.display='none'"> &times; </span>
         &#8594; Precaution: Most street vendors take cash only. Please be prepared to bring cash! &#8592;
@@ -23,6 +23,9 @@
         </div>
     </div>
     <div id="wrapper" style="overflow: hidden;">
+    @{
+        if (Model.Count() > 0)
+        {
         <div id="filter-col">
             <h2 class="filter-title">Opening hours</h2>
             <form class="filter-list" method="POST">
@@ -49,64 +52,61 @@
             </form>
         </div>
         <div id="result-col">
-            @{
-                if (Model.Count() > 0)
-                {
-                    foreach (var vendor in Model)
-                    {   
-                        string locationDisp = vendor.VendorHours.Count > 1 ? "Various locations" : vendor.VendorHours.ToList()[0].Location;
-                        // PriceRange array is made sure to be of length 2 during data seeding.
-                        string priceDisp = vendor.PriceRange[0] == vendor.PriceRange[1] 
-                        ? (vendor.PriceRange[0] == 99999999 ? "Not available" : vendor.PriceRange[0].ToString("#,###"))
-                        : vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
-                        string photoURL = vendor.PhotoUrl == null
-                        ? Url.Content("~/images/logo.png")
-                        : vendor.PhotoUrl;
-                        string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString();
-                        List<FoodCategory> categories = vendor.FoodCategories;
+            @foreach (var vendor in Model)
+            {   
+                string locationDisp = vendor.VendorHours.Count > 1 ? "Various locations" : vendor.VendorHours.ToList()[0].Location;
+                // PriceRange array is made sure to be of length 2 during data seeding.
+                string priceDisp = vendor.PriceRange[0] == vendor.PriceRange[1] 
+                ? (vendor.PriceRange[0] == 99999999 ? "Not available" : vendor.PriceRange[0].ToString("#,###"))
+                : vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
+                string photoURL = vendor.PhotoUrl == null
+                ? Url.Content("~/images/logo.png")
+                : vendor.PhotoUrl;
+                string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString();
+                List<FoodCategory> categories = vendor.FoodCategories;
 
-                        <div id="@vendor.VendorID" class="vndr-card">
-                            <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
-                            <h3 class="stand-name">
-                                @Html.DisplayFor(modelItem => vendor.VietnameseName)
-                            </h3>
-                            <div class="vndr-location"> @locationDisp
-                            </div>
-                            <div class="vndr-categories">
-                                <div class="img">
-                                    <img src="~/images/menu.png" alt="" class="inline-icon" />
-                                </div>
-                                <div class="categories-textbox">
-                                    @foreach (var (category, i) in categories.Select((category, i) => (category, i))) {
-                                        string categoryDisp = category.EnglishName;
-                                        categoryDisp = categoryDisp.Substring(categoryDisp.IndexOf("|") + 2);
-                                        if (!categoryDisp.Equals("Other")) {
-                                            @* I decided to add the commas this way because it would be harder to achieve word breaking,
-                                            especially for long categories' names, using :after in CSS. *@
-                                            categoryDisp = i != categories.Count - 1 ? categoryDisp + ", " : categoryDisp; 
-                                            @categoryDisp
-                                        }
-                                    }
-                                </div>
-                            </div>
-                            <div class="vndr-rating-price">
-                                <img src="~/images/star.png" alt="" class="inline-icon" />
-                                @avgRatingDisp &nbsp &nbsp &nbsp
-                                <br />
-                            <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
-                            </div>
-                            <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
+                <div id="@vendor.VendorID" class="vndr-card">
+                    <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
+                    <h3 class="stand-name">
+                        @Html.DisplayFor(modelItem => vendor.VietnameseName)
+                    </h3>
+                    <div class="vndr-location"> @locationDisp
+                    </div>
+                    <div class="vndr-categories">
+                        <div class="img">
+                            <img src="~/images/menu.png" alt="" class="inline-icon" />
                         </div>
-                    }
-                }
-                else
-                {
-                    <h3 style="font-size: 2rem;">Sorry, we couldn't find any matches from our database :(</h3>
-                    <a id="sign-up" href="https://forms.gle/PU1baBndNHAus6qt7">
-                        Help us expand the Street Foody database!
-                    </a>
-                }
+                        <div class="categories-textbox">
+                            @foreach (var (category, i) in categories.Select((category, i) => (category, i))) {
+                                string categoryDisp = category.EnglishName;
+                                categoryDisp = categoryDisp.Substring(categoryDisp.IndexOf("|") + 2);
+                                if (!categoryDisp.Equals("Other")) {
+                                    @* I decided to add the commas this way because it would be harder to achieve word breaking,
+                                    especially for long categories' names, using :after in CSS. *@
+                                    categoryDisp = i != categories.Count - 1 ? categoryDisp + ", " : categoryDisp; 
+                                    @categoryDisp
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="vndr-rating-price">
+                        <img src="~/images/star.png" alt="" class="inline-icon" />
+                        @avgRatingDisp &nbsp &nbsp &nbsp
+                        <br />
+                    <img src="~/images/price-tag.png" alt="" class="inline-icon" /> @priceDisp
+                    </div>
+                    <div class="right-caret"><img src="~/images/right-caret.png" alt="" /></div>
+                </div>
             }
         </div>
+        } else {
+            <div id="not-found">
+                <h3 style="font-size: 2rem; text-align: center">Sorry, we couldn't find any matches from our database :(</h3>
+                <a id="sign-up" style="width: 60%; text-align: center" href="https://forms.gle/PU1baBndNHAus6qt7">
+                    Help us expand the Street Foody database!
+                </a>
+            </div>
+        }
+    }
     </div>
 </div>
