@@ -27,16 +27,16 @@ namespace street_foody.Models
         public ICollection<VendorHours> VendorHours{get;set;}
         public ICollection<Food> Foods{get;set;}     
 
-        /// <summary> Computes average rating from the RatingList and assigns
-        /// the result to the unmapped AverageRating for later use
-        /// </summary> in Razor view pages. 
+        /// <summary> 
+        /// Computes average rating from the RatingList and assigns
+        /// the result to the unmapped AverageRating for later use in Razor view pages. 
+        /// </summary> 
         public void SetAverageRating(){
             double totalRating = 0;
             double length = -1;
-            if(RatingList == null){
+            if(RatingList == null || RatingList.Length == 0){
                 length = -1;
-            }
-            if(RatingList != null){
+            } else  {
                 foreach(var rating in RatingList){
                     totalRating+=rating;
                 }
