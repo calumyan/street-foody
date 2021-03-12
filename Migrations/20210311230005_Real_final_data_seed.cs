@@ -587,20 +587,6 @@ namespace street_foody.Migrations
                 keyValue: "9",
                 column: "english_name",
                 value: "Tiger Tea | Tiger Tea");
-
-            migrationBuilder.UpdateData(
-                table: "vendor_hours",
-                keyColumn: "vendor_hours_id",
-                keyValue: "1",
-                columns: new[] { "fri", "mon", "thu", "tue", "wed" },
-                values: new object[] { null, null, null, null, null });
-
-            migrationBuilder.UpdateData(
-                table: "vendor_hours",
-                keyColumn: "vendor_hours_id",
-                keyValue: "8",
-                columns: new[] { "fri", "mon", "thu", "tue", "wed" },
-                values: new object[] { null, null, null, null, null });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -1186,19 +1172,6 @@ namespace street_foody.Migrations
                 column: "english_name",
                 value: "Tiger Tea");
 
-            migrationBuilder.UpdateData(
-                table: "vendor_hours",
-                keyColumn: "vendor_hours_id",
-                keyValue: "1",
-                columns: new[] { "fri", "mon", "thu", "tue", "wed" },
-                values: new object[] { new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified) } });
-
-            migrationBuilder.UpdateData(
-                table: "vendor_hours",
-                keyColumn: "vendor_hours_id",
-                keyValue: "8",
-                columns: new[] { "fri", "mon", "thu", "tue", "wed" },
-                values: new object[] { new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 59, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 59, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 59, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 59, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 11, 15, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 23, 59, 0, 0, DateTimeKind.Unspecified) } });
         }
     }
 }

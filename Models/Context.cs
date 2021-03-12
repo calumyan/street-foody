@@ -167,7 +167,12 @@ namespace street_foody.Models
                   VendorID = "1",
                   Location = "359 Tran Binh Trong, Ward 1, District 10, HCMC",
                   Sun = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") },
-                  Sat = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") }
+                  Sat = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") },
+                  Mon = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") },
+                  Tue = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") },
+                  Wed = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") },
+                  Thu = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") },
+                  Fri = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("09:00 PM") }
               },
               new VendorHours
               {
@@ -245,7 +250,12 @@ namespace street_foody.Models
                   VendorID = "8",
                   Location = "8 Phan Van Han, Ward 19, Binh Thanh District",
                   Sun = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") },
-                  Sat = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") }
+                  Sat = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") },
+                  Mon = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") },
+                  Tue = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") },
+                  Wed = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") },
+                  Thu = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") },
+                  Fri = new System.DateTime[] { System.DateTime.Parse("03:00 PM"), System.DateTime.Parse("11:59 PM") }
               },
               new VendorHours
               {
