@@ -128,7 +128,7 @@ namespace street_foody.Controllers
         {
             string EnglishNameLowerCase = EnglishName == null ? "" : EnglishName.ToLower();
             string VietnameseNameLowerCase = VietnameseName == null ? "" : VietnameseName.ToLower();
-            return EnglishNameLowerCase.Split(" ").Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Split(" ").Contains(SearchValueLowerCase);
+            return EnglishNameLowerCase.Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Contains(SearchValueLowerCase);
         }
         private List<StreetVendor> VendorsSortedByPrice(List<StreetVendor> vendors)
         {

@@ -85,16 +85,9 @@
                     title="map"
                     loading="lazy"
                     allowfullscreen
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBsXAG8PrqllPSGjeejnAy-TLXR2tPFGw
-                        &q=@Model.VendorHours.ToArray()[0].Location">  
-                </iframe>
-                @* <iframe
-                    title="map"
-                    loading="lazy"
-                    allowfullscreen
                     src="https://www.google.com/maps/embed/v1/place?key=API_KEY
                         &q=@Model.VendorHours.ToArray()[0].Location">  
-                </iframe> *@
+                </iframe>
             </div>
         }
     }
@@ -109,63 +102,25 @@
 
         <!--Menu Grid-->
         @{
-            @foreach(FoodCategory category in Model.FoodCategories) {
-                <div>@category.EnglishName</div>
-                @foreach(Food food in category.Foods)
-                {
-                    <div>@food.EnglishName</div>
-                }
+        foreach(FoodCategory category in Model.FoodCategories) {
+            string categoryDisp = category.EnglishName;
+            int commaIndex = categoryDisp.IndexOf(",");
+            categoryDisp = (commaIndex >= 0) ? categoryDisp.Substring(0, commaIndex) : categoryDisp;
+            <h3 class="food-category">@categoryDisp</h3>
+            <div class="gallery">
+            @foreach (Food food in category.Foods) {
+                string priceDisp = food.Price == 0 ? "" : food.Price.ToString("#,###") + " VND";
+                <div class="menu-card">
+                    <p class="body-text" style="font-weight: bold">@food.EnglishName</p>
+                    <p class="body-text">
+                        @food.Description
+                    </p>
+                    <p class="price">@priceDisp</p>
+                </div>
             }
+            </div>
         }
-        <h3 class="food-category">⋘-- &nbsp Banh Mi &nbsp --⋙</h3>
-        <div class="gallery">
-            <div class="menu-card">
-                <p class="body-text" style="font-weight: bold">Cold cut sandwich</p>
-                <p class="body-text">
-                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
-                </p>
-                <p class="price"> 20,000 VND</p>
-            </div>
-
-            <div class="menu-card">
-                <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
-                <p class="body-text">
-                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
-                </p>
-                <p class="price"> 20,000 VND</p>
-            </div>
-            <div class="menu-card">
-                <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
-                <p class="body-text">
-                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
-                </p>
-                <p class="price"> 20,000 VND</p>
-            </div>
-        </div>
-        <h3 class="food-category">⋘-- &nbsp Banh Mi &nbsp --⋙</h3>
-        <div class="gallery">
-            <div class="menu-card">
-                <p class="body-text" style="font-weight: bold">Cold cut sandwich</p>
-                <p class="body-text">
-                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
-                </p>
-                <p class="price"> 20,000 VND</p>
-            </div>
-            <div class="menu-card">
-                <p class="body-text" style="font-weight: bold">Vietnamese Meatball Sandwich</p>
-                <p class="body-text">
-                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
-                </p>
-                <p class="price"> 20,000 VND</p>
-            </div>
-            <div class="menu-card">
-                <p class="body-text" style="font-weight:bold">Mock Duck Sandwich</p>
-                <p class="body-text">
-                    Comes on a fresh baguette with traditional toppings: green onions, pickled carrot and daikon mix, . . .
-                </p>
-                <p class="price"> 20,000 VND</p>
-            </div>
-        </div>
+        }
     </div>
 
 <script>
