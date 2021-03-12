@@ -20,7 +20,6 @@ namespace street_foody.Controllers
             _context = context;
         }
 
-
         /// <summary> Renders a list of street vendors with searching and sorting.
         /// </summary>
         public IActionResult Index(string SearchValue)
@@ -129,7 +128,7 @@ namespace street_foody.Controllers
         {
             string EnglishNameLowerCase = EnglishName == null ? "" : EnglishName.ToLower();
             string VietnameseNameLowerCase = VietnameseName == null ? "" : VietnameseName.ToLower();
-            return EnglishNameLowerCase.Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Contains(SearchValueLowerCase);
+            return EnglishNameLowerCase.Split(" ").Contains(SearchValueLowerCase) || VietnameseNameLowerCase.Split(" ").Contains(SearchValueLowerCase);
         }
         private List<StreetVendor> VendorsSortedByPrice(List<StreetVendor> vendors)
         {
