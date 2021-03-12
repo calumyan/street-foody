@@ -21,7 +21,7 @@ namespace street_foody.Controllers
         }
 
 
-        /// <summary> renders a list of street vendors with searching and sorting.
+        /// <summary> Renders a list of street vendors with searching and sorting.
         /// </summary>
         public IActionResult Index(string SearchValue)
         {
@@ -81,7 +81,7 @@ namespace street_foody.Controllers
 
         private List<StreetVendor> GetAll()
         {
-            // Eager load all vendors' menu and food categories.
+            // Eager loads all vendors as well as their menu and food categories.
             List<StreetVendor> allVendors = _context.StreetVendor.Include(v => v.Foods)
                                                                 .ThenInclude(f => f.FoodCategory).ToList();
             foreach (StreetVendor streetVendor in allVendors)
@@ -147,6 +147,8 @@ namespace street_foody.Controllers
         }
         private List<StreetVendor> VendorsSortedByPrice(List<StreetVendor> vendors)
         {
+            // Note: For vendors whose price range we have no data for, we seed in a length 2 array
+            //       of positive infinite values. Therefore, PriceRange array is made sure to be of length 2.
             return vendors.OrderBy(streetVendor => (streetVendor.PriceRange[1] + streetVendor.PriceRange[0]) / 2).ToList();
         }
 
