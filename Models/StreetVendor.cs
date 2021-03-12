@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace street_foody.Models
 {    
-
     public class StreetVendor
     {
         [Key]

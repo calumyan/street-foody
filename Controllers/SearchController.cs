@@ -92,7 +92,6 @@ namespace street_foody.Controllers
                 if (streetVendor.Foods == null) {
                     break;
                 }
-
                 streetVendor.FoodCategories = new List<FoodCategory>();
                 foreach (Food food in streetVendor.Foods) {
                     FoodCategory category = food.FoodCategory;
@@ -113,16 +112,14 @@ namespace street_foody.Controllers
             List<StreetVendor> matchedVendors = new List<StreetVendor>();
             foreach (StreetVendor vendor in vendors)
             {   
+                bool toBeAdded = false;
                 string SearchValueLowerCase = SearchValue.ToLower();                
                 if (NameMatchWithSearchValue(vendor.EnglishName, vendor.VietnameseName, SearchValueLowerCase)) {
                     matchedVendors.Add(vendor);
                 }
-
                 if (vendor.Foods == null) {
                     return matchedVendors;
                 }
-
-                bool toBeAdded = false;
                 foreach (Food food in vendor.Foods)
                 {
                     if (NameMatchWithSearchValue(food.VietnameseName, food.EnglishName, SearchValueLowerCase)) toBeAdded = true;
@@ -134,7 +131,6 @@ namespace street_foody.Controllers
                 }
                 if (toBeAdded && !matchedVendors.Contains(vendor)) matchedVendors.Add(vendor);
             }
-
             return matchedVendors;
         }
 

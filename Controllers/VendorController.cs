@@ -28,7 +28,7 @@ namespace street_foody.Controllers
             vendor.SetAverageRating();
             return View(vendor);
         }
-
+        
         private TimeSpan CalcTimeSpan(DateTime[] day)
         {
             TimeSpan timeSpan;
