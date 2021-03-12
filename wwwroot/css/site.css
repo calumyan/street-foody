@@ -400,17 +400,6 @@ a.underline:hover {
   color: #ff3e03;
 }
 
-/* OTHER HOME SECTIONS 
--------------------------------------------------- */
-
-section.home {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 /* HANDBOOK
 -------------------------------------------------- */
 
@@ -466,12 +455,6 @@ div.text-box {
   vertical-align: text-top;
 }
 
-h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-family: "Quicksand", sans-serif;
-}
-
 div.emphasis > h1 {
   font-family: "Satisfy", cursive;
   color: white;
@@ -484,9 +467,8 @@ div.gallery h1 {
 }
 
 .body-text {
-  color: dimgray;
   font-size: 1.1rem;
-  text-align: center;
+  text-align: left;
 }
 
 div.color-box {
@@ -758,12 +740,13 @@ h2.filter-title {
 .vndr-location {
   grid-area: dist;
   margin: 0;
+  overflow: hidden;
 }
 
 .vndr-categories {
   grid-area: categ;
   display: flex;
-  /* flex-wrap: wrap; */
+  overflow: hidden;
 }
 
 .vndr-rating-price {
@@ -784,20 +767,6 @@ h2.filter-title {
   display: flex;
   flex-wrap: wrap;
   width: 1fr;
-}
-
-p.vndr-category {
-  display: inline-block;
-  word-break: keep-all;
-  max-height: 1.2rem;
-  margin: 0;
-  padding: 0;
-  min-width: fit-content;
-}
-
-.vndr-category:not(:last-child):after {
-  content: ", ";
-  white-space: pre;
 }
 
 .right-caret {
@@ -855,7 +824,7 @@ img.inline-icon {
 -------------------------------------------------- */
 
 .vendor-header {
-  margin: 2rem 0 4rem;
+  margin: 2rem 0 0;
   width: 75%;
   height: 16rem;
   display: flex;
@@ -1023,7 +992,7 @@ h3.food-category {
   border-radius: 10px;
 }
 
-.body-text {
+.menu-card > .body-text {
   color: black;
   margin: 1rem 1rem 0;
   max-width: 100%;
@@ -1102,7 +1071,6 @@ hr {
     margin-left: auto;
     cursor: pointer;
     max-width: fit-content;
-    position: fixed;
     align-self: flex-end;
   }
 
@@ -1176,6 +1144,11 @@ hr {
   }
 
   nav#search-nav-bar {
+    position: fixed;
+    z-index: 3;
+  }
+
+  nav#search-nav-bar {
     background: white;
     box-shadow: 0px 3px 3px -3px #ccc;
   }
@@ -1204,6 +1177,10 @@ hr {
 
   div.four-column-grid {
     grid-template-rows: repeat(4, minmax(2rem, 10rem));
+  }
+
+  .body-text {
+    text-align: center;
   }
 
   .right-caret {

@@ -1,4 +1,5 @@
 @model IEnumerable<StreetVendor>;
+@using System.Linq;
 @{
     ViewData["Title"] = "Search";
 }
@@ -62,6 +63,7 @@
                         ? Url.Content("~/images/logo.png")
                         : vendor.PhotoUrl;
                         string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString();
+                        List<FoodCategory> categories = vendor.FoodCategories;
 
                         <div id="@vendor.VendorID" class="vndr-card">
                             <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
@@ -75,11 +77,14 @@
                                     <img src="~/images/menu.png" alt="" class="inline-icon" />
                                 </div>
                                 <div class="categories-textbox">
-                                    @foreach (FoodCategory category in vendor.FoodCategories) {
+                                    @foreach (var (category, i) in categories.Select((category, i) => (category, i))) {
                                         string categoryDisp = category.EnglishName;
                                         categoryDisp = categoryDisp.Substring(categoryDisp.IndexOf("|") + 2);
                                         if (!categoryDisp.Equals("Other")) {
-                                            <p class="vndr-category">@categoryDisp</p>
+                                            @* I decided to add the commas this way because it would be harder to achieve word breaking,
+                                            especially for long categories' names, using :after in CSS. *@
+                                            categoryDisp = i != categories.Count - 1 ? categoryDisp + ", " : categoryDisp; 
+                                            @categoryDisp
                                         }
                                     }
                                 </div>

@@ -3,10 +3,12 @@
 @using System.Reflection;
 
 @{
-    ViewData["Title"] = "Vendor";
+    ViewData["Title"] = Model.EnglishName + " | Street Foody";
 }
 
 @{
+    string engNameDisp = Model.EnglishName;
+    engNameDisp = engNameDisp.Substring(engNameDisp.IndexOf("|") + 2);
     string location = Model.VendorHours.ToArray()[0].Location; //Location is a required field of VendorHours
     string locationDisp = Model.VendorHours.Count > 1 ? "Various locations" : location;
     string phoneDisp = String.IsNullOrWhiteSpace(Model.PhoneNumber) ? "Not available" : Model.PhoneNumber;
@@ -33,7 +35,7 @@
                     <img id="saved" src="~/images/saved.png" alt="">
                 </span>
             </div>
-            <p>@Model.EnglishName</p>
+            <p>@engNameDisp</p>
             <div class="vendor-info">
                 <img src="~/images/location.png" alt="" class="inline-icon"> @locationDisp
                 @{
@@ -48,9 +50,11 @@
             </div>
             <div class="vendor-info">
                 <img src="~/images/phone.png" alt="" class="inline-icon"> @phoneDisp
-                <span title="Call vendor">
-                    <img src="~/images/right-caret.png" alt="" id="call">
-                </span>
+                @if (!String.IsNullOrWhiteSpace(Model.PhoneNumber)) {
+                    <span title="Call vendor">
+                        <img src="~/images/right-caret.png" alt="" id="call">
+                    </span>
+                }
             </div>
             <div class="vendor-info">
                 <img src="~/images/star.png" alt="" class="inline-icon"> @avgRatingDisp
@@ -87,13 +91,16 @@
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBsXAG8PrqllPSGjeejnAy-TLXR2tPFGw
                         &q=@Model.VendorHours.ToArray()[0].Location">  
                 </iframe>
+                @* <iframe
+                    title="map"
+                    loading="lazy"
+                    allowfullscreen
+                    src="https://www.google.com/maps/embed/v1/place?key=API_KEY
+                        &q=@Model.VendorHours.ToArray()[0].Location">  
+                </iframe> *@
             </div>
         }
     }
-        @* <script async
-                src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap&libraries=&v=weekly">
-        </script> *@
-
         <h2 class="section-title">Menu</h2>
         <hr/>
         <div class="warning">

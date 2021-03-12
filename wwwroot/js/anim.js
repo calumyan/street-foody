@@ -31,6 +31,7 @@ function animateLines(e) {
       clearInterval(id);
     } else {
       deg++;
+      burger.style.position = "fixed";
       line1.style.transform = `rotate(${deg}deg) translateY(0.4em)`;
       line3.style.transform = `rotate(${-deg}deg) translateY(-0.4em)`;
     }
@@ -40,6 +41,7 @@ function animateLines(e) {
       clearInterval(id);
     } else {
       deg--;
+      burger.style.position = "relative";
       line1.style.transform = `rotate(${-deg}deg)`;
       line3.style.transform = `rotate(${deg}deg)`;
     }
