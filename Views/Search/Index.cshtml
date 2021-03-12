@@ -7,7 +7,7 @@
 <div class="homepage-layout page">
     <div id="alert">
         <span id="close-btn" onclick="this.parentElement.style.display='none'"> &times; </span>
-        &#8594; Precaution: Most street vendors take cash only. Please be prepared to bring cash! &#8592;
+        &#8594; Precaution: Most street vendors take cash only. Please&nbspbe&nbspprepared&nbspto&nbspbring&nbspcash!&nbsp&#8592;
     </div>
     <div id="filter-sort">
         <button id="filter" class="small-btn" style="margin-right: 10px"><img src="~/images/filter.png" alt=""
@@ -65,7 +65,7 @@
                 string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString();
                 List<FoodCategory> categories = vendor.FoodCategories;
 
-                <div id="@vendor.VendorID" class="vndr-card">
+                <div id="@vendor.VendorID" class="vndr-card" onclick="location.href=`Vendor?ID=@vendor.VendorID`">
                     <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                     <h3 class="stand-name">
                         @Html.DisplayFor(modelItem => vendor.VietnameseName)
@@ -79,13 +79,11 @@
                         <div class="categories-textbox">
                             @foreach (var (category, i) in categories.Select((category, i) => (category, i))) {
                                 string categoryDisp = category.EnglishName;
-                                categoryDisp = categoryDisp.Substring(categoryDisp.IndexOf("|") + 2);
-                                if (!categoryDisp.Equals("Other")) {
-                                    @* I decided to add the commas this way because it would be harder to achieve word breaking,
-                                    especially for long categories' names, using :after in CSS. *@
-                                    categoryDisp = i != categories.Count - 1 ? categoryDisp + ", " : categoryDisp; 
-                                    @categoryDisp
-                                }
+                                categoryDisp = categoryDisp.Substring(categoryDisp.IndexOf("|") + 1);
+                                @* I decided to add the commas this way because it would be harder to achieve word breaking,
+                                especially for long categories' names, using :after in CSS. *@
+                                categoryDisp = i != categories.Count - 1 ? categoryDisp + ", " : categoryDisp; 
+                                @categoryDisp
                             }
                         </div>
                     </div>

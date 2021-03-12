@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using street_foody.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace street_foody.Controllers
 {
@@ -20,12 +21,20 @@ namespace street_foody.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string ID)
         {
-            string id = "5";
-            vendor = _context.StreetVendor.Single(v => v.VendorID == id);
-            vendor.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
-            vendor.SetAverageRating();
+            StreetVendor vendor = _context.StreetVendor.Where(v => v.VendorID == ID)
+                                        .Include(v => v.Foods)
+                                        .ThenInclude(f => f.FoodCategory)  
+                                        .ThenInclude(c => c.Foods.Where(f => f.VendorID == ID))
+                                        .Include(v => v.VendorHours).FirstOrDefault();
+            vendor.FoodCategories = new List<FoodCategory>();
+            foreach (Food food in vendor.Foods) {
+                FoodCategory category = food.FoodCategory;
+                if (!vendor.FoodCategories.Contains(category)) {
+                    vendor.FoodCategories.Add(category);
+                }
+            }
             return View(vendor);
         }
         

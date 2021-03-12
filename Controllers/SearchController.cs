@@ -63,17 +63,6 @@ namespace street_foody.Controllers
 
         }
 
-        [Route("Vendor")]
-        public IActionResult Vendor()
-        {
-            StreetVendor vendor;
-            string id = "5";
-            vendor = _context.StreetVendor.Where(v => v.VendorID == id).FirstOrDefault();
-            vendor.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
-            vendor.SetAverageRating();
-            return View(vendor);
-        }
-
         private IActionResult NoResult()
         {
             return View();
