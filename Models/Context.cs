@@ -355,10 +355,10 @@ namespace street_foody.Models
             modelBuilder.Entity<FoodCategory>().HasData(
               new FoodCategory
               {
-                  FoodCategoryID = "1",
-                  VietnameseName = "Phở",
-                  EnglishName = "Pho | Pho",
-                  Description = " A soup with rice noodles, herbs, and meat. Pho in Saigon tends to have a clearer broth, and can include bean sprouts, fresh sliced chili, hoisin sauce, and additional herbs. Pho is considered to be Vietnam's national dish."
+                FoodCategoryID = "1",
+                VietnameseName = "Phở",
+                EnglishName = "Pho | Pho",
+                Description = " A soup with rice noodles, herbs, and meat. Pho in Saigon tends to have a clearer broth, and can include bean sprouts, fresh sliced chili, hoisin sauce, and additional herbs. Pho is considered to be Vietnam's national dish."
               },
             new FoodCategory
             {
