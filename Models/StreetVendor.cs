@@ -17,8 +17,7 @@ namespace street_foody.Models
         public string Description{get;set;}     
         public int[] PriceRange{get;set;}   
         public int[] RatingList{get;set;}
-        [NotMapped]
-        public double AverageRating{get;set;}
+        
 
         ///<summary> absolute url of image hosted on CDN
         ///</summary>
@@ -26,6 +25,14 @@ namespace street_foody.Models
         [Required]
         public ICollection<VendorHours> VendorHours{get;set;}
         public ICollection<Food> Foods{get;set;}     
+
+        ///<summary> 
+        /// Instance variables not mapped to database, used only to pass data from controller to views.
+        ///</summary>
+        [NotMapped]
+        public double AverageRating{get;set;}
+        [NotMapped]
+        public List<FoodCategory> FoodCategories{get;set;}
 
         /// <summary> 
         /// Computes average rating from the RatingList and assigns

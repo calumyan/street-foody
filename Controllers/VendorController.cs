@@ -23,7 +23,7 @@ namespace street_foody.Controllers
         public IActionResult Index()
         {
             string id = "5";
-            vendor = _context.StreetVendor.Where(v => v.VendorID == id).ToList()[0];
+            vendor = _context.StreetVendor.Single(v => v.VendorID == id);
             vendor.VendorHours = _context.VendorHours.Where(h => h.VendorID == id).ToList();
             vendor.SetAverageRating();
             return View(vendor);

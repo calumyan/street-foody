@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using street_foody.Models;
 
 namespace street_foody.Controllers
@@ -14,11 +15,9 @@ namespace street_foody.Controllers
     public class SearchController : Controller
     {
         private readonly Context _context;
-        public List<StreetVendor> allVendors;
         public SearchController(Context context)
         {
             _context = context;
-            allVendors = new List<StreetVendor>();
         }
 
 
@@ -82,10 +81,24 @@ namespace street_foody.Controllers
 
         private List<StreetVendor> GetAll()
         {
-            allVendors = _context.StreetVendor.ToList();
+            // Eager load all vendors' menu and food categories.
+            List<StreetVendor> allVendors = _context.StreetVendor.Include(v => v.Foods)
+                                                                .ThenInclude(f => f.FoodCategory).ToList();
             foreach (StreetVendor streetVendor in allVendors)
-            {
+            {   
                 streetVendor.SetAverageRating();
+
+                if (streetVendor.Foods == null) {
+                    break;
+                }
+
+                streetVendor.FoodCategories = new List<FoodCategory>();
+                foreach (Food food in streetVendor.Foods) {
+                    FoodCategory category = food.FoodCategory;
+                    if (!streetVendor.FoodCategories.Contains(category)) {
+                        streetVendor.FoodCategories.Add(category);
+                    }
+                }
             }
             return allVendors;
         }
@@ -97,27 +110,28 @@ namespace street_foody.Controllers
         private List<StreetVendor> GetSearchedResults(string SearchValue, List<StreetVendor> vendors)
         {
             List<StreetVendor> matchedVendors = new List<StreetVendor>();
-            foreach (StreetVendor streetVendor in vendors)
-            {
-                bool toBeAdded = false;
+            foreach (StreetVendor vendor in vendors)
+            {   
                 string SearchValueLowerCase = SearchValue.ToLower();                
-                List<Food> Foods;
-                Foods = _context.Food.Where(f => f.VendorID == streetVendor.VendorID).ToList();
-                if (Foods != null && Foods.Count != 0)
-                {
-                    foreach (Food food in Foods)
-                    {
-                        if (NameMatchWithSearchValue(food.VietnameseName, food.EnglishName, SearchValueLowerCase)) toBeAdded = true;
-                        FoodCategory foodCategory;
-                        foodCategory = _context.FoodCategory.Where(fc => fc.FoodCategoryID == food.FoodCategoryID).FirstOrDefault();
-                        if (foodCategory != null)
-                        {
-                            if (NameMatchWithSearchValue(foodCategory.VietnameseName, foodCategory.EnglishName, SearchValueLowerCase)) toBeAdded = true;
-                        }
-                    }
-                    if (toBeAdded) matchedVendors.Add(streetVendor);
+                if (NameMatchWithSearchValue(vendor.EnglishName, vendor.VietnameseName, SearchValueLowerCase)) {
+                    matchedVendors.Add(vendor);
                 }
 
+                if (vendor.Foods == null) {
+                    return matchedVendors;
+                }
+
+                bool toBeAdded = false;
+                foreach (Food food in vendor.Foods)
+                {
+                    if (NameMatchWithSearchValue(food.VietnameseName, food.EnglishName, SearchValueLowerCase)) toBeAdded = true;
+                    FoodCategory foodCategory = food.FoodCategory;
+                    if (foodCategory != null)
+                    {
+                        if (NameMatchWithSearchValue(foodCategory.VietnameseName, foodCategory.EnglishName, SearchValueLowerCase)) toBeAdded = true;
+                    }
+                }
+                if (toBeAdded && !matchedVendors.Contains(vendor)) matchedVendors.Add(vendor);
             }
 
             return matchedVendors;
