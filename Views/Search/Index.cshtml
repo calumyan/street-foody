@@ -65,7 +65,7 @@
                 string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString();
                 List<FoodCategory> categories = vendor.FoodCategories;
 
-                <div id="@vendor.VendorID" class="vndr-card">
+                <div id="@vendor.VendorID" class="vndr-card" onclick="location.href=`Vendor?ID=@vendor.VendorID`">
                     <div class="vndr-image"><img src="@photoURL" alt="@vendor.EnglishName" /></div>
                     <h3 class="stand-name">
                         @Html.DisplayFor(modelItem => vendor.VietnameseName)
@@ -80,12 +80,10 @@
                             @foreach (var (category, i) in categories.Select((category, i) => (category, i))) {
                                 string categoryDisp = category.EnglishName;
                                 categoryDisp = categoryDisp.Substring(categoryDisp.IndexOf("|") + 1);
-                                if (!categoryDisp.Equals("Other")) {
-                                    @* I decided to add the commas this way because it would be harder to achieve word breaking,
-                                    especially for long categories' names, using :after in CSS. *@
-                                    categoryDisp = i != categories.Count - 1 ? categoryDisp + ", " : categoryDisp; 
-                                    @categoryDisp
-                                }
+                                @* I decided to add the commas this way because it would be harder to achieve word breaking,
+                                especially for long categories' names, using :after in CSS. *@
+                                categoryDisp = i != categories.Count - 1 ? categoryDisp + ", " : categoryDisp; 
+                                @categoryDisp
                             }
                         </div>
                     </div>
