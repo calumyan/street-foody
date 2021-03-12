@@ -63,7 +63,7 @@ To test our  , .
 ## References 
 
 Our references mostly come from [Microsoft documentation for asp.net core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0).
-We also referenced [this meidum article] (https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823) for setting up postgresql database]
+We also referenced [this meidum article](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823) for setting up postgresql database]
 
 
 ## a small issue 
