@@ -206,13 +206,13 @@ namespace street_foody.Models
                   VendorHoursID = "5",
                   VendorID = "5",
                   Location = "82 Vinh Vien, Ward 2, District 10, HCMC",
-                  Sun = new DateTime[] { System.DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
-                  Mon = new DateTime[] { System.DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
-                  Tue = new DateTime[] { System.DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
-                  Wed = new DateTime[] { System.DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
-                  Thu = new DateTime[] { System.DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
-                  Fri = new DateTime[] { System.DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
-                  Sat = new DateTime[] { System.DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") }
+                  Sun = new DateTime[] { DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
+                  Mon = new DateTime[] { DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
+                  Tue = new DateTime[] { DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
+                  Wed = new DateTime[] { DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
+                  Thu = new DateTime[] { DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
+                  Fri = new DateTime[] { DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") },
+                  Sat = new DateTime[] { DateTime.Parse("09:00 AM"), DateTime.Parse("10:00 PM") }
               },
               new VendorHours
               {
