@@ -713,7 +713,7 @@ namespace street_foody.Migrations
                             EnglishName = "Banh mi Di Loan | Aunty Loan's banh mi",
                             PriceRange = new[] { 15000, 20000 },
                             RatingList = new[] { 5 },
-                            VietnameseName = "Banh mì Dì Loan"
+                            VietnameseName = "Bánh mì Dì Loan"
                         },
                         new
                         {

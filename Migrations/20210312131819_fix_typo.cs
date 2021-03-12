@@ -144,6 +144,13 @@ namespace street_foody.Migrations
                 keyValue: "9",
                 columns: new[] { "fri", "mon", "sat", "sun", "thu", "tue", "wed" },
                 values: new object[] { new[] { new DateTime(2021, 3, 12, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 22, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 12, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 22, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 12, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 22, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 12, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 22, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 12, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 22, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 12, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 22, 0, 0, 0, DateTimeKind.Unspecified) }, new[] { new DateTime(2021, 3, 12, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 22, 0, 0, 0, DateTimeKind.Unspecified) } });
+
+            migrationBuilder.UpdateData(
+                table: "street_vendor",
+                keyColumn: "vendor_id",
+                keyValue: "2",
+                column: "vietnamese_name",
+                value: "Bánh mì Dì Loan");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

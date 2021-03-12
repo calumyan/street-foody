@@ -32,7 +32,7 @@ namespace street_foody.Models
               new StreetVendor
               {
                   VendorID = "2",
-                  VietnameseName = "Banh mì Dì Loan",
+                  VietnameseName = "Bánh mì Dì Loan",
                   EnglishName = "Banh mi Di Loan | Aunty Loan's banh mi",
                   RatingList = new int[] { 5 },
                   PriceRange = new int[] { 15000, 20000 }
