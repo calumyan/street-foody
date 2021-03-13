@@ -140,6 +140,7 @@ select {
   cursor: pointer;
   border: none;
   padding-right: 3rem;
+  font-size: 1.1rem;
 }
 
 .select {
@@ -245,7 +246,7 @@ img#logo {
 
 li.nav-item {
   height: 100%;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   flex: 1 1 1;
   text-align: center;
   word-break: keep-all;
@@ -312,8 +313,8 @@ input[type="search"] {
   border-radius: 50px;
   border: none;
   width: 100%;
-  padding: 1em 1.5em;
-  font-size: 1rem;
+  padding: 0.8em 1.5em;
+  font-size: 1.1rem;
 }
 
 input:focus {
@@ -390,13 +391,13 @@ div.text {
 }
 
 div.text > h1 {
-  font-size: 4rem;
-  margin-bottom: 20px;
+  font-size: 4.5rem;
+  margin-bottom: 2rem;
 }
 
 div.text p {
-  padding-top: 1.1rem;
-  font-size: 1.2rem;
+  padding-top: 1.5rem;
+  font-size: 1.5rem;
 }
 
 a.underline {
@@ -469,7 +470,8 @@ a.underline:hover {
 }
 
 p#subtitle {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  padding: 0 1rem;
 }
 
 h1.section-title {
@@ -524,7 +526,7 @@ div.gallery h1 {
 }
 
 .body-text {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: left;
 }
 
@@ -595,7 +597,7 @@ div.gallery {
   justify-content: center;
   align-items: center;
   padding: 0 2rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .card:hover .back {
@@ -746,11 +748,11 @@ h2.filter-title {
   column-gap: 20px;
   box-shadow: 0 3px 3px -3px #ccc;
   cursor: pointer;
+  font-size: 1.05rem;
 }
 
 .vndr-card > * {
   display: flex;
-  font-size: 1em;
   pointer-events: none;
 }
 
@@ -965,9 +967,9 @@ img.inline-icon {
 -------------------------------------------------- */
 
 h2.section-title {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   margin-top: 4rem;
-  margin-bottom: -0.8rem;
+  margin-bottom: -1rem;
   padding: 0;
   text-align: center;
 }
@@ -1286,7 +1288,7 @@ h3.food-category:after {
   }
 
   .vndr-card {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
@@ -1300,7 +1302,7 @@ h3.food-category:after {
   .vndr-card {
     grid-template-columns: 6rem 1fr;
     grid-template-rows: 2.8rem 1.5rem 2.8rem 2rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 1rem 0;
   }
 }

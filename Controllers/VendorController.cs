@@ -7,6 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace street_foody.Controllers
 {
+    /// <summary> 
+    /// Controller for vendor pages. Get all data of an individual vendor
+    /// from the ID passed in.
+    /// </summary>
     [Route("Vendor")]
     [ApiController]
     public class VendorController : Controller
@@ -20,6 +24,8 @@ namespace street_foody.Controllers
 
         public IActionResult Index(string ID)
         {
+            // Eager loads the vendor with matching ID, including their location-hours pair(s),
+            // categories and foods/dishes of each category.
             StreetVendor vendor = _context.StreetVendor.Where(v => v.VendorID == ID)
                                         .Include(v => v.Foods)
                                         .ThenInclude(f => f.FoodCategory)  
@@ -35,20 +41,6 @@ namespace street_foody.Controllers
                 }
             }
             return View(vendor);
-        }
-        
-        private TimeSpan CalcTimeSpan(DateTime[] day)
-        {
-            TimeSpan timeSpan;
-            if (day[1].CompareTo(day[0]) == 1)
-            {
-                timeSpan = day[1].Subtract(day[0]);
-            }
-            else
-            {
-                timeSpan = day[1].Subtract(day[0]).Add(TimeSpan.FromHours(24));
-            }
-            return timeSpan;
         }
     }
 }

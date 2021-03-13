@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using street_foody.Models;
 
+
 namespace street_foody.Controllers
 {
+    /// <summary> Controller for the Home view and Error view.
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -3,7 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace street_foody.Models
 {  
-    ///<summary> Food cateogry for each food. 
+    ///<summary> 
+    /// A collection of similar foods/dishes, from which we can look for vendors offering
+    /// similar food types, or know general offerings of a specific vendor.
     ///</summary>
     public class FoodCategory
     {
@@ -14,10 +16,5 @@ namespace street_foody.Models
         public string Description{get;set;}  
         public ICollection<Food> Foods{get;set;}
         public FoodCategory(){}
-        // This constructor is only here for convenience when creating fake data in the SearchController.
-        public FoodCategory(string FoodCategoryID, string VietnameseName) {
-            this.FoodCategoryID = FoodCategoryID;
-            this.VietnameseName = VietnameseName;
-        }
     }
 }

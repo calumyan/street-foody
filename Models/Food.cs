@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace street_foody.Models
 {
-    ///<summary> A specific dish that serves by one vendor. 
+    ///<summary> A specific dish that's served by one vendor. 
     ///</summary>
     public class Food
     {

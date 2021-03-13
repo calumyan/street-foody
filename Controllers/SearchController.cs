@@ -7,6 +7,11 @@ using street_foody.Models;
 
 namespace street_foody.Controllers
 {
+    /// <summary> 
+    /// Controller for the Search view. Responsible for getting data from the database, 
+    /// and preparing models before passing them to views.
+    /// </summary>
+
     [Route("Search")]
     [ApiController]
     public class SearchController : Controller
@@ -66,7 +71,7 @@ namespace street_foody.Controllers
 
         private List<StreetVendor> GetAll()
         {
-            // Eager loads all vendors as well as their menu, food categories, hours and location(s).
+            // Eager loads all vendors as well as their menu, food categories, hours and locations.
             List<StreetVendor> allVendors = _context.StreetVendor.Include(v => v.Foods)
                                                                 .ThenInclude(f => f.FoodCategory)
                                                                 .Include(v => v.VendorHours).ToList();

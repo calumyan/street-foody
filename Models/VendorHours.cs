@@ -3,11 +3,10 @@ using System;
 
 namespace street_foody.Models
 {    
-    ///<summary> The opening hours for each vendor. They vary by different locations of each vendor.
+    ///<summary> 
+    /// The opening hours associated with a single location of a vendor.
+    /// A vendor may have one or multiple location-hours pair(s).
     ///</summary>
-    public enum Days {
-        Sun, Mon, Tue, Wed, Thu, Fri, Sat,
-    }
     public class VendorHours
     {
         [Key]

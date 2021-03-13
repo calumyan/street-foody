@@ -15,8 +15,9 @@ namespace street_foody.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /// <summary> AverageRating is used as part of the ViewModel, not the Entity model.modelBuilder.Entity<StreetVendor>().Ignore(v => v.AverageRating); 
+            /// <summary> AverageRating is used as part of the ViewModel, not the Entity model.
             ///</summary>
+            modelBuilder.Entity<StreetVendor>().Ignore(v => v.AverageRating); 
 
             modelBuilder.Entity<StreetVendor>().HasData(
                 new StreetVendor

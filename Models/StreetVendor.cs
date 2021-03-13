@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace street_foody.Models
 {    
+    ///<summary> 
+    /// A blueprint of a StreetVendor object with their detailed information.
+    ///</summary>
     public class StreetVendor
     {
         [Key]
@@ -18,14 +21,15 @@ namespace street_foody.Models
         public int[] RatingList{get;set;}
         
         ///<summary> absolute url of image hosted on CDN
-        ///</summary>
+        ///</summ>
         public string PhotoUrl{get;set;} 
+        
         [Required]
         public ICollection<VendorHours> VendorHours{get;set;}
         public ICollection<Food> Foods{get;set;}     
 
         ///<summary> 
-        /// Instance variables not mapped to database, used only to pass data from controller to views.
+        /// Instance variables not mapped to database, used only to pass data from controllers to views.
         ///</summary>
         [NotMapped]
         public double AverageRating{get;set;}

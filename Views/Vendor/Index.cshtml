@@ -2,6 +2,11 @@
 @using System;
 @using System.Reflection;
 
+@* 
+    An individual vendor's page that shows more details about the vendor, including
+    location, phone number, opening hours, average rating, menu and prices (if available).
+*@
+
 @{
     string engNameDisp = Model.EnglishName;
     engNameDisp = engNameDisp.Substring(engNameDisp.IndexOf("|") + 2);
@@ -12,7 +17,7 @@
     string photoURL = Model.PhotoUrl == null
     ? Url.Content("~/images/logo.png")
     : Model.PhotoUrl;
-    ViewData["Title"] = engNameDisp + " | Street Foody";
+    ViewData["Title"] = engNameDisp;
 }
 
 <div class="homepage-layout page">
@@ -56,7 +61,7 @@
         </div>
     </div>
 
-    <h2 class="section-title">Location and Hours</h2>
+    <h2 style="font-size: 2.5rem;" class="section-title">Location and Hours</h2>
     <hr/>
 
     @* Render location-hours pairs from the vendor's list of VendorHours (required non-null) *@
@@ -83,7 +88,7 @@
                     loading="lazy"
                     allowfullscreen
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBsXAG8PrqllPSGjeejnAy-TLXR2tPFGw
-                        &q=@Model.VendorHours.ToArray()[0].Location">  
+                        &q=@location">  
                 </iframe>
             </div>
         }
@@ -119,11 +124,3 @@
         }
         }
     </div>
-
-<script>
-    const saveIcon = document.querySelector("span#save-icon");
-    const saved = document.querySelector("img#saved");
-    saveIcon.addEventListener("click", () => {
-        saved.classList.toggle("active");
-    });
-</script>

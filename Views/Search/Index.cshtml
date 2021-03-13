@@ -1,5 +1,11 @@
 @model IEnumerable<StreetVendor>;
 @using System.Linq;
+
+@* 
+    The Search page. Shows search results with general info of each vendor.
+    Allows sorting and accessing to individual vendors' pages.
+*@
+
 @{
     ViewData["Title"] = "Search";
 }
@@ -27,14 +33,18 @@
             @foreach (var vendor in Model)
             {   
                 string locationDisp = vendor.VendorHours.Count > 1 ? "Various locations" : vendor.VendorHours.ToList()[0].Location;
+
                 // PriceRange array is made sure to be of length 2 during data seeding.
                 string priceDisp = vendor.PriceRange[0] == vendor.PriceRange[1] 
                 ? (vendor.PriceRange[0] == 99999999 ? "Not available" : vendor.PriceRange[0].ToString("#,###"))
                 : vendor.PriceRange[0].ToString("#,###") + "đ - " + vendor.PriceRange[1].ToString("#,###") + "đ";
+
                 string photoURL = vendor.PhotoUrl == null
                 ? Url.Content("~/images/logo.png")
                 : vendor.PhotoUrl;
+
                 string avgRatingDisp = vendor.AverageRating == -0 ? "Not available" : "" + vendor.AverageRating.ToString();
+
                 List<FoodCategory> categories = vendor.FoodCategories;
 
                 <div id="@vendor.VendorID" class="vndr-card" onclick="location.href=`Vendor?ID=@vendor.VendorID`">
