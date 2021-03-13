@@ -63,7 +63,7 @@ To test our  , .
 ## References 
 
 Our references mostly come from [Microsoft documentation for asp.net core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0).
-We also referenced [this meidum article](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823) for setting up postgresql database]. For the handbook, we referenced this tutorial : https://www.w3schools.com/howto/howto_css_image_overlay_slide.asp
+We also referenced [this meidum article](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823) for setting up postgresql database]. For the handbook, we referenced this tutorial : https://www.w3schools.com/howto/howto_css_image_overlay_slide.asp For Seeding data we referenced [this Microsoft documentation](https://docs.microsoft.com/en-us/ef/core/modeling/data-seeding) and we used [this Microsoft documentation](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-5.0&tabs=visual-studio-code)
 
 
 ## a small issue 
