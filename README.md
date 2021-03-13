@@ -40,6 +40,7 @@ There is a pretty complete guide on how to use our app on the handbook page, che
 ### Running
 
 If running on Visual Studio Code, go to the terminal and run  <code> dotnet run </code>
+
 If using Visual Studio, go to the green
 
 ### Building
