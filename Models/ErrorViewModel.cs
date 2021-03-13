@@ -1,5 +1,3 @@
-using System;
-
 namespace street_foody.Models
 {
     public class ErrorViewModel

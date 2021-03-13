@@ -3,10 +3,6 @@
 @using System.Reflection;
 
 @{
-    ViewData["Title"] = Model.EnglishName + " | Street Foody";
-}
-
-@{
     string engNameDisp = Model.EnglishName;
     engNameDisp = engNameDisp.Substring(engNameDisp.IndexOf("|") + 2);
     string location = Model.VendorHours.ToArray()[0].Location; //Location is a required field of VendorHours
@@ -16,6 +12,7 @@
     string photoURL = Model.PhotoUrl == null
     ? Url.Content("~/images/logo.png")
     : Model.PhotoUrl;
+    ViewData["Title"] = engNameDisp + " | Street Foody";
 }
 
 <div class="homepage-layout page">
@@ -85,7 +82,7 @@
                     title="map"
                     loading="lazy"
                     allowfullscreen
-                    src="https://www.google.com/maps/embed/v1/place?key=API_KEY
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBsXAG8PrqllPSGjeejnAy-TLXR2tPFGw
                         &q=@Model.VendorHours.ToArray()[0].Location">  
                 </iframe>
             </div>

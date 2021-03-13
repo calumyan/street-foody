@@ -389,8 +389,8 @@ div.text {
   text-align: center;
 }
 
-div.text h1 {
-  font-size: 3.5em;
+div.text > h1 {
+  font-size: 4rem;
   margin-bottom: 20px;
 }
 
@@ -406,6 +406,55 @@ a.underline {
 
 a.underline:hover {
   color: #ff3e03;
+}
+
+/* ABOUT SECTION - HOME PAGE
+-------------------------------------------------- */
+
+.about-section {
+  display: block;
+  justify-items: center;
+  align-items: center;
+  margin: 2vw;
+}
+.about-section p {
+  margin-left: 8vw;
+  margin-right: 8vw;
+  font-size: 1.35em;
+  text-align: left;
+}
+.about-section ul {
+  font-size: 1.35em;
+  display: inline-block;
+  text-align: left;
+}
+.about-section h1 {
+  color: tomato;
+  font-size: 3.5em;
+  margin: 50px;
+}
+.about-section h5 {
+  color: tomato;
+  font-size: 1.75em;
+  margin: 40px;
+  font-weight: bold;
+}
+.about-section a {
+  color: black;
+  text-decoration: underline;
+}
+.about-section a:hover {
+  color: tomato;
+}
+
+.about-section img {
+  max-width: 150px;
+}
+
+.list-container {
+  margin-left: 8vw;
+  margin-right: 8vw;
+  text-align: center;
 }
 
 /* HANDBOOK
