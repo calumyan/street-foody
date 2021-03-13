@@ -40,16 +40,11 @@ There is a pretty complete guide on how to use our app on the handbook page, che
 ### Running
 
 If running on Visual Studio Code, go to the terminal and run  <code> dotnet run </code>
+To build our app in Visual Studio (especially if you run into issues and want to see what error occurs), 
+Go to the terminal run <code> dotnet build </code>.
 
-If using Visual Studio, go to the green
-
-### Building
-
-To build our app (especially if you run into issues and want to see what error occurs), 
-Go to the terminal run <code> dotnet build </code>
-
-
- 
+If using Visual Studio, you can press the play button to run the app, or click on run at the top of the screen and select
+Start without debugging from the dropdown menu. 
 
 ## References 
 
@@ -57,10 +52,30 @@ Our references mostly come from [Microsoft documentation for asp.net core](https
 We also referenced [this meidum article](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823) for setting up postgresql database]. For the handbook, we referenced this tutorial : https://www.w3schools.com/howto/howto_css_image_overlay_slide.asp For Seeding data we referenced [this Microsoft documentation](https://docs.microsoft.com/en-us/ef/core/modeling/data-seeding) and we used [this Microsoft documentation](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-5.0&tabs=visual-studio-code) for model building.
 
 
-## a small issue 
+## Known Bugs
 
 The website is loading pretty slow right now, so you may have to wait for a few seconds for the it to direct to another page
 
-We only have a limited amount of data from our friends right now so some of the food categories don't match with any of the vendors. If you click on the button on some of the cards in the handbook it's likely you won't get a result.
+We only have a limited amount of data from our friends right now so some of the food categories don't match with any of the vendors. If you click on the button on some of the cards in the handbook it's likely you won't get a result. The foods that do have results are listed here:
+Banh mi
+Banh trang
+Bun
+Che
+Cuon
+Hu tieu
+Mien
+Nui
+Tra sua
+Trung
+Xien que
+
+When using the app with a smaller browser width, the dropdown nav-bar doesn't cover the whole screen. 
+
+While you can search terms that fully use Vietnamese characters or terms that do not use any Vietnamese characters, you cannot search with terms that have have a mix of characters. There won't be any results. 
+
+Some food categories that are currently absent from our database will return results for different food categories if searched without tones, as they make up other words in food categories. For example, searching "mi", which is not yet present in our database, will return results for "banh mi" instead.
+
+The nav bar will sometimes flash in and out of frame while resizing a browser window on a computer. 
+
 
 
