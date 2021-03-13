@@ -37,7 +37,7 @@ There is a pretty complete guide on how to use our app on the handbook page, che
 
 ## For Developers 
 
-### Running
+### Running and building
 
 If running on Visual Studio Code, go to the terminal and run  <code> dotnet run </code>
 To build our app in Visual Studio (especially if you run into issues and want to see what error occurs), 
