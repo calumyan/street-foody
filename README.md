@@ -32,8 +32,7 @@ People have trouble finding street vendors based on name and food type if theyâ€
 
 ## For Users
 
-* There is a pretty complete guide on how to use our app on the handbook page, check it out! 
-
+There is a pretty complete guide on how to use our app on the handbook page, check it out! 
 
 
 ## For Developers 
@@ -46,7 +45,7 @@ If using Visual Studio,
 ### Building
 
 To build our app (especially if you run into issues and want to see what error occurs), 
-if building on Visual Studio Code,go to the terminal run <code> dotnet build </code>
+Go to the terminal run <code> dotnet build </code>
 
 
  
