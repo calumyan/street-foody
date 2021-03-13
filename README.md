@@ -32,30 +32,21 @@ People have trouble finding street vendors based on name and food type if theyâ€
 
 ## For Users
 
-* To run the project, for VSCode, go to the terminal and run <code> dotnet run </code> and go to https://localhost:5001 to see the web pages. For Visual Studio,  click the run button at the top of the Visual Studio. 
-
-* To build the project, run <code> dotnet build </code> in the terminal
-
 * There is a pretty complete guide on how to use our app on the handbook page, check it out! 
 
 
 
-## Installation For Developers 
-
+## For Developers 
 
 ### Running
 
 If running on Visual Studio Code, go to the terminal and run  <code> dotnet build </code>
 If using Visual Studio, 
 
-### Build
+### Building
 
 To build our app (especially if you run into issues and want to see what error occurs), 
 if building on Visual Studio Code,go to the terminal run <code> dotnet build </code>
-
-### Testing
-
-To test our  , .
 
 
  
