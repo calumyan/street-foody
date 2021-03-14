@@ -21,7 +21,7 @@ People have trouble finding street vendors based on name and food type if theyâ€
 
 
 
-## Before you start
+## Prerequisites
 
 1. Make sure either Visual Studio or Visual Studio Code is installed.
 2. Make sure .NET Core is installed, if you haven't, download [here](https://dotnet.microsoft.com/download). Make sure you download .NET Core of version 5.0 or later.
@@ -30,14 +30,13 @@ People have trouble finding street vendors based on name and food type if theyâ€
 
 
 
-## For Users
+## Using
 
 There is a pretty complete guide on how to use our app on the handbook page, check it out! 
 
+ 
 
-## For Developers 
-
-### Running and building
+## Running
 
 If running on Visual Studio Code, go to the terminal and run  <code> dotnet run </code>
 To build our app in Visual Studio (especially if you run into issues and want to see what error occurs), 
