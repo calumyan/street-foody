@@ -74,6 +74,7 @@ While you can search terms that fully use Vietnamese characters or terms that do
 
 Some food categories that are currently absent from our database will return results for different food categories if searched without tones, as they make up other words in food categories. For example, searching "mi", which is not yet present in our database, will return results for "banh mi" instead.
 
+
 The nav bar will sometimes flash in and out of frame while resizing a browser window on a computer. 
 
 
