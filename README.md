@@ -51,11 +51,9 @@ Our references mostly come from [Microsoft documentation for asp.net core](https
 We also referenced [this meidum article](https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823) for setting up postgresql database]. For the handbook, we referenced this tutorial : https://www.w3schools.com/howto/howto_css_image_overlay_slide.asp For Seeding data we referenced [this Microsoft documentation](https://docs.microsoft.com/en-us/ef/core/modeling/data-seeding) and we used [this Microsoft documentation](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-5.0&tabs=visual-studio-code) for model building.
 
 
-## Known Bugs
+## Known Problems
 
-The website is loading pretty slow right now, so you may have to wait for a few seconds for the it to direct to another page
-
-We only have a limited amount of data from our friends right now so some of the food categories don't match with any of the vendors. If you click on the button on some of the cards in the handbook it's likely you won't get a result. The foods that do have results are listed here:
+Since our main data source is from friends in Ho Chi Minh City, some of the food categories do not match with any vendors. If you click on the button on some of the cards in the handbook, it's likely you won't get a result. The foods that do have results are listed here:
 Banh mi
 Banh trang
 Bun
@@ -68,14 +66,8 @@ Tra sua
 Trung
 Xien que
 
-When using the app with a smaller browser width, the dropdown nav-bar doesn't cover the whole screen. 
-
 While you can search terms that fully use Vietnamese characters or terms that do not use any Vietnamese characters, you cannot search with terms that have have a mix of characters. There won't be any results. 
 
-Some food categories that are currently absent from our database will return results for different food categories if searched without tones, as they make up other words in food categories. For example, searching "mi", which is not yet present in our database, will return results for "banh mi" instead.
-
+Some food categories that are currently absent from our database will return results for different food categories if searched without tones, as they make up other words in food categories. For example, searching "mi", which is not yet present in our database, will return results for "banh mi", although they are totally different food categories.
 
 The nav bar will sometimes flash in and out of frame while resizing a browser window on a computer. 
-
-
-
